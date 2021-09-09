@@ -18,17 +18,21 @@ $character
 disabled = false
 
 [directory]
-style = "bold cyan"
+style = "bold #d88736"
 
 [username]
 show_always = true
-format = "[$user]($style)[@](cyan)"
-style_user = "bold bright-blue"
+format = "[$user]($style)[@](#d88736)"
+style_user = "bold #c2c2c2"
 
 [hostname]
 ssh_only = false
 format = "[$hostname]($style) "
-style = "bold bright-blue"
+style = "bold #c2c2c2"
+
+[character]
+success_symbol = "[❯](bold #d88736)"
+error_symbol = "[❯](bold red)"
 
 [python]
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'

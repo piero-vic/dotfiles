@@ -1,0 +1,2 @@
+# Ignore every directory on .config
+.config/*/
