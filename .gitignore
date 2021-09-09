@@ -1,2 +1,5 @@
 # Ignore every directory on .config
 .config/*/
+
+# Ignore Mac system files
+.DS_Store
