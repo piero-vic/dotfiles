@@ -1,0 +1,20 @@
+# ALIASES
+
+# Smart ls alias
+alias l='ls -lhG'
+alias la='ls -lAhG'
+
+# Easier navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# Reload shell
+alias reload="source ~/.zshrc"
+
+# FUNCTIONS
+
+# Create directory and navigate to it
+mkcd()
+{
+    mkdir -p -- "$1" && cd -P -- "$1"
+}

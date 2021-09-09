@@ -1,0 +1,19 @@
+# Ledger
+
+# Balance
+bal()
+{
+    ledger bal -f "$1" -VC
+}
+
+# Net Worth
+networth()
+{
+    ledger bal -f "$1" -VC Assets or Liabilities
+}
+
+# Expenses
+exp()
+{
+    ledger bal -f "$1" -VC Expenses
+}
