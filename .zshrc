@@ -1,4 +1,5 @@
-# .zshrc
+# ▀█▀ ▄▀▀ █▄█
+# █▄▄ ▄██ █ █
 
 # User specific environment and startup programs
 # Vim as default text editor
