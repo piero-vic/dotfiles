@@ -1,6 +1,16 @@
 # ▄▀  █ ▀█▀
 # ▀▄█ █  █
 
+# Git status alias
 alias gs='git status'
+
+# Git add and remove aliases
+alias ga='git add'
+alias gr='git rm'
+
+# Git branch alias
 alias gb='git branch'
+
+# Git checkout aliases
 alias gc='git checkout'
+alias gcm='git checkout main'
