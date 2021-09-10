@@ -14,6 +14,11 @@ alias ...='cd ../..'
 # Reload shell
 alias reload="source ~/.zshrc"
 
+# Date
+alias nowtime='date +"%T"'
+alias nowdate='date +"%d-%m-%Y"'
+alias now='date +"%d-%m-%Y %T"'
+
 # FUNCTIONS
 
 # Create directory and navigate to it
