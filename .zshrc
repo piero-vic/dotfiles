@@ -2,11 +2,11 @@
 # █▄▄ ▄██ █ █
 
 # User specific environment and startup programs
-# Vim as default text editor
+## Vim as default text editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# History configutarion
+## History configutarion
 export HISTCONTROL=ignoredups               # Ingore duplicates
 export HISTSIZE=1000                        # Set history size to 1000 lines
 unset HISTFILE                              # Don't save to .zsh_history
@@ -22,4 +22,6 @@ fi
 
 unset rc
 
+# Plugins and other stuff
+## Starship Prompt
 eval "$(starship init zsh)"
