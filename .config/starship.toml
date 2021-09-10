@@ -6,11 +6,8 @@ $username\
 $hostname\
 $directory\
 $git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
 $git_status\
-$shell\
+$battery\
 $character
 """
 
@@ -38,3 +35,17 @@ error_symbol = "[❯](bold red)"
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 python_binary = "python3"
 disabled = false
+
+[git_branch]
+style = "bold #1b1b1b"
+
+[git_status]
+style = "bold #1b1b1b"
+
+[[battery.display]]
+threshold = 15
+style = "bold #dd9494"
+
+[[battery.display]]
+threshold = 30
+style = "#f4f49b"
