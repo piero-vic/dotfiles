@@ -1,4 +1,5 @@
-# Ledger
+# █   ██▀ █▀▄ ▄▀  ██▀ █▀▄
+# █▄▄ █▄▄ █▄▀ ▀▄█ █▄▄ █▀▄
 
 # Balance
 bal()
@@ -6,14 +7,20 @@ bal()
     ledger bal -f "$1" -VC
 }
 
-# Net Worth
+# Net Worth Balance
 networth()
 {
     ledger bal -f "$1" -VC Assets or Liabilities
 }
 
-# Expenses
+# Expenses Balance
 exp()
 {
     ledger bal -f "$1" -VC Expenses
+}
+
+# Expenses Weekly Register
+exp-reg()
+{
+    ledger reg -f "$1" Expenses -p weekly
 }
