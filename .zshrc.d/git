@@ -14,3 +14,6 @@ alias gb='git branch'
 # Git checkout aliases
 alias gc='git checkout'
 alias gcm='git checkout main'
+
+# Git checkout aliases
+alias gl='git log --oneline'
