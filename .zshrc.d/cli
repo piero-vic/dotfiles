@@ -4,8 +4,8 @@
 # ALIASES
 
 # Smart ls alias
-alias l='ls -lhG'
-alias la='ls -lAhG'
+alias l='ls -lh'
+alias la='ls -lAh'
 
 # Easier navigation
 alias ..='cd ..'
