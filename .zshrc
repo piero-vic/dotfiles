@@ -11,10 +11,13 @@ export HISTCONTROL=ignoredups               # Ingore duplicates
 export HISTSIZE=1000                        # Set history size to 1000 lines
 unset HISTFILE                              # Don't save to .zsh_history
 
-## Edit PATH 
+## Edit PATH
 if [ -d ~/.scripts ]; then
 	export PATH="$PATH:$HOME/.scripts"
 fi
+
+## Ledger files
+ledger_path=$HOME'/Documents/Finance/'
 
 # User specific aliases and functions
 if [ -d ~/.zshrc.d ]; then
@@ -24,7 +27,6 @@ if [ -d ~/.zshrc.d ]; then
 		fi
 	done
 fi
-
 unset rc
 
 # Plugins and other stuff

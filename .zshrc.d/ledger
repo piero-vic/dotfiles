@@ -1,6 +1,11 @@
 # █   ██▀ █▀▄ ▄▀  ██▀ █▀▄
 # █▄▄ █▄▄ █▄▀ ▀▄█ █▄▄ █▀▄
 
+# Quick access to ledger files
+if [ -v ledger_path ]; then
+    alias fin='cd $ledger_path && atom .'
+fi
+
 # Balance
 bal()
 {
