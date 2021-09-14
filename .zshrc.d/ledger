@@ -24,8 +24,14 @@ exp()
     ledger bal -f "$1" -VC Expenses
 }
 
-# Expenses Weekly Register
-exp-reg()
+# This Week Register
+reg()
 {
-    ledger reg -f "$1" Expenses -p weekly
+    ledger reg -f "$1" -p "this week" --start-of-week monday
+}
+
+# Last Week Register
+last-reg()
+{
+    ledger reg -f "$1" -p "last week" --start-of-week monday
 }
