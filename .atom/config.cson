@@ -1,0 +1,16 @@
+"*":
+  core:
+    autoHideMenuBar: true
+    telemetryConsent: "no"
+  editor:
+    tabLength: 4
+  "exception-reporting":
+    userId: "47f3d384-db5e-4ba0-9efe-db850f4a8d40"
+  welcome:
+    showOnStartup: false
+".basic.html.text":
+  editor:
+    tabLength: 2
+".css.source":
+  editor:
+    tabLength: 2
