@@ -3,9 +3,12 @@
 
 # ALIASES
 
-# Smart ls alias
-alias l='ls -lh'
-alias la='ls -lAh'
+# Changing "ls" to "exa"
+alias ls='exa -al --color=auto --group-directories-first' # my preferred listing
+alias la='exa -a --color=auto --color-scale --group-directories-first'  # all files and dirs
+alias ll='exa -l --color=auto --group-directories-first'  # long format
+alias lt='exa -aT --color=auto --group-directories-first' # tree listing
+alias l.='exa -a | egrep "^\."'
 
 # Easier navigation
 alias ..='cd ..'
@@ -19,10 +22,42 @@ alias nowtime='date +"%T"'
 alias nowdate='date +"%d-%m-%Y"'
 alias now='date +"%d-%m-%Y %T"'
 
+# Confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
 # FUNCTIONS
 
 # Create directory and navigate to it
 mkcd()
 {
     mkdir -p -- "$1" && cd -P -- "$1"
+}
+
+# Archive Extraction
+# usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   unzstd $1    ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
