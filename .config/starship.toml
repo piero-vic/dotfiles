@@ -37,10 +37,10 @@ python_binary = "python3"
 disabled = false
 
 [git_branch]
-style = "bold #1b1b1b"
+style = "bold #808080"
 
 [git_status]
-style = "bold #1b1b1b"
+style = "bold #808080"
 
 [[battery.display]]
 threshold = 15
