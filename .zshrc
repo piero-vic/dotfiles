@@ -32,3 +32,6 @@ unset rc
 # Plugins and other stuff
 ## Starship Prompt
 eval "$(starship init zsh)"
+
+# Source goto
+[[ -s "/usr/local/share/goto.sh" ]] && source /usr/local/share/goto.sh
