@@ -16,9 +16,6 @@ if [ -d ~/.scripts ]; then
 	export PATH="$PATH:$HOME/.scripts"
 fi
 
-## Ledger files
-ledger_path=$HOME'/Documents/Finance/'
-
 # User specific aliases and functions
 if [ -d ~/.zshrc.d ]; then
 	for rc in ~/.zshrc.d/*; do

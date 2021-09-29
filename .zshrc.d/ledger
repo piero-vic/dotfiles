@@ -1,11 +1,6 @@
 # █   ██▀ █▀▄ ▄▀  ██▀ █▀▄
 # █▄▄ █▄▄ █▄▀ ▀▄█ █▄▄ █▀▄
 
-# Quick access to ledger files
-if [ -v ledger_path ]; then
-    alias fin='cd $ledger_path && atom .'
-fi
-
 # Balance
 bal()
 {
@@ -13,7 +8,7 @@ bal()
 }
 
 # Net Worth Balance
-networth()
+nw()
 {
     ledger bal -f "$1" -VC Assets or Liabilities
 }
@@ -21,7 +16,7 @@ networth()
 # Expenses Balance
 exp()
 {
-    ledger bal -f "$1" -VC Expenses
+    ledger bal -f "$1" -VC Expenses -p "this month"
 }
 
 # This Week Register
