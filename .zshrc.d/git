@@ -17,3 +17,7 @@ alias gcm='git checkout main'
 
 # Git checkout aliases
 alias gl='git log --oneline'
+
+# Git push and  pull
+alias push='git push'
+alias pull='git pull'
