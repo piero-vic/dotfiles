@@ -30,5 +30,9 @@ unset rc
 ## Starship Prompt
 eval "$(starship init zsh)"
 
-# Source goto
+## Completion
+autoload -Uz compinit
+compinit
+
+## Source goto
 [[ -s "/usr/local/share/goto.sh" ]] && source /usr/local/share/goto.sh
