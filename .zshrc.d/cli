@@ -17,6 +17,9 @@ alias g='goto'
 # Reload shell
 alias reload="source ~/.zshrc"
 
+# Easy clear
+alias c="clear"
+
 # Date
 alias nowtime='date +"%T"'
 alias nowdate='date +"%d-%m-%Y"'

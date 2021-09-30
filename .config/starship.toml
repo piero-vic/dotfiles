@@ -11,15 +11,12 @@ $battery\
 $character
 """
 
-[line_break]
-disabled = false
-
 [directory]
-style = "bold #d88736"
+style = "bold #ffb86c"
 
 [username]
 show_always = true
-format = "[$user]($style)[@](#d88736)"
+format = "[$user]($style)[@](#ffb86c)"
 style_user = "bold #c2c2c2"
 
 [hostname]
@@ -28,7 +25,7 @@ format = "[$hostname]($style) "
 style = "bold #c2c2c2"
 
 [character]
-success_symbol = "[❯](bold #d88736)"
+success_symbol = "[❯](bold #ffb86c)"
 error_symbol = "[❯](bold red)"
 
 [python]
@@ -37,10 +34,11 @@ python_binary = "python3"
 disabled = false
 
 [git_branch]
-style = "bold #808080"
+style = "bold #6272a4"
+format = "[on](bold #c2c2c2) [$symbol$branch]($style) "
 
 [git_status]
-style = "bold #808080"
+style = "bold #6272a4"
 
 [[battery.display]]
 threshold = 15
