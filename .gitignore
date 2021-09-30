@@ -1,5 +1,6 @@
-# Ignore every directory on .config
+### .config ###
 .config/*/
+.config/goto
 
-# Ignore Mac system files
+# System files
 .DS_Store
