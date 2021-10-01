@@ -20,6 +20,9 @@ alias reload="source ~/.zshrc"
 # Easy clear
 alias c="clear"
 
+# Easy history
+alias h="history"
+
 # Date
 alias nowtime='date +"%T"'
 alias nowdate='date +"%d-%m-%Y"'
