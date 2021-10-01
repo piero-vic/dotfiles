@@ -12,7 +12,7 @@ alias l.='exa -a | egrep "^\."'
 # Easier navigation
 alias ..='cd ..'
 alias ...='cd ../..'
-alias g='goto'
+alias gt='goto'
 
 # Reload shell
 alias reload="source ~/.zshrc"
