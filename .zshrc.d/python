@@ -1,3 +1,16 @@
+# █▀▄ ▀▄▀ ▀█▀ █▄█ ▄▀▄ █▄ █
+# █▀   █   █  █ █ ▀▄▀ █ ▀█
+
+# python command
 alias python='python3'
+alias py='python'
+
+# venv
+alias venv='python -m venv venv'
+
+# pip
 alias pip='pip3'
-alias venv='python3 -m venv venv'
+alias pipreq="pip freeze > requirements.txt"
+alias pipupall="pipreq && sed -i 's/==/>=/g' requirements.txt && pip install -r requirements.txt --upgrade && rm -rf requirements.txt"
+alias pipir="pip install -r requirements.txt"
+alias pipunall="pipreq && pip uninstall -r requirements.txt -y && rm -rf requirements.txt"
