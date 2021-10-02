@@ -16,8 +16,11 @@ if [ -d ~/.scripts ]; then
 	export PATH="$PATH:$HOME/.scripts"
 fi
 
+## Cointop config path
+export COINTOP_CONFIG="$HOME/.cointop/config.toml"
+
 ## No overwriting existing files with the > operator.
-set -o noclobber.
+set -o noclobber
 
 # User specific aliases and functions
 if [ -d ~/.zshrc.d ]; then
