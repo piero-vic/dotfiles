@@ -16,6 +16,9 @@ if [ -d ~/.scripts ]; then
 	export PATH="$PATH:$HOME/.scripts"
 fi
 
+## No overwriting existing files with the > operator.
+set -o noclobber.
+
 # User specific aliases and functions
 if [ -d ~/.zshrc.d ]; then
 	for rc in ~/.zshrc.d/*; do

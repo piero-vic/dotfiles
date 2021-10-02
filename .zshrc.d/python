@@ -14,3 +14,17 @@ alias pipreq="pip freeze > requirements.txt"
 alias pipupall="pipreq && sed -i 's/==/>=/g' requirements.txt && pip install -r requirements.txt --upgrade && rm -rf requirements.txt"
 alias pipir="pip install -r requirements.txt"
 alias pipunall="pipreq && pip uninstall -r requirements.txt -y && rm -rf requirements.txt"
+
+# initialize file
+pyt()
+{
+    cat << "EOF" > "$1"
+#!/usr/bin/env python3
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
+EOF
+}
