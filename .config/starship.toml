@@ -1,22 +1,23 @@
 add_newline = false
 
 format = """
-$python\
 $username\
 $hostname\
 $directory\
 $git_branch\
 $git_status\
+$nodejs\
+$python\
 $battery\
 $character
 """
 
 [directory]
-style = "bold #ffb86c"
+style = "bold blue"
 
 [username]
 show_always = true
-format = "[$user]($style)[@](#ffb86c)"
+format = "[$user]($style)[@](blue)"
 style_user = "bold #c2c2c2"
 
 [hostname]
@@ -25,17 +26,20 @@ format = "[$hostname]($style) "
 style = "bold #c2c2c2"
 
 [character]
-success_symbol = "[❯](bold #ffb86c)"
+success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
 
+[nodejs]
+format = "[via](#c2c2c2) [$symbol($version )]($style)"
+
 [python]
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = " "
+format = '[via](#c2c2c2) [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 python_binary = "python3"
-disabled = false
 
 [git_branch]
 style = "bold #6272a4"
-format = "[on](bold #c2c2c2) [$symbol$branch]($style) "
+format = "[on](#c2c2c2) [$symbol$branch]($style) "
 
 [git_status]
 style = "bold #6272a4"
