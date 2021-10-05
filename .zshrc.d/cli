@@ -20,6 +20,9 @@ alias reload="source ~/.zshrc"
 # Easy clear
 alias c="clear"
 
+# Brew updates
+alias brewup='brew update && brew upgrade && brew cleanup'
+
 # Easy history
 alias h="history"
 
@@ -33,6 +36,12 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
 # the terminal rickroll
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
@@ -42,6 +51,16 @@ alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 mkcd()
 {
     mkdir -p -- "$1" && cd -P -- "$1"
+}
+
+# Opens the current directory, otherwise opens the given
+# usage: o / o <directory>
+function o() {
+	if [ $# -eq 0 ]; then
+		open .;
+	else
+		open "$@";
+	fi;
 }
 
 ## Archive Extraction
