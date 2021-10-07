@@ -2,5 +2,10 @@
 .config/*/
 .config/goto
 
+### micro ###
+!.config/micro
+.config/micro/*
+!.config/micro/settings.json
+
 # System files
 .DS_Store
