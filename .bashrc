@@ -1,28 +1,22 @@
 # ██▄ ▄▀▄ ▄▀▀ █▄█
 # █▄█ █▀█ ▄██ █ █
 
-# User specific environment and startup programs
-## Vim as default text editor
+############ Environment and startup programs ############
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-## History configutarion
-export HISTCONTROL=ignoredups               # Ingore duplicates
+export HISTCONTROL=ignoreboth               # Ingore duplicates and command that start with spaces
 export HISTSIZE=1000                        # Set history size to 1000 lines
-unset HISTFILE                              # Don't save to .zsh_history
+unset HISTFILE                              # Don't save to .bash_history
 
-## Edit PATH
 if [ -d ~/.scripts ]; then
 	export PATH="$PATH:$HOME/.scripts"
 fi
 
-## Cointop config path
 export COINTOP_CONFIG="$HOME/.cointop/config.toml"
+set -o noclobber                            # No overwriting existing files with the > operator.
 
-## No overwriting existing files with the > operator.
-set -o noclobber
-
-# User specific aliases and functions
+########### User specific aliases and functions ###########
 if [ -d ~/.zshrc.d ]; then
 	for rc in ~/.zshrc.d/*; do
 		if [ -f "$rc" ]; then
@@ -32,9 +26,8 @@ if [ -d ~/.zshrc.d ]; then
 fi
 unset rc
 
-# Plugins and other stuff
-## Starship Prompt
+################# Plugins and other stuff #################
+# Starship Prompt
 eval "$(starship init bash)"
-
-## Source goto
+# Source goto
 [[ -s "/usr/local/share/goto.sh" ]] && source /usr/local/share/goto.sh
