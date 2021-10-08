@@ -7,6 +7,14 @@ alias py='python'
 
 # venv
 alias venv='python -m venv venv'
+venvact()
+{
+    if [ -d venv ]; then
+        source venv/bin/activate
+    else
+        echo 'There is no virtual enviroment on this directory.'
+    fi
+}
 
 # pip
 alias pip='pip3'
@@ -23,6 +31,7 @@ pyt()
 
 def main():
     pass
+
 
 if __name__ == '__main__':
     main()
