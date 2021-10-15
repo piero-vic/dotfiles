@@ -1,11 +1,12 @@
 ### .config ###
-.config/*/
-.config/goto
+.config/*
+!.config/starship.toml
 
 ### micro ###
 !.config/micro
 .config/micro/*
 !.config/micro/settings.json
+!.config/micro/bindings.json
 
 # System files
 .DS_Store
