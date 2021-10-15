@@ -1,4 +1,17 @@
 {
+    "*.md": {
+        "softwrap": true,
+        "wordwrap": true
+    },
+    "*.{ledger,py}": {
+        "tabsize": 4
+    },
     "colorscheme": "dracula-tc",
-    "diffgutter": true
+    "diffgutter": true,
+    "mkparents": true,
+    "rmtrailingws": true,
+    "savehistory": false,
+    "tabmovement": true,
+    "tabsize": 2,
+    "tabstospaces": true
 }
