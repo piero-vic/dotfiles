@@ -5,6 +5,9 @@
 ### jrnl ###
 !.config/jrnl
 
+### alacritty ###
+!.config/alacritty
+
 ### micro ###
 !.config/micro
 .config/micro/*
