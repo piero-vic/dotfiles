@@ -1,10 +1,10 @@
 {
-    "*.md": {
-        "softwrap": true,
-        "wordwrap": true
-    },
     "*.{ledger,py}": {
         "tabsize": 4
+    },
+    "*.{md,txt,jrnl}": {
+        "softwrap": true,
+        "wordwrap": true
     },
     "colorscheme": "dracula-tc",
     "diffgutter": true,

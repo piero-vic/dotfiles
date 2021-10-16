@@ -2,6 +2,9 @@
 .config/*
 !.config/starship.toml
 
+### jrnl ###
+!.config/jrnl
+
 ### micro ###
 !.config/micro
 .config/micro/*
