@@ -10,7 +10,7 @@ bal()
 # Net Worth Balance
 nw()
 {
-    ledger bal -f "$1" -VC Assets or Liabilities
+    ledger bal -f "$1" -VC Assets or Liabilities or Reimbursement
 }
 
 # Expenses Balance

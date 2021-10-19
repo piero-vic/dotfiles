@@ -2,6 +2,7 @@
 # ▀▄▄ █▄▄ █
 
 #################### ALIASES ####################
+
 # Changing "ls" to "exa"
 alias ls='exa -al --color=auto --group-directories-first' # my preferred listing
 alias la='exa -a --color=auto --color-scale --group-directories-first'  # all files and dirs
@@ -49,6 +50,13 @@ alias today='icalBuddy -f -iep "title,datetime" -po "datetime,title" -df "%RD" e
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
 #################### FUNCTIONS ####################
+
+## Display jrnl entries on glow
+# usage: jglow <date>
+jglow() {
+    jrnl -on "$@" --format md | glow -
+}
+
 ## Create directory and navigate to it
 # usage: mkdc <directory>
 mkcd()

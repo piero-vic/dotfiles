@@ -2,7 +2,7 @@
 # █▄▄ ▄██ █ █
 
 ############ Environment and startup programs ############
-export VISUAL=vim
+export VISUAL=micro
 export EDITOR="$VISUAL"
 
 export HISTCONTROL=ignoreboth               # Ingore duplicates and command that start with spaces
