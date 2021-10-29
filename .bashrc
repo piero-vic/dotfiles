@@ -13,7 +13,10 @@ if [ -d ~/.scripts ]; then
 	export PATH="$PATH:$HOME/.scripts"
 fi
 
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+export PATH="$HOME/.poetry/bin:$PATH"
 export COINTOP_CONFIG="$HOME/.cointop/config.toml"
+
 set -o noclobber                            # No overwriting existing files with the > operator.
 
 ########### User specific aliases and functions ###########
@@ -31,3 +34,5 @@ unset rc
 eval "$(starship init bash)"
 # Source goto
 [[ -s "/usr/local/share/goto.sh" ]] && source /usr/local/share/goto.sh
+# Cargo
+. "$HOME/.cargo/env"

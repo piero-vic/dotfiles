@@ -52,9 +52,13 @@ alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 #################### FUNCTIONS ####################
 
 ## Display jrnl entries on glow
-# usage: jglow <date>
+# usage: jglow <journal>
 jglow() {
-    jrnl -on "$@" --format md | glow -
+  if [ $# -eq 0 ]; then
+		jrnl -from "last week" --format md | glow - --pager
+  else
+    jrnl "$@" -from "last week" --format md | glow - --pager
+  fi
 }
 
 ## Create directory and navigate to it

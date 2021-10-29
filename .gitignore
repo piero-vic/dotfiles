@@ -2,9 +2,6 @@
 .config/*
 !.config/starship.toml
 
-### jrnl ###
-!.config/jrnl
-
 ### alacritty ###
 !.config/alacritty
 
