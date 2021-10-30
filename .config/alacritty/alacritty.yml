@@ -734,6 +734,8 @@ key_bindings:
   - { key: N, mods: Command, chars: "\x02\x22" }
   # Rename the current tmux window
   - { key: Comma, mods: Command, chars: "\x02\x2c" }
+  # Rename the current tmux session
+  - { key: Period, mods: Command, chars: "\x02\x24" }
   # Select window 1-9
   - { key: Key1, mods: Command, chars: "\x02\x31" }
   - { key: Key2, mods: Command, chars: "\x02\x32" }

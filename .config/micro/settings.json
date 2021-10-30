@@ -1,5 +1,9 @@
 {
-    "*.{ledger,py}": {
+    "*.ledger": {
+        "ruler": false,
+        "tabsize": 4
+    },
+    "*.py": {
         "tabsize": 4
     },
     "*.{md,txt,jrnl}": {
