@@ -10,7 +10,7 @@
         "softwrap": true,
         "wordwrap": true
     },
-    "colorscheme": "dracula-tc",
+    "colorscheme": "my_colors",
     "diffgutter": true,
     "mkparents": true,
     "rmtrailingws": true,
