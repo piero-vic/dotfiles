@@ -1,14 +1,13 @@
 {
-    "*.ledger": {
-        "ruler": false,
-        "tabsize": 4
-    },
-    "*.py": {
-        "tabsize": 4
+    "*.{jrnl,ledger}": {
+        "ruler": false
     },
     "*.{md,txt,jrnl}": {
         "softwrap": true,
         "wordwrap": true
+    },
+    "*.{py,ledger}": {
+        "tabsize": 4
     },
     "colorscheme": "my_colors",
     "diffgutter": true,

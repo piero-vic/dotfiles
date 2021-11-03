@@ -376,7 +376,7 @@ cursor:
     #   - ▇ Block
     #   - _ Underline
     #   - | Beam
-    #shape: Block
+    shape: Block
 
     # Cursor blinking state
     #
@@ -750,6 +750,10 @@ key_bindings:
   - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
   # Change to the next tmux window
   - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
+  # Change to the previous tmux session
+  - { key: Up, mods: Command|Shift, chars: "\x02\x28" }
+  # Change to the next tmux session
+  - { key: Down, mods: Command|Shift, chars: "\x02\x29" }
   # Detach the current tmux client
   - { key: Q, mods: Command, chars: "\x02\x64" }
   # Toggle the zoom state of the current tmux pane

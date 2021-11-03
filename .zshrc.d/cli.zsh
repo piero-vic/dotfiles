@@ -4,8 +4,8 @@
 #################### ALIASES ####################
 
 # Changing "ls" to "exa"
-alias ls='exa --all --grid --header --long --git --group-directories-first'   # my preferred listing
-alias lt='exa -Tal --git --group-directories-first --ignore-glob=".git"'      # tree listing
+alias ls='exa --all --grid --header --long --git --time-style=long-iso --group-directories-first'   # my preferred listing
+alias lt='exa -Ta --git --group-directories-first --ignore-glob=".git"'      # tree listing
 
 # Easier navigation
 alias ..='cd ..'
@@ -18,16 +18,10 @@ alias reload="source ~/.zshrc"
 # Easy clear
 alias c="clear"
 
-# Brew updates
-alias brewup='brew update && brew upgrade && brew cleanup'
-
 # Easy history
-alias h="history"
-
-# Date
-alias nowtime='date +"%T"'
-alias nowdate='date +"%d-%m-%Y"'
-alias now='date +"%d-%m-%Y %T"'
+alias h='history'
+alias hs='history | grep'
+alias hsi='history | grep -i'
 
 # Confirm before overwriting something
 alias cp="cp -i"
@@ -40,8 +34,6 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# Calendar events for today
-alias today='icalBuddy -f -iep "title,datetime" -po "datetime,title" -df "%RD" eventsToday'
 
 # the terminal rickroll
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
