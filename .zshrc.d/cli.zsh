@@ -4,11 +4,8 @@
 #################### ALIASES ####################
 
 # Changing "ls" to "exa"
-alias ls='exa -al --color=auto --group-directories-first' # my preferred listing
-alias la='exa -a --color=auto --color-scale --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=auto --group-directories-first'  # long format
-alias lt='exa -aT --color=auto --group-directories-first' # tree listing
-alias l.='exa -a | egrep "^\."'
+alias ls='exa --all --grid --header --long --git --group-directories-first'   # my preferred listing
+alias lt='exa -Tal --git --group-directories-first --ignore-glob=".git"'      # tree listing
 
 # Easier navigation
 alias ..='cd ..'

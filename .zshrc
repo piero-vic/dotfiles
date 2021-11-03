@@ -19,6 +19,9 @@ export COINTOP_CONFIG="$HOME/.cointop/config.toml"
 
 set -o noclobber                            # No overwriting existing files with the > operator.
 
+export EXA_GRID_ROWS=10
+export TIME_STYLE=long-iso
+
 ########### User specific aliases and functions ###########
 if [ -d ~/.zshrc.d ]; then
 	for rc in ~/.zshrc.d/*; do
