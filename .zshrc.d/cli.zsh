@@ -4,13 +4,13 @@
 #################### ALIASES ####################
 
 # Changing "ls" to "exa"
-alias ls='exa --all --grid --header --long --git --time-style=long-iso --group-directories-first'   # my preferred listing
-alias lt='exa -Ta --git --group-directories-first --ignore-glob=".git"'      # tree listing
+alias ls="exa -al --grid --header --git --group-directories-first"              # my preferred listing
+alias lt="exa --tree -a --git --group-directories-first --ignore-glob='.git'"   # tree listing
 
 # Easier navigation
-alias ..='cd ..'
-alias ...='cd ../..'
-alias gt='goto'
+alias ..="cd .."
+alias ...="cd ../.."
+alias gt="goto"
 
 # Reload shell
 alias reload="source ~/.zshrc"
@@ -19,37 +19,36 @@ alias reload="source ~/.zshrc"
 alias c="clear"
 
 # Easy history
-alias h='history'
-alias hs='history | grep'
-alias hsi='history | grep -i'
+alias h="history"
+alias hs="history | grep"
+alias hsi="history | grep -i"
 
 # Confirm before overwriting something
 alias cp="cp -i"
-alias mv='mv -i'
-alias rm='rm -i'
+alias mv="mv -i"
+alias rm="rm -i"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Print each PATH entry on a separate line
-alias path='echo -e ${PATH//:/\\n}'
+alias path="echo -e ${PATH//:/\\n}"
 
 
 # the terminal rickroll
-alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 
 #################### FUNCTIONS ####################
 
 ## Create directory and navigate to it
 # usage: mkdc <directory>
-mkcd()
-{
-    mkdir -p -- "$1" && cd -P -- "$1"
+mkcd() {
+  mkdir -p -- "$1" && cd -P -- "$1"
 }
 
 # Opens the current directory, otherwise opens the given
 # usage: o / o <directory>
-function o() {
+o() {
 	if [ $# -eq 0 ]; then
 		open .;
 	else
@@ -59,8 +58,7 @@ function o() {
 
 ## Archive Extraction
 # usage: ex <file>
-ex ()
-{
+ex() {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;

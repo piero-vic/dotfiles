@@ -12,15 +12,17 @@ alias jw='j -from "last week" -to today'
 
 alias jts='jt --short'
 alias jtp='jt --format pretty'
+alias jtm='jt --format md'
 
 alias jws='jw --short'
 alias jwp='jw --format pretty'
+alias jwm='jw --format md'
 
 ## Display jrnl entries on glow
 # usage: jglow <journal>
 jg() {
   if [ $# -eq 0 ]; then
-		jrnl -from "last week" --format md | glow - --pager
+    jrnl -from "last week" --format md | glow - --pager
   else
     jrnl "$@" -from "last week" --format md | glow - --pager
   fi

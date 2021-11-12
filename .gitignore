@@ -4,6 +4,8 @@
 
 ### alacritty ###
 !.config/alacritty
+### wezterm ###
+!.config/wezterm
 
 ### micro ###
 !.config/micro

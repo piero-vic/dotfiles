@@ -3,6 +3,7 @@ add_newline = false
 format = """
 $directory\
 $git_branch\
+$git_commit\
 $git_status\
 $nodejs\
 $python\
@@ -10,7 +11,7 @@ $character
 """
 
 [directory]
-style = "bold bright-blue"
+style = "bold blue"
 
 [character]
 success_symbol = "[❯](bold green)"
@@ -28,5 +29,8 @@ python_binary = "python3"
 style = "bold blue"
 format = "[on](white) [$symbol$branch]($style) "
 
+[git_commit]
+style = "bold purple"
+
 [git_status]
-style = "bold #6272a4"
+style = "bold white"
