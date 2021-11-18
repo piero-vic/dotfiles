@@ -15,7 +15,7 @@ window:
     y: 20
 
   decorations: buttonless
-  startup_mode: Windowed
+  startup_mode: Fullscreen
 
 # Font
 font:
@@ -107,7 +107,7 @@ background_opacity: 1.00
 cursor:
   style:
     shape: Block
-
+    unfocused_hollow: true
     blinking: On
 
   blink_interval: 500
