@@ -11,6 +11,8 @@ unset HISTFILE                              # Don't save to .zsh_history
 
 export COINTOP_CONFIG="$HOME/.cointop/config.toml"
 
+export EXA_GRID_ROWS=10
+
 export PATH="$PATH:$HOME/Library/Python/3.9/bin"
 export PATH="$HOME/.poetry/bin:$PATH"
 if [ -d ~/.scripts ]; then
