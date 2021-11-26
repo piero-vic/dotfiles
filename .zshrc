@@ -2,8 +2,8 @@
 # █▄▄ ▄██ █ █
 
 ######## Environment and startup programs #########
-export VISUAL="atom"
-export EDITOR="micro"
+export VISUAL="nvim"
+export EDITOR="nvim"
 
 export HISTCONTROL=ignoreboth               # Ingore duplicates and command that start with spaces
 export HISTSIZE=1000                        # Set history size to 1000 lines
@@ -18,6 +18,8 @@ export PATH="$HOME/.poetry/bin:$PATH"
 if [ -d ~/.scripts ]; then
 	export PATH="$PATH:$HOME/.scripts"
 fi
+
+export PF_INFO="ascii title os host kernel uptime pkgs memory wm shell editor"
 
 ########### User specific configuration ###########
 autoload -Uz compinit && compinit           # Completion

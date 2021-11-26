@@ -1,8 +1,0 @@
-{
-    "Alt-/": "lua:comment.comment",
-    "Alt-h": "command:hsplit",
-    "Alt-t": "command:tree",
-    "Alt-v": "command:vsplit",
-    "CtrlUnderscore": "lua:comment.comment",
-    "F4": "command:jumptag"
-}

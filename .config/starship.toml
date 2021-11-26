@@ -11,7 +11,7 @@ $character
 """
 
 [directory]
-style = "bold blue"
+style = "blue"
 
 [character]
 success_symbol = "[❯](bold green)"
@@ -26,7 +26,7 @@ format = '[via](white) [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]
 python_binary = "python3"
 
 [git_branch]
-style = "bold blue"
+style = "blue"
 format = "[on](white) [$symbol$branch]($style) "
 
 [git_commit]

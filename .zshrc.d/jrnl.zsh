@@ -36,7 +36,6 @@ jg() {
 ## Display jrnl entries on slides
 # usage: js <journal>
 js() {
-  header='---\ntheme: /Users/piero/.dotfiles/.config/glamour/dark.json\n---\n\n'
   date=$(date +"%Y-%m-01")
 
   if [ $# -eq 0 ]; then

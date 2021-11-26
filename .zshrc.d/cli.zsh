@@ -5,7 +5,10 @@
 
 # Changing "ls" to "exa"
 alias ls="exa -al --grid --header --git --group-directories-first"              # my preferred listing
-alias lt="exa --tree -a --git --group-directories-first --ignore-glob='.git'"   # tree listing
+alias lt="exa -al --tree --level=2 --git --ignore-glob='.git'"         # tree listing
+
+# Text editor
+alias v="nvim"
 
 # Changing "sed" to "gsed"
 alias sed='gsed'
@@ -36,7 +39,6 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Print each PATH entry on a separate line
 alias path="echo -e ${PATH//:/\\n}"
-
 
 # the terminal rickroll
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"

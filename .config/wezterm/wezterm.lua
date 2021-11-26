@@ -68,14 +68,14 @@ return {
 
   font = wezterm.font_with_fallback({"JetBrains Mono", "MesloLGS NF"}),
   font_size = 14,
-  color_scheme = "Dracula",
+  color_scheme = "Dracula+",
 
   window_padding = {
-    left = 20, right = 20,
-    top = 20, bottom = 20,
+    left = 0, right = 0,
+    top = 0, bottom = 0,
   },
 
-  window_background_opacity = 1.00,
+  window_background_opacity = 0.9,
 
   colors = {
     tab_bar = {
@@ -120,13 +120,36 @@ return {
     }
   },
 
-  send_composed_key_when_left_alt_is_pressed=true,
+  inactive_pane_hsb = {
+    saturation = 0.9,
+    brightness = 0.8,
+  },
+
+  send_composed_key_when_left_alt_is_pressed=false,
   send_composed_key_when_right_alt_is_pressed=true,
 
+  unzoom_on_switch_pane = true,
+
   keys = {
-    {key="d", mods="SUPER", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
-    {key="d", mods="SUPER|SHIFT", action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
-    {key="w", mods="SUPER", action=wezterm.action{CloseCurrentPane={confirm=true}}},
-    {key="f", mods="SUPER|CTRL", action="ToggleFullScreen"},
+    -- Pane Split
+    { key="d", mods="SUPER",
+      action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
+    { key="d", mods="SUPER|SHIFT",
+      action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
+    { key="w", mods="SUPER",
+      action=wezterm.action{CloseCurrentPane={confirm=true}}},
+    -- Pane Zoom
+    { key = "z", mods="SUPER", action="TogglePaneZoomState"},
+    -- Pane Navigation
+    { key = "LeftArrow", mods="SUPER|SHIFT",
+      action=wezterm.action{ActivatePaneDirection="Left"}},
+    { key = "RightArrow", mods="SUPER|SHIFT",
+      action=wezterm.action{ActivatePaneDirection="Right"}},
+    { key = "UpArrow", mods="SUPER|SHIFT",
+      action=wezterm.action{ActivatePaneDirection="Up"}},
+    { key = "DownArrow", mods="SUPER|SHIFT",
+      action=wezterm.action{ActivatePaneDirection="Down"}},
+    -- FullScreen
+    { key="f", mods="SUPER|CTRL", action="ToggleFullScreen"},
   },
 }

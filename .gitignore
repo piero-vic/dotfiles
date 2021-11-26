@@ -1,18 +1,9 @@
-### .config ###
+### Ignore ###
 .config/*
-!.config/starship.toml
-
-### alacritty ###
-!.config/alacritty
-### wezterm ###
-!.config/wezterm
-
-### micro ###
-!.config/micro
-.config/micro/*
-!.config/micro/colorschemes
-!.config/micro/settings.json
-!.config/micro/bindings.json
-
-# System files
 .DS_Store
+
+### Track ###
+!.config/starship.toml
+!.config/alacritty
+!.config/wezterm
+!.config/nvim

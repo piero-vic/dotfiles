@@ -16,6 +16,9 @@ alias gb='git branch'
 # Git remove alias
 alias gr='git rm'
 
+# Git move alias
+alias gmv='git mv'
+
 # Git commit aliases
 alias gc='git commit'
 alias gcm='git commit -m'
@@ -30,3 +33,7 @@ alias gl='git log --oneline'
 # Git push and  pull
 alias push='git push'
 alias pull='git pull'
+
+# Git stash
+alias gst='git stash'
+
