@@ -9,16 +9,18 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'folke/tokyonight.nvim'
 call plug#end()
 
-colorscheme dracula
-let g:dracula_colorterm = 0
-set background=dark
+set termguicolors
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+let g:tokyonight_transparent = 'true'
+colorscheme tokyonight
 
 set laststatus=2
 " Lightline
-let g:lightline = {}
-let g:lightline.colorscheme = "darcula"
+let g:lightline = {'colorscheme': 'tokyonight'}
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {

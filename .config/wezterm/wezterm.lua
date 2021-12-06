@@ -68,7 +68,7 @@ return {
 
   font = wezterm.font_with_fallback({"JetBrains Mono", "MesloLGS NF"}),
   font_size = 14,
-  color_scheme = "Dracula+",
+  color_scheme = "cyberpunk",
 
   window_padding = {
     left = 0, right = 0,
@@ -131,6 +131,8 @@ return {
   unzoom_on_switch_pane = true,
 
   keys = {
+    -- Show Launcher
+    {key="t", mods="SUPER|SHIFT", action="ShowLauncher"},
     -- Pane Split
     { key="d", mods="SUPER",
       action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
@@ -138,18 +140,48 @@ return {
       action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
     { key="w", mods="SUPER",
       action=wezterm.action{CloseCurrentPane={confirm=true}}},
+     -- Pane Navigation
+     { key = "LeftArrow", mods="SUPER|SHIFT",
+       action=wezterm.action{ActivatePaneDirection="Left"}},
+     { key = "RightArrow", mods="SUPER|SHIFT",
+       action=wezterm.action{ActivatePaneDirection="Right"}},
+     { key = "UpArrow", mods="SUPER|SHIFT",
+       action=wezterm.action{ActivatePaneDirection="Up"}},
+     { key = "DownArrow", mods="SUPER|SHIFT",
+       action=wezterm.action{ActivatePaneDirection="Down"}},
     -- Pane Zoom
     { key = "z", mods="SUPER", action="TogglePaneZoomState"},
-    -- Pane Navigation
-    { key = "LeftArrow", mods="SUPER|SHIFT",
-      action=wezterm.action{ActivatePaneDirection="Left"}},
-    { key = "RightArrow", mods="SUPER|SHIFT",
-      action=wezterm.action{ActivatePaneDirection="Right"}},
-    { key = "UpArrow", mods="SUPER|SHIFT",
-      action=wezterm.action{ActivatePaneDirection="Up"}},
-    { key = "DownArrow", mods="SUPER|SHIFT",
-      action=wezterm.action{ActivatePaneDirection="Down"}},
+    -- Adjust Pane Size
+    { key = "H", mods = "SUPER|SHIFT", action=wezterm.action{AdjustPaneSize={"Left", 5}}},
+    { key = "J", mods = "SUPER|SHIFT", action=wezterm.action{AdjustPaneSize={"Down", 5}}},
+    { key = "K", mods = "SUPER|SHIFT", action=wezterm.action{AdjustPaneSize={"Up", 5}}},
+    { key = "L", mods = "SUPER|SHIFT", action=wezterm.action{AdjustPaneSize={"Right", 5}}},
     -- FullScreen
     { key="f", mods="SUPER|CTRL", action="ToggleFullScreen"},
+  },
+
+  launch_menu = {
+    {
+      args = {"top"},
+    },
+    {
+      -- Optional label to show in the launcher. If omitted, a label
+      -- is derived from the `args`
+      label = "Bash",
+      -- The argument array to spawn.  If omitted the default program
+      -- will be used as described in the documentation above
+      args = {"bash", "-l"},
+
+      -- You can specify an alternative current working directory;
+      -- if you don't specify one then a default based on the OSC 7
+      -- escape sequence will be used (see the Shell Integration
+      -- docs), falling back to the home directory.
+      -- cwd = "/some/path"
+
+      -- You can override environment variables just for this command
+      -- by setting this here.  It has the same semantics as the main
+      -- set_environment_variables configuration option described above
+      -- set_environment_variables = { FOO = "bar" },
+    },
   },
 }

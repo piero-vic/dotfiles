@@ -26,11 +26,12 @@ format = '[via](white) [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]
 python_binary = "python3"
 
 [git_branch]
-style = "blue"
+symbol = " "
+style = "purple"
 format = "[on](white) [$symbol$branch]($style) "
 
 [git_commit]
-style = "bold purple"
+style = "green"
 
 [git_status]
-style = "bold white"
+style = "red"

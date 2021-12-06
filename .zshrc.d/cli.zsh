@@ -4,11 +4,12 @@
 #################### ALIASES ####################
 
 # Changing "ls" to "exa"
-alias ls="exa -al --grid --header --git --group-directories-first"              # my preferred listing
+alias ls="exa -al --grid --header --git"                               # my preferred listing
 alias lt="exa -al --tree --level=2 --git --ignore-glob='.git'"         # tree listing
 
-# Text editor
+# Text editors
 alias v="nvim"
+alias code="codium"
 
 # Changing "sed" to "gsed"
 alias sed='gsed'

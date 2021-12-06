@@ -12,6 +12,7 @@ alias gaa='git add --all'
 
 # Git branch alias
 alias gb='git branch'
+alias gba='git branch -a'
 
 # Git remove alias
 alias gr='git rm'

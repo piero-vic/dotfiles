@@ -1,5 +1,9 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+# TERM enviroment variable
+env:
+  TERM: xterm-256color
+
 # Window
 window:
   dimensions:
@@ -11,8 +15,8 @@ window:
     y: 0
 
   padding:
-    x: 20
-    y: 20
+    x: 15
+    y: 15
 
   decorations: buttonless
   startup_mode: Fullscreen
@@ -34,75 +38,78 @@ font:
   bold_italic:
     family: MesloLGS NF
     style: Bold Italic
-  size: 15.0
 
+  size: 13.0
   use_thin_strokes: false
 
 draw_bold_text_with_bright_colors: false
 
-# Colors
-colors:
-  primary:
-    background: '0x282a36'
-    foreground: '0xf8f8f2'
+# Colors Schemes
+schemes:
+  # Tokyo Night theme, based on both:
+  #   https://github.com/ghifarit53/tokyonight-vim
+  #   https://github.com/enkia/tokyo-night-vscode-theme
+  tokyo-night: &tokyo-night
+    # Default colors
+    primary:
+      background: '0x1a1b26'
+      foreground: '0xa9b1d6'
 
-  cursor:
-    text: CellBackground
-    cursor: CellForeground
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x787c99'
 
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
 
-  search:
-    matches:
-      foreground: '0x44475a'
-      background: '0x50fa7b'
+  tokyo-night-storm: &tokyo-night-storm
+    # Default colors
+    primary:
+      background: '0x24283b'
+      foreground: '0xa9b1d6'
 
-    focused_match:
-      foreground: '0x44475a'
-      background: '0xffb86c'
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x9699a8'
 
-    bar:
-      background: '0x282a36'
-      foreground: '0xf8f8f2'
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
 
-  selection:
-    text: CellForeground
-    background: '0x44475a'
-
-  normal:
-    black:   '0x000000'
-    red:     '0xff5555'
-    green:   '0x50fa7b'
-    yellow:  '0xf1fa8c'
-    blue:    '0xbd93f9'
-    magenta: '0xff79c6'
-    cyan:    '0x8be9fd'
-    white:   '0xbfbfbf'
-
-  bright:
-    black:   '0x4d4d4d'
-    red:     '0xff6e67'
-    green:   '0x5af78e'
-    yellow:  '0xf4f99d'
-    blue:    '0xcaa9fa'
-    magenta: '0xff92d0'
-    cyan:    '0x9aedfe'
-    white:   '0xe6e6e6'
-
-  dim:
-    black:   '0x14151b'
-    red:     '0xff2222'
-    green:   '0x1ef956'
-    yellow:  '0xebf85b'
-    blue:    '0x4d5b86'
-    magenta: '0xff46b0'
-    cyan:    '0x59dffc'
-    white:   '0xe6e6d1'
+# Color
+colors: *tokyo-night
 
 # Background opacity
-background_opacity: 1.00
+background_opacity: 0.98
 
 cursor:
   style:
@@ -118,16 +125,23 @@ mouse:
 key_bindings:
   # ▀█▀ █▄ ▄█ █ █ ▀▄▀
   #  █  █ ▀ █ ▀▄█ █ █
+  # Split the current pane into two, top and bottom.
+  - { key: D, mods: Command|Shift, chars: "\x02\x22" }
   # Split the current pane into two, left and right
-  - { key: N, mods: Command|Shift, chars: "\x02\x25" }
+  - { key: D, mods: Command, chars: "\x02\x25" }
+
+  # Pane navigation
+  - { key: Up, mods: Command|Shift, chars: "\x02\x1b\x5b\x41" }
+  - { key: Down, mods: Command|Shift, chars: "\x02\x1b\x5b\x42"  }
+  - { key: Left, mods: Command|Shift, chars: "\x02\x1b\x5b\x44"  }
+  - { key: Right, mods: Command|Shift, chars: "\x02\x1b\x5b\x43"  }
+    
   # Select a new tmux session for the attached client interactively
   - { key: K, mods: Command, chars: "\x02\x73" }
   # Create new tmux window
   - { key: T, mods: Command, chars: "\x02\x63" }
   # Kill the current tmux pane (and window if last pane)
   - { key: W, mods: Command, chars: "\x02\x78" }
-  # Split the current pane into two, top and bottom.
-  - { key: N, mods: Command, chars: "\x02\x22" }
   # Rename the current tmux window
   - { key: Comma, mods: Command, chars: "\x02\x2c" }
   # Rename the current tmux session
@@ -146,10 +160,6 @@ key_bindings:
   - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
   # Change to the next tmux window
   - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
-  # Change to the previous tmux session
-  - { key: Up, mods: Command|Shift, chars: "\x02\x28" }
-  # Change to the next tmux session
-  - { key: Down, mods: Command|Shift, chars: "\x02\x29" }
   # Detach the current tmux client
   - { key: Q, mods: Command, chars: "\x02\x64" }
   # Toggle the zoom state of the current tmux pane
