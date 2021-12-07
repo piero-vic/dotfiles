@@ -38,9 +38,6 @@ alias rm="rm -i"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-# Print each PATH entry on a separate line
-alias path="echo -e ${PATH//:/\\n}"
-
 # the terminal rickroll
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 
