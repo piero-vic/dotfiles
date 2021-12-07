@@ -34,6 +34,7 @@ alias gl='git log --oneline'
 # Git push and  pull
 alias push='git push'
 alias pull='git pull'
+alias gpuo='git push -u origin'
 
 # Git stash
 alias gst='git stash'
