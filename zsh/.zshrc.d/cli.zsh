@@ -4,8 +4,8 @@
 #################### ALIASES ####################
 
 # Changing "ls" to "exa"
-alias ls="exa -al --grid --header --git"                               # my preferred listing
-alias lt="exa -al --tree --level=2 --git --ignore-glob='.git'"         # tree listing
+alias ls="exa -al --grid --header --git"
+alias lt="exa -al --tree --level=2 --git --ignore-glob='.git'"
 
 # Text editors
 alias v="nvim"
@@ -24,6 +24,9 @@ alias reload="source ~/.zshrc"
 
 # Easy clear
 alias c="clear"
+
+# Easy exit
+alias e="exit"
 
 # Easy history
 alias h="history"
