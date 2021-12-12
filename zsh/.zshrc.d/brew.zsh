@@ -1,11 +1,9 @@
 # ██▄ █▀▄ ██▀ █   █
 # █▄█ █▀▄ █▄▄ ▀▄▀▄▀
 
-alias bubo='brew update && brew outdated'
-alias bubc='brew upgrade && brew cleanup'
-alias bubu='bubo && bubc'
-alias buf='brew upgrade --formula'
-alias bcubo='brew update && brew outdated --cask'
-alias bcubc='brew upgrade --cask && brew cleanup'
+alias bi='brew install'
+alias bic='brew install --cask'
+alias bui='brew uninstall'
+alias bl='brew list'
 alias bt="brew deps --tree --installed"
-
+alias bup='brew update && brew outdated && brew upgrade && brew cleanup'
