@@ -1,6 +1,9 @@
 # ▀█▀ ▄▀▀ █▄█
 # █▄▄ ▄██ █ █
 
+# Start tmux on every shell login
+[ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ] && { tmux attach || tmux; } >/dev/null 2>&1
+
 ######## ENVIRONMENT VARIABLES #########
 # Editor
 export VISUAL="nvim"
