@@ -1,9 +1,1 @@
-### Ignore ###
-.config/*
 .DS_Store
-
-### Track ###
-!.config/starship.toml
-!.config/alacritty
-!.config/wezterm
-!.config/nvim
