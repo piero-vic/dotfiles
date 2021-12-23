@@ -1,61 +1,47 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
+# ▄▀▄ █   ▄▀▄ ▄▀▀ █▀▄ █ ▀█▀ ▀█▀ ▀▄▀
+# █▀█ █▄▄ █▀█ ▀▄▄ █▀▄ █  █   █   █ 
 
-# TERM enviroment variable
 env:
   TERM: xterm-256color
 
-# Window
 window:
-  dimensions:
-    columns: 138
-    lines: 40
-
-  position:
-    x: 0
-    y: 0
-
   padding:
     x: 10
     y: 10
 
-  decorations: buttonless
+  decorations: none
   startup_mode: Fullscreen
 
-# Font
 font:
   normal:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
     style: Regular
 
   bold:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
     style: Bold
 
   italic:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
     style: Italic
 
   bold_italic:
-    family: MesloLGS NF
+    family: JetBrainsMono Nerd Font
     style: Bold Italic
 
   size: 12.0
+
   use_thin_strokes: false
 
-draw_bold_text_with_bright_colors: false
-
-# Colors Schemes
 schemes:
   # Tokyo Night theme, based on both:
   #   https://github.com/ghifarit53/tokyonight-vim
   #   https://github.com/enkia/tokyo-night-vscode-theme
   tokyo-night: &tokyo-night
-    # Default colors
     primary:
       background: '0x1a1b26'
       foreground: '0xa9b1d6'
 
-    # Normal colors
     normal:
       black:   '0x32344a'
       red:     '0xf7768e'
@@ -66,7 +52,6 @@ schemes:
       cyan:    '0x449dab'
       white:   '0x787c99'
 
-    # Bright colors
     bright:
       black:   '0x444b6a'
       red:     '0xff7a93'
@@ -78,12 +63,10 @@ schemes:
       white:   '0xacb0d0'
 
   tokyo-night-storm: &tokyo-night-storm
-    # Default colors
     primary:
       background: '0x24283b'
       foreground: '0xa9b1d6'
 
-    # Normal colors
     normal:
       black:   '0x32344a'
       red:     '0xf7768e'
@@ -94,7 +77,6 @@ schemes:
       cyan:    '0x449dab'
       white:   '0x9699a8'
 
-    # Bright colors
     bright:
       black:   '0x444b6a'
       red:     '0xff7a93'
@@ -105,19 +87,7 @@ schemes:
       cyan:    '0x0db9d7'
       white:   '0xacb0d0'
 
-# Color
-colors: *tokyo-night
-
-# Background opacity
-background_opacity: 1
-
-cursor:
-  style:
-    shape: Block
-    unfocused_hollow: true
-    blinking: On
-
-  blink_interval: 500
+colors: *tokyo-night-storm
 
 mouse:
   hide_when_typing: true
@@ -138,7 +108,7 @@ key_bindings:
   - { key: L, mods: Command|Shift, chars: "\x02\x1b\x5b\x43"  }
   - { key: Left, mods: Command|Shift, chars: "\x02\x1b\x5b\x44"  }
   - { key: H, mods: Command|Shift, chars: "\x02\x1b\x5b\x44"  }
-    
+
   # Command mode (:)
   - { key: Semicolon, mods: Command, chars: "\x02\x3a" }
 
