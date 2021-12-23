@@ -4,6 +4,7 @@ format = """
 $directory\
 $git_branch\
 $git_commit\
+$git_state\
 $git_status\
 $nodejs\
 $python\
@@ -27,11 +28,20 @@ python_binary = "python3"
 
 [git_branch]
 symbol = " "
-style = "purple"
-format = "[on](white) [$symbol$branch]($style) "
+format = "[on](white) [$symbol$branch](purple) "
 
 [git_commit]
 style = "green"
 
 [git_status]
-style = "red"
+format = '$all_status$ahead_behind'
+conflicted = '[=$count](red) '
+ahead = '[⇡$count](green) '
+behind = '[⇣$count](yellow) '
+diverged = '[⇕$count](red) '
+untracked = '[?$count](red) '
+stashed = '[\$$count](yellow) '
+modified = '[!$count](yellow) '
+staged = '[+$count](green) '
+renamed = '[»$count](green) '
+deleted = '[✘$count](red) '
