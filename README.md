@@ -1,6 +1,6 @@
 # `.dotfiles`
 
-<img src="resources/screenshot.png" alt="screenshot" align="right" height="350px">
+<img src="screenshot.png" alt="screenshot" align="right" height="350px">
 
 ## Introduction
 
