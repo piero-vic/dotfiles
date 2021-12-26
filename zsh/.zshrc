@@ -23,8 +23,6 @@ fi
 
 ## Custom Programs
 
-# Pfetch config
-export PF_INFO="ascii title os host kernel uptime pkgs memory wm shell editor"
 # Use bat to color man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # Exa grid
