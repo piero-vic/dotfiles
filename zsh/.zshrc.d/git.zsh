@@ -21,7 +21,8 @@ alias gcm='git commit -m'
 alias gco='git checkout'
 alias gcb='git checkout -b'
 
-alias gl='git log --oneline'
+alias gl='git log'
+alias glo='git log --oneline'
 
 alias gd='git diff'
 alias gds='git diff --staged'
