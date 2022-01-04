@@ -12,6 +12,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/tokyonight.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 "--------------------------
@@ -20,17 +22,17 @@ call plug#end()
 
 " Visual
 syntax enable
+set termguicolors
 set conceallevel=0                  " So that I can see `` in markdown files
 set nowrap
-set ruler
 set number
 set relativenumber
+set cursorline
+set colorcolumn=88
+
+" Status Line
 set laststatus=2                    " Always show the status line
 set noshowmode                      " No need to see things like -- INSERT -- anymore
-set cursorline
-set termguicolors
-set t_Co=256
-set colorcolumn=88
 
 " File explore
 let g:netrw_banner = 0              " Remove the header in Lexplore
@@ -50,7 +52,7 @@ set splitright
 
 " Other functionalities
 set mouse=a
-set clipboard=unnamedplus           " Copy paste between vim and everithing else
+set clipboard=unnamedplus           " Copy paste between vim and everything else
 set fileencoding=utf-8
 set timeoutlen=500
 set formatoptions-=cro
@@ -60,14 +62,14 @@ set formatoptions-=cro
 "--------------------------
 
 " Navigate buffers
-nnoremap <TAB> :bnext<CR>
-nnoremap <S-TAB> :bprevious<CR>
+nnoremap <silent> <TAB> :bnext<CR>
+nnoremap <silent> <S-TAB> :bprevious<CR>
 
 " Open file explorer
-nnoremap <silent> <C-N> :Lexplore<CR> :vertical resize 30<CR>
+nnoremap <silent> <C-N> :Lex 15<CR>
 
 " Search and replace
-nnoremap <C-S> :%s/
+nnoremap <silent> <C-S> :%s/
 
 " Consecutive tabs on visual mode
 vnoremap < <gv
@@ -109,12 +111,7 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
