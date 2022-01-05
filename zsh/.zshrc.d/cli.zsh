@@ -39,7 +39,7 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 # Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+[[ `uname` == 'Darwin' ]] && alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # the terminal rickroll
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
@@ -54,12 +54,18 @@ mkcd() {
 
 # Opens the current directory, otherwise opens the given
 # usage: o / o <directory>
+if [[ `uname` == 'Darwin' ]]; then
+  OPEN_CMD='open'
+elif [[ `uname` == 'Linux' ]]; then
+  OPEN_CMD='xdg-open'
+fi
+
 o() {
-	if [ $# -eq 0 ]; then
-		open .;
-	else
-		open "$@";
-	fi;
+  if [ $# -eq 0 ]; then
+    $($OPEN_CMD .);
+  else
+    $($OPEN_CMD "$@");
+  fi;
 }
 
 ## Archive Extraction
