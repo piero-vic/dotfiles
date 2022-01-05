@@ -15,21 +15,14 @@ export HISTSIZE=1000                        # Set history size to 1000 lines
 unset HISTFILE                              # Don't save to .zsh_history
 
 # PATH
-export PATH="$PATH:$HOME/Library/Python/3.9/bin"
-export PATH="$HOME/.poetry/bin:$PATH"
-if [ -d ~/.scripts ]; then
-  export PATH="$PATH:$HOME/.scripts"
-fi
+[[ -d ~/Library/Python/3.9/bin ]] && export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+[[ -d ~/.poetry/bin ]] && export PATH="$PATH:$HOME/.poetry/bin"
+[[ -d ~/.scripts ]] && export PATH="$PATH:$HOME/.scripts"
 
-## Custom Programs
-
-# Use bat to color man pages
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-# Exa grid
-export EXA_GRID_ROWS=10
-# Cointop
-export COINTOP_CONFIG="$HOME/.cointop/config.toml"
-
+# Custom Programs
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"         # Use bat to color man pages
+export EXA_GRID_ROWS=10                                   # Exa grid
+export COINTOP_CONFIG="$HOME/.cointop/config.toml"        # Cointop
 
 ########### User specific configuration ###########
 autoload -Uz compinit && compinit           # Completion
@@ -48,5 +41,3 @@ unset rc
 ########### Plugins and other stuff ###############
 eval "$(starship init zsh)"
 [[ -s "/usr/local/share/goto.sh" ]] && source /usr/local/share/goto.sh
-. "$HOME/.cargo/env"
-
