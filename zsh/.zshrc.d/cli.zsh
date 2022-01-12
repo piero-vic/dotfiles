@@ -4,15 +4,17 @@
 #################### ALIASES ####################
 
 # Changing "ls" to "exa"
-alias ls="exa -al --grid --header --git"
-alias lt="exa -al --tree --level=2 --git --ignore-glob='.git'"
+if [[ `command -v exa` ]]; then
+  alias ls="exa -al --grid --header --git"
+  alias lt="exa -al --tree --level=2 --git --ignore-glob='.git'"
+fi
 
 # Text editors
 alias v="nvim"
 alias code="codium"
 
 # Changing "sed" to "gsed"
-alias sed='gsed'
+[[ `command -v gsed` ]] && alias sed='gsed'
 
 # Easier navigation
 alias ..="cd .."
