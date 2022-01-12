@@ -255,6 +255,16 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " Prettier
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
+" Extensions
+let g:coc_global_extensions = [
+      \'coc-emmet',
+      \'coc-json',
+      \'coc-pairs',
+      \'coc-prettier',
+      \'coc-tailwindcss',
+      \'coc-tsserver'
+      \]
+
 "--------------------------
 " Tree Sitter
 "--------------------------
