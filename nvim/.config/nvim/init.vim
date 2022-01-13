@@ -73,6 +73,10 @@ nnoremap <silent> <C-N> :Lex 15<CR>
 " Search and replace
 nnoremap <silent> <C-S> :%s/
 
+" Toggle caps
+inoremap <C-U> <Esc>viw~i
+nnoremap <C-U> viw~<Esc>
+
 " Consecutive tabs on visual mode
 vnoremap < <gv
 vnoremap > >gv
