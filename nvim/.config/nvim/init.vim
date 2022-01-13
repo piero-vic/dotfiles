@@ -61,6 +61,8 @@ set formatoptions-=cro
 " KEY MAPPINGS
 "--------------------------
 
+let g:mapleader = ' '
+
 " Navigate buffers
 nnoremap <silent> <TAB> :bnext<CR>
 nnoremap <silent> <S-TAB> :bprevious<CR>
@@ -295,3 +297,13 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+"--------------------------
+" Telescope
+"--------------------------
+
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git'} })<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_status()<cr>
+nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <leader>gc <cmd>lua require('telescope.builtin').git_bcommits()<cr>
