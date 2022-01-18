@@ -15,6 +15,8 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 call plug#end()
 
 "--------------------------
@@ -300,6 +302,34 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
+}
+EOF
+
+"--------------------------
+" Comments
+"--------------------------
+
+lua <<EOF
+require'Comment'.setup {
+  pre_hook = function(ctx)
+    local U = require "Comment.utils"
+
+    local location = nil
+    if ctx.ctype == U.ctype.block then
+      location = require("ts_context_commentstring.utils").get_cursor_location()
+    elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+      location = require("ts_context_commentstring.utils").get_visual_start_location()
+    end
+
+    return require("ts_context_commentstring.internal").calculate_commentstring {
+      key = ctx.ctype == U.ctype.line and "__default" or "__multiline",
+      location = location,
+    }
+  end,
 }
 EOF
 
