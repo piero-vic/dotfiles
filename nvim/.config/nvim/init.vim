@@ -77,8 +77,7 @@ nnoremap <silent> <C-N> :Lex 15<CR>
 nnoremap <silent> <C-S> :%s/
 
 " Toggle caps
-inoremap <C-U> <Esc>viw~i
-nnoremap <C-U> viw~<Esc>
+nnoremap <leader>u viw~<Esc>
 
 " Consecutive tabs on visual mode
 vnoremap < <gv
