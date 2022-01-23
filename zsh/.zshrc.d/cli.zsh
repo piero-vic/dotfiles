@@ -6,7 +6,7 @@
 # Changing "ls" to "exa"
 if [[ `command -v exa` ]]; then
   alias ls="exa -al --grid --header --git"
-  alias lt="exa -al --tree --level=2 --git --ignore-glob='.git'"
+  alias lt="exa -al --tree --level=2 --git --ignore-glob='.git|node_modules'"
 fi
 
 # Text editors
