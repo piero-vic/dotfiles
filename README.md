@@ -29,22 +29,22 @@ I got this trick from [Josh Medeski](https://github.com/joshmedeski). For more d
 
 ### Shortcuts
 
-**Function** | **Shortcut**
--------- | --------
-**Session** |
-Rename the current tmux session | `⌘` + `.`
-Open menu to select a tmux session | `⌘` + `K`
-**Windows** | 
-New Window | `⌘` + `T`
-Close Pane or Window | `⌘` + `W`
-Previous Window | `⌘`+ `Shift` + `[`
-Next Window | `⌘`+ `Shift` + `]`
-Rename the current tmux window | `⌘` + `,`
-**Panes** | 
-Split Window Vertically | `⌘` + `D`
-Split Window Horizontally | `⌘` + `Shift` + `D`
-Toggle the zoom state on current pane | `⌘` + `Z`
-Move between panes | `⌘` + `Shift` + `Direction`
+| **Function**                          | **Shortcut**                |
+| ------------------------------------- | --------------------------- |
+| **Session**                           |
+| Rename the current tmux session       | `⌘` + `.`                   |
+| Open menu to select a tmux session    | `⌘` + `K`                   |
+| **Windows**                           |
+| New Window                            | `⌘` + `T`                   |
+| Close Pane or Window                  | `⌘` + `W`                   |
+| Previous Window                       | `⌘`+ `Shift` + `[`          |
+| Next Window                           | `⌘`+ `Shift` + `]`          |
+| Rename the current tmux window        | `⌘` + `,`                   |
+| **Panes**                             |
+| Split Window Vertically               | `⌘` + `D`                   |
+| Split Window Horizontally             | `⌘` + `Shift` + `D`         |
+| Toggle the zoom state on current pane | `⌘` + `Z`                   |
+| Move between panes                    | `⌘` + `Shift` + `Direction` |
 
 ## License
 
