@@ -5,8 +5,8 @@
 
 # Changing "ls" to "exa"
 if [[ `command -v exa` ]]; then
-  alias ls="exa -al --grid --header --git"
-  alias lt="exa -al --tree --level=2 --git --ignore-glob='.git|node_modules'"
+  alias ls="exa -alGh --group-directories-first --git"
+  alias lt="exa -alTL=2 --group-directories-first --git --ignore-glob='.git|node_modules'"
 fi
 
 # Text editors
@@ -20,6 +20,9 @@ alias code="codium"
 alias ..="cd .."
 alias ...="cd ../.."
 alias gt="goto"
+
+# Extend mkdir
+alias mkdir="mkdir -pv"
 
 # Reload shell
 alias reload="source ~/.zshrc"
