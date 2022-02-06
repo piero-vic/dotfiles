@@ -4,7 +4,7 @@
 #################### ALIASES ####################
 
 # Changing "ls" to "exa"
-if [[ `command -v exa` ]]; then
+if [[ $(command -v exa) ]]; then
   alias ls="exa -alGh --group-directories-first --git"
   alias lt="exa -alTL=2 --group-directories-first --git --ignore-glob='.git|node_modules'"
 fi
@@ -14,7 +14,7 @@ alias v="nvim"
 alias code="codium"
 
 # Changing "sed" to "gsed"
-[[ `command -v gsed` ]] && alias sed='gsed'
+[[ $(command -v gsed) ]] && alias sed='gsed'
 
 # Easier navigation
 alias ..="cd .."
@@ -39,12 +39,12 @@ alias hs="history | grep"
 alias hsi="history | grep -i"
 
 # Confirm before overwriting something
-alias cp="cp -i"
+alias cp="cp -ri"
 alias mv="mv -i"
 alias rm="rm -i"
 
 # Recursively delete `.DS_Store` files
-[[ `uname` == 'Darwin' ]] && alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+[[ $(uname) == 'Darwin' ]] && alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # the terminal rickroll
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
@@ -53,23 +53,22 @@ alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 
 ## Create directory and navigate to it
 # usage: mkdc <directory>
-mkcd() {
-  mkdir -p -- "$1" && cd -P -- "$1"
+mkcd() { 
+  mkdir -p -- "$1" && cd -P -- "$1" || return 
 }
 
 # Opens the current directory, otherwise opens the given
 # usage: o / o <directory>
-if [[ `uname` == 'Darwin' ]]; then
-  OPEN_CMD='open'
-elif [[ `uname` == 'Linux' ]]; then
-  OPEN_CMD='xdg-open'
-fi
+case $(uname) in
+  'Darwin') OPEN_CMD='open' ;;
+  'Linux') OPEN_CMD='xdg-open' ;;
+esac
 
 o() {
   if [ $# -eq 0 ]; then
-    $($OPEN_CMD .);
+    $OPEN_CMD .
   else
-    $($OPEN_CMD "$@");
+    $OPEN_CMD "$@"
   fi;
 }
 

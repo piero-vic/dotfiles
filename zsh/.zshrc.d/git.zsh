@@ -26,6 +26,7 @@ alias glo='git log --oneline'
 
 alias gd='git diff'
 alias gds='git diff --staged'
+alias batdiff='git diff --name-only --diff-filter=d | xargs bat --diff'
 
 alias pull='git pull'
 alias push='git push'
