@@ -6,8 +6,6 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
-$nodejs\
-$python\
 $character
 """
 
@@ -17,14 +15,6 @@ style = "blue"
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
-
-[nodejs]
-format = "[via](white) [$symbol($version )]($style)"
-
-[python]
-symbol = " "
-format = '[via](white) [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-python_binary = "python3"
 
 [git_branch]
 symbol = " "
