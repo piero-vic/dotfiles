@@ -87,7 +87,7 @@ vnoremap > >gv
 " Coloscheme
 "--------------------------
 
-let g:tokyonight_style = 'storm' " available: night, storm
+let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 colorscheme tokyonight
 let g:lightline = {'colorscheme': 'tokyonight'}
@@ -108,7 +108,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+" set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
