@@ -8,3 +8,11 @@
 	email = 71156605+piero-vic@users.noreply.github.com
 [commit]
 	verbose = true
+[core]
+  pager = delta
+[delta]
+  syntax-theme = ansi
+  line-numbers = true
+  zero-style = dim syntax
+  line-numbers-left-format = "{nm:>2}┊"
+  line-numbers-right-format = "{np:>2}┊"
