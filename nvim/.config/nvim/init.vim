@@ -17,6 +17,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'honza/vim-snippets'
+Plug 'rajasegar/vim-astro', {'branch': 'main'}
 call plug#end()
 
 "--------------------------
@@ -266,9 +268,11 @@ command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 " Extensions
 let g:coc_global_extensions = [
       \'coc-emmet',
+      \'coc-jedi',
       \'coc-json',
       \'coc-pairs',
       \'coc-prettier',
+      \'coc-snippets',
       \'coc-tailwindcss',
       \'coc-tsserver'
       \]
