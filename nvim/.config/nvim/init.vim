@@ -222,13 +222,11 @@ require'nvim-treesitter.configs'.setup {
     enable_autocmd = false,
   },
 }
-EOF
 
-"--------------------------
-" Comments
-"--------------------------
+--------------------------
+-- Comments
+--------------------------
 
-lua <<EOF
 require'Comment'.setup {
   pre_hook = function(ctx)
     local U = require "Comment.utils"
@@ -246,14 +244,12 @@ require'Comment'.setup {
     }
   end,
 }
+
+
+--------------------------
+-- Telescope
+--------------------------
+
+require "user.telescope"
+
 EOF
-
-"--------------------------
-" Telescope
-"--------------------------
-
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git'} })<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_status()<cr>
-nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
-nnoremap <leader>gc <cmd>lua require('telescope.builtin').git_bcommits()<cr>
