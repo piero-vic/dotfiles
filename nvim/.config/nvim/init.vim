@@ -25,29 +25,9 @@ call plug#end()
 lua require "user.options"
 
 " KEY MAPPINGS
-let g:mapleader = ' '
+lua require "user.keymaps"
 
-" Navigate buffers
-nnoremap <silent> <TAB> :bnext<CR>
-nnoremap <silent> <S-TAB> :bprevious<CR>
-
-" Open file explorer
-nnoremap <silent> <C-N> :Lex 15<CR>
-
-" Search and replace
-nnoremap <silent> <C-S> :%s/
-
-" Toggle caps
-nnoremap <leader>u viw~<Esc>
-
-" Consecutive tabs on visual mode
-vnoremap < <gv
-vnoremap > >gv
-
-"--------------------------
 " Coloscheme
-"--------------------------
-
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 colorscheme tokyonight
@@ -135,9 +115,7 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Run the Code Lens action on the current line.
-nmap <leader>cl  <Plug>(coc-codelens-action)
-
+" Run the Code Lens action on the current line. nmap <leader>cl  <Plug>(coc-codelens-action)
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
