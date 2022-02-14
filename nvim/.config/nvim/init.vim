@@ -1,10 +1,6 @@
 " █▄ █ ██▀ ▄▀▄ █ █ █ █▄ ▄█
 " █ ▀█ █▄▄ ▀▄▀ ▀▄▀ █ █ ▀ █
 
-"--------------------------
-" PLUGINS
-"--------------------------
-
 call plug#begin('~/local/share/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
@@ -21,21 +17,26 @@ Plug 'honza/vim-snippets'
 Plug 'rajasegar/vim-astro', {'branch': 'main'}
 call plug#end()
 
-" GENERAL
 lua require "user.options"
-
-" KEY MAPPINGS
 lua require "user.keymaps"
+lua require "user.treesitter"
+lua require "user.comment"
+lua require "user.telescope"
 
-" Coloscheme
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
-let g:lightline = {'colorscheme': 'tokyonight'}
+"""""""""
+" Coc
+"""""""""
 
-"--------------------------
-" CoC
-"--------------------------
+let g:coc_global_extensions = [
+      \'coc-emmet',
+      \'coc-jedi',
+      \'coc-json',
+      \'coc-pairs',
+      \'coc-prettier',
+      \'coc-snippets',
+      \'coc-tailwindcss',
+      \'coc-tsserver'
+      \]
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -176,80 +177,3 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Prettier
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-
-" Extensions
-let g:coc_global_extensions = [
-      \'coc-emmet',
-      \'coc-jedi',
-      \'coc-json',
-      \'coc-pairs',
-      \'coc-prettier',
-      \'coc-snippets',
-      \'coc-tailwindcss',
-      \'coc-tsserver'
-      \]
-
-"--------------------------
-" Tree Sitter
-"--------------------------
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
-
-  -- Install languages synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- List of parsers to ignore installing
-  ignore_install = { "javascript" },
-
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-
-    -- list of language that will be disabled
-    disable = { "c", "rust" },
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
-}
-
---------------------------
--- Comments
---------------------------
-
-require'Comment'.setup {
-  pre_hook = function(ctx)
-    local U = require "Comment.utils"
-
-    local location = nil
-    if ctx.ctype == U.ctype.block then
-      location = require("ts_context_commentstring.utils").get_cursor_location()
-    elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-      location = require("ts_context_commentstring.utils").get_visual_start_location()
-    end
-
-    return require("ts_context_commentstring.internal").calculate_commentstring {
-      key = ctx.ctype == U.ctype.line and "__default" or "__multiline",
-      location = location,
-    }
-  end,
-}
-
-
---------------------------
--- Telescope
---------------------------
-
-require "user.telescope"
-
-EOF
