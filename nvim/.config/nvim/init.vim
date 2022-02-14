@@ -21,51 +21,10 @@ Plug 'honza/vim-snippets'
 Plug 'rajasegar/vim-astro', {'branch': 'main'}
 call plug#end()
 
-"--------------------------
 " GENERAL
-"--------------------------
+lua require "user.options"
 
-" Visual
-syntax enable
-set termguicolors
-set conceallevel=0                  " So that I can see `` in markdown files
-set nowrap
-set number
-set relativenumber
-set cursorline
-set colorcolumn=88
-
-" Status Line
-set laststatus=2                    " Always show the status line
-set noshowmode                      " No need to see things like -- INSERT -- anymore
-
-" File explore
-let g:netrw_banner = 0              " Remove the header in Lexplore
-let g:netrw_liststyle = 3           " Tree explorer
-
-" Tabs and indentation
-set tabstop=2
-set shiftwidth=2
-set smarttab
-set expandtab
-set smartindent
-set autoindent
-
-" Splits
-set splitbelow
-set splitright
-
-" Other functionalities
-set mouse=a
-set clipboard=unnamedplus           " Copy paste between vim and everything else
-set fileencoding=utf-8
-set timeoutlen=500
-set formatoptions-=cro
-
-"--------------------------
 " KEY MAPPINGS
-"--------------------------
-
 let g:mapleader = ' '
 
 " Navigate buffers
@@ -97,31 +56,6 @@ let g:lightline = {'colorscheme': 'tokyonight'}
 "--------------------------
 " CoC
 "--------------------------
-
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
-set encoding=utf-8
-
-" TextEdit might fail if hidden is not set.
-set hidden
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Give more space for displaying messages.
-" set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
