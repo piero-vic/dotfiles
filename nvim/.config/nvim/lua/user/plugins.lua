@@ -53,7 +53,7 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope.nvim'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
   use 'numToStr/Comment.nvim'
-  -- use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'honza/vim-snippets'
   use {'rajasegar/vim-astro', branch = 'main'}
 
