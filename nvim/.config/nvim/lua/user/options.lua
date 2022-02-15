@@ -9,11 +9,6 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.pumheight = 10
--- Colorscheme
-vim.g.tokyonight_style = 'night'
-vim.g.tokyonight_italic_functions = true
-vim.cmd[[colorscheme tokyonight]]
-vim.cmd[[let g:lightline = {'colorscheme': 'tokyonight'}]]
 -- Search
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true

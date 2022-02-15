@@ -19,6 +19,7 @@ call plug#end()
 
 lua require "user.options"
 lua require "user.keymaps"
+lua require "user.colorscheme"
 lua require "user.treesitter"
 lua require "user.comment"
 lua require "user.telescope"
