@@ -1,13 +1,7 @@
 local sources = {
-  "user.options",
-  "user.keymaps",
-  "user.plugins",
-  "user.colorscheme",
-  "user.lsp",
-  "user.cmp",
-  "user.treesitter",
-  "user.comment",
-  "user.telescope"
+  "core.options",
+  "core.keymaps",
+  "core.plugins",
 }
 
 for _, source in ipairs(sources) do
