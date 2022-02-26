@@ -14,6 +14,7 @@ function M.config()
     },
     pickers = {
       find_files = {
+        theme = "dropdown",
         find_command = {'rg', '--files', '--hidden', '-g', '!.git'}
       }
     }

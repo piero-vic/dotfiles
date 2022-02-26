@@ -1,7 +1,7 @@
 local set = vim.opt
 
 -- Visual
-set.colorcolumn = "80"
+set.colorcolumn = "80,120"
 set.cursorline = true
 set.number = true
 set.relativenumber = true
@@ -15,8 +15,6 @@ set.pumheight = 10
 set.hlsearch = true
 set.ignorecase = true
 set.smartcase = true
--- Tab Line
-set.showtabline = 2
 -- Status Line
 set.showmode = false
 -- File explore
@@ -50,3 +48,7 @@ set.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]]
+
+-- Custom filetypes
+vim.cmd [[autocmd BufNewFile,BufRead *.jrnl set ft=markdown]]
+vim.cmd [[autocmd FileType markdown setlocal wrap linebreak textwidth=80]]

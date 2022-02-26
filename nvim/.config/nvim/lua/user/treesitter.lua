@@ -8,18 +8,17 @@ function M.config()
 
   treesitter.setup {
     ensure_installed = "maintained",
-
     sync_install = false,
-
+    ignore_install = { "" },
     highlight = {
       enable = true,
-      additional_vim_regex_highlighting = false,
+      disable = { "" },
+      additional_vim_regex_highlighting = true
     },
-
     context_commentstring = {
       enable = true,
-      enable_autocmd = false,
-    },
+      enable_autocmd = false
+    }
   }
 end
 

@@ -41,9 +41,9 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "wbthomason/packer.nvim"  -- Have packer manage itself
+  use "nvim-lua/popup.nvim"     -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim"   -- Useful lua functions used ny lots of plugins
 
   -- Colorscheme
   use {
@@ -60,6 +60,8 @@ return packer.startup(function(use)
       vim.g.lightline = { colorscheme = 'tokyonight' }
     end
   }
+
+  use "akinsho/bufferline.nvim"
 
   -- Telescope
   use {
@@ -86,6 +88,8 @@ return packer.startup(function(use)
     end
   }
 
+  use "JoosepAlviste/nvim-ts-context-commentstring"
+
   -- Completion engine
   use {
     "hrsh7th/nvim-cmp",
@@ -93,47 +97,34 @@ return packer.startup(function(use)
       require("user.cmp").config()
     end,
   }
-
-  -- Snippet completion source
-  use {
-    "saadparwaiz1/cmp_luasnip",
-    after = "nvim-cmp",
-  }
-
-  -- Buffer completion source
-  use {
-    "hrsh7th/cmp-buffer",
-    after = "nvim-cmp",
-  }
-
-  -- Path completion source
-  use {
-    "hrsh7th/cmp-path",
-    after = "nvim-cmp",
-  }
-
-  -- LSP completion source
-  use {
-    "hrsh7th/cmp-nvim-lsp",
-  }
+  use { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" }  -- Snippet completion source
+  use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }        -- Buffer completion source
+  use { "hrsh7th/cmp-path", after = "nvim-cmp" }          -- Path completion source
+  use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp"}       -- LSP completion source
 
   -- LSP
-  use {"williamboman/nvim-lsp-installer"}
+  use "neovim/nvim-lspconfig"
   use {
-    "neovim/nvim-lspconfig",
+    "williamboman/nvim-lsp-installer",
     event = "BufRead",
     config = function()
       require "user.lsp"
     end
   }
 
-  -- Other plugins
-  use {"L3MON4D3/LuaSnip"}
-  use {"rafamadriz/friendly-snippets"}
-  use {'rajasegar/vim-astro', branch = 'main'}
-  use {'JoosepAlviste/nvim-ts-context-commentstring'}
+  -- Git
+  use "airblade/vim-gitgutter"
+
+  -- Markdown
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
-  use {'airblade/vim-gitgutter'}
+  use "ellisonleao/glow.nvim"
+
+  -- Snippets
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
+
+  -- Other plugins
+  use {'rajasegar/vim-astro', branch = 'main'}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
