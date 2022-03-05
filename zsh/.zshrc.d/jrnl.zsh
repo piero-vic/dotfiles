@@ -9,31 +9,32 @@ alias je='j --edit'
 alias jl='j --list'
 
 alias jt='j -on today'
-alias jw='j -from "last week" -to today'
+alias jw='j -from "last week"'
 alias jm='j -from $(date +"%Y-%m-01")'
 
 alias jts='jt --short'
 alias jtm='jt --format md'
-alias jtg='jtm | glow --pager -'
 
 alias jws='jw --short'
 alias jwm='jw --format md'
-alias jwg='jwm | glow --pager -'
 
 alias jms='jm --short'
 alias jmm='jm --format md'
-alias jmg='jmm | glow --pager -'
 
-## Display jrnl entries on slides
-# usage: js <journal>
+## Display jrnl entries with glow
+# usage: jg <date>
+jg() {
+  [ $# -eq 0 ] && date=$(date +"%Y-%m-01") || date=$@
+  jrnl -from "$date" --format md | glow --pager -
+}
+
+
+## Display jrnl entries with slides
+# usage: js <date>
 js() {
-  date=$(date +"%Y-%m-01")
+  [ $# -eq 0 ] && date=$(date +"%Y-%m-01") || date=$@
 
-  if [ $# -eq 0 ]; then
-    jrnl=$header$(jrnl -from "$date" --format md)
-  else
-    jrnl=$header$(jrnl "$@" -from "$date" --format md)
-  fi
+  jrnl=$header$(jrnl -from "$date" --format md)
 
   echo "$jrnl" | while IFS= read -r line; do
     if [[ "$line" =~ ^###.* ]]; then

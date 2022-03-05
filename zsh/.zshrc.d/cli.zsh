@@ -22,7 +22,7 @@ alias ...="cd ../.."
 alias gt="goto"
 
 # Extend mkdir
-alias mkdir="mkdir -pv"
+alias mkdir="mkdir -p"
 
 # Reload shell
 alias reload="source ~/.zshrc"
@@ -44,7 +44,7 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 # Recursively delete `.DS_Store` files
-[[ $(uname) == 'Darwin' ]] && alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # the terminal rickroll
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
@@ -96,4 +96,11 @@ ex() {
   else
     echo "'$1' is not a valid file"
   fi
+}
+
+## Spotify
+# usage: spotify
+spotify() {
+  spotifyd --no-daemon &>/dev/null &
+  spt
 }
