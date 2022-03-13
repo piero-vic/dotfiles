@@ -61,8 +61,6 @@ return packer.startup(function(use)
     end
   }
 
-  use "akinsho/bufferline.nvim"
-
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
@@ -122,9 +120,6 @@ return packer.startup(function(use)
   -- Snippets
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
-
-  -- Other plugins
-  use {'rajasegar/vim-astro', branch = 'main'}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

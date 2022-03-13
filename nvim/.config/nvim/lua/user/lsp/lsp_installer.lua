@@ -3,6 +3,7 @@ if not status_ok then
   return
 end
 
+-- Install servers
 local servers = {
   "bashls",
   "emmet_ls",
@@ -14,7 +15,6 @@ local servers = {
   "vimls",
 }
 
--- Install servers
 for _, name in pairs(servers) do
   local server_is_found, server = lsp_installer.get_server(name)
   if server_is_found and not server:is_installed() then
