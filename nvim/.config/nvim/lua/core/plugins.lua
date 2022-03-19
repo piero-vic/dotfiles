@@ -1,18 +1,12 @@
+local execute = vim.api.nvim_command
 local fn = vim.fn
 
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
+  PACKER_BOOTSTRAP = fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path})
   print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+  execute 'packadd packer.nvim'
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -45,21 +39,20 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim"     -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim"   -- Useful lua functions used ny lots of plugins
 
-  -- Colorscheme
+  -- Visual Plugins
   use {
     'folke/tokyonight.nvim',
     config = function ()
       require("user.colorscheme").config()
     end
   }
-
-  -- Lightline
   use {
     'itchyny/lightline.vim',
     config = function ()
       vim.g.lightline = { colorscheme = 'tokyonight' }
     end
   }
+  use "airblade/vim-gitgutter"
 
   -- Telescope
   use {
@@ -69,7 +62,7 @@ return packer.startup(function(use)
     end
   }
 
-  -- Treesitter
+  -- Tree-Sitter
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate",
@@ -78,17 +71,17 @@ return packer.startup(function(use)
     end
   }
 
-  -- Comments
+  -- LSP
+  use "neovim/nvim-lspconfig"
   use {
-    'numToStr/Comment.nvim',
+    "williamboman/nvim-lsp-installer",
+    event = "BufRead",
     config = function()
-      require("user.comment").config()
+      require("user.lsp")
     end
   }
 
-  use "JoosepAlviste/nvim-ts-context-commentstring"
-
-  -- Completion engine
+  -- Autocomplete
   use {
     "hrsh7th/nvim-cmp",
     config = function()
@@ -100,29 +93,24 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-path", after = "nvim-cmp" }          -- Path completion source
   use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp"}       -- LSP completion source
 
-  -- LSP
-  use "neovim/nvim-lspconfig"
-  use {
-    "williamboman/nvim-lsp-installer",
-    event = "BufRead",
-    config = function()
-      require "user.lsp"
-    end
-  }
-
-  -- Git
-  use "airblade/vim-gitgutter"
+  -- Snippets
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
 
   -- Markdown
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
   use "ellisonleao/glow.nvim"
 
-  -- Snippets
-  use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets"
+  -- Comments
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require("user.comment").config()
+    end
+  }
+  use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
