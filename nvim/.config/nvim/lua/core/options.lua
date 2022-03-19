@@ -1,52 +1,71 @@
-local options = {
-  -- Visual
-  colorcolumn = "80,120",
-  cursorline = true,
-  number = true,
-  relativenumber = true,
-  signcolumn = "yes",
-  termguicolors = true,
-  wrap = false,
-  scrolloff = 8,
-  sidescrolloff = 8,
-  pumheight = 10,
+-- Visual
+vim.opt.colorcolumn = { 80, 120 }
+vim.opt.cursorline = true
+vim.opt.number = true
+vim.opt.pumheight = 10
+vim.opt.relativenumber = true
+vim.opt.scrolloff = 8
+vim.opt.showmode = false
+vim.opt.sidescrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.termguicolors = true
+vim.opt.wrap = false
   -- Search
-  hlsearch = true,
-  ignorecase = true,
-  smartcase = true,
-  -- Status Line
-  showmode = false,
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
   -- Tabs and indentation
-  expandtab = true,
-  shiftwidth = 2,
-  smartindent = true,
-  tabstop = 2,
+vim.opt.autoindent = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.tabstop = 2
   -- Splits
-  splitbelow = true,
-  splitright = true,
+vim.opt.splitbelow = true
+vim.opt.splitright = true
   -- Other
-  backup = false,
-  clipboard = "unnamedplus",
-  completeopt = { "menuone", "noselect" },
-  conceallevel = 0,
-  encoding = "utf-8",
-  fileencoding = "utf-8",
-  hidden = true,
-  mouse = "a",
-  swapfile = false,
-  timeoutlen = 1000,
-  undofile = true,
-  updatetime = 300,
-  writebackup = false
+vim.opt.backup = false
+vim.opt.clipboard = "unnamedplus"
+vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.conceallevel = 0
+vim.opt.fileencoding = "utf-8"
+vim.opt.hidden = true
+vim.opt.mouse = "a"
+vim.opt.shortmess = vim.o.shortmess .. 'c'
+vim.opt.swapfile = false
+vim.opt.timeoutlen = 1000
+vim.opt.undofile = true
+vim.opt.updatetime = 300
+vim.opt.whichwrap = 'b,s,<,>,[,],h,l'
+vim.opt.writebackup = false
+
+-- Disabled plugins
+local disabled_built_ins = {
+  -- 'netrw',
+  -- 'netrwPlugin',
+  -- 'netrwSettings',
+  -- 'netrwFileHandlers',
+  'gzip',
+  'zip',
+  'zipPlugin',
+  'tar',
+  'tarPlugin',
+  'getscript',
+  'getscriptPlugin',
+  'vimball',
+  'vimballPlugin',
+  '2html_plugin',
+  'logipat',
+  'rrhelper',
+  'spellfile_plugin',
+  'matchit',
 }
 
-vim.opt.shortmess:append "c"
-
-for k, v in pairs(options) do
-  vim.opt[k] = v
+for _, plugin in pairs(disabled_built_ins) do
+  vim.g['loaded_' .. plugin] = 1
 end
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
+-- Other Options
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]]
 
@@ -57,3 +76,8 @@ vim.cmd [[autocmd FileType markdown setlocal wrap linebreak textwidth=120]]
 -- File explore
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
+
+-- 0.7 Features
+if vim.fn.has('nvim-0.7') == 1 then
+  vim.opt.laststatus = 3
+end
