@@ -1,0 +1,64 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["sway/window"],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "battery",
+    "custom/date",
+    "clock",
+    "custom/power"
+  ],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true
+  },
+  "sway/window": {
+    "tooltip": false
+  },
+  "network": {
+    "format-wifi": "",
+    "formatethernet": " {ifname}: {ipaddr}/{cidr}",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "睊",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "tooltip-format": "{essid} {signalStrength}%"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "format-icons": {
+      "headphone": "",
+      "default": ["", "", ""]
+    },
+    "tooltip-format": "{desc}, {volume}%",
+    "on-click": "pavucontrol"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-full": "{icon} Full",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+  "custom/date": {
+    "format": " {}",
+    "interval": 3600,
+    "exec": "date +'%a %d'"
+  },
+  "clock": {
+    "format": " {:%H:%M}",
+    "tooltip": false
+  },
+  "custom/power": {
+    "format": "",
+    "on-click": "wlogout",
+    "tooltip": false
+  }
+}
