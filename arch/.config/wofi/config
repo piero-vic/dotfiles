@@ -1,0 +1,9 @@
+show=drun
+lines=5
+hide_scroll=true
+prompt=Search...
+allow_markup=true
+no_actions=true
+insensitive=true
+allow_images=true
+gtk_dark=true
