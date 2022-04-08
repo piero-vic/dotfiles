@@ -40,12 +40,13 @@ unset HISTFILE
 # ║ Configuration                                                              ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
-autoload -U compinit; compinit
+autoload -U compinit; compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 zstyle ':completion:*' menu select
 
 setopt autocd
 setopt chaselinks
 setopt noclobber
+setopt emacs
 
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
@@ -75,9 +76,9 @@ type nvim > /dev/null \
 && alias v="nvim"
 
 type exa > /dev/null \
-&& alias ls="exa -a1" \
-&& alias ll="exa -alG --group-directories-first --git" \
-&& alias lt="exa -aTL=2 --group-directories-first --git -I='.git|node_modules'" \
+&& alias ls='exa -a1 --icons --group-directories-first' \
+&& alias la='exa -al --git --icons --group-directories-first' \
+&& alias lt='exa -aTI ".git|node_modules" --icons --group-directories-first' \
 
 [[ "$OS" = "Darwin" ]] \
 && alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
