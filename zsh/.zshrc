@@ -147,19 +147,13 @@ jg() {
 js() {
   [ $# -eq 0 ] && date=$(date +"%Y-%m-01") || date=$@
 
-  jrnl=$header$(jrnl -from "$date" --format md)
+  jrnl=$(jrnl -from "$date" --format md)
 
   echo "$jrnl" | while IFS= read -r line; do
-    if [[ "$line" =~ ^###.* ]]; then
-      if [[ "$line" != *$date* ]]; then
-        printf "---\n\n%s\n" "$line"
-        date="${line:4:10}"
-      else
-        printf "%s\n" "$line"
-      fi
-    else
-      printf "%s\n" "$line"
-    fi
+    [[ "$line" =~ ^###.* ]] && [[ "$line" != *$date* ]] && (
+      printf "---\n\n%s\n" "$line"
+      date="${line:4:10}"
+    ) || printf "%s\n" "$line"
   done | slides
 }
 
