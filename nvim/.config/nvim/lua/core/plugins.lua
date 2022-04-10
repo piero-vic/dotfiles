@@ -46,12 +46,22 @@ return packer.startup(function(use)
       require("user.colorscheme").config()
     end
   }
+
+  use{
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function ()
+      require("user.bufferline").config()
+    end
+  }
+
   use {
     'itchyny/lightline.vim',
     config = function ()
       vim.g.lightline = { colorscheme = 'tokyonight' }
     end
   }
+
   use "airblade/vim-gitgutter"
 
   -- Telescope
