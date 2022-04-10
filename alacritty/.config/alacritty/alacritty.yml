@@ -6,11 +6,10 @@ env:
 
 window:
   padding:
-    x: 0
-    y: 0
+    x: 10
+    y: 10
 
-  decorations: none
-  startup_mode: Fullscreen
+  startup_mode: Windowed
 
 font:
   normal:
@@ -29,7 +28,10 @@ font:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
 
-  size: 12.0
+  # Font size:
+  #   12 on macOS | 9 on Arch
+  #   See https://github.com/alacritty/alacritty/issues/1501
+  size: 9
 
   use_thin_strokes: false
 
