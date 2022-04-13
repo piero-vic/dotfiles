@@ -35,6 +35,8 @@ unset HISTFILE
 
 [[ -d ~/.scripts ]] && export PATH="$PATH:$HOME/.scripts"
 
+export PATH="$PATH:$HOME/.local/share/npm/bin"
+
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Configuration                                                              ║
