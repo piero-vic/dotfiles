@@ -20,11 +20,6 @@ function M.config()
       enable_autocmd = false
     }
   }
-
-  -- Astro files
-  local ft_to_parser = require('nvim-treesitter.parsers').filetype_to_parsername
-  ft_to_parser.astro = "tsx"
-  vim.cmd [[autocmd BufRead,BufEnter *.astro set filetype=astro]]
 end
 
 return M
