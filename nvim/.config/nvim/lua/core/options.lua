@@ -70,6 +70,7 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]]
 
 -- Custom filetypes
+vim.cmd [[autocmd BufNewFile,BufRead,BufEnter *.astro set ft=astro]]
 vim.cmd [[autocmd BufNewFile,BufRead *.jrnl set ft=markdown]]
 vim.cmd [[autocmd FileType markdown setlocal wrap linebreak textwidth=120]]
 
