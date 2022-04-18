@@ -6,11 +6,17 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
+${custom.shlvl}\
 $character
 """
 
 [directory]
 style = "blue"
+
+[custom.shlvl]
+command = "printf '❯%.0s' {1..$(($SHLVL-2))}"
+when = "[[ $SHLVL -ge 3 ]]"
+format = "[$output](bold yellow)"
 
 [character]
 success_symbol = "[❯](bold green)"
