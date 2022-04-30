@@ -1,0 +1,14 @@
+anchor=top-right
+font=JetBrainsMono Nerd Font 10
+background-color=#24283b
+text-color=#c0caf5
+width=200
+margin=10,10
+padding=10
+border-size=2
+border-color=#414868
+default-timeout=1500
+group-by=summary
+
+[grouped]
+format=<b>%s</b>\n%b

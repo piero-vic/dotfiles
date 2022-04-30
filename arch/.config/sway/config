@@ -99,17 +99,17 @@ input "1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
 
 # Function Keys:
     # Brightness controls
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl -q set 5%-    # F1 decrease screen brightnes
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl -q set +5%      # F2 increase screen brightness
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl -q set 5%- && notify-send " Screen" "Brightness: $(light)%"
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl -q set +5% && notify-send " Screen" "Brightness: $(light)%"
 
     # Keyboard brightness controls
-    bindsym XF86KbdBrightnessDown exec brightnessctl --device='smc::kbd_backlight' -q set 5%- # F5 decrease screen brightnes
-    bindsym XF86KbdBrightnessUp exec brightnessctl --device='smc::kbd_backlight' -q set +5%   # F6 increase screen brightness
+    bindsym XF86KbdBrightnessDown exec brightnessctl --device='smc::kbd_backlight' -q set 5%- && notify-send " Keyboard" "Brightness: $(light -s sysfs/leds/smc::kbd_backlight)%"
+    bindsym XF86KbdBrightnessUp exec brightnessctl --device='smc::kbd_backlight' -q set +5% && notify-send " Keyboard" "Brightness: $(light -s sysfs/leds/smc::kbd_backlight)%"
 
     # Audio controls
-    bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle           # F10 mute sound
-    bindsym XF86AudioLowerVolume exec sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"   # F11 decrease sound volume
-    bindsym XF86AudioRaiseVolume exec sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"   # F12 increase sound volume
+    bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+    bindsym XF86AudioLowerVolume exec sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
+    bindsym XF86AudioRaiseVolume exec sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
 
 # Moving around:
     # Move your focus around
