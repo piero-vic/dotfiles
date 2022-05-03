@@ -99,12 +99,12 @@ input "1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
 
 # Function Keys:
     # Brightness controls
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl -q set 5%- && notify-send " Screen" "Brightness: $(light)%"
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl -q set +5% && notify-send " Screen" "Brightness: $(light)%"
+    bindsym --locked XF86MonBrightnessDown exec sh -c 'notify-send " Screen" "Brightness: $(brightness.sh --dec)"'
+    bindsym --locked XF86MonBrightnessUp exec sh -c 'notify-send " Screen" "Brightness: $(brightness.sh --inc)"'
 
     # Keyboard brightness controls
-    bindsym XF86KbdBrightnessDown exec brightnessctl --device='smc::kbd_backlight' -q set 5%- && notify-send " Keyboard" "Brightness: $(light -s sysfs/leds/smc::kbd_backlight)%"
-    bindsym XF86KbdBrightnessUp exec brightnessctl --device='smc::kbd_backlight' -q set +5% && notify-send " Keyboard" "Brightness: $(light -s sysfs/leds/smc::kbd_backlight)%"
+    bindsym XF86KbdBrightnessDown exec sh -c 'notify-send " Keyboard" "Brightness: $(brightness.sh --dec smc::kbd_backlight)"'
+    bindsym XF86KbdBrightnessUp exec sh -c 'notify-send " Keyboard" "Brightness: $(brightness.sh --inc smc::kbd_backlight)"'
 
     # Audio controls
     bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
