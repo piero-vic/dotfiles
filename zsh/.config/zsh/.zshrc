@@ -33,8 +33,6 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=1000
 unset HISTFILE
 
-[[ -d ~/.scripts ]] && export PATH="$PATH:$HOME/.scripts"
-
 export PATH="$PATH:$HOME/.local/share/npm/bin"
 
 
