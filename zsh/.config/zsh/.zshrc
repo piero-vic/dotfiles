@@ -12,31 +12,6 @@
 
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
-# ║ Variables                                                                  ║
-# ╚════════════════════════════════════════════════════════════════════════════╝
-
-export OS=$(uname)
-
-export TERM=xterm-256color
-
-export EDITOR=vim
-type nvim > /dev/null \
-&& export EDITOR=nvim
-
-type bat > /dev/null \
-&& export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-type cointop > /dev/null \
-&& export COINTOP_CONFIG="$HOME/.cointop/config.toml"
-
-export HISTCONTROL=ignoreboth
-export HISTSIZE=1000
-unset HISTFILE
-
-export PATH="$PATH:$HOME/.local/share/npm/bin"
-
-
-# ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Configuration                                                              ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
