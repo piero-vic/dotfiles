@@ -111,6 +111,11 @@ input "1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
     bindsym XF86AudioLowerVolume exec sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
     bindsym XF86AudioRaiseVolume exec sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
 
+# Screenshots
+    bindsym $mod+Shift+w exec 'screenshot.sh --window'
+    bindsym $mod+Shift+s exec 'screenshot.sh --screen'
+    bindsym $mod+Shift+x exec 'screenshot.sh --section'
+
 # Moving around:
     # Move your focus around
     bindsym $mod+$left focus left
