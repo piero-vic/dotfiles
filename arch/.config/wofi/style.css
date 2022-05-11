@@ -1,12 +1,12 @@
 window {
-  margin: 2px;
-  border: 3px solid #24283b;
+  border: 2px solid #24283b;
   background-color: #1a1b26;
 }
 
 #input {
   margin: 5px;
   border: none;
+  border-radius: 0;
   color: #a9b1d6;
   background-color: #24283b;
 }
@@ -21,11 +21,6 @@ window {
   margin: 5px;
   border: none;
   background-color: #1a1b26;
-}
-
-#scroll {
-  margin: 0px;
-  border: none;
 }
 
 #text {
