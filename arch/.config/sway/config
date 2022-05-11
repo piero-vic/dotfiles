@@ -95,7 +95,7 @@ input "1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec wlogout
+    bindsym $mod+Shift+e exec 'power-menu.sh'
 
 # Function Keys:
     # Brightness controls
