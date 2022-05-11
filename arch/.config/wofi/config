@@ -1,9 +1,11 @@
+fork=true
 show=drun
-lines=5
-hide_scroll=true
+width=35%
 prompt=Search...
-allow_markup=true
-no_actions=true
-insensitive=true
+yoffset=10
 allow_images=true
-gtk_dark=true
+hide_scroll=true
+insensitive=true
+location=2
+no_actions=true
+lines=5
