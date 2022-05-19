@@ -70,9 +70,22 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]]
 
 -- Custom filetypes
-vim.cmd [[autocmd BufNewFile,BufRead,BufEnter *.astro set ft=astro]]
-vim.cmd [[autocmd BufNewFile,BufRead *.jrnl set ft=markdown]]
-vim.cmd [[autocmd FileType markdown setlocal wrap linebreak textwidth=120]]
+local extra_filetypes = vim.api.nvim_create_augroup("ExtraFiletypes", { clear = true })
+
+vim.api.nvim_create_autocmd(
+  { "BufNewFile", "BufRead", "BufEnter" },
+  { pattern = "*.astro", command = "set ft=astro", group = extra_filetypes }
+)
+
+vim.api.nvim_create_autocmd(
+  { "BufNewFile", "BufRead", "BufEnter" },
+  { pattern = "*.jrnl", command = "set ft=markdown", group = extra_filetypes }
+)
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  command = "setlocal linebreak textwidth=120",
+})
 
 -- File explore
 vim.g.netrw_banner = 0
