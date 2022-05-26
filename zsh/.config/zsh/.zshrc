@@ -120,17 +120,10 @@ jg() {
 }
 
 # Display jrnl entries with slides | usage: js <date>
+# This functions assumes the entris are separated by "---"
 js() {
   [ $# -eq 0 ] && date=$(date +"%Y-%m-01") || date=$@
-
-  jrnl=$(jrnl -from "$date" --format md)
-
-  echo "$jrnl" | while IFS= read -r line; do
-    [[ "$line" =~ ^###.* ]] && [[ "$line" != *$date* ]] && (
-      printf "---\n\n%s\n" "$line"
-      date="${line:4:10}"
-    ) || printf "%s\n" "$line"
-  done | slides
+  jrnl -from "$date" --format md | slides
 }
 
 
