@@ -187,6 +187,19 @@ bar {
 
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Windows                                                                    ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+# floating windows
+for_window [app_id="(thunar|Thunar)"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="transmission-gtk"] floating enable
+
+# inhibit idle
+for_window [title="(?:mpv)"] inhibit_idle open
+
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Autostart                                                                  ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
