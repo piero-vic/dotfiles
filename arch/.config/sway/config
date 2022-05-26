@@ -81,6 +81,9 @@ bindsym {
     $mod+Shift+x exec 'screenshot.sh --section'
 }
 
+# Pass:
+bindsym $mod+p exec 'passwofi.sh'
+
 # Moving around:
 bindsym {
     $mod+$left focus left
