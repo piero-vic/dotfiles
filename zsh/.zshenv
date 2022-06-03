@@ -26,6 +26,9 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 # Cointop
 export COINTOP_CONFIG="$XDG_CONFIG_HOME/cointop/config.toml"
 
+# GNU Wget
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ PATH                                                                       ║
