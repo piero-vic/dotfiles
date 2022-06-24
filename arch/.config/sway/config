@@ -166,12 +166,34 @@ floating_modifier $mod normal
 # ║ Theme                                                                      ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
+# Start flavours
+## Base16 Tokyodark Terminal
+# Author: Tiagovla (https://github.com/tiagovla/)
+
+set $base00 #11121d
+set $base01 #1A1B2A
+set $base02 #212234
+set $base03 #282c34
+set $base04 #4a5057
+set $base05 #a0a8cd
+set $base06 #a0a8cd
+set $base07 #a0a8cd
+set $base08 #ee6d85
+set $base09 #f6955b
+set $base0A #d7a65f
+set $base0B #95c561
+set $base0C #38a89d
+set $base0D #7199ee
+set $base0E #a485dd
+set $base0F #773440
+# End flavours
+
 # Window decoration
 # class                 border  backgr. text    indicator child_border
-client.focused          #7aa2f7 #414868 #c0caf5 #7dcfff   #7aa2f7
-client.focused_inactive #7aa2f7 #414868 #c0caf5 #7dcfff   #7aa2f7
-client.unfocused        #414868 #24283b #a9b1d6 #7dcfff   #414868
-client.urgent           #e0af68 #e0af68 #1d202f #7dcfff   #e0af68
+client.focused          $base0D $base0D $base00 $base0B   $base0D
+client.focused_inactive $base01 $base01 $base05 $base0B   $base01
+client.unfocused        $base01 $base01 $base05 $base0B   $base01
+client.urgent           $base0A $base0A $base00 $base0B   $base0A
 
 # Style
 default_border pixel 2
@@ -179,7 +201,7 @@ default_floating_border pixel 2
 titlebar_border_thickness 2
 title_align center
 hide_edge_borders smart
-font pango: "JetBrainsMonoNerdFont" Regular 9
+font pango: "JetBrainsMonoNerdFont" Bold 9
 
 bar {
     swaybar_command waybar

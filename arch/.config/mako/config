@@ -1,14 +1,32 @@
 anchor=top-right
 font=JetBrainsMono Nerd Font 10
-background-color=#24283b
-text-color=#c0caf5
 width=200
 margin=10,10
 padding=10
 border-size=2
-border-color=#414868
 default-timeout=1500
 group-by=summary
+
+# Start flavours
+## Base16 Tokyodark Terminal
+# Author: Tiagovla (https://github.com/tiagovla/)
+#
+# You can use these variables anywhere in the mako configuration file.
+
+background-color=#11121d
+text-color=#a0a8cd
+border-color=#7199ee
+
+[urgency=low]
+background-color=#11121d
+text-color=#d7a65f
+border-color=#7199ee
+
+[urgency=high]
+background-color=#11121d
+text-color=#ee6d85
+border-color=#7199ee
+# End flavours
 
 [grouped]
 format=<b>%s</b>\n%b

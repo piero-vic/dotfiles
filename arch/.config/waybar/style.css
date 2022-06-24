@@ -1,3 +1,29 @@
+/* Start flavours */
+/*
+*
+* Base16 Tokyodark Terminal
+* Author: Tiagovla (https://github.com/tiagovla/)
+*
+*/
+
+@define-color base00 #11121d;
+@define-color base01 #1A1B2A;
+@define-color base02 #212234;
+@define-color base03 #282c34;
+@define-color base04 #4a5057;
+@define-color base05 #a0a8cd;
+@define-color base06 #a0a8cd;
+@define-color base07 #a0a8cd;
+@define-color base08 #ee6d85;
+@define-color base09 #f6955b;
+@define-color base0A #d7a65f;
+@define-color base0B #95c561;
+@define-color base0C #38a89d;
+@define-color base0D #7199ee;
+@define-color base0E #a485dd;
+@define-color base0F #773440;
+/* End flavours */
+
 * {
   border: none;
   font-family: JetBrainsMonoNerdFont;
@@ -7,13 +33,13 @@
 }
 
 window#waybar {
-  background-color: #1a1b26;
-  border-bottom: 2px solid #24283b;
-  color: #a9b1d6;
+  background-color: @base00;
+  border-bottom: 2px solid @base01;
+  color: @base05;
 }
 
 #workspaces {
-  background-color: #24283b;
+  background-color: @base01;
   margin: 5px 10px 7px 10px;
 }
 
@@ -21,18 +47,18 @@ window#waybar {
   padding: 2px;
   background: transparent;
   min-width: 20px;
-  color: #a9b1d6;
+  color: @base05;
 }
 
 #workspaces button:hover {
   transition: none;
   box-shadow: inherit;
   text-shadow: inherit;
-  color: #7da6ff;
+  color: @base0D;
 }
 
 #workspaces button.focused {
-  background-color: #7da6ff;
+  background-color: @base0D;
   color: black;
   border-radius: 0px;
 }
@@ -41,39 +67,39 @@ window#waybar {
 #network,
 #pulseaudio,
 #battery {
-  background-color: #24283b;
+  background-color: @base01;
   padding: 2px 10px;
   margin: 5px 0px 7px 0px;
   min-width: 42px;
 }
 
 #clock {
-  color: #7da6ff;
+  color: @base0D;
 }
 
 #network {
-  color: #ad8ee6;
+  color: @base0E;
   margin-left: 10px;
 }
 
 #pulseaudio {
-  color: #e0af68;
+  color: @base0A;
 }
 
 #battery {
-  color: #b9f27c;
+  color: @base0B;
   margin-right: 10px;
 }
 
 #battery.charging,
 #battery.plugged {
-  background-color: #9ece6a;
-  color: #1e222a;
+  background-color: @base0B;
+  color: @base01;
 }
 
 #network.disconnected,
 #pulseaudio.muted,
 #battery.critical:not(.charging) {
-  background-color: #f7768e;
-  color: #1e222a;
+  background-color: @base08;
+  color: @base01;
 }
