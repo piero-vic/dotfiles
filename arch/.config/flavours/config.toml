@@ -1,0 +1,36 @@
+[[items]]
+file = "~/.config/alacritty/alacritty.yml"
+template = "alacritty"
+subtemplate = "default-256"
+
+[[items]]
+file = "~/.config/tmux/tmux.conf"
+template = "tmux"
+
+[[items]]
+file = "~/.config/sway/config"
+template = "sway"
+subtemplate = "colors"
+hook = "swaymsg reload"
+
+[[items]]
+file = "~/.config/waybar/style.css"
+template = "waybar"
+start= "/* Start flavours */"
+end = "/* End flavours */"
+
+[[items]]
+file = "~/.config/wofi/style.css"
+template = "wofi"
+subtemplate = "custom"
+rewrite = true
+
+[[item]]
+file= "~/.config/mako/config"
+template = "mako"
+hook = "killall mako"
+
+[[items]]
+file = "~/.config/zathura/zathurarc"
+template = "zathura"
+subtemplate = "recolor"
