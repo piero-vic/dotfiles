@@ -4,6 +4,7 @@
 
 # Logo key
 set $mod Mod4
+set $alt Mod1
 
 # Vim direction keys
 set $left h
@@ -120,6 +121,11 @@ bindsym {
     $mod+Shift+3 move container to workspace number 3
     $mod+Shift+4 move container to workspace number 4
     $mod+Shift+5 move container to workspace number 5
+
+    $mod+$alt+$left workspace prev
+    $mod+$alt+$right workspace next
+    $mod+$alt+Left workspace prev
+    $mod+$alt+Right workspace next
 }
 
 # Windows:
