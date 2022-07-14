@@ -37,7 +37,9 @@ input "1452:594:bcm5974" {
 input "1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
     repeat_rate 30
     repeat_delay 350
-    xkb_options caps:escape_shifted_capslock,grp:win_space_toggle
+    xkb_layout us
+    xkb_variant altgr-intl
+    xkb_options caps:escape_shifted_capslock
 }
 
 # Background
