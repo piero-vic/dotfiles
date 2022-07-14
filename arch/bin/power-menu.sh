@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 case $(
-  wofi -d -l 2 -L 3 -w 2 <<EOF | sed 's/^ *//'
+	wofi -d -l 2 -L 3 -w 2 <<EOF | sed 's/^ *//'
 Shutdown
 Reboot
 Suspend

@@ -2,22 +2,22 @@
 
 device="${2:-intel_backlight}"
 
-get_brightness () {
-	brightnessctl -d "$device" | tr ' ' '\n' | grep '%' | tr -d '()'
+get_brightness() {
+  brightnessctl -d "$device" | tr ' ' '\n' | grep '%' | tr -d '()'
 }
 
-inc_brightness () {
+inc_brightness() {
   brightnessctl -d "$device" -q set +5%
-	get_brightness
+  get_brightness
 }
 
-dec_brightness () {
+dec_brightness() {
   brightnessctl -d "$device" -q set 5%-
-	get_brightness
+  get_brightness
 }
 
-show_help () {
-	cat <<EOF
+show_help() {
+  cat <<EOF
 Usage: brightness.sh [options] [device]
 AVAILABLE OPTIONS:
   --get         get current brightness

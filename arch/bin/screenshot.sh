@@ -14,8 +14,8 @@ get_screen() {
 }
 
 get_window() {
-	grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" "$filename" \
-	&& send_notification
+	grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" "$filename" &&
+		send_notification
 }
 
 get_section() {
