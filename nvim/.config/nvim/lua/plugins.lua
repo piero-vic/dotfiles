@@ -30,77 +30,23 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
-  use 'wbthomason/packer.nvim' -- Have packer manage itself
-
+  -- Have packer manage itself
+  use 'wbthomason/packer.nvim'
   -- Visual Plugins
-  use {
-    'folke/tokyonight.nvim',
-    config = function()
-      require 'config.colorscheme'
-    end,
-  }
-
-  use {
-    'akinsho/bufferline.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function()
-      require('bufferline').setup()
-    end,
-  }
-
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function()
-      require('lualine').setup()
-    end,
-  }
-
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end,
-  }
-
+  use 'folke/tokyonight.nvim'
+  use 'lewis6991/gitsigns.nvim'
+  use { 'akinsho/bufferline.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
+  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'onsails/lspkind.nvim'
-  use {
-    'williamboman/nvim-lsp-installer',
-    config = function()
-      require 'config.lsp'
-    end,
-  }
-
+  use 'williamboman/nvim-lsp-installer'
   -- Tree-Sitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = function()
-      require 'config.treesitter'
-    end,
-  }
-
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   -- Comments
-  use {
-    'numToStr/Comment.nvim',
-    requires = 'JoosepAlviste/nvim-ts-context-commentstring',
-    config = function()
-      require 'config.comments'
-    end,
-  }
-
+  use { 'numToStr/Comment.nvim', requires = 'JoosepAlviste/nvim-ts-context-commentstring' }
   -- Telescope
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-    config = function()
-      require 'config.telescope'
-    end,
-  }
-
+  use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
   -- Completion and Snippets
   use {
     'hrsh7th/nvim-cmp',
@@ -112,11 +58,7 @@ return packer.startup(function(use)
       'L3MON4D3/LuaSnip',
       'rafamadriz/friendly-snippets',
     },
-    config = function()
-      require 'config.completion'
-    end,
   }
-
   -- Markdown
   use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install' }
 end)

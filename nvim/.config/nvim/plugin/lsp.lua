@@ -69,10 +69,7 @@ end
 
 -- Configure servers
 for _, server in ipairs(servers) do
-  local options = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  local options = { on_attach = on_attach, capabilities = capabilities }
 
   local present, server_options = pcall(require, 'config.lsp.server_settings.' .. server)
   if present then
