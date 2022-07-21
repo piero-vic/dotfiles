@@ -43,7 +43,7 @@ input "1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
 }
 
 # Background
-output * bg ~/.local/share/wallpapers/pexels-photo-collections-213803.jpg fill
+output * bg ~/.local/share/wallpapers/pexels-photo-collections-213942.jpg fill
 
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
@@ -175,25 +175,25 @@ floating_modifier $mod normal
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
 # Start flavours
-## Base16 Tokyodark Terminal
-# Author: Tiagovla (https://github.com/tiagovla/)
+## Base16 Kanagawa
+# Author: Tommaso Laurenzi (https://github.com/rebelot)
 
-set $base00 #11121d
-set $base01 #1A1B2A
-set $base02 #212234
-set $base03 #282c34
-set $base04 #4a5057
-set $base05 #a0a8cd
-set $base06 #a0a8cd
-set $base07 #a0a8cd
-set $base08 #ee6d85
-set $base09 #f6955b
-set $base0A #d7a65f
-set $base0B #95c561
-set $base0C #38a89d
-set $base0D #7199ee
-set $base0E #a485dd
-set $base0F #773440
+set $base00 #1F1F28
+set $base01 #16161D
+set $base02 #223249
+set $base03 #54546D
+set $base04 #727169
+set $base05 #DCD7BA
+set $base06 #C8C093
+set $base07 #717C7C
+set $base08 #C34043
+set $base09 #FFA066
+set $base0A #C0A36E
+set $base0B #76946A
+set $base0C #6A9589
+set $base0D #7E9CD8
+set $base0E #957FB8
+set $base0F #D27E99
 # End flavours
 
 # Window decoration

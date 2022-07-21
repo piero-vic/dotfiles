@@ -1,8 +1,4 @@
-local sources = {
-  'plugins',
-  'options',
-  'keymaps',
-}
+local sources = { 'plugins', 'options', 'keymaps' }
 
 for _, source in ipairs(sources) do
   local status_ok, fault = pcall(require, source)
