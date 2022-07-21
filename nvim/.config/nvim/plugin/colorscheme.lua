@@ -1,4 +1,10 @@
-vim.g.tokyonight_style = 'night'
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_transparent = true
-vim.cmd [[colorscheme tokyonight]]
+local default_colors = require('kanagawa.colors').setup()
+
+local overrides = {
+  NormalFloat = { bg = default_colors.sumiInk1 },
+  FloatBorder = { bg = default_colors.sumiInk1 },
+}
+
+require('kanagawa').setup { overrides = overrides }
+
+vim.cmd 'colorscheme kanagawa'

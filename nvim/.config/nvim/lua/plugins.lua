@@ -33,7 +33,7 @@ return packer.startup(function(use)
   -- Have packer manage itself
   use 'wbthomason/packer.nvim'
   -- Visual Plugins
-  use 'folke/tokyonight.nvim'
+  use 'rebelot/kanagawa.nvim'
   use 'lewis6991/gitsigns.nvim'
   use { 'akinsho/bufferline.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }

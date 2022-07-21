@@ -8,24 +8,24 @@ default-timeout=1500
 group-by=summary
 
 # Start flavours
-## Base16 Tokyodark Terminal
-# Author: Tiagovla (https://github.com/tiagovla/)
+## Base16 Kanagawa
+# Author: Tommaso Laurenzi (https://github.com/rebelot)
 #
 # You can use these variables anywhere in the mako configuration file.
 
-background-color=#11121d
-text-color=#a0a8cd
-border-color=#7199ee
+background-color=#1F1F28
+text-color=#DCD7BA
+border-color=#7E9CD8
 
 [urgency=low]
-background-color=#11121d
-text-color=#d7a65f
-border-color=#7199ee
+background-color=#1F1F28
+text-color=#C0A36E
+border-color=#7E9CD8
 
 [urgency=high]
-background-color=#11121d
-text-color=#ee6d85
-border-color=#7199ee
+background-color=#1F1F28
+text-color=#C34043
+border-color=#7E9CD8
 # End flavours
 
 [grouped]
