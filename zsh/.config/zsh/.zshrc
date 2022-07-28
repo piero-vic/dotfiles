@@ -38,7 +38,7 @@ alias rm="rm -i"
 
 alias mkdir="mkdir -p"
 
-alias reload="source ~/.zshrc"
+alias reload="source ~/.config/zsh/.zshrc"
 
 type xdg-open >/dev/null && alias open='xdg-open'
 type doas >/dev/null && alias sudo="doas"
