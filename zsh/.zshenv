@@ -22,7 +22,6 @@ export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
 # NVM & Node
 export NVM_DIR="$XDG_DATA_HOME"/nvm
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 # Cointop
 export COINTOP_CONFIG="$XDG_CONFIG_HOME/cointop/config.toml"
