@@ -1,2 +1,0 @@
-cache=${XDG_CACHE_HOME}/npm
-tmp=${XDG_RUNTIME_DIR}/npm
