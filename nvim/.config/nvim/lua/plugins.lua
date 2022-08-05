@@ -37,10 +37,9 @@ return packer.startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use { 'akinsho/bufferline.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
-  -- LSP
-  use 'neovim/nvim-lspconfig'
   use 'onsails/lspkind.nvim'
-  use 'williamboman/nvim-lsp-installer'
+  -- LSP
+  use { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' }
   -- Tree-Sitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   -- Comments

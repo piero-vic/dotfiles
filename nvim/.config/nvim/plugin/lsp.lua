@@ -32,7 +32,8 @@ local servers = {
   'tsserver',
 }
 
-require('nvim-lsp-installer').setup { ensure_installed = servers, ui = { border = 'single' } }
+require('mason').setup { ui = { border = 'single' } }
+require('mason-lspconfig').setup { ensure_installed = servers, automatic_installation = true }
 
 -- UI
 local win = require 'lspconfig.ui.windows'
