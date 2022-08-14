@@ -62,12 +62,11 @@ bindsym {
 }
 
 # Function:
-
 bindsym --locked {
-    XF86MonBrightnessDown exec sh -c 'notify-send " Screen" "Brightness: $(brightness.sh --dec)"'
-    XF86MonBrightnessUp exec sh -c 'notify-send " Screen" "Brightness: $(brightness.sh --inc)"'
-    XF86KbdBrightnessDown exec sh -c 'notify-send " Keyboard" "Brightness: $(brightness.sh --dec smc::kbd_backlight)"'
-    XF86KbdBrightnessUp exec sh -c 'notify-send " Keyboard" "Brightness: $(brightness.sh --inc smc::kbd_backlight)"'
+    XF86MonBrightnessDown exec 'brightness.sh --dec'
+    XF86MonBrightnessUp exec 'brightness.sh --inc'
+    XF86KbdBrightnessDown exec 'brightness.sh --dec smc::kbd_backlight'
+    XF86KbdBrightnessUp exec 'brightness.sh --inc smc::kbd_backlight'
 }
 
 bindsym --locked {
