@@ -1,11 +1,10 @@
-fork=true
-show=drun
-width=35%
-prompt=Search...
-yoffset=10
 allow_images=true
+fork=true
 hide_scroll=true
 insensitive=true
+lines=5
 location=2
 no_actions=true
-lines=5
+prompt=
+width=35%
+yoffset=10
