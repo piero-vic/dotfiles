@@ -70,10 +70,10 @@ bindsym --locked {
     XF86KbdBrightnessUp exec sh -c 'notify-send " Keyboard" "Brightness: $(brightness.sh --inc smc::kbd_backlight)"'
 }
 
-bindsym {
-    XF86AudioMute exec pactl set-sink-mute 0 toggle
-    XF86AudioLowerVolume exec sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
-    XF86AudioRaiseVolume exec sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
+bindsym --locked {
+    XF86AudioMute exec 'volume.sh --mute'
+    XF86AudioLowerVolume exec sh -c "volume.sh --dec"
+    XF86AudioRaiseVolume exec sh -c "volume.sh --inc"
 }
 
 
