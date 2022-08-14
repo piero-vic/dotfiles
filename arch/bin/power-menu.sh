@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 case $(
-	wofi -d -l 2 -L 3 -w 2 <<EOF | sed 's/^ *//'
+  wofi -d -l 2 -L 3 -w 2 -O default -k /dev/null <<EOF | sed 's/^ *//'
 Shutdown
 Reboot
 Suspend
@@ -11,21 +11,21 @@ Lock
 EOF
 ) in
 "Shutdown")
-	systemctl poweroff
-	;;
+  systemctl poweroff
+  ;;
 "Reboot")
-	systemctl reboot
-	;;
+  systemctl reboot
+  ;;
 "Suspend")
-	swaylock && systemctl suspend
-	;;
+  swaylock && systemctl suspend
+  ;;
 "Hibernate")
-	swaylock && systemctl hibernate
-	;;
+  swaylock && systemctl hibernate
+  ;;
 "Logout")
-	swaymsg exit
-	;;
+  swaymsg exit
+  ;;
 "Lock")
-	swaylock
-	;;
+  swaylock
+  ;;
 esac
