@@ -9,7 +9,7 @@ group-by=summary
 
 # Start flavours
 ## Base16 Kanagawa
-# Author: Tommaso Laurenzi (https://github.com/rebelot)
+# Author: Originally by rebelot (Ported by montdor [https://github.com/montdor/])
 #
 # You can use these variables anywhere in the mako configuration file.
 
@@ -19,7 +19,7 @@ border-color=#7E9CD8
 
 [urgency=low]
 background-color=#1F1F28
-text-color=#C0A36E
+text-color=#DCA561
 border-color=#7E9CD8
 
 [urgency=high]

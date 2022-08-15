@@ -27,6 +27,7 @@ local servers = {
   'bashls',
   'emmet_ls',
   'solargraph',
+  'marksman',
   'sumneko_lua',
   'tailwindcss',
   'tsserver',

@@ -1,7 +1,7 @@
-/* Kanagawa scheme by Tommaso Laurenzi (https://github.com/rebelot) */
+/* Kanagawa scheme by Originally by rebelot (Ported by montdor [https://github.com/montdor/]) */
 
 window {
-  border: 2px solid #16161D;
+  border: 2px solid #2A2A37;
   background-color: #1F1F28;
   color: #DCD7BA;
 }
@@ -10,8 +10,8 @@ window {
   margin: 5px;
   border: none;
   border-radius: 0;
-  color: #727169;
-  background-color: #16161D;
+  color: #C8C093;
+  background-color: #2A2A37;
   border-color: #223249; 
 }
 
