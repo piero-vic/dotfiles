@@ -14,7 +14,7 @@ window:
 font:
   normal:
     family: JetBrainsMono Nerd Font
-    style: Regular
+    style: Medium
 
   bold:
     family: JetBrainsMono Nerd Font
@@ -37,7 +37,7 @@ font:
 
 # Start flavours
 # Base16 Kanagawa 256 - alacritty color config
-# Tommaso Laurenzi (https://github.com/rebelot)
+# Originally by rebelot (Ported by montdor [https://github.com/montdor/])
 colors:
   # Default colors
   primary:
@@ -53,31 +53,31 @@ colors:
   normal:
     black:   '0x1F1F28'
     red:     '0xC34043'
-    green:   '0x76946A'
-    yellow:  '0xC0A36E'
+    green:   '0x98BB6C'
+    yellow:  '0xDCA561'
     blue:    '0x7E9CD8'
     magenta: '0x957FB8'
-    cyan:    '0x6A9589'
+    cyan:    '0x7FB4CA'
     white:   '0xDCD7BA'
 
   # Bright colors
   bright:
-    black:   '0x54546D'
+    black:   '0x727169'
     red:     '0xC34043'
-    green:   '0x76946A'
-    yellow:  '0xC0A36E'
+    green:   '0x98BB6C'
+    yellow:  '0xDCA561'
     blue:    '0x7E9CD8'
     magenta: '0x957FB8'
-    cyan:    '0x6A9589'
-    white:   '0x717C7C'
+    cyan:    '0x7FB4CA'
+    white:   '0x363646'
 
   indexed_colors:
     - { index: 16, color: '0xFFA066' }
     - { index: 17, color: '0xD27E99' }
-    - { index: 18, color: '0x16161D' }
+    - { index: 18, color: '0x2A2A37' }
     - { index: 19, color: '0x223249' }
-    - { index: 20, color: '0x727169' }
-    - { index: 21, color: '0xC8C093' }
+    - { index: 20, color: '0xC8C093' }
+    - { index: 21, color: '0x938AA9' }
 # End flavours
 
 mouse:

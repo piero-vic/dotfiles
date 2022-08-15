@@ -34,3 +34,15 @@ hook = "killall mako"
 file = "~/.config/zathura/zathurarc"
 template = "zathura"
 subtemplate = "recolor"
+
+[[items]]
+file = "~/.themes/FlatColor/colors2"
+template = "gtk-flatcolor"
+subtemplate = "gtk-2"
+rewrite = true
+
+[[items]]
+file = "~/.themes/FlatColor/colors3"
+template = "gtk-flatcolor"
+subtemplate = "gtk-3"
+rewrite = true

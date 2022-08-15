@@ -18,21 +18,21 @@ set $wallpaper ~/.local/share/wallpapers/pexels-photo-collections-213942.jpg
 
 # Start flavours
 ## Base16 Kanagawa
-# Author: Tommaso Laurenzi (https://github.com/rebelot)
+# Author: Originally by rebelot (Ported by montdor [https://github.com/montdor/])
 
 set $base00 #1F1F28
-set $base01 #16161D
+set $base01 #2A2A37
 set $base02 #223249
-set $base03 #54546D
-set $base04 #727169
+set $base03 #727169
+set $base04 #C8C093
 set $base05 #DCD7BA
-set $base06 #C8C093
-set $base07 #717C7C
+set $base06 #938AA9
+set $base07 #363646
 set $base08 #C34043
 set $base09 #FFA066
-set $base0A #C0A36E
-set $base0B #76946A
-set $base0C #6A9589
+set $base0A #DCA561
+set $base0B #98BB6C
+set $base0C #7FB4CA
 set $base0D #7E9CD8
 set $base0E #957FB8
 set $base0F #D27E99
