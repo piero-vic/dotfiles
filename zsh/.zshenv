@@ -9,6 +9,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # Zsh
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export ZSH_PLUGINS="$ZDOTDIR/plugins"
 export HISTCONTROL=ignoreboth
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
 
