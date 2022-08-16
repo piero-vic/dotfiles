@@ -169,9 +169,7 @@ type rbenv >/dev/null && eval "$(rbenv init -)"
 # Starship
 type starship >/dev/null && eval "$(starship init zsh)"
 
-# Plugins
-ZSH_PLUGINS="/usr/share/zsh/plugins"
-
 # Syntax Highlighting
-[[ -d "$ZSH_PLUGINS/zsh-syntax-highlighting" ]] &&
+if [[ -d "$ZSH_PLUGINS/zsh-syntax-highlighting" ]]; then
   source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
