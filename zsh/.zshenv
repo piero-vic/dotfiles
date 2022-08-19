@@ -35,7 +35,6 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 # ║ PATH                                                                       ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
-export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/share/npm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
