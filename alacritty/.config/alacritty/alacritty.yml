@@ -82,39 +82,3 @@ colors:
 
 mouse:
   hide_when_typing: true
-
-key_bindings:
-  # Tmux key key_bindings
-  #   Command on macOS | Control on Arch
-
-  # Horizontal and Vertical Splits
-  - { key: D, mods: Control|Shift, chars: "\x02\x22" }
-  - { key: D, mods: Control, chars: "\x02\x25" }
-  # Move between panes
-  - { key: H, mods: Alt, chars: "\x02\x1b\x5b\x44" }
-  - { key: J, mods: Alt, chars: "\x02\x1b\x5b\x42" }
-  - { key: K, mods: Alt, chars: "\x02\x1b\x5b\x41" }
-  - { key: L, mods: Alt, chars: "\x02\x1b\x5b\x43" }
-  # Create new window
-  - { key: T, mods: Control, chars: "\x02\x63" }
-  # Select window 1-9
-  - { key: Key1, mods: Control, chars: "\x02\x31" }
-  - { key: Key2, mods: Control, chars: "\x02\x32" }
-  - { key: Key3, mods: Control, chars: "\x02\x33" }
-  - { key: Key4, mods: Control, chars: "\x02\x34" }
-  - { key: Key5, mods: Control, chars: "\x02\x35" }
-  - { key: Key6, mods: Control, chars: "\x02\x36" }
-  - { key: Key7, mods: Control, chars: "\x02\x37" }
-  - { key: Key8, mods: Control, chars: "\x02\x38" }
-  - { key: Key9, mods: Control, chars: "\x02\x39" }
-  # Change to the previous/next window
-  - { key: Left, mods: Control|Shift, chars: "\x02\x70" }
-  - { key: Right, mods: Control|Shift, chars: "\x02\x6e" }
-  - { key: H, mods: Control|Shift, chars: "\x02\x70" }
-  - { key: L, mods: Control|Shift, chars: "\x02\x6e" }
-  # Select a new tmux session for the attached client interactively
-  - { key: K, mods: Control, chars: "\x02\x73" }
-  # Rename the current tmux session
-  - { key: Period, mods: Control, chars: "\x02\x24" }
-  # Detach the current tmux client
-  - { key: Q, mods: Control, chars: "\x02\x64" }
