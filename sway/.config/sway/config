@@ -45,7 +45,7 @@ client.focused_inactive $base01 $base01 $base05 $base0B $base01
 client.unfocused        $base01 $base01 $base05 $base0B $base01
 client.urgent           $base0A $base0A $base00 $base0B $base0A
 
-font pango: JetBrainsMonoNerdFont Bold 9
+font pango: JetBrainsMonoNerdFont Medium 9
 default_border pixel 2
 default_floating_border pixel 2
 titlebar_border_thickness 2

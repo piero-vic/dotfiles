@@ -1,6 +1,9 @@
 /* Kanagawa scheme by Originally by rebelot (Ported by montdor [https://github.com/montdor/]) */
 
 window {
+  font-family: JetBrainsMonoNerdFont;
+  font-size: 11px;
+  font-weight: 600;
   border: 2px solid #2A2A37;
   background-color: #1F1F28;
   color: #DCD7BA;
