@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-screenshots_directory=~/Pictures/screenshots
+screenshots_directory=~/pictures/screenshots
 filename="$screenshots_directory/$(date '+%Y%m%d_%Hh%Mm%Ss')_grim.png"
 
 [[ -d $screenshots_directory ]] || mkdir -p $screenshots_directory
