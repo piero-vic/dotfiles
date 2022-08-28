@@ -2,7 +2,6 @@ local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 local lspkind = require 'lspkind'
 require('luasnip/loaders/from_vscode').lazy_load()
-local popup_opts = { winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,Search:None', border = 'single' }
 
 cmp.setup {
   snippet = {
@@ -10,7 +9,9 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
-  window = { completion = popup_opts, documentation = popup_opts },
+  window = {
+    documentation = cmp.config.window.bordered { border = 'single' },
+  },
   formatting = { format = lspkind.cmp_format() },
   mapping = cmp.mapping.preset.insert {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),

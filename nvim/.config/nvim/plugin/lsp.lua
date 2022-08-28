@@ -37,14 +37,8 @@ require('mason').setup { ui = { border = 'single' } }
 require('mason-lspconfig').setup { ensure_installed = servers, automatic_installation = true }
 
 -- UI
-local win = require 'lspconfig.ui.windows'
-local _default_opts = win.default_opts
-
-win.default_opts = function(options)
-  local opt = _default_opts(options)
-  opt.border = 'single'
-  return opt
-end
+require('lspconfig.ui.windows').default_options.border = 'single'
+vim.api.nvim_set_hl(0, 'LspInfoBorder', { link = 'FloatBorder' })
 
 vim.diagnostic.config { virtual_text = false, float = { border = 'single' } }
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })

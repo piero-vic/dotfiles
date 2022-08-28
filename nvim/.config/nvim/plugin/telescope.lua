@@ -1,12 +1,9 @@
-local borders = { '─', '│', '─', '│', '┌', '┐', '┘', '└' }
-
 -- Setup
 require('telescope').setup {
   defaults = {
     prompt_prefix = ' ',
     selection_caret = '❯ ',
     sorting_strategy = 'ascending',
-    borderchars = { prompt = borders, results = borders, preview = borders },
     layout_config = {
       horizontal = { prompt_position = 'bottom', preview_width = 0.55, results_width = 0.8 },
       vertical = { mirror = false },
