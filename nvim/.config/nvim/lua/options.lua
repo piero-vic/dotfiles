@@ -11,6 +11,7 @@ vim.opt.sidescrolloff = 8 -- Number of columns to keep at the sides of the curso
 vim.opt.signcolumn = 'yes' -- Always show the sign column
 vim.opt.termguicolors = true -- Enable 24-bit RGB color in the TUI
 vim.opt.wrap = false -- Disable wrapping of lines longer than the width of window
+vim.opt.fillchars = 'eob: ' -- Hide ~ on blank lines
 
 -- File Explorer
 vim.g.netrw_banner = 0 -- Suppress banner
