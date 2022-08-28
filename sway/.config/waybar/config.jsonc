@@ -3,7 +3,7 @@
   "position": "top",
   "modules-left": ["sway/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["network", "pulseaudio", "battery"],
+  "modules-right": ["idle_inhibitor", "bluetooth", "network", "pulseaudio", "battery"],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true
@@ -12,20 +12,36 @@
     "format": "{:%b %d %H:%M}",
     "tooltip": false
   },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "",
+    "format-connected": "",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueberry"
+  },
   "network": {
-    "format-wifi": "  {essid}",
-    "formatethernet": " {ifname}: {ipaddr}/{cidr}",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "睊 Disconnected",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "tooltip-format": "{essid} {signalStrength}%"
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "睊",
+    "tooltip-format-wifi": "{essid} {signalStrength}%",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+    "on-click": "alacritty -e nmtui"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": " {volume}%",
+    "format": "{icon}",
+    "format-muted": "",
     "format-icons": {
       "headphone": "",
-      "default": ["", "", ""]
+      "default": ["", "", "墳", ""]
     },
     "tooltip-format": "{desc}, {volume}%",
     "on-click": "pavucontrol"
@@ -39,6 +55,6 @@
     "format-charging": " {capacity}%",
     "format-plugged": " {capacity}%",
     "format-full": "{icon} Full",
-    "format-icons": [" ", " ", " ", " ", " "]
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
   }
 }

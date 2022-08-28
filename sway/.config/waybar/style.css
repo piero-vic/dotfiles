@@ -28,32 +28,28 @@
   border: none;
   font-family: JetBrainsMonoNerdFont;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   min-height: 0;
 }
 
 window#waybar {
   background-color: @base00;
   border-bottom: 2px solid @base01;
-  color: @base05;
 }
 
 #workspaces {
   background-color: @base01;
-  margin: 5px 10px 7px 10px;
+  margin: 0px 10px 2px 0px;
 }
 
 #workspaces button {
-  padding: 2px;
-  background: transparent;
+  padding: 1px;
   min-width: 20px;
   color: @base05;
 }
 
 #workspaces button:hover {
-  transition: none;
   box-shadow: inherit;
-  text-shadow: inherit;
   color: @base0D;
 }
 
@@ -64,42 +60,51 @@ window#waybar {
 }
 
 #clock,
+#idle_inhibitor,
+#bluetooth,
 #network,
 #pulseaudio,
 #battery {
   background-color: @base01;
-  padding: 2px 10px;
-  margin: 5px 0px 7px 0px;
-  min-width: 42px;
+  padding: 0px 5px;
+  margin-bottom: 2px;
+  min-width: 15px;
 }
 
 #clock {
   color: @base0D;
+  padding: 0px 10px;
+}
+
+#idle_inhibitor {
+  color: @base09;
+  padding-left: 10px;
+}
+
+#bluetooth {
+  color: @base0C;
 }
 
 #network {
   color: @base0E;
-  margin-left: 10px;
 }
 
 #pulseaudio {
-  color: @base0A;
+  color: @base0D;
 }
 
 #battery {
   color: @base0B;
-  margin-right: 10px;
+  padding-right: 10px;
 }
 
-#battery.charging,
-#battery.plugged {
-  background-color: @base0B;
-  color: @base01;
+#battery.warning:not(.charging) {
+  color: @base0A;
 }
 
 #network.disconnected,
+#bluetooth.disabled,
 #pulseaudio.muted,
 #battery.critical:not(.charging) {
-  background-color: @base08;
-  color: @base01;
+  color: @base0F;
 }
