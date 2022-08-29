@@ -16,6 +16,11 @@ set $menu wofi --show drun
 set $browser brave
 set $wallpaper ~/.local/share/wallpapers/pexels-photo-collections-213942.jpg
 
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Style                                                                      ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
 # Start flavours
 ## Base16 Kanagawa
 # Author: Originally by rebelot (Ported by montdor [https://github.com/montdor/])
@@ -53,6 +58,15 @@ title_align center
 hide_edge_borders smart
 focus_follows_mouse no
 
+# GTK
+set $gnome_schema org.gnome.desktop.interface
+
+exec_always {
+  gsettings set $gnome_schema gtk-theme 'Arc-Dark'
+  gsettings set $gnome_schema icon-theme 'Arc'
+  gsettings set $gnome_schema font-name 'JetBrainsMonoNerdFont Medium 9'
+}
+
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Input                                                                      ║
@@ -89,7 +103,8 @@ output * bg $wallpaper fill
 # Idle
 exec swayidle -w \
 timeout 300 'swaylock -f' \
-timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+timeout 600 'swaymsg "output * dpms off"' \
+resume 'swaymsg "output * dpms on"' \
 before-sleep 'swaylock -f'
 
 
@@ -244,6 +259,9 @@ for_window [app_id="^.*"] inhibit_idle fullscreen
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Autostart                                                                  ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
+
+# Polkit
+exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Notifications
 exec mako
