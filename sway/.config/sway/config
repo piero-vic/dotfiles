@@ -118,6 +118,12 @@ bindsym {
   $mod+i exec $browser
   $mod+d exec $menu
 
+  $mod+Shift+f exec 'alacritty -t "FileManager TUI" -e lf'
+  $mod+Shift+n exec 'alacritty -t "NetworkManager TUI" -e nmtui'
+  $mod+Shift+a exec 'pavucontrol'
+  $mod+Shift+b exec 'blueberry'
+  $mod+Shift+p exec 'passwofi.sh'
+
   $mod+Shift+q kill
   $mod+Shift+c reload
   $mod+Shift+e exec 'power-menu.sh'
@@ -136,8 +142,8 @@ bindsym --locked {
   XF86AudioStop exec 'playerctl stop'
   XF86AudioPrev exec 'playerctl position 5-'
   XF86AudioNext exec 'playerctl position 5+'
-  $mod+XF86AudioPrev exec 'playerctl previous'
-  $mod+XF86AudioNext exec 'playerctl next'
+  Shift+XF86AudioPrev exec 'playerctl previous'
+  Shift+XF86AudioNext exec 'playerctl next'
 }
 
 bindsym --locked {
@@ -145,16 +151,6 @@ bindsym --locked {
   XF86AudioLowerVolume exec sh -c "volume.sh --dec"
   XF86AudioRaiseVolume exec sh -c "volume.sh --inc"
 }
-
-# Screenshots:
-bindsym {
-  $mod+Shift+w exec 'screenshot.sh --window'
-  $mod+Shift+s exec 'screenshot.sh --screen'
-  $mod+Shift+x exec 'screenshot.sh --section'
-}
-
-# Pass:
-bindsym $mod+p exec 'passwofi.sh'
 
 # Moving around:
 bindsym {
@@ -192,11 +188,6 @@ bindsym {
   $mod+Shift+3 move container to workspace number 3
   $mod+Shift+4 move container to workspace number 4
   $mod+Shift+5 move container to workspace number 5
-
-  $mod+$alt+$left workspace prev
-  $mod+$alt+$right workspace next
-  $mod+$alt+Left workspace prev
-  $mod+$alt+Right workspace next
 }
 
 # Windows:
@@ -254,6 +245,12 @@ bar {
 
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen   
+
+for_window [app_id="blueberry.py"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="transmission-gtk"] floating enable
+for_window [title="FileManager TUI"] floating enable
+for_window [title="NetworkManager TUI"] floating enable
 
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
