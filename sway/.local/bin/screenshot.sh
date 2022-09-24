@@ -27,22 +27,20 @@ get_section() {
   fi
 }
 
-show_help() {
-  cat <<EOF
-Usage: screenshot.sh [options]
-AVAILABLE OPTIONS:
-  --screen           grab the whole screen
-  --window           grab the current window
-  --section          grab a section of the screen
+case $(
+  wofi -d -l 2 -L 1 -w 3 -O default -k /dev/null <<EOF | sed 's/^ *//'
+(S)creen
+(W)indow
+(X)Section
 EOF
-}
-
-if [[ "$1" == "--screen" ]]; then
+) in
+"(S)creen")
   get_screen
-elif [[ "$1" == "--window" ]]; then
+  ;;
+"(W)indow")
   get_window
-elif [[ "$1" == "--section" ]]; then
+  ;;
+"(X)Section")
   get_section
-else
-  show_help
-fi
+  ;;
+esac

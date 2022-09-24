@@ -123,6 +123,7 @@ bindsym {
   $mod+Shift+a exec 'pavucontrol'
   $mod+Shift+b exec 'blueberry'
   $mod+Shift+p exec 'passwofi.sh'
+  $mod+Shift+s exec 'screenshot.sh'
 
   $mod+Shift+q kill
   $mod+Shift+c reload
