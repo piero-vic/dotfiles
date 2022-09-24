@@ -1,25 +1,14 @@
 #!/usr/bin/env bash
 
+wobsock=$XDG_RUNTIME_DIR/wob.sock
 device="${2:-intel_backlight}"
 
-get_brightness() {
-  brightnessctl -d "$device" | tr ' ' '\n' | grep '%' | tr -d '()'
-}
-
-notify() {
-  if [[ "$device" = 'intel_backlight' ]]; then
-    notify-send " Screen" "Brightness: $(get_brightness)"
-  elif [[ "$device" = 'smc::kbd_backlight' ]]; then
-    notify-send " Keyboard" "Brightness: $(get_brightness)"
-  fi
-}
-
 inc_brightness() {
-  brightnessctl -d "$device" -q set +5% && notify
+  brightnessctl -d "$device" set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' >"$wobsock"
 }
 
 dec_brightness() {
-  brightnessctl -d "$device" -q set 5%- && notify
+  brightnessctl -d "$device" set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' >"$wobsock"
 }
 
 show_help() {

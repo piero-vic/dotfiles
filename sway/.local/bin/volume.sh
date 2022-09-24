@@ -1,24 +1,17 @@
 #!/usr/bin/env bash
 
+wobsock=$XDG_RUNTIME_DIR/wob.sock
+
 volume_up() {
-  pamixer --unmute
-  pamixer -i 5
-  notify-send " Sound" "Volume: $(pamixer --get-volume)%"
+  pamixer -ui 5 && pamixer --get-volume >"$wobsock"
 }
 
 volume_down() {
-  pamixer --unmute
-  pamixer -d 5
-  notify-send " Sound" "Volume: $(pamixer --get-volume)%"
+  pamixer -ud 5 && pamixer --get-volume >"$wobsock"
 }
 
 mute() {
-  pamixer --toggle-mute
-  if [[ $(pamixer --get-mute) = false ]]; then
-    notify-send " Sound" "Volume: $(pamixer --get-volume)%"
-  else
-    notify-send " Sound" "Muted"
-  fi
+  pamixer --toggle-mute && ([ "$(pamixer --get-mute)" = "true" ] && echo 0 >"$wobsock") || pamixer --get-volume >"$wobsock"
 }
 
 show_help() {
