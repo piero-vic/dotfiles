@@ -1,3 +1,12 @@
 return {
-  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+  filetypes = {
+    'astro',
+    'html',
+    'typescriptreact',
+    'javascriptreact',
+    'typescript',
+    'javascript',
+    'css',
+    'scss',
+  },
 }
