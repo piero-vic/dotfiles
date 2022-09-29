@@ -120,6 +120,7 @@ bindsym {
 
   $mod+Shift+f exec 'alacritty -t "FileManager TUI" -e lf'
   $mod+Shift+n exec 'alacritty -t "NetworkManager TUI" -e nmtui'
+  $mod+Shift+m exec 'alacritty -t "Spotify TUI" -e ncspot'
   $mod+Shift+a exec 'pavucontrol'
   $mod+Shift+b exec 'blueberry'
   $mod+Shift+p exec 'passwofi.sh'
@@ -252,6 +253,7 @@ for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="transmission-gtk"] floating enable
 for_window [title="FileManager TUI"] floating enable
 for_window [title="NetworkManager TUI"] floating enable
+for_window [title="Spotify TUI"] floating enable
 
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
