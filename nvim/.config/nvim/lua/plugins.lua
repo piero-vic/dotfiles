@@ -67,4 +67,6 @@ return packer.startup(function(use)
     end,
     ft = { 'markdown' },
   }
+  -- Tmux
+  use 'christoomey/vim-tmux-navigator'
 end)
