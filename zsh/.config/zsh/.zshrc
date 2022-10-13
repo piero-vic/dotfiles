@@ -40,10 +40,6 @@ alias mkdir="mkdir -p"
 
 alias reload="source ~/.config/zsh/.zshrc"
 
-type xdg-open >/dev/null && alias open='xdg-open'
-type doas >/dev/null && alias sudo="doas"
-type gsed >/dev/null && alias sed='gsed'
-
 if type nvim >/dev/null; then
   alias vi="nvim"
   alias vim="nvim"
@@ -91,69 +87,14 @@ alias gstp='git stash pop'
 
 
 ## tmux
-
-alias t='tmux'
-alias tl='tmux list-sessions'
-alias tksv='tmux kill-server'
-alias tkss='tmux kill-session -t'
-
-ta() {
-  if [ $# -eq 0 ]; then
-    tmux attach
-  else
-    tmux attach -t "$1"
-  fi
+function t() {
+  [ -z "${TMUX}" ] && tmux attach || tmux
 }
-tn() {
+
+function tn() {
   tmux new -s "$1" -d
   tmux switch -t "$1"
 }
-ide() {
-  tmux split-window -h -p 35
-  tmux split-window -v -p 40
-  nvim
-}
-
-
-## jrnl
-
-alias j='jrnl'
-alias je='j --edit'
-alias jl='j --list'
-alias jt='j -on today'
-alias jw='j -from "last week"'
-alias jm='j -from $(date +"%Y-%m-01")'
-alias jts='jt --short'
-alias jtm='jt --format md'
-alias jws='jw --short'
-alias jwm='jw --format md'
-alias jms='jm --short'
-alias jmm='jm --format md'
-
-# Display jrnl entries with glow | Usage: jg <date>
-jg() {
-  [ $# -eq 0 ] && date=$(date +"%Y-%m-01") || date=$1
-  jrnl -from "$date" --format md | glow --pager -
-}
-
-# Display jrnl entries with slides | usage: js <date>
-# This functions assumes the entris are separated by "---"
-js() {
-  [ $# -eq 0 ] && date=$(date +"%Y-%m-01") || date=$1
-  jrnl -from "$date" --format md | slides
-}
-
-
-## MacOS => Cleanup & Homebrew
-if [[ "$OS" = "Darwin" ]]; then
-  alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-  alias bi='brew install'
-  alias bic='brew install --cask'
-  alias bui='brew uninstall'
-  alias bl='brew list'
-  alias bt="brew deps --tree --installed"
-  alias bup='brew update && brew outdated && brew upgrade && brew cleanup'
-fi
 
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
