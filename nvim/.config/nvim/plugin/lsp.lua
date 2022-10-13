@@ -1,3 +1,19 @@
+-- ╔═══════════════════════════════════════════════════════════════════════════╗
+-- ║ Mason and LSP UI                                                          ║
+-- ╚═══════════════════════════════════════════════════════════════════════════╝
+
+require('mason').setup { ui = { border = 'single' } }
+require('lspconfig.ui.windows').default_options.border = 'single'
+
+vim.api.nvim_set_hl(0, 'LspInfoBorder', { link = 'FloatBorder' })
+vim.diagnostic.config { virtual_text = false, float = { border = 'single' } }
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' })
+
+-- ╔═══════════════════════════════════════════════════════════════════════════╗
+-- ║ Configure Servers                                                         ║
+-- ╚═══════════════════════════════════════════════════════════════════════════╝
+
 -- Function that's going to execute after the language server attaches to the current buffer.
 local on_attach = function(_, bufnr)
   -- Function that lets us more easily define mappings specific for LSP related items.
@@ -21,30 +37,25 @@ end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- Enable the following language servers
 local servers = {
   'astro',
   'bashls',
+  'cssls',
+  'cssmodules_ls',
   'emmet_ls',
-  'solargraph',
   'marksman',
+  'prismals',
+  'solargraph',
   'sumneko_lua',
   'tailwindcss',
   'tsserver',
 }
 
-require('mason').setup { ui = { border = 'single' } }
-require('mason-lspconfig').setup { ensure_installed = servers, automatic_installation = true }
+require('mason-lspconfig').setup {
+  ensure_installed = servers,
+  automatic_installation = true,
+}
 
--- UI
-require('lspconfig.ui.windows').default_options.border = 'single'
-vim.api.nvim_set_hl(0, 'LspInfoBorder', { link = 'FloatBorder' })
-
-vim.diagnostic.config { virtual_text = false, float = { border = 'single' } }
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' })
-
--- Configure servers
 for _, server in ipairs(servers) do
   local options = { on_attach = on_attach, capabilities = capabilities }
 
