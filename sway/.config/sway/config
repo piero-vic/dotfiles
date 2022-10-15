@@ -12,7 +12,7 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
-set $menu wofi --show drun
+set $menu bemenu-run
 set $browser brave
 set $wallpaper ~/.local/share/wallpapers/pexels-photo-collections-213942.jpg
 
@@ -123,7 +123,7 @@ bindsym {
   $mod+Shift+m exec 'alacritty -t "Spotify TUI" -e ncspot'
   $mod+Shift+a exec 'pavucontrol'
   $mod+Shift+b exec 'blueberry'
-  $mod+Shift+p exec 'passwofi.sh'
+  $mod+Shift+p exec 'pass-menu.sh'
   $mod+Shift+s exec 'screenshot.sh'
 
   $mod+Shift+q kill

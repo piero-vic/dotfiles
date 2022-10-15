@@ -46,3 +46,18 @@ export PATH="$PATH:$HOME/.local/bin"
 export OS=$(uname)
 type nvim >/dev/null && export EDITOR=nvim
 type bat >/dev/null && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Program settings                                                           ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+export BEMENU_OPTS="-n -c -s -i \
+  -W 0.2 -H 26 -B 2 -l 10 \
+  --fn 'JetBrainsMonoNerdFont 9' \
+  --nb #1f1f28ff --nf #dcd7baff \
+  --ab #1f1f28ff --af #dcd7baff \
+  --hb #2a2a37ff --hf #7e9cd8ff \
+  --fb #1f1f28ff --ff #dcd7baff \
+  --tb #1f1f28ff --tf #7e9cd8ff \
+  --bdr #7e9cd8ff"

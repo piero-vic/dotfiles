@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 case $(
-  wofi -d -l 2 -L 3 -w 2 -O default -k /dev/null <<EOF | sed 's/^ *//'
+  bemenu --no-exec --prompt="power" <<EOF | sed 's/^ *//'
 Shutdown
 Reboot
 Suspend
