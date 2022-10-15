@@ -33,8 +33,6 @@ font:
   #   See https://github.com/alacritty/alacritty/issues/1501
   size: 9
 
-  use_thin_strokes: false
-
 # Start flavours
 # Base16 Kanagawa 256 - alacritty color config
 # Originally by rebelot (Ported by montdor [https://github.com/montdor/])
