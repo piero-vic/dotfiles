@@ -28,7 +28,7 @@ get_section() {
 }
 
 case $(
-  wofi -d -l 2 -L 1 -w 3 -O default -k /dev/null <<EOF | sed 's/^ *//'
+  bemenu --no-exec --prompt="screenshot" <<EOF | sed 's/^ *//'
 (S)creen
 (W)indow
 (X)Section

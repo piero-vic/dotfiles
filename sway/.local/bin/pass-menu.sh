@@ -5,7 +5,7 @@ password_files=("$password_dir"/**/*.gpg)
 password_files=("${password_files[@]#"$password_dir"/}")
 password_files=("${password_files[@]%.gpg}")
 
-password=$(printf '%s\n' "${password_files[@]}" | wofi -d -l 2 -L 6 -w 2)
+password=$(printf '%s\n' "${password_files[@]}" | bemenu --no-exec --prompt="pass")
 
 [[ -n $password ]] || exit
 
