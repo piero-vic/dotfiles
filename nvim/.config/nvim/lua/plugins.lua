@@ -32,41 +32,26 @@ packer.init {
 return packer.startup(function(use)
   -- Have packer manage itself
   use 'wbthomason/packer.nvim'
-  -- Visual Plugins
+  -- Colorschemes
   use 'RRethy/nvim-base16'
+  -- Icons
+  use { 'onsails/lspkind.nvim', 'kyazdani42/nvim-web-devicons'}
+  -- Buffer and Status lines
+  use { 'akinsho/bufferline.nvim', 'nvim-lualine/lualine.nvim' }
+  -- Git info
   use 'lewis6991/gitsigns.nvim'
-  use { 'akinsho/bufferline.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
-  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
-  use 'onsails/lspkind.nvim'
   -- LSP
   use { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' }
   -- Tree-Sitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'nvim-treesitter/nvim-treesitter'
   -- Comments
   use { 'numToStr/Comment.nvim', requires = 'JoosepAlviste/nvim-ts-context-commentstring' }
-  -- Telescope
+  -- Fuzzy Finder
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
-  -- Completion and Snippets
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-nvim-lsp',
-      'L3MON4D3/LuaSnip',
-      'rafamadriz/friendly-snippets',
-    },
-  }
-  -- Markdown
-  use {
-    'iamcco/markdown-preview.nvim',
-    run = 'cd app && npm install',
-    setup = function()
-      vim.g.mkdp_filetypes = { 'markdown' }
-    end,
-    ft = { 'markdown' },
-  }
-  -- Tmux
+  -- Tmux navigation
   use 'christoomey/vim-tmux-navigator'
+  -- Completion
+  use { 'hrsh7th/nvim-cmp', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-nvim-lsp' }
+  -- Snippets
+  use { 'L3MON4D3/LuaSnip', 'rafamadriz/friendly-snippets' }
 end)
