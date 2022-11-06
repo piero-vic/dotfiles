@@ -30,6 +30,7 @@
   font-size: 11px;
   font-weight: 600;
   min-height: 0;
+  border-radius: 0px;
 }
 
 window#waybar {
@@ -50,13 +51,14 @@ window#waybar {
 
 #workspaces button:hover {
   box-shadow: inherit;
+  text-shadow: inherit;
+  background-color: @base01;
   color: @base0D;
 }
 
 #workspaces button.focused {
   background-color: @base0D;
-  color: black;
-  border-radius: 0px;
+  color: @base01;
 }
 
 #clock,
@@ -66,19 +68,16 @@ window#waybar {
 #pulseaudio,
 #battery {
   background-color: @base01;
-  padding: 0px 5px;
+  padding: 0px 10px;
   margin-bottom: 2px;
-  min-width: 15px;
 }
 
-#clock {
+#clock > * {
   color: @base0D;
-  padding: 0px 10px;
 }
 
 #idle_inhibitor {
   color: @base09;
-  padding-left: 10px;
 }
 
 #bluetooth {
@@ -93,18 +92,17 @@ window#waybar {
   color: @base0D;
 }
 
-#battery {
+#battery > * {
   color: @base0B;
-  padding-right: 10px;
 }
 
-#battery.warning:not(.charging) {
+#battery.warning:not(.charging) > * {
   color: @base0A;
 }
 
 #network.disconnected,
 #bluetooth.disabled,
 #pulseaudio.muted,
-#battery.critical:not(.charging) {
+#battery.critical:not(.charging) > * {
   color: @base0F;
 }
