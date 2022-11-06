@@ -34,7 +34,7 @@
     "format-disconnected": "睊",
     "tooltip-format-wifi": "{essid} {signalStrength}%",
     "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
-    "on-click": "alacritty -e nmtui"
+    "on-click": "alacritty -t 'NetworkManager TUI' -e nmtui"
   },
   "pulseaudio": {
     "format": "{icon}",
