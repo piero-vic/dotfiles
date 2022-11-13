@@ -1,6 +1,7 @@
 anchor=top-right
-font=JetBrainsMono Nerd Font 10
-width=200
+layer=overlay
+font=JetBrainsMono Nerd Font 9
+width=220
 margin=10,10
 padding=10
 border-size=2

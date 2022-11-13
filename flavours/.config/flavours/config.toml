@@ -19,12 +19,6 @@ template = "waybar"
 start= "/* Start flavours */"
 end = "/* End flavours */"
 
-[[items]]
-file = "~/.config/wofi/style.css"
-template = "wofi"
-subtemplate = "custom"
-rewrite = true
-
 [[item]]
 file= "~/.config/mako/config"
 template = "mako"
