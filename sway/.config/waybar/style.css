@@ -62,6 +62,7 @@ window#waybar {
 }
 
 #clock,
+#custom-screenrecord,
 #idle_inhibitor,
 #bluetooth,
 #network,
