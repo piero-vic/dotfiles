@@ -3,7 +3,7 @@
   "position": "top",
   "modules-left": ["sway/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["idle_inhibitor", "bluetooth", "network", "pulseaudio", "battery"],
+  "modules-right": ["custom/screenrecord", "idle_inhibitor", "bluetooth", "network", "pulseaudio", "battery"],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true
@@ -11,6 +11,13 @@
   "clock": {
     "format": "{:%b %d %H:%M}",
     "tooltip": false
+  },
+  "custom/screenrecord": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "/home/piero/.local/bin/screenrecord.sh",
+    "on-click": "/home/piero/.local/bin/screenrecord.sh toggle",
+    "interval": 3
   },
   "idle_inhibitor": {
     "format": "{icon}",
