@@ -73,7 +73,7 @@ window#waybar {
   margin-bottom: 2px;
 }
 
-#clock > * {
+#clock {
   color: @base0D;
 }
 
@@ -93,17 +93,17 @@ window#waybar {
   color: @base0D;
 }
 
-#battery > * {
+#battery {
   color: @base0B;
 }
 
-#battery.warning:not(.charging) > * {
+#battery.warning {
   color: @base0A;
 }
 
 #network.disconnected,
 #bluetooth.disabled,
 #pulseaudio.muted,
-#battery.critical:not(.charging) > * {
+#battery.critical {
   color: @base0F;
 }
