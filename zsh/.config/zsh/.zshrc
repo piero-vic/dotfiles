@@ -52,6 +52,8 @@ if type exa >/dev/null; then
   alias lt='exa -aTI ".git|node_modules" --icons --group-directories-first'
 fi
 
+type zoxide >/dev/null && alias cd='z'
+
 mkcd() { mkdir -p "$1" && cd "$1" || exit; }
 o() {
   if [ $# -eq 0 ]; then
@@ -109,6 +111,9 @@ type rbenv >/dev/null && eval "$(rbenv init -)"
 
 # Starship
 type starship >/dev/null && eval "$(starship init zsh)"
+
+# zoxide
+type zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 # Syntax Highlighting
 if [[ -d "$ZSH_PLUGINS/zsh-syntax-highlighting" ]]; then
