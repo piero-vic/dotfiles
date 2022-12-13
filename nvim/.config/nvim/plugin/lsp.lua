@@ -39,13 +39,11 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 local servers = {
   'astro',
-  'bashls',
   'cssls',
-  'cssmodules_ls',
   'emmet_ls',
+  'eslint',
+  'gopls',
   'marksman',
-  'prismals',
-  'solargraph',
   'sumneko_lua',
   'tailwindcss',
   'tsserver',
