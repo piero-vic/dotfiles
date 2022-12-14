@@ -250,8 +250,8 @@ for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen   
 
 for_window [app_id="blueberry.py"] floating enable
-for_window [app_id="pavucontrol"] floating enable
-for_window [app_id="transmission-gtk"] floating enable
+for_window [app_id="pavucontrol"] floating enable, border pixel 2, resize set width 600px height 500px
+for_window [app_id="transmission-gtk"] floating enable, border pixel 2, resize set width 600px height 500px
 for_window [title="FileManager TUI"] floating enable
 for_window [title="NetworkManager TUI"] floating enable
 for_window [title="Spotify TUI"] floating enable
