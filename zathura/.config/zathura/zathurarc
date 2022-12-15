@@ -36,6 +36,8 @@ set recolor-darkcolor           "#938AA9"
 set font                      "JetBrainsMonoNerdFont 9"
 set adjust-open               "width"
 
+set selection-clipboard clipboard
+
 map i recolor
 map - zoom out
 map = zoom in
