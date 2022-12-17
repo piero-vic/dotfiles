@@ -55,6 +55,7 @@
   },
   "battery": {
     "full-at": 64,
+    "interval": 30,
     "states": {
       "warning": 30,
       "critical": 15

@@ -272,6 +272,9 @@ exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 # Notifications
 exec mako
 
+# Low Battery Notifications
+exec 'battery-notification.sh &'
+
 # Initialize brightness
 exec brightnessctl -q set 270     # Set brightness to 15%
 
