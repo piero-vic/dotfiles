@@ -35,9 +35,11 @@ return packer.startup(function(use)
   -- Colorschemes
   use 'RRethy/nvim-base16'
   -- Icons
-  use { 'onsails/lspkind.nvim', 'kyazdani42/nvim-web-devicons'}
+  use { 'onsails/lspkind.nvim', 'kyazdani42/nvim-web-devicons' }
   -- Buffer and Status lines
   use { 'akinsho/bufferline.nvim', 'nvim-lualine/lualine.nvim' }
+  -- Identation guides
+  use 'lukas-reineke/indent-blankline.nvim'
   -- Git info
   use 'lewis6991/gitsigns.nvim'
   -- LSP
