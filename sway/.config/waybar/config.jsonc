@@ -17,7 +17,7 @@
     "return-type": "json",
     "exec": "/home/piero/.local/bin/screenrecord.sh",
     "on-click": "/home/piero/.local/bin/screenrecord.sh toggle",
-    "interval": 3
+    "interval": 1
   },
   "idle_inhibitor": {
     "format": "{icon}",
