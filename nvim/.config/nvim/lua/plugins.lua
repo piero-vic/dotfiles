@@ -43,7 +43,7 @@ return packer.startup(function(use)
   -- Git info
   use 'lewis6991/gitsigns.nvim'
   -- LSP
-  use { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' }
+  use { 'VonHeikemen/lsp-zero.nvim', 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' }
   -- Tree-Sitter
   use 'nvim-treesitter/nvim-treesitter'
   -- Comments

@@ -1,27 +1,27 @@
 -- ╔═══════════════════════════════════════════════════════════════════════════╗
--- ║ Mason and LSP UI                                                          ║
+-- ║ LSP and Autocompletion                                                    ║
 -- ╚═══════════════════════════════════════════════════════════════════════════╝
 
-require('mason').setup { ui = { border = 'single' } }
-require('lspconfig.ui.windows').default_options.border = 'single'
+local lsp = require 'lsp-zero'
 
-vim.api.nvim_set_hl(0, 'LspInfoBorder', { link = 'FloatBorder' })
-vim.diagnostic.config { virtual_text = false, float = { border = 'single' } }
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' })
+lsp.preset 'recommended'
 
--- ╔═══════════════════════════════════════════════════════════════════════════╗
--- ║ Configure Servers                                                         ║
--- ╚═══════════════════════════════════════════════════════════════════════════╝
+lsp.set_preferences {
+  suggest_lsp_servers = false,
+  set_lsp_keymaps = false,
+  sign_icons = {
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I',
+  },
+}
 
--- Function that's going to execute after the language server attaches to the current buffer.
-local on_attach = function(_, bufnr)
-  -- Function that lets us more easily define mappings specific for LSP related items.
+lsp.on_attach(function(_, bufnr)
   local nmap = function(keys, func)
     vim.keymap.set('n', keys, func, { noremap = true, silent = true, buffer = bufnr })
   end
 
-  -- Keymaps
   nmap('[d', vim.diagnostic.goto_prev)
   nmap(']d', vim.diagnostic.goto_next)
   nmap('<leader>e', vim.diagnostic.open_float)
@@ -33,9 +33,7 @@ local on_attach = function(_, bufnr)
   nmap('gr', require('telescope.builtin').lsp_references)
   nmap('K', vim.lsp.buf.hover)
   nmap('<leader>k', vim.lsp.buf.signature_help)
-end
-
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+end)
 
 local servers = {
   'astro',
@@ -49,18 +47,31 @@ local servers = {
   'tsserver',
 }
 
-require('mason-lspconfig').setup {
-  ensure_installed = servers,
-  automatic_installation = true,
-}
+lsp.ensure_installed(servers)
 
 for _, server in ipairs(servers) do
-  local options = { on_attach = on_attach, capabilities = capabilities }
-
   local present, server_options = pcall(require, 'config.lsp.server_settings.' .. server)
   if present then
-    options = vim.tbl_deep_extend('force', server_options, options)
+    lsp.configure(server, server_options)
   end
-
-  require('lspconfig')[server].setup(options)
 end
+
+lsp.setup_nvim_cmp({
+  documentation = {
+    border = 'single',
+  },
+})
+
+lsp.setup()
+
+-- ╔═══════════════════════════════════════════════════════════════════════════╗
+-- ║ LSP UI Configuration                                                      ║
+-- ╚═══════════════════════════════════════════════════════════════════════════╝
+
+require('mason.settings').set { ui = { border = 'single' } }
+require('lspconfig.ui.windows').default_options.border = 'single'
+
+vim.api.nvim_set_hl(0, 'LspInfoBorder', { link = 'FloatBorder' })
+vim.diagnostic.config { virtual_text = false, float = { border = 'single' } }
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' })
