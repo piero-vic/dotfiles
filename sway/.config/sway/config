@@ -100,6 +100,15 @@ input "1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
 # Background
 output * bg $wallpaper fill
 
+# Monitors
+output HDMI-A-1 pos 0 0
+output LVDS-1 pos 1920 0
+exec swaymsg focus output HDMI-A-1
+
+# Clamshell
+bindswitch --reload --locked lid:on output LVDS-1 disable
+bindswitch --reload --locked lid:off output LVDS-1 enable
+
 # Idle
 exec swayidle -w \
 timeout 300 'swaylock -f' \
