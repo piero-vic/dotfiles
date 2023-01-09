@@ -1,18 +1,58 @@
-# ▄▀  █ ▀█▀
-# ▀▄█ █  █
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                            ║
+# ║ ▄▀  █ ▀█▀                                                                  ║
+# ║ ▀▄█ █  █                                                                   ║
+# ║                                                                            ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ General                                                                    ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
 
 [init]
 	defaultBranch = main
+
 [user]
 	name = Piero Lescano
 	email = pierolescano@protonmail.com
+  signingkey = B470AEDBC95315C5357EF06133812554065DF7D7
+
+[gpg]
+  program = gpg
+  format = openpgp
+
 [commit]
-	verbose = true
+  verbose = true
+
+[fetch]
+  prune = true
+  parallel = 3
+
+[push]
+  default = simple
+  autoSetupRemote = true
+
+[help]
+  autoCorrect = prompt
+
 [core]
+  symlinks = true
   pager = delta
+  editor = nvim
+
 [delta]
   syntax-theme = ansi
   line-numbers = true
   zero-style = dim syntax
   line-numbers-left-format = "{nm:>2}┊"
   line-numbers-right-format = "{np:>2}┊"
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ URL rewrites                                                               ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+
+[url "ssh://git@gitlab.com/"]
+  insteadOf = https://gitlab.com/
