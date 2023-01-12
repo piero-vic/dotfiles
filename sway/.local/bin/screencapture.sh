@@ -28,19 +28,23 @@ get_section() {
 }
 
 case $(
-  bemenu --no-exec --prompt="screenshot" <<EOF | sed 's/^ *//'
-(S)creen
-(W)indow
-(X)Section
+  bemenu --no-exec --prompt="screencapture" <<EOF | sed 's/^ *//'
+Screen
+Window
+Selection
+Record
 EOF
 ) in
-"(S)creen")
+"Screen")
   get_screen
   ;;
-"(W)indow")
+"Window")
   get_window
   ;;
-"(X)Section")
+"Selection")
   get_section
+  ;;
+"Record")
+  screenrecord.sh toggle
   ;;
 esac

@@ -142,8 +142,7 @@ bindsym {
   $mod+Shift+a exec 'pavucontrol'
   $mod+Shift+b exec 'blueberry'
   $mod+Shift+p exec 'pass-menu.sh'
-  $mod+Shift+s exec 'screenshot.sh'
-  $mod+Shift+r exec 'screenrecord.sh toggle'
+  $mod+Shift+s exec 'screencapture.sh'
 
   $mod+Shift+q kill
   $mod+Shift+c reload
