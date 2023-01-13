@@ -88,17 +88,16 @@ input "1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
   repeat_rate 30
   repeat_delay 350
   xkb_layout us
-  xkb_variant altgr-intl
-  xkb_options caps:escape_shifted_capslock
+  xkb_variant mac
+  xkb_options caps:escape,shift:both_capslock
 }
 
 input "1133:49994:Logitech_LogiG_TKL_MKeyboard" {
   repeat_rate 30
   repeat_delay 350
   xkb_layout us
-  xkb_variant altgr-intl
-  xkb_options caps:escape_shifted_capslock
-  xkb_options altwin:swap_lalt_lwin
+  xkb_variant mac
+  xkb_options caps:escape,shift:both_capslock,altwin:swap_lalt_lwin
 }
 
 
