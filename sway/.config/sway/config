@@ -230,15 +230,15 @@ bindsym {
 # Resizing containers:
 mode "resize" {
   bindsym {
-    $left resize shrink width 10px
-    $down resize grow height 10px
-    $up resize shrink height 10px
-    $right resize grow width 10px
+    $left   exec swaymsg resize grow   left 10px || swaymsg resize shrink right 10px
+    $down   exec swaymsg resize shrink up   10px || swaymsg resize grow   down  10px
+    $up     exec swaymsg resize grow   up   10px || swaymsg resize shrink down  10px
+    $right  exec swaymsg resize shrink left 10px || swaymsg resize grow   right 10px
 
-    Left resize shrink width 10px
-    Down resize grow height 10px
-    Up resize shrink height 10px
-    Right resize grow width 10px
+    Left    exec swaymsg resize grow   left 10px || swaymsg resize shrink right 10px
+    Down    exec swaymsg resize shrink up   10px || swaymsg resize grow   down  10px
+    Up      exec swaymsg resize grow   up   10px || swaymsg resize shrink down  10px
+    Right   exec swaymsg resize shrink left 10px || swaymsg resize grow   right 10px
 
     Return mode "default"
     Escape mode "default"
