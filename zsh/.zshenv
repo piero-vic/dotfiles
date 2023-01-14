@@ -38,6 +38,11 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export PATH="$PATH:$HOME/.local/share/npm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
+# Go
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Default programs                                                           ║
