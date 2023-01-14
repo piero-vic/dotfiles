@@ -46,13 +46,3 @@
   zero-style = dim syntax
   line-numbers-left-format = "{nm:>2}┊"
   line-numbers-right-format = "{np:>2}┊"
-
-# ╔════════════════════════════════════════════════════════════════════════════╗
-# ║ URL rewrites                                                               ║
-# ╚════════════════════════════════════════════════════════════════════════════╝
-
-[url "ssh://git@github.com/"]
-  insteadOf = https://github.com/
-
-[url "ssh://git@gitlab.com/"]
-  insteadOf = https://gitlab.com/
