@@ -4,6 +4,11 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
   command = 'set filetype=astro',
 })
 
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  pattern = '*.mdx',
+  command = 'set filetype=markdown',
+})
+
 -- Ledger files
 vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
   pattern = '*.ledger',
