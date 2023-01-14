@@ -57,6 +57,10 @@ type bat >/dev/null && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # ║ Program settings                                                           ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
+# Firefox
+export MOZ_ENABLE_WAYLAND=1
+
+# bemenu
 export BEMENU_OPTS="-n -c -s -i \
   -W 0.2 -H 26 -B 2 -l 10 \
   --fn 'JetBrainsMonoNerdFont 9' \
