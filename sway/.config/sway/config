@@ -137,7 +137,6 @@ bindsym {
 
   $mod+Shift+f exec 'alacritty -t "FileManager TUI" -e lf'
   $mod+Shift+n exec 'alacritty -t "NetworkManager TUI" -e nmtui'
-  $mod+Shift+m exec 'alacritty -t "Spotify TUI" -e ncspot'
   $mod+Shift+a exec 'pavucontrol'
   $mod+Shift+b exec 'blueberry'
   $mod+Shift+p exec 'pass-menu.sh'
@@ -262,16 +261,21 @@ bar {
 # ║ Windows                                                                    ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
+# Inhibit idle
 for_window [class="^.*"] inhibit_idle fullscreen
-for_window [app_id="^.*"] inhibit_idle fullscreen   
-for_window [app_id="blueberry.py"] floating enable
-for_window [app_id="imv"] floating enable, border pixel 2, resize set width 800px height 600px
-for_window [app_id="mpv"] floating enable, border pixel 2, resize set width 1200px
-for_window [app_id="pavucontrol"] floating enable, border pixel 2, resize set width 600px height 500px
-for_window [app_id="transmission-gtk"] floating enable, border pixel 2, resize set width 600px height 500px
+for_window [app_id="^.*"] inhibit_idle fullscreen
+for_window [app_id="mpv"] inhibit_idle focus
+
+# Sticky settings
+for_window [app_id="blueberry.py"] floating enable, sticky enable
+for_window [title="NetworkManager TUI"] floating enable, sticky enable
+for_window [app_id="pavucontrol"] floating enable, sticky enable, border pixel 2, resize set 600 500
+
+# Floating apps
 for_window [title="FileManager TUI"] floating enable
-for_window [title="NetworkManager TUI"] floating enable
-for_window [title="Spotify TUI"] floating enable
+for_window [app_id="transmission-gtk"] floating enable, border pixel 2, resize set 600 500
+for_window [app_id="imv"] floating enable, border pixel 2, resize set 800 600
+for_window [app_id="mpv"] floating enable, border pixel 2, resize set 960 540
 
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
