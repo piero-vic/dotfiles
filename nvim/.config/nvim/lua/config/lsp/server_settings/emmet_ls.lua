@@ -4,8 +4,6 @@ return {
     'html',
     'typescriptreact',
     'javascriptreact',
-    'typescript',
-    'javascript',
     'css',
     'scss',
   },
