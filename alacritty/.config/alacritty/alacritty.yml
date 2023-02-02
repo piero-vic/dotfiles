@@ -33,50 +33,38 @@ font:
   #   See https://github.com/alacritty/alacritty/issues/1501
   size: 9
 
-# Start flavours
-# Base16 Kanagawa 256 - alacritty color config
-# Originally by rebelot (Ported by montdor [https://github.com/montdor/])
 colors:
-  # Default colors
   primary:
-    background: '0x1F1F28'
-    foreground: '0xDCD7BA'
+    background: '0x1f1f28'
+    foreground: '0xdcd7ba'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x1F1F28'
-    cursor: '0xDCD7BA'
-
-  # Normal colors
   normal:
-    black:   '0x1F1F28'
-    red:     '0xC34043'
-    green:   '0x98BB6C'
-    yellow:  '0xDCA561'
-    blue:    '0x7E9CD8'
-    magenta: '0x957FB8'
-    cyan:    '0x7FB4CA'
-    white:   '0xDCD7BA'
+    black:   '0x090618'
+    red:     '0xc34043'
+    green:   '0x76946a'
+    yellow:  '0xc0a36e'
+    blue:    '0x7e9cd8'
+    magenta: '0x957fb8'
+    cyan:    '0x6a9589'
+    white:   '0xc8c093'
 
-  # Bright colors
   bright:
     black:   '0x727169'
-    red:     '0xC34043'
-    green:   '0x98BB6C'
-    yellow:  '0xDCA561'
-    blue:    '0x7E9CD8'
-    magenta: '0x957FB8'
-    cyan:    '0x7FB4CA'
-    white:   '0x363646'
+    red:     '0xe82424'
+    green:   '0x98bb6c'
+    yellow:  '0xe6c384'
+    blue:    '0x7fb4ca'
+    magenta: '0x938aa9'
+    cyan:    '0x7aa89f'
+    white:   '0xdcd7ba'
+
+  selection:
+    background: '0x2d4f67'
+    foreground: '0xc8c093'
 
   indexed_colors:
-    - { index: 16, color: '0xFFA066' }
-    - { index: 17, color: '0xD27E99' }
-    - { index: 18, color: '0x2A2A37' }
-    - { index: 19, color: '0x223249' }
-    - { index: 20, color: '0xC8C093' }
-    - { index: 21, color: '0x938AA9' }
-# End flavours
+    - { index: 16, color: '0xffa066' }
+    - { index: 17, color: '0xff5d62' }
 
 mouse:
   hide_when_typing: true

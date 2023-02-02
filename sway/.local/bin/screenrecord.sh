@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Setup
-output_off="{\"text\": \"<span color='#aaaaaa'></span>\", \"tooltip\": \"Not recording\", \"alt\": \"\", \"class\": \"\" }"
+output_off="{\"text\": \"<span color='#dcd7ba'></span>\", \"tooltip\": \"Not recording\", \"alt\": \"\", \"class\": \"\" }"
 output_rec="{\"text\": \"<span color='#c34043'></span>\", \"tooltip\": \"Recording\", \"alt\": \"\", \"class\": \"\" }"
 recordings_directory=~/videos/screenrecordings
 filename="$recordings_directory/$(date '+%Y%m%d_%Hh%Mm%Ss')_recording.mp4"

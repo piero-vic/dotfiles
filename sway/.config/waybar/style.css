@@ -1,28 +1,13 @@
-/* Start flavours */
-/*
-*
-* Base16 Kanagawa
-* Author: Originally by rebelot (Ported by montdor [https://github.com/montdor/])
-*
-*/
-
-@define-color base00 #1F1F28;
-@define-color base01 #2A2A37;
-@define-color base02 #223249;
-@define-color base03 #727169;
-@define-color base04 #C8C093;
-@define-color base05 #DCD7BA;
-@define-color base06 #938AA9;
-@define-color base07 #363646;
-@define-color base08 #C34043;
-@define-color base09 #FFA066;
-@define-color base0A #DCA561;
-@define-color base0B #98BB6C;
-@define-color base0C #7FB4CA;
-@define-color base0D #7E9CD8;
-@define-color base0E #957FB8;
-@define-color base0F #D27E99;
-/* End flavours */
+@define-color sumiInk1      #1F1F28; /* base00 */
+@define-color sumiInk2      #2A2A37; /* base01 */
+@define-color fujiWhite     #DCD7BA; /* base05 */
+@define-color crystalBlue   #7E9CD8; /* base0D */
+@define-color surimiOrange  #FFA066; /* base09 */
+@define-color springBlue    #7FB4CA; /* base0C */
+@define-color oniViolet     #957FB8; /* base0E */
+@define-color autumnYellow  #DCA561; /* base0A */
+@define-color springGreen   #98BB6C; /* base0B */
+@define-color sakuraPink    #D27E99; /* base0F */
 
 * {
   border: none;
@@ -34,31 +19,31 @@
 }
 
 window#waybar {
-  background-color: @base00;
-  border-bottom: 2px solid @base01;
+  background-color: @sumiInk1;
+  border-bottom: 2px solid @sumiInk2;
 }
 
 #workspaces {
-  background-color: @base01;
+  background-color: @sumiInk2;
   margin: 0px 10px 2px 0px;
 }
 
 #workspaces button {
   padding: 1px;
   min-width: 20px;
-  color: @base05;
+  color: @fujiWhite;
 }
 
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  background-color: @base01;
-  color: @base0D;
+  background-color: @sumiInk2;
+  color: @crystalBlue;
 }
 
 #workspaces button.focused {
-  background-color: @base0D;
-  color: @base01;
+  background-color: @crystalBlue;
+  color: @sumiInk2;
 }
 
 #clock,
@@ -68,42 +53,42 @@ window#waybar {
 #network,
 #pulseaudio,
 #battery {
-  background-color: @base01;
+  background-color: @sumiInk2;
   padding: 0px 10px;
   margin-bottom: 2px;
 }
 
 #clock {
-  color: @base0D;
+  color: @crystalBlue;
 }
 
 #idle_inhibitor {
-  color: @base09;
+  color: @surimiOrange;
 }
 
 #bluetooth {
-  color: @base0C;
+  color: @springBlue;
 }
 
 #network {
-  color: @base0E;
+  color: @oniViolet;
 }
 
 #pulseaudio {
-  color: @base0D;
+  color: @crystalBlue;
 }
 
 #battery {
-  color: @base0B;
+  color: @springGreen;
 }
 
 #battery.warning {
-  color: @base0A;
+  color: @autumnYellow;
 }
 
 #network.disconnected,
 #bluetooth.disabled,
 #pulseaudio.muted,
 #battery.critical {
-  color: @base0F;
+  color: @sakuraPink;
 }

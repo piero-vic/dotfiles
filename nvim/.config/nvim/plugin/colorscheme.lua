@@ -1,1 +1,1 @@
-vim.cmd 'colorscheme base16-kanagawa'
+vim.cmd 'colorscheme kanagawa'

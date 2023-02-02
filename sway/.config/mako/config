@@ -8,12 +8,6 @@ border-size=2
 default-timeout=1500
 group-by=summary
 
-# Start flavours
-## Base16 Kanagawa
-# Author: Originally by rebelot (Ported by montdor [https://github.com/montdor/])
-#
-# You can use these variables anywhere in the mako configuration file.
-
 background-color=#1F1F28
 text-color=#DCD7BA
 border-color=#7E9CD8
@@ -27,7 +21,6 @@ border-color=#7E9CD8
 background-color=#1F1F28
 text-color=#C34043
 border-color=#7E9CD8
-# End flavours
 
 [grouped]
 format=<b>%s</b>\n%b
