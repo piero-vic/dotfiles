@@ -14,41 +14,57 @@ set $right l
 set $term alacritty
 set $menu bemenu-run
 set $browser brave
-set $wallpaper ~/.local/share/wallpapers/pexels-photo-collections-213942.jpg
+set $wallpaper ~/.local/share/wallpapers/pexels-photo-collections-213803.jpg
 
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Style                                                                      ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
-# Start flavours
-## Base16 Kanagawa
-# Author: Originally by rebelot (Ported by montdor [https://github.com/montdor/])
-
-set $base00 #1F1F28
-set $base01 #2A2A37
-set $base02 #223249
-set $base03 #727169
-set $base04 #C8C093
-set $base05 #DCD7BA
-set $base06 #938AA9
-set $base07 #363646
-set $base08 #C34043
-set $base09 #FFA066
-set $base0A #DCA561
-set $base0B #98BB6C
-set $base0C #7FB4CA
-set $base0D #7E9CD8
-set $base0E #957FB8
-set $base0F #D27E99
-# End flavours
+set $fujiWhite      #DCD7BA
+set $oldWhite 	    #C8C093
+set $sumiInk0 	    #16161D
+set $sumiInk1 	    #1F1F28
+set $sumiInk2 	    #2A2A37
+set $sumiInk3 	    #363646
+set $sumiInk4 	    #54546D
+set $waveBlue1 	    #223249
+set $waveBlue2 	    #2D4F67
+set $winterGreen    #2B3328
+set $winterYellow   #49443C
+set $winterRed 	    #43242B
+set $winterBlue     #252535
+set $autumnGreen    #76946A
+set $autumnRed 	    #C34043
+set $autumnYellow   #DCA561
+set $samuraiRed     #E82424
+set $roninYellow    #FF9E3B
+set $waveAqua1 	    #6A9589
+set $dragonBlue     #658594
+set $fujiGray 	    #727169
+set $springViolet1  #938AA9
+set $oniViolet 	    #957FB8
+set $crystalBlue    #7E9CD8
+set $springViolet2  #9CABCA
+set $springBlue     #7FB4CA
+set $lightBlue 	    #A3D4D5
+set $waveAqua2 	    #7AA89F
+set $springGreen    #98BB6C
+set $boatYellow1    #938056
+set $boatYellow2    #C0A36E
+set $carpYellow     #E6C384
+set $sakuraPink     #D27E99
+set $waveRed 	      #E46876
+set $peachRed 	    #FF5D62
+set $surimiOrange   #FFA066
+set $katanaGray     #717C7C
 
 # Window decoration
-# class                 border  backgr  text    indic   child_b
-client.focused          $base0D $base0D $base00 $base0B $base0D
-client.focused_inactive $base01 $base01 $base05 $base0B $base01
-client.unfocused        $base01 $base01 $base05 $base0B $base01
-client.urgent           $base0A $base0A $base00 $base0B $base0A
+# class                 border        backgr        text        indic         child_b
+client.focused          $crystalBlue  $crystalBlue  $sumiInk1   $springGreen  $crystalBlue
+client.focused_inactive $crystalBlue  $sumiInk2     $fujiWhite  $springGreen  $sumiInk2
+client.unfocused        $crystalBlue  $sumiInk2     $fujiWhite  $springGreen  $sumiInk2
+client.urgent           $autumnYellow $autumnYellow $sumiInk1   $springGreen  $autumnYellow
 
 font pango: JetBrainsMonoNerdFont Medium 9
 default_border pixel 2

@@ -33,7 +33,7 @@ return packer.startup(function(use)
   -- Have packer manage itself
   use 'wbthomason/packer.nvim'
   -- Colorschemes
-  use 'RRethy/nvim-base16'
+  use "rebelot/kanagawa.nvim"
   -- Icons
   use { 'onsails/lspkind.nvim', 'kyazdani42/nvim-web-devicons' }
   -- Buffer and Status lines
