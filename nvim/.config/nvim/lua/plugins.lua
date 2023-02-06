@@ -1,59 +1,54 @@
--- Automatically install packer
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system {
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  }
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', {
-  command = 'source <afile> | PackerSync',
-  group = packer_group,
-  pattern = 'plugins.lua',
-})
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, 'packer')
-if not status_ok then
-  return
-end
-
--- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return require('packer.util').float { border = 'single' }
-    end,
-  },
-}
+-- Leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Install your plugins here
-return packer.startup(function(use)
-  -- Have packer manage itself
-  use 'wbthomason/packer.nvim'
+require('lazy').setup {
   -- Colorschemes
-  use "rebelot/kanagawa.nvim"
+  'rebelot/kanagawa.nvim',
   -- Icons
-  use { 'onsails/lspkind.nvim', 'kyazdani42/nvim-web-devicons' }
+  'onsails/lspkind.nvim',
+  'kyazdani42/nvim-web-devicons',
   -- Buffer and Status lines
-  use { 'akinsho/bufferline.nvim', 'nvim-lualine/lualine.nvim' }
+  'akinsho/bufferline.nvim',
+  'nvim-lualine/lualine.nvim',
   -- Identation guides
-  use 'lukas-reineke/indent-blankline.nvim'
+  'lukas-reineke/indent-blankline.nvim',
   -- Git info
-  use 'lewis6991/gitsigns.nvim'
+  'lewis6991/gitsigns.nvim',
   -- LSP
-  use { 'VonHeikemen/lsp-zero.nvim', 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim' }
+  'VonHeikemen/lsp-zero.nvim',
+  'neovim/nvim-lspconfig',
+  'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
   -- Tree-Sitter
-  use 'nvim-treesitter/nvim-treesitter'
+  'nvim-treesitter/nvim-treesitter',
   -- Comments
-  use { 'numToStr/Comment.nvim', requires = 'JoosepAlviste/nvim-ts-context-commentstring' }
+  { 'numToStr/Comment.nvim', dependencies = 'JoosepAlviste/nvim-ts-context-commentstring' },
   -- Fuzzy Finder
-  use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
+  { 'nvim-telescope/telescope.nvim', dependencies = 'nvim-lua/plenary.nvim' },
   -- Tmux navigation
-  use 'christoomey/vim-tmux-navigator'
+  'christoomey/vim-tmux-navigator',
   -- Completion
-  use { 'hrsh7th/nvim-cmp', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-nvim-lsp' }
+  'hrsh7th/nvim-cmp',
+  'saadparwaiz1/cmp_luasnip',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-nvim-lsp',
   -- Snippets
-  use { 'L3MON4D3/LuaSnip', 'rafamadriz/friendly-snippets' }
-end)
+  'L3MON4D3/LuaSnip',
+  'rafamadriz/friendly-snippets',
+}
