@@ -1,11 +1,6 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
--- Leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-keymap({ 'n', 'v' }, '<Space>', '<Nop>', opts)
-
 -- Clear search highlighting
 keymap('n', '<leader>c', ':nohlsearch<CR>', opts)
 
