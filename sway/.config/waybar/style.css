@@ -47,6 +47,7 @@ window#waybar {
 }
 
 #clock,
+#tray,
 #custom-screenrecord,
 #idle_inhibitor,
 #bluetooth,
@@ -60,6 +61,10 @@ window#waybar {
 
 #clock {
   color: @crystalBlue;
+}
+
+#tray {
+  background-color: @sumiInk1;
 }
 
 #idle_inhibitor {

@@ -3,7 +3,7 @@
   "position": "top",
   "modules-left": ["sway/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/screenrecord", "idle_inhibitor", "bluetooth", "network", "pulseaudio", "battery"],
+  "modules-right": ["tray", "custom/screenrecord", "idle_inhibitor", "bluetooth", "network", "pulseaudio", "battery"],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true
@@ -11,6 +11,10 @@
   "clock": {
     "format": "{:%b %d %H:%M}",
     "tooltip": false
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 10
   },
   "custom/screenrecord": {
     "format": "{}",
