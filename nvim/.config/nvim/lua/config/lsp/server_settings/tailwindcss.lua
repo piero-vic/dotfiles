@@ -1,7 +1,7 @@
 return {
   settings = {
     tailwindCSS = {
-      emmetCompletions = true
-    }
-  }
+      emmetCompletions = true,
+    },
+  },
 }
