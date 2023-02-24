@@ -41,8 +41,8 @@ local servers = {
   'emmet_ls',
   'eslint',
   'gopls',
+  'lua_ls',
   'marksman',
-  'sumneko_lua',
   'tailwindcss',
   'tsserver',
 }
@@ -56,11 +56,11 @@ for _, server in ipairs(servers) do
   end
 end
 
-lsp.setup_nvim_cmp({
+lsp.setup_nvim_cmp {
   documentation = {
     border = 'single',
   },
-})
+}
 
 lsp.setup()
 
