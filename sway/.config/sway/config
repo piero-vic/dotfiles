@@ -124,11 +124,6 @@ input "1133:49994:Logitech_LogiG_TKL_MKeyboard" {
 # Background
 output * bg $wallpaper fill
 
-# Monitors
-output HDMI-A-1 pos 0 0
-output LVDS-1 pos 1920 0
-exec swaymsg focus output HDMI-A-1
-
 # Clamshell
 bindswitch --reload --locked lid:on output LVDS-1 disable
 bindswitch --reload --locked lid:off output LVDS-1 enable
@@ -300,6 +295,9 @@ for_window [app_id="mpv"] floating enable, border pixel 2, resize set 960 540
 
 # Polkit
 exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Monitors
+exec kanshi
 
 # Wob
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
