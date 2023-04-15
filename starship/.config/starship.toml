@@ -9,6 +9,11 @@ $git_status\
 $character
 """
 
+right_format	= """
+$golang\
+$nodejs
+"""
+
 [directory]
 style = "blue"
 
