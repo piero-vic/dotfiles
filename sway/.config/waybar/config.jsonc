@@ -28,7 +28,8 @@
     "format-icons": {
       "activated": "",
       "deactivated": ""
-    }
+    },
+    "start-activated": true
   },
   "bluetooth": {
     "format": "",
