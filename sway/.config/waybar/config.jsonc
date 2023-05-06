@@ -26,34 +26,34 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
+      "activated": "󰅶",
+      "deactivated": "󰛊"
     },
     "start-activated": true
   },
   "bluetooth": {
-    "format": "",
-    "format-disabled": "",
-    "format-connected": "",
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t\t{device_address}",
     "on-click": "blueberry"
   },
   "network": {
-    "format-wifi": "",
+    "format-wifi": "󰖩",
     "format-ethernet": "",
-    "format-disconnected": "睊",
+    "format-disconnected": "󰖪",
     "tooltip-format-wifi": "{essid} {signalStrength}%",
     "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
     "on-click": "alacritty -t 'NetworkManager TUI' -e nmtui"
   },
   "pulseaudio": {
     "format": "{icon}",
-    "format-muted": "",
+    "format-muted": "󰝟",
     "format-icons": {
-      "headphone": "",
-      "default": ["", "", "墳", ""]
+      "headphone": "󰋋",
+      "default": ["󰕿", "󰖀", "󰕾"]
     },
     "tooltip-format": "{desc}, {volume}%",
     "on-click": "pavucontrol"
@@ -70,6 +70,6 @@
     "format-charging": "",
     "format-plugged": "",
     "format-full": "{icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+    "format-icons": ["󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
   }
 }
