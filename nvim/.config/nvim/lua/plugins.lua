@@ -143,6 +143,18 @@ return {
       require 'config.lsp'
     end,
   },
+  {
+    -- Autoformatting
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
+    },
+    config = function()
+      require 'config.null-ls'
+    end,
+  },
   -- Identation guides
   'lukas-reineke/indent-blankline.nvim',
   -- Tmux navigation

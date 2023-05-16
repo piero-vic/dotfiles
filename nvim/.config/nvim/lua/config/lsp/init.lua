@@ -39,7 +39,6 @@ local servers = {
   'astro',
   'cssls',
   'emmet_ls',
-  'eslint',
   'gopls',
   'lua_ls',
   'marksman',
