@@ -135,11 +135,6 @@ keymap('n', '<leader>gs', require('telescope.builtin').git_status, opts)
 
 -- Filetypes
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  pattern = '*.astro',
-  command = 'set filetype=astro',
-})
-
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = '*.mdx',
   command = 'set filetype=markdown',
 })
