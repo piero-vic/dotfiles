@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 case $(
-  bemenu --no-exec --prompt="power" <<EOF | sed 's/^ *//'
+	bemenu --no-exec --prompt="power" <<EOF
 Shutdown
 Reboot
 Suspend
@@ -11,21 +11,21 @@ Lock
 EOF
 ) in
 "Shutdown")
-  systemctl poweroff
-  ;;
+	systemctl poweroff
+	;;
 "Reboot")
-  systemctl reboot
-  ;;
+	systemctl reboot
+	;;
 "Suspend")
-  swaylock && systemctl suspend
-  ;;
+	swaylock && systemctl suspend
+	;;
 "Hibernate")
-  swaylock && systemctl hibernate
-  ;;
+	swaylock && systemctl hibernate
+	;;
 "Logout")
-  swaymsg exit
-  ;;
+	swaymsg exit
+	;;
 "Lock")
-  swaylock
-  ;;
+	swaylock
+	;;
 esac
