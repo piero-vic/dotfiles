@@ -3,19 +3,19 @@
 wobsock=$XDG_RUNTIME_DIR/wob.sock
 
 volume_up() {
-  pamixer -ui 5 && pamixer --get-volume >"$wobsock"
+	pamixer -ui 5 && pamixer --get-volume >"$wobsock"
 }
 
 volume_down() {
-  pamixer -ud 5 && pamixer --get-volume >"$wobsock"
+	pamixer -ud 5 && pamixer --get-volume >"$wobsock"
 }
 
 mute() {
-  pamixer --toggle-mute && ([ "$(pamixer --get-mute)" = "true" ] && echo 0 >"$wobsock") || pamixer --get-volume >"$wobsock"
+	pamixer --toggle-mute && ([ "$(pamixer --get-mute)" = "true" ] && echo 0 >"$wobsock") || pamixer --get-volume >"$wobsock"
 }
 
 show_help() {
-  cat <<EOF
+	cat <<EOF
 Usage: volume.sh [options]
 AVAILABLE OPTIONS:
   --inc            increase current volume by +5%
@@ -25,11 +25,11 @@ EOF
 }
 
 if [[ "$1" == "--inc" ]]; then
-  volume_up
+	volume_up
 elif [[ "$1" == "--dec" ]]; then
-  volume_down
+	volume_down
 elif [[ "$1" == "--mute" ]]; then
-  mute
+	mute
 else
-  show_help
+	show_help
 fi
