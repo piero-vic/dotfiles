@@ -29,9 +29,6 @@ setopt emacs
 # ║ Aliases and Functions                                                      ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
-alias c="clear"
-alias e="exit"
-
 alias cp="cp -ri"
 alias mv="mv -i"
 alias rm="rm -i"
@@ -54,18 +51,8 @@ fi
 
 type zoxide >/dev/null && alias cd='z'
 
-mkcd() { mkdir -p "$1" && cd "$1" || exit; }
-o() {
-  if [ $# -eq 0 ]; then
-    open .
-  else
-    open "$@"
-  fi
-}
-
 
 ## git
-
 alias gs='git status'
 alias ga='git add'
 alias grs='git restore --staged'
