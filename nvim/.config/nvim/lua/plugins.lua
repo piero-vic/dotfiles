@@ -1,5 +1,6 @@
 return {
-  { -- Colorscheme
+  -- Colorscheme
+  {
     'rebelot/kanagawa.nvim',
     lazy = false,
     priority = 1000,
@@ -7,17 +8,20 @@ return {
       vim.cmd 'colorscheme kanagawa'
     end,
   },
-  { -- Bufferline
+  -- Bufferline
+  {
     'akinsho/bufferline.nvim',
     dependencies = 'kyazdani42/nvim-web-devicons',
     opts = {},
   },
-  { -- Status line
+  -- Status line
+  {
     'nvim-lualine/lualine.nvim',
     dependencies = 'kyazdani42/nvim-web-devicons',
     opts = {},
   },
-  { -- Git info
+  -- Git info
+  {
     'lewis6991/gitsigns.nvim',
     opts = {
       on_attach = function(bufnr)
@@ -60,7 +64,8 @@ return {
       end,
     },
   },
-  { -- Tree-Sitter
+  -- Tree-Sitter
+  {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
@@ -73,7 +78,8 @@ return {
       }
     end,
   },
-  { -- Comments
+  -- Comments
+  {
     'numToStr/Comment.nvim',
     dependencies = 'JoosepAlviste/nvim-ts-context-commentstring',
     opts = {
@@ -94,7 +100,8 @@ return {
       end,
     },
   },
-  { -- Fuzzy Finder
+  -- Fuzzy Finder
+  {
     'nvim-telescope/telescope.nvim',
     dependencies = 'nvim-lua/plenary.nvim',
     opts = {
@@ -118,7 +125,8 @@ return {
       },
     },
   },
-  { -- LSP
+  -- LSP
+  {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
     dependencies = {
