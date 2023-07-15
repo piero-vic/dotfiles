@@ -36,10 +36,15 @@ lsp.on_attach(function(_, bufnr)
 end)
 
 local servers = {
+  'angularls',
   'astro',
+  'bashls',
   'cssls',
+  'dockerls',
   'emmet_ls',
+  'eslint',
   'gopls',
+  'jdtls',
   'lua_ls',
   'marksman',
   'tailwindcss',
