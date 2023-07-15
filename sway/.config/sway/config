@@ -100,12 +100,13 @@ input "1452:594:bcm5974" {
 }
 
 # Keyboard
+# For reference: https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
 input "1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
   repeat_rate 30
   repeat_delay 350
   xkb_layout us
   xkb_variant mac
-  xkb_options caps:escape,shift:both_capslock
+  xkb_options caps:ctrl_modifier,shift:both_capslock
 }
 
 input "1133:49994:Logitech_LogiG_TKL_MKeyboard" {
@@ -113,7 +114,7 @@ input "1133:49994:Logitech_LogiG_TKL_MKeyboard" {
   repeat_delay 350
   xkb_layout us
   xkb_variant mac
-  xkb_options caps:escape,shift:both_capslock,altwin:swap_lalt_lwin
+  xkb_options caps:ctrl_modifier,shift:both_capslock,altwin:swap_lalt_lwin
 }
 
 
