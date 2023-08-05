@@ -105,8 +105,3 @@ type starship >/dev/null && eval "$(starship init zsh)"
 
 # zoxide
 type zoxide >/dev/null && eval "$(zoxide init zsh)"
-
-# Syntax Highlighting
-if [[ -d "$ZSH_PLUGINS/zsh-syntax-highlighting" ]]; then
-  source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
