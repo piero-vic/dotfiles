@@ -1,71 +1,57 @@
 return {
-  -- Colorscheme
   {
+    -- Colorscheme
     'rebelot/kanagawa.nvim',
-    lazy = false,
     priority = 1000,
     config = function()
       vim.cmd 'colorscheme kanagawa'
     end,
   },
-  -- Bufferline
   {
+    -- Bufferline
     'akinsho/bufferline.nvim',
     dependencies = 'kyazdani42/nvim-web-devicons',
     opts = {},
   },
-  -- Status line
   {
+    -- Status line
     'nvim-lualine/lualine.nvim',
     dependencies = 'kyazdani42/nvim-web-devicons',
-    opts = {},
+    opts = {
+      options = {
+        component_separators = '|',
+        section_separators = '',
+      },
+    },
   },
-  -- Git info
   {
+    -- Identation guides
+    'lukas-reineke/indent-blankline.nvim',
+    opts = {
+      show_trailing_blankline_indent = false,
+      show_current_context = true,
+    },
+  },
+  {
+    -- Git info
     'lewis6991/gitsigns.nvim',
     opts = {
       on_attach = function(bufnr)
-        local gs = package.loaded.gitsigns
-
-        local function map(mode, l, r, opts)
-          opts = opts or { noremap = true, silent = true }
-          opts.buffer = bufnr
-          vim.keymap.set(mode, l, r, opts)
-        end
-
         -- Navigation
-        map('n', ']h', function()
-          if vim.wo.diff then
-            return ']c'
-          end
-          vim.schedule(function()
-            gs.next_hunk()
-          end)
-          return '<Ignore>'
-        end, { expr = true })
-
-        map('n', '[h', function()
-          if vim.wo.diff then
-            return '[c'
-          end
-          vim.schedule(function()
-            gs.prev_hunk()
-          end)
-          return '<Ignore>'
-        end, { expr = true })
-
+        vim.keymap.set('n', '[h', require('gitsigns').prev_hunk, { buffer = bufnr })
+        vim.keymap.set('n', ']h', require('gitsigns').next_hunk, { buffer = bufnr })
         -- Actions
-        map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-        map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-        map('n', '<leader>hu', gs.undo_stage_hunk)
-        map('n', '<leader>bs', gs.stage_buffer)
-        map('n', '<leader>br', gs.reset_buffer)
-        map('n', '<leader>hp', gs.preview_hunk)
+        vim.keymap.set({ 'n', 'v' }, '<leader>hs', require('gitsigns').stage_hunk, { buffer = bufnr })
+        vim.keymap.set({ 'n', 'v' }, '<leader>hr', require('gitsigns').reset_hunk, { buffer = bufnr })
+        vim.keymap.set('n', '<leader>hu', require('gitsigns').undo_stage_hunk, { buffer = bufnr })
+        vim.keymap.set('n', '<leader>bs', require('gitsigns').stage_buffer, { buffer = bufnr })
+        vim.keymap.set('n', '<leader>br', require('gitsigns').reset_buffer, { buffer = bufnr })
+        vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr })
       end,
     },
   },
-  -- Tree-Sitter
   {
+    -- Tree-Sitter
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
@@ -78,8 +64,8 @@ return {
       }
     end,
   },
-  -- Comments
   {
+    -- Comments
     'numToStr/Comment.nvim',
     dependencies = 'JoosepAlviste/nvim-ts-context-commentstring',
     opts = {
@@ -100,23 +86,13 @@ return {
       end,
     },
   },
-  -- Fuzzy Finder
   {
+    -- Fuzzy Finder
     'nvim-telescope/telescope.nvim',
     dependencies = 'nvim-lua/plenary.nvim',
     opts = {
       defaults = {
-        prompt_prefix = ' ',
-        selection_caret = '❯ ',
         sorting_strategy = 'ascending',
-        layout_config = {
-          horizontal = { prompt_position = 'bottom', preview_width = 0.55, results_width = 0.8 },
-          vertical = { mirror = false },
-          width = 0.87,
-          height = 0.80,
-          preview_cutoff = 120,
-        },
-        path_display = { 'truncate' },
       },
       pickers = {
         find_files = {
@@ -125,8 +101,8 @@ return {
       },
     },
   },
-  -- LSP
   {
+    -- LSP
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
     dependencies = {
@@ -134,7 +110,6 @@ return {
       'neovim/nvim-lspconfig',
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
-
       -- Autocompletion
       'hrsh7th/nvim-cmp',
       'hrsh7th/cmp-nvim-lsp',
@@ -142,7 +117,6 @@ return {
       'hrsh7th/cmp-path',
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-nvim-lua',
-
       -- Snippets
       'L3MON4D3/LuaSnip',
       'rafamadriz/friendly-snippets',
@@ -151,20 +125,6 @@ return {
       require 'config.lsp'
     end,
   },
-  {
-    -- Autoformatting
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "williamboman/mason.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
-    },
-    config = function()
-      require 'config.null-ls'
-    end,
-  },
-  -- Identation guides
-  'lukas-reineke/indent-blankline.nvim',
   -- Tmux navigation
   'christoomey/vim-tmux-navigator',
 }
