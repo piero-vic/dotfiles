@@ -27,6 +27,7 @@ lsp.on_attach(function(_, bufnr)
   nmap('<leader>e', vim.diagnostic.open_float)
   nmap('<leader>q', require('telescope.builtin').diagnostics)
   nmap('<leader>rn', vim.lsp.buf.rename)
+  nmap('<leader>ca', vim.lsp.buf.code_action)
   nmap('gd', vim.lsp.buf.definition)
   nmap('gD', vim.lsp.buf.declaration)
   nmap('gi', vim.lsp.buf.implementation)
@@ -35,35 +36,52 @@ lsp.on_attach(function(_, bufnr)
   nmap('<leader>k', vim.lsp.buf.signature_help)
 end)
 
-local servers = {
-  'angularls',
-  'astro',
-  'bashls',
-  'cssls',
-  'dockerls',
-  'emmet_ls',
-  'eslint',
-  'gopls',
-  'jdtls',
-  'lua_ls',
-  'marksman',
-  'tailwindcss',
-  'tsserver',
-}
-
-lsp.ensure_installed(servers)
-
-for _, server in ipairs(servers) do
-  local present, server_options = pcall(require, 'config.lsp.server_settings.' .. server)
-  if present then
-    lsp.configure(server, server_options)
-  end
-end
-
-lsp.setup_nvim_cmp {
-  documentation = {
-    border = 'single',
+lsp.format_on_save {
+  servers = {
+    ['astro'] = { 'astro' },
+    ['gopls'] = { 'go' },
+    ['jdtls'] = { 'java' },
   },
 }
+
+local servers = {
+  angularls = {},
+  astro = {},
+  bashls = {},
+  cssls = {},
+  dockerls = {},
+  emmet_language_server = {},
+  eslint = {},
+  gopls = {},
+  jdtls = {},
+  lua_ls = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand '$VIMRUNTIME/lua'] = true,
+          [vim.fn.stdpath 'config' .. '/lua'] = true,
+        },
+      },
+    },
+  },
+  marksman = {},
+  tailwindcss = {
+    tailwindCSS = {
+      emmetCompletions = true,
+    },
+  },
+  tsserver = {},
+}
+
+lsp.ensure_installed(vim.tbl_keys(servers))
+
+for server_name, server_settings in pairs(servers) do
+  lsp.configure(server_name, server_settings)
+end
+
+lsp.nvim_workspace()
 
 lsp.setup()
