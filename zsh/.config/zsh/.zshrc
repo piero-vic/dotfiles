@@ -43,10 +43,10 @@ if type nvim >/dev/null; then
   alias v="nvim"
 fi
 
-if type exa >/dev/null; then
-  alias ls='exa -a1 --icons --group-directories-first'
-  alias la='exa -al --git --icons --group-directories-first'
-  alias lt='exa -aTI ".git|node_modules" --icons --group-directories-first'
+if type eza >/dev/null; then
+  alias ls='eza -a1 --icons --group-directories-first'
+  alias la='eza -al --git --icons --group-directories-first'
+  alias lt='eza -aTI ".git|node_modules" --icons --group-directories-first'
 fi
 
 type zoxide >/dev/null && alias cd='z'
