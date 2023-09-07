@@ -75,17 +75,6 @@ alias gst='git stash'
 alias gstp='git stash pop'
 
 
-## tmux
-function t() {
-  [ -z "${TMUX}" ] && tmux attach || tmux
-}
-
-function tn() {
-  tmux new -s "$1" -d
-  tmux switch -t "$1"
-}
-
-
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Plugins and other applications                                             ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
@@ -105,3 +94,6 @@ type starship >/dev/null && eval "$(starship init zsh)"
 
 # zoxide
 type zoxide >/dev/null && eval "$(zoxide init zsh)"
+
+# t-smart-tmux-session-manager
+export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
