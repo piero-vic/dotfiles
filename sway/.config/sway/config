@@ -12,7 +12,7 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
-set $menu bemenu-run
+set $menu j4-dmenu-desktop --no-generic --dmenu="bemenu --prompt applications"
 set $browser brave
 set $wallpaper ~/.local/share/wallpapers/pexels-photo-collections-213803.jpg
 
