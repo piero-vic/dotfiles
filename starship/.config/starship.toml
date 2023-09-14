@@ -1,42 +1,34 @@
 add_newline = false
 
-format = """
-$directory\
-$git_branch\
-$git_commit\
-$git_state\
-$git_status\
-$character
-"""
-
-right_format	= """
-$golang\
-$nodejs
-"""
+format = '$directory$character'
+right_format = '$git_state$git_status$git_branch$git_commit'
 
 [directory]
-style = "blue"
+style = 'blue'
 
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
+success_symbol = '[❯](green)'
+error_symbol = '[❯](red)'
 
 [git_branch]
-symbol = " "
-format = "[on](white) [$symbol$branch](purple) "
+format = '[$branch(:$remote_branch)](purple)'
 
 [git_commit]
-style = "green"
+format = '[$hash](green)'
+
+[git_state]
+format = '[$state($progress_current/$progress_total)](cyan) [•](bright-black) '
 
 [git_status]
-format = '$all_status$ahead_behind'
-conflicted = '[=$count](red) '
-ahead = '[⇡$count](green) '
-behind = '[⇣$count](yellow) '
-diverged = '[⇕$count](red) '
-untracked = '[?$count](red) '
-stashed = '[\$$count](yellow) '
-modified = '[!$count](yellow) '
-staged = '[+$count](green) '
-renamed = '[»$count](green) '
-deleted = '[✘$count](red) '
+format = '[$all_status$ahead_behind](yellow)[•](bright-black) '
+conflicted = '=$count '
+ahead = '⇡$count '
+behind = '⇣$count '
+diverged = '⇕ '
+up_to_date = ' '
+untracked = '?$count '
+stashed = '\$$count '
+modified = '!$count '
+staged = '+$count '
+renamed = '»$count '
+deleted = '✘$count '
