@@ -79,9 +79,6 @@ alias gstp='git stash pop'
 # ║ Plugins and other applications                                             ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
-# Ruby
-type rbenv >/dev/null && eval "$(rbenv init -)"
-
 # NVM
 [[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
 
