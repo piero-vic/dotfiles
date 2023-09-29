@@ -37,6 +37,8 @@ alias mkdir="mkdir -p"
 
 alias reload="source ~/.config/zsh/.zshrc"
 
+type bat >/dev/null && alias cat="bat"
+
 if type nvim >/dev/null; then
   alias vi="nvim"
   alias vim="nvim"
