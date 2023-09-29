@@ -51,9 +51,13 @@ return {
   -- Identation guides
   {
     'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
     opts = {
-      show_trailing_blankline_indent = false,
-      show_current_context = true,
+      indent = { char = '│' },
+      scope = { enabled = false },
+      exclude = {
+        filetypes = { 'markdown' },
+      },
     },
   },
 
