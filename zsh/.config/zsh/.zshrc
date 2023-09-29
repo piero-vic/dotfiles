@@ -6,10 +6,9 @@
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
 # Start tmux on every shell login
-# type tmux > /dev/null \
-# && [ -z "${TMUX}" ] \
-# && { tmux attach || tmux; } >/dev/null 2>&1
-
+# type tmux >/dev/null &&
+# 	[ -z "${TMUX}" ] &&
+# 	{ tmux attach || tmux; } >/dev/null 2>&1
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Configuration                                                              ║
@@ -24,7 +23,6 @@ setopt chaselinks
 setopt noclobber
 setopt emacs
 
-
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Aliases and Functions                                                      ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
@@ -37,22 +35,23 @@ alias mkdir="mkdir -p"
 
 alias reload="source ~/.config/zsh/.zshrc"
 
-type bat >/dev/null && alias cat="bat"
+type bat >/dev/null &&
+	alias cat="bat"
 
 if type nvim >/dev/null; then
-  alias vi="nvim"
-  alias vim="nvim"
-  alias v="nvim"
+	alias vi="nvim"
+	alias vim="nvim"
+	alias v="nvim"
 fi
 
 if type eza >/dev/null; then
-  alias ls='eza -a1 --icons --group-directories-first'
-  alias la='eza -al --git --icons --group-directories-first'
-  alias lt='eza -aTI ".git|node_modules" --icons --group-directories-first'
+	alias ls='eza -a1 --icons --group-directories-first'
+	alias la='eza -al --git --icons --group-directories-first'
+	alias lt='eza -aTI ".git|node_modules" --icons --group-directories-first'
 fi
 
-type zoxide >/dev/null && alias cd='z'
-
+type zoxide >/dev/null &&
+	alias cd='z'
 
 ## git
 alias gs='git status'
@@ -75,7 +74,6 @@ alias push='git push'
 alias gpuo='git push -u origin'
 alias gst='git stash'
 alias gstp='git stash pop'
-
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Plugins and other applications                                             ║
