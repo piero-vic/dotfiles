@@ -304,6 +304,9 @@ exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 # Notifications
 exec mako
 
+# Autotiling
+exec autotiling
+
 # Low Battery Notifications
 exec 'battery-notification.sh &'
 
