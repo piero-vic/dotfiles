@@ -221,10 +221,10 @@ bindsym {
 # Resizing windows:
 mode "resize" {
   bindsym {
-    $left   exec swaymsg resize grow   left 10px || swaymsg resize shrink right 10px
-    $down   exec swaymsg resize shrink up   10px || swaymsg resize grow   down  10px
-    $up     exec swaymsg resize grow   up   10px || swaymsg resize shrink down  10px
-    $right  exec swaymsg resize shrink left 10px || swaymsg resize grow   right 10px
+    $up    exec swaymsg resize grow   up    10px || swaymsg resize shrink down 10px
+    $right exec swaymsg resize grow   right 10px || swaymsg resize shrink left 10px
+    $left  exec swaymsg resize shrink right 10px || swaymsg resize grow   left 10px
+    $down  exec swaymsg resize shrink up    10px || swaymsg resize grow   down 10px
 
     Return mode "default"
     Escape mode "default"
