@@ -279,6 +279,9 @@ exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 # Notifications
 exec mako
 
+# Dynamic display
+exec kanshi
+
 # Autotiling
 exec autotiling
 
