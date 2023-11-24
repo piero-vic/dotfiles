@@ -286,7 +286,7 @@ exec kanshi
 exec autotiling
 
 # Low Battery Notifications
-exec 'battery-notification.sh &'
+exec battery-notification.sh
 
 # Initialize brightness
 exec brightnessctl -q set 270     # Set brightness to 15%
