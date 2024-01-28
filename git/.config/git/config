@@ -15,7 +15,7 @@
 [user]
 	name = Piero Lescano
 	email = pierolescano@protonmail.com
-  signingkey = B470AEDBC95315C5357EF06133812554065DF7D7
+  signingkey = FF3162EB019985FE60FCA28B1F5C35FB1023F01B
 
 [gpg]
   program = gpg
@@ -23,6 +23,7 @@
 
 [commit]
   verbose = true
+  gpgsign = true
 
 [fetch]
   prune = true
