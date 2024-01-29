@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+shopt -s nullglob globstar
+
 password_dir=${PASSWORD_STORE_DIR-~/.password-store}
 password_files=("$password_dir"/**/*.gpg)
 password_files=("${password_files[@]#"$password_dir"/}")
