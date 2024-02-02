@@ -266,6 +266,9 @@ exec mako
 # Dynamic display
 exec kanshi
 
+# Automounter for removable media
+exec udiskie --tray
+
 # Autotiling
 exec autotiling
 
