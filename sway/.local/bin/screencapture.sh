@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# Requirements:
+# bemenu https://github.com/Cloudef/bemenu
+# grim https://git.sr.ht/~emersion/grim
+# jq https://github.com/jqlang/jq
+# mako https://github.com/emersion/mako
+# slurp https://github.com/emersion/slurp
+
 screenshots_directory=~/pictures/screenshots
 filename="$screenshots_directory/$(date '+%Y%m%d_%Hh%Mm%Ss')_grim.png"
 

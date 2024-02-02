@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Requirements:
+# mako https://github.com/emersion/mako
+# wf-recorder https://github.com/ammen99/wf-recorder
+
 # Setup
 output_off="{\"text\": \"<span color='#dcd7ba'></span>\", \"tooltip\": \"Not recording\", \"alt\": \"\", \"class\": \"\" }"
 output_rec="{\"text\": \"<span color='#c34043'></span>\", \"tooltip\": \"Recording\", \"alt\": \"\", \"class\": \"\" }"

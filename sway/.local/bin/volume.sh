@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Requirements:
+# pamixer https://github.com/cdemoulins/pamixer
+# wob https://github.com/francma/wob
+
 wobsock=$XDG_RUNTIME_DIR/wob.sock
 
 volume_up() {

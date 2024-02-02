@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Requirements:
+# brightnessctl https://github.com/Hummer12007/brightnessctl
+# wob https://github.com/francma/wob
+
 wobsock=$XDG_RUNTIME_DIR/wob.sock
 device="${2:-intel_backlight}"
 

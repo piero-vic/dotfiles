@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Requirements:
+# mako https://github.com/emersion/mako
+
 set -e
 
 lock_file="/tmp/battery_monitor.lock"
