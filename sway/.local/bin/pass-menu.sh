@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Requirements:
+# bemenu https://github.com/Cloudef/bemenu
+# mako https://github.com/emersion/mako
+# pass https://www.passwordstore.org
+
 shopt -s nullglob globstar
 
 password_dir=${PASSWORD_STORE_DIR-~/.password-store}
