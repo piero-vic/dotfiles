@@ -8,7 +8,8 @@
 # Start tmux on every shell login
 # type tmux >/dev/null &&
 # 	[ -z "${TMUX}" ] &&
-# 	{ tmux attach || tmux; } >/dev/null 2>&1
+# 	tmux new-session -A -s main &&
+# 	exit
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Configuration                                                              ║
