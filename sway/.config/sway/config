@@ -15,7 +15,7 @@ set $term alacritty
 set $menu j4-dmenu-desktop --no-generic --dmenu="bemenu --prompt applications"
 set $browser firefox
 set $wallpaper ~/.local/share/wallpapers/pexels-photo-collections-213803.jpg
-
+set $display eDP-1
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Style                                                                      ║
@@ -122,8 +122,8 @@ input "1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
 output * bg $wallpaper fill
 
 # Clamshell
-bindswitch --reload --locked lid:on output LVDS-1 disable
-bindswitch --reload --locked lid:off output LVDS-1 enable
+bindswitch --reload --locked lid:on output $display disable
+bindswitch --reload --locked lid:off output $display enable
 
 # Idle
 exec swayidle -w \
@@ -238,7 +238,6 @@ floating_modifier $mod normal
 bar {
   swaybar_command waybar
 }
-
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Windows                                                                    ║
