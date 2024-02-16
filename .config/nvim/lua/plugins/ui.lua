@@ -28,17 +28,23 @@ return {
     end,
   },
 
-  -- Bufferline
+  -- Tabs
   {
-    'akinsho/bufferline.nvim',
-    dependencies = 'kyazdani42/nvim-web-devicons',
-    opts = {},
+    'romgrk/barbar.nvim',
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
+    opts = {
+      animation = false,
+    },
+    version = '^1.0.0',
   },
 
   -- Statusline
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = 'kyazdani42/nvim-web-devicons',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     opts = {
       options = {
         component_separators = '│',
