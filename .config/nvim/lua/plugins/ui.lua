@@ -37,6 +37,11 @@ return {
     end,
     opts = {
       animation = false,
+      insert_at_end = true,
+      sidebar_filetypes = {
+        NvimTree = { event = 'BufWinLeave', text = 'NvimTree' },
+      },
+      no_name_title = '[No name]',
     },
     version = '^1.0.0',
   },
@@ -49,6 +54,19 @@ return {
       options = {
         component_separators = '│',
         section_separators = '',
+      },
+    },
+  },
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    opts = {},
+    keys = {
+      {
+        '<leader>ft',
+        function()
+          require('nvim-tree.api').tree.toggle()
+        end,
       },
     },
   },
