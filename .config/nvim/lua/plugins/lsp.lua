@@ -4,16 +4,16 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
-      { 'williamboman/mason.nvim', lazy = false, config = true },
+      'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
-
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
-
-      -- Completion
-      'hrsh7th/nvim-cmp',
+      -- Adds LSP completion capabilities
+      'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
+      -- UI Configuation
+
       local _border = 'rounded'
 
       vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -35,6 +35,10 @@ return {
           prefix = '',
         },
       }
+
+      require('lspconfig.ui.windows').default_options.border = _border
+
+      -- Servers Configuation
 
       local on_attach = function(_, bufnr)
         local nmap = function(keys, func, desc)
@@ -77,9 +81,6 @@ return {
         end, { desc = 'Format current buffer with LSP' })
       end
 
-      require('mason').setup()
-      require('mason-lspconfig').setup()
-
       local servers = {
         angularls = {},
         astro = {},
@@ -88,44 +89,33 @@ return {
         emmet_language_server = {},
         eslint = {},
         gopls = {},
-        lua_ls = {
-          Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-            diagnostics = { disable = { 'missing-fields' } },
-          },
-        },
+        lua_ls = {},
         marksman = {},
         tailwindcss = {
-          settings = {
-            tailwindCSS = {
-              emmetCompletions = true,
-            },
+          tailwindCSS = {
+            emmetCompletions = true,
           },
         },
         tsserver = {},
       }
 
-      require('neodev').setup()
-
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-      local mason_lspconfig = require 'mason-lspconfig'
-
-      mason_lspconfig.setup {
+      require('neodev').setup()
+      require('mason').setup()
+      require('mason-lspconfig').setup {
         ensure_installed = vim.tbl_keys(servers),
-      }
-
-      mason_lspconfig.setup_handlers {
-        function(server_name)
-          require('lspconfig')[server_name].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = servers[server_name],
-            filetypes = (servers[server_name] or {}).filetypes,
-          }
-        end,
+        handlers = {
+          function(server_name)
+            require('lspconfig')[server_name].setup {
+              capabilities = capabilities,
+              on_attach = on_attach,
+              settings = servers[server_name],
+              filetypes = (servers[server_name] or {}).filetypes,
+            }
+          end,
+        },
       }
     end,
   },
