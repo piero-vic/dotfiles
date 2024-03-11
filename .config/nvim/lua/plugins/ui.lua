@@ -30,20 +30,15 @@ return {
 
   -- Tabs
   {
-    'romgrk/barbar.nvim',
+    'akinsho/bufferline.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
-    init = function()
-      vim.g.barbar_auto_setup = false
-    end,
     opts = {
-      animation = false,
-      insert_at_end = true,
-      sidebar_filetypes = {
-        NvimTree = { event = 'BufWinLeave', text = 'NvimTree' },
+      options = {
+        offsets = {
+          { filetype = 'NvimTree', text = 'File Explorer', highlight = 'Directory', separator = true },
+        },
       },
-      no_name_title = '[No name]',
     },
-    version = '^1.0.0',
   },
 
   -- Statusline
