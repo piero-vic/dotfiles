@@ -71,9 +71,6 @@ return {
     },
   },
 
-  -- Input and select
-  { 'stevearc/dressing.nvim', opts = {} },
-
   -- Identation guides
   {
     'lukas-reineke/indent-blankline.nvim',

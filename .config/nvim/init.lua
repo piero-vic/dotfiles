@@ -124,12 +124,6 @@ keymap('x', 'J', ":move '>+1<CR>gv-gv", opts)
 keymap('v', '>', '>gv', opts)
 keymap('v', '<', '<gv', opts)
 
--- Telescope
-keymap('n', '<leader>fw', require('telescope.builtin').live_grep, opts)
-keymap('n', '<leader>ff', require('telescope.builtin').find_files, opts)
-keymap('n', '<leader>gl', ':Telescope git_commits initial_mode=normal<CR>', opts)
-keymap('n', '<leader>gs', ':Telescope git_status initial_mode=normal<CR>', opts)
-
 -- ╔═══════════════════════════════════════════════════════════════════════════╗
 -- ║ Autocommands                                                              ║
 -- ╚═══════════════════════════════════════════════════════════════════════════╝
