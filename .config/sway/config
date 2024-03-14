@@ -262,9 +262,6 @@ exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 # Notifications
 exec mako
 
-# Dynamic display
-exec kanshi
-
 # Automounter for removable media
 exec udiskie --tray
 
