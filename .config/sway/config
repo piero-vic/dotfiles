@@ -249,27 +249,32 @@ for_window [app_id="mpv"] inhibit_idle focus
 # Polkit
 exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# Wob
+# wob: Overlay bar
+# https://github.com/francma/wob
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 
-# Notifications
+# mako: Notification daemon
+# https://github.com/emersion/mako
 exec mako
 
-# Automounter for removable media
+# udiskie: Automounter for removable media
+# https://github.com/coldfix/udiskie
 exec udiskie --tray
 
-# Autotiling
+# autotiling: Automatic layout switch
+# https://github.com/nwg-piotr/autotiling
 exec autotiling
 
-# Low Battery Notifications
+# poweralertd: Notifications for low battery
 # https://git.sr.ht/~kennylevinsen/poweralertd
 exec poweralertd
 
-# Initialize brightness
+# brightnessctl: Program to control device brightness
+# https://github.com/Hummer12007/brightnessctl
 exec brightnessctl -q set 270
 
-# wlsunset 
+# wlsunset: Program for day/night gamma adjustments
 # https://sr.ht/~kennylevinsen/wlsunset
 exec wlsunset -l -12 -L -77  
 
