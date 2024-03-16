@@ -165,8 +165,9 @@ bindsym --locked {
 
   # Volumen:
   XF86AudioMute exec 'volume.sh --mute'
-  XF86AudioLowerVolume exec sh -c "volume.sh --dec"
-  XF86AudioRaiseVolume exec sh -c "volume.sh --inc"
+  XF86AudioMicMute exec 'volume.sh --mic-mute'
+  XF86AudioLowerVolume exec 'volume.sh --dec'
+  XF86AudioRaiseVolume exec 'volume.sh --inc'
 }
 
 bindsym {
