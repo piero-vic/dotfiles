@@ -17,5 +17,5 @@ return {
   },
 
   -- Ledger
-  'ledger/vim-ledger',
+  { 'ledger/vim-ledger', ft = 'ledger' },
 }
