@@ -90,7 +90,7 @@ exec_always {
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
 # Trackpad
-input type:touchpad {
+input "1267:32:Elan_Touchpad" {
   natural_scroll enabled
   tap enabled
   scroll_factor 1
@@ -101,19 +101,13 @@ input type:touchpad {
 }
 
 # Keyboard
-# For reference: https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
-input type:keyboard {
+input "1:1:AT_Translated_Set_2_keyboard" {
   repeat_rate 30
   repeat_delay 350
   xkb_layout us
   xkb_variant mac
   xkb_options caps:ctrl_modifier,shift:both_capslock,altwin:swap_lalt_lwin
 }
-
-input "1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
-  xkb_options caps:ctrl_modifier,shift:both_capslock
-}
-
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Output                                                                     ║
