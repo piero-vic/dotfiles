@@ -159,8 +159,6 @@ bindsym --locked {
   # Brightness:
   XF86MonBrightnessDown exec 'brightness.sh --dec'
   XF86MonBrightnessUp exec 'brightness.sh --inc'
-  XF86KbdBrightnessDown exec 'brightness.sh --dec smc::kbd_backlight'
-  XF86KbdBrightnessUp exec 'brightness.sh --inc smc::kbd_backlight'
 
   # Player:
   XF86AudioPlay exec 'playerctl play-pause'
