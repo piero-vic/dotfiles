@@ -242,6 +242,11 @@ for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle focus
 
+# NOTE: This is for maintaining focus on the terminal emulator when using some
+# neovim plugins like peek.nvim and typst.nvim.
+no_focus [class="qutebrowser"]
+no_focus [class="Xreader"]
+
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Autostart                                                                  ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
