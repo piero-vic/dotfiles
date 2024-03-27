@@ -53,7 +53,8 @@ window#waybar {
 #bluetooth,
 #network,
 #pulseaudio,
-#battery {
+#battery,
+#custom-power {
   background-color: @sumiInk2;
   padding: 0px 10px;
   margin-bottom: 2px;
@@ -64,7 +65,7 @@ window#waybar {
 }
 
 #tray {
-  background-color: @sumiInk1;
+  margin-right: 10px;
 }
 
 #idle_inhibitor {
@@ -73,6 +74,7 @@ window#waybar {
 
 #bluetooth {
   color: @springBlue;
+  margin-right: 10px;
 }
 
 #network {
@@ -85,6 +87,7 @@ window#waybar {
 
 #battery {
   color: @springGreen;
+  margin-right: 10px;
 }
 
 #battery.warning {
@@ -95,5 +98,9 @@ window#waybar {
 #bluetooth.disabled,
 #pulseaudio.muted,
 #battery.critical {
+  color: @sakuraPink;
+}
+
+#custom-power {
   color: @sakuraPink;
 }

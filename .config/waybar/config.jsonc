@@ -3,7 +3,16 @@
   "position": "top",
   "modules-left": ["sway/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["tray", "custom/screenrecord", "idle_inhibitor", "bluetooth", "network", "pulseaudio", "battery"],
+  "modules-right": [
+    "tray",
+    "custom/screenrecord",
+    "idle_inhibitor",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "battery",
+    "custom/power"
+  ],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true
@@ -36,21 +45,24 @@
     "format-disabled": "󰂲",
     "format-connected": "󰂱",
     "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t\t{device_address}",
+    "tooltip-format-connected": "{controller_alias}\t\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "on-click": "blueberry"
   },
   "network": {
-    "format-wifi": "󰖩",
-    "format-ethernet": "",
-    "format-disconnected": "󰖪",
+    "format-wifi": "{icon} {essid}",
+    "format-ethernet": " Wired",
+    "format-disconnected": "󰤭 Disconnected",
     "tooltip-format-wifi": "{essid} {signalStrength}%",
     "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
-    "on-click": "nm-connection-editor"
+    "on-click": "nm-connection-editor",
+    "format-icons": {
+      "wifi": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+    }
   },
   "pulseaudio": {
-    "format": "{icon}",
-    "format-muted": "󰝟",
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
     "format-icons": {
       "headphone": "󰋋",
       "default": ["󰕿", "󰖀", "󰕾"]
@@ -59,16 +71,22 @@
     "on-click": "pavucontrol"
   },
   "battery": {
-    "interval": 30,
+    "interval": 5,
     "states": {
       "warning": 30,
       "critical": 15
     },
-    "tooltip-format": "{capacity}% | {timeTo}",
-    "format": "{icon}",
-    "format-charging": "",
-    "format-plugged": "",
-    "format-full": "{icon}",
-    "format-icons": ["󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    "tooltip": false,
+    "format": "{icon} {capacity}%",
+    "format-full": " Charged",
+    "format-icons": {
+      "charging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    }
+  },
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "power-menu.sh"
   }
 }
