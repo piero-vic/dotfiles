@@ -121,30 +121,44 @@ return {
     end,
   },
 
-  -- Formatter
+  -- Formatting and Linters
   {
-    'stevearc/conform.nvim',
-    opts = {
-      formatters_by_ft = {
-        astro = { 'prettierd' },
-        css = { 'prettierd' },
-        go = { 'gofumpt', 'goimports', 'golines' },
-        html = { 'prettierd' },
-        javascript = { 'prettierd' },
-        javascriptreact = { 'prettierd' },
-        lua = { 'stylua' },
-        markdown = { 'prettierd' },
-        scss = { 'prettierd' },
-        sh = { 'shfmt' },
-        template = { 'djlint' },
-        typescript = { 'prettierd' },
-        typescriptreact = { 'prettierd' },
-        zsh = { 'shfmt' },
-      },
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
-    },
+    'nvimtools/none-ls.nvim',
+    config = function()
+      local null_ls = require 'null-ls'
+      local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+
+      null_ls.setup {
+        sources = {
+          -- Lua
+          null_ls.builtins.formatting.stylua,
+          -- JavaScript
+          null_ls.builtins.formatting.prettierd.with { extra_filetypes = { 'astro' } },
+          -- Go
+          null_ls.builtins.formatting.gofumpt,
+          null_ls.builtins.formatting.goimports,
+          null_ls.builtins.formatting.golines,
+          -- Shell
+          null_ls.builtins.formatting.shfmt.with { extra_filetypes = { 'zsh' } },
+          -- Typst
+          null_ls.builtins.formatting.typstfmt,
+        },
+        on_attach = function(client, bufnr)
+          if client.supports_method 'textDocument/formatting' then
+            vim.api.nvim_clear_autocmds {
+              group = augroup,
+              buffer = bufnr,
+            }
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              group = augroup,
+              buffer = bufnr,
+              callback = function()
+                vim.lsp.buf.format { bufnr = bufnr }
+              end,
+            })
+          end
+        end,
+      }
+    end,
   },
 }
