@@ -42,6 +42,9 @@ type nvim >/dev/null && export EDITOR=nvim
 # ║ Program settings                                                           ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
+# Setup GTK Theme
+export GTK_THEME=Arc-Dark
+
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
 
