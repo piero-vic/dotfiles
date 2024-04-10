@@ -1,2 +1,3 @@
 .DS_Store
 .config/tmux/plugins
+.config/zsh/extra.zsh
