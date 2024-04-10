@@ -80,6 +80,14 @@ alias gstp='git stash pop'
 # ║ Plugins and other applications                                             ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
+# SSH
+if ! pgrep -u "$USER" ssh-agent >/dev/null; then
+	ssh-agent -t 1h >"$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
+	source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
 # NVM
 [[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
 

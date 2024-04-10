@@ -1,13 +1,13 @@
-@define-color sumiInk1      #1F1F28; /* base00 */
-@define-color sumiInk2      #2A2A37; /* base01 */
-@define-color fujiWhite     #DCD7BA; /* base05 */
-@define-color crystalBlue   #7E9CD8; /* base0D */
-@define-color surimiOrange  #FFA066; /* base09 */
-@define-color springBlue    #7FB4CA; /* base0C */
-@define-color oniViolet     #957FB8; /* base0E */
-@define-color autumnYellow  #DCA561; /* base0A */
-@define-color springGreen   #98BB6C; /* base0B */
-@define-color sakuraPink    #D27E99; /* base0F */
+@define-color sumiInk1      #1F1F28;
+@define-color sumiInk2      #2A2A37;
+@define-color fujiWhite     #DCD7BA;
+@define-color crystalBlue   #7E9CD8;
+@define-color surimiOrange  #FFA066;
+@define-color springBlue    #7FB4CA;
+@define-color oniViolet     #957FB8;
+@define-color autumnRed     #C34043;
+@define-color autumnYellow  #DCA561;
+@define-color springGreen   #98BB6C;
 
 * {
   border: none;
@@ -98,9 +98,9 @@ window#waybar {
 #bluetooth.disabled,
 #pulseaudio.muted,
 #battery.critical {
-  color: @sakuraPink;
+  color: @autumnRed;
 }
 
 #custom-power {
-  color: @sakuraPink;
+  color: @autumnRed;
 }
