@@ -61,8 +61,10 @@
     }
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟 Muted",
+    "format": "{icon} {volume}% {format_source}",
+    "format-muted": "󰝟 {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
     "format-icons": {
       "headphone": "󰋋",
       "default": ["󰕿", "󰖀", "󰕾"]
