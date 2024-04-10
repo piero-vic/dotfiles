@@ -6,10 +6,10 @@
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
 # Start tmux on every shell login
-# type tmux >/dev/null &&
-# 	[ -z "${TMUX}" ] &&
-# 	tmux new-session -A -s main &&
-# 	exit
+type tmux >/dev/null &&
+	[ -z "${TMUX}" ] &&
+	tmux new-session -A -s main &&
+	exit
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Configuration                                                              ║
@@ -103,3 +103,9 @@ type zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 # t-smart-tmux-session-manager
 export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Extras                                                                     ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+[[ -s "$ZDOTDIR/extra.zsh" ]] && source "$ZDOTDIR/extra.zsh"
