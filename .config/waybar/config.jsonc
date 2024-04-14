@@ -5,6 +5,7 @@
   "modules-center": ["clock"],
   "modules-right": [
     "tray",
+    "custom/gamma",
     "custom/screenrecord",
     "idle_inhibitor",
     "bluetooth",
@@ -24,6 +25,13 @@
   "tray": {
     "icon-size": 12,
     "spacing": 10
+  },
+  "custom/gamma": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "/home/piero/.local/bin/waybar-gamma",
+    "on-click": "/home/piero/.local/bin/waybar-gamma toggle",
+    "interval": 1
   },
   "custom/screenrecord": {
     "format": "{}",
