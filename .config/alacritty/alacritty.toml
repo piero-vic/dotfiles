@@ -68,3 +68,7 @@ startup_mode = "Windowed"
 [window.padding]
 x = 10
 y = 10
+
+[shell]
+args = ["new-session", "-A", "-s", "main"]
+program = "/sbin/tmux"
