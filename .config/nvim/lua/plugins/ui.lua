@@ -2,6 +2,7 @@ return {
   -- Colorscheme
   {
     'rebelot/kanagawa.nvim',
+    priority = 1000,
     opts = {
       overrides = function(colors)
         local theme = colors.theme
@@ -24,7 +25,7 @@ return {
     },
     config = function(_, opts)
       require('kanagawa').setup(opts)
-      vim.cmd 'colorscheme kanagawa'
+      vim.cmd 'colorscheme kanagawa-dragon'
     end,
   },
 

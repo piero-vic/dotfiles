@@ -52,9 +52,9 @@ export MOZ_ENABLE_WAYLAND=1
 export BEMENU_OPTS="-n -c -s -i \
   -W 0.2 -H 26 -B 2 -l 10 \
   --fn 'JetBrainsMonoNerdFont 9' \
-  --nb #1f1f28ff --nf #dcd7baff \
-  --ab #1f1f28ff --af #dcd7baff \
-  --hb #2a2a37ff --hf #7e9cd8ff \
-  --fb #1f1f28ff --ff #dcd7baff \
-  --tb #1f1f28ff --tf #7e9cd8ff \
-  --bdr #7e9cd8ff"
+  --nb #0d0c0cff --nf #c5c9c5ff \
+  --ab #0d0c0cff --af #c5c9c5ff \
+  --hb #282727ff --hf #8ba4b0ff \
+  --fb #0d0c0cff --ff #c5c9c5ff \
+  --tb #0d0c0cff --tf #8ba4b0ff \
+  --bdr #8ba4b0ff"

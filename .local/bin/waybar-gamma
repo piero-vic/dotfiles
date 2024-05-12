@@ -4,7 +4,7 @@
 # mako https://github.com/emersion/mako
 # wlsunset https://sr.ht/~kennylevinsen/wlsunset/
 
-output_off="{\"text\": \"<span color='#dcd7ba'>󰹏</span>\", \"tooltip\": \"Day/Night Gamma: Off\", \"alt\": \"\", \"class\": \"\" }"
+output_off="{\"text\": \"<span color='#c5c9c5'>󰹏</span>\", \"tooltip\": \"Day/Night Gamma: Off\", \"alt\": \"\", \"class\": \"\" }"
 output_on="{\"text\": \"<span color='#e6c384'>󱩌</span>\", \"tooltip\": \"Day/Night Gamma: On\", \"alt\": \"\", \"class\": \"\" }"
 
 if pidof wlsunset >/dev/null 2>&1; then
