@@ -137,6 +137,9 @@ bindsym --locked {
   XF86AudioMicMute exec 'volume.sh --mic-mute'
   XF86AudioLowerVolume exec 'volume.sh --dec'
   XF86AudioRaiseVolume exec 'volume.sh --inc'
+
+  # Display
+  XF86Display exec 'wdisplays'
 }
 
 bindsym {
