@@ -2,25 +2,19 @@
   "layer": "top",
   "position": "top",
   "modules-left": ["sway/workspaces"],
-  "modules-center": ["clock"],
   "modules-right": [
     "tray",
     "custom/gamma",
-    "custom/screenrecord",
     "idle_inhibitor",
     "bluetooth",
     "network",
     "pulseaudio",
     "battery",
-    "custom/power"
+    "clock"
   ],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true
-  },
-  "clock": {
-    "format": "{:%b %d %H:%M}",
-    "tooltip": false
   },
   "tray": {
     "icon-size": 12,
@@ -33,13 +27,6 @@
     "on-click": "/home/piero/.local/bin/waybar-gamma toggle",
     "interval": 1
   },
-  "custom/screenrecord": {
-    "format": "{}",
-    "return-type": "json",
-    "exec": "/home/piero/.local/bin/screenrecord.sh",
-    "on-click": "/home/piero/.local/bin/screenrecord.sh toggle",
-    "interval": 1
-  },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -49,9 +36,8 @@
     "start-activated": true
   },
   "bluetooth": {
-    "format": "󰂯",
-    "format-disabled": "󰂲",
-    "format-connected": "󰂱",
+    "format": "󰂯 {status}",
+    "format-connected": "󰂱 {device_alias}",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -69,10 +55,7 @@
     }
   },
   "pulseaudio": {
-    "format": "{icon} {volume}% {format_source}",
-    "format-muted": "󰝟 {format_source}",
-    "format-source": " {volume}%",
-    "format-source-muted": "",
+    "format": "{icon} {volume}%",
     "format-icons": {
       "headphone": "󰋋",
       "default": ["󰕿", "󰖀", "󰕾"]
@@ -88,15 +71,13 @@
     },
     "tooltip": false,
     "format": "{icon} {capacity}%",
-    "format-full": " Charged",
     "format-icons": {
       "charging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
       "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     }
   },
-  "custom/power": {
-    "format": "⏻",
-    "tooltip": false,
-    "on-click": "power-menu.sh"
+  "clock": {
+    "format": "{:%a %d %b %I:%M %p}",
+    "tooltip": false
   }
 }

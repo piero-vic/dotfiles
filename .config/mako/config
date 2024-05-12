@@ -8,19 +8,19 @@ border-size=2
 default-timeout=1500
 group-by=summary
 
-background-color=#1F1F28
-text-color=#DCD7BA
-border-color=#7E9CD8
+background-color=#0d0c0c
+text-color=#c5c9c5
+border-color=#8ba4b0
 
 [urgency=low]
-background-color=#1F1F28
-text-color=#DCA561
-border-color=#7E9CD8
+background-color=#0d0c0c
+text-color=#c5c9c5
+border-color=#c4b28a
 
 [urgency=high]
-background-color=#1F1F28
-text-color=#C34043
-border-color=#7E9CD8
+background-color=#0d0c0c
+text-color=#c5c9c5
+border-color=#c4746e
 
 [grouped]
 format=<b>%s</b>\n%b
