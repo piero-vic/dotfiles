@@ -240,6 +240,10 @@ exec udiskie --tray
 # https://github.com/nwg-piotr/autotiling
 exec autotiling
 
+# Tailscale Systray: Linux port of tailscale system tray menu
+# https://github.com/mattn/tailscale-systray
+exec tailscale-systray
+
 # poweralertd: Notifications for low battery
 # https://git.sr.ht/~kennylevinsen/poweralertd
 exec poweralertd
