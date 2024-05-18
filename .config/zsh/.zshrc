@@ -95,6 +95,9 @@ type starship >/dev/null && eval "$(starship init zsh)"
 # zoxide
 type zoxide >/dev/null && eval "$(zoxide init zsh)"
 
+# fzf
+type fzf >/dev/null && eval "$(fzf --zsh)"
+
 # t-smart-tmux-session-manager
 export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
