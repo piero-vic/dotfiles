@@ -3,6 +3,7 @@
   "position": "top",
   "modules-left": ["sway/workspaces"],
   "modules-right": [
+    "custom/cloudcash",
     "tray",
     "custom/gamma",
     "idle_inhibitor",
@@ -15,6 +16,14 @@
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true
+  },
+  // Cloudcash
+  // https://github.com/mrusme/cloudcash
+  "custom/cloudcash": {
+    "format": " {} ",
+    "return-type": "json",
+    "exec": "cloudcash -waybar-pango",
+    "interval": 3600
   },
   "tray": {
     "icon-size": 12,

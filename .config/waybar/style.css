@@ -57,6 +57,7 @@ window#waybar {
   color: @dragonBlack0;
 }
 
+#custom-cloudcash,
 #tray,
 #custom-gamma,
 #idle_inhibitor,
@@ -69,6 +70,11 @@ window#waybar {
   padding: 4px 10px;
   margin-bottom: 2px;
   color: @dragonWhite;
+}
+
+#custom-cloudcash {
+  border-left: 2px solid @dragonBlack4;
+  color: @springBlue;
 }
 
 #tray {
