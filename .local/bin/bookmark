@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Requirements:
+# linkding https://github.com/sissbruecker/linkding
+# pass https://www.passwordstore.org
+
+url="$1"
+title="$2"
+description="$3"
+
+read -r -d '' body <<EOM
+{
+  "url": "$url",
+  "title": "$title",
+  "description": "$description",
+  "notes": "",
+  "is_archived": false,
+  "unread": true,
+  "shared": false,
+  "tag_names": []
+}
+EOM
+
+linkding_url=$(pass show linkding/url)
+linkding_token=$(pass show linkding/token)
+
+curl -s -f -X POST "$linkding_url/api/bookmarks/" \
+	-H "Content-Type: application/json" \
+	-H "Authorization: Token $linkding_token" \
+	-d "$body" >/dev/null || echo 'Non 200 status code'
