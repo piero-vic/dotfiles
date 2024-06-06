@@ -1,0 +1,32 @@
+# docs: https://lostpackets.de/khal/configure.html
+# vim: ft=dosini
+
+[calendars]
+
+[[personal]]
+path = "~/.local/share/calendars/personal"
+color = "dark blue"
+
+[[code]]
+path = "~/.local/share/calendars/code"
+color = "dark magenta"
+
+[[work]]
+path = "~/.local/share/calendars/work"
+color = "dark red"
+
+[[birthdays]]
+path = ~/.local/share/contacts/contacts/
+type = "birthdays"
+color = "dark green"
+
+[locale]
+longdatetimeformat = "%m %B %Y, %H:%M"
+datetimeformat = %Y-%m-%d %H:%M
+longdateformat = %a %Y-%m-%d
+dateformat = %Y-%m-%d
+timeformat = %H:%M
+
+[default]
+default_calendar = "personal"
+highlight_event_days = True
