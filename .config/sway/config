@@ -58,8 +58,7 @@ exec_always {
 # ║ Input                                                                      ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
-# Trackpad
-input "1267:32:Elan_Touchpad" {
+input type:touchpad {
   natural_scroll enabled
   tap enabled
   scroll_factor 1
@@ -69,8 +68,7 @@ input "1267:32:Elan_Touchpad" {
   tap_button_map lmr
 }
 
-# Keyboard
-input "1:1:AT_Translated_Set_2_keyboard" {
+input type:keyboard {
   repeat_rate 30
   repeat_delay 350
   xkb_layout us
