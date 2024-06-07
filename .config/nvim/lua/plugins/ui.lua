@@ -36,7 +36,8 @@ return {
     opts = {
       options = {
         offsets = {
-          { filetype = 'NvimTree', text = 'File Explorer', highlight = 'Directory', separator = true },
+          { filetype = 'NvimTree', text = 'File Explorer', highlight = 'NormalDark', separator = true },
+          { filetype = 'dbui', text = 'Databases', highlight = 'NormalDark', separator = true },
         },
       },
     },
