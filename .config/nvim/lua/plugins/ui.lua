@@ -38,6 +38,7 @@ return {
         offsets = {
           { filetype = 'NvimTree', text = 'File Explorer', highlight = 'NormalDark', separator = true },
           { filetype = 'dbui', text = 'Databases', highlight = 'NormalDark', separator = true },
+          { filetype = 'calendar', text = 'Calendar', highlight = 'NormalDark', separator = true },
         },
       },
     },
