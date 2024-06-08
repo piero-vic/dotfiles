@@ -40,6 +40,7 @@ Screen
 Window
 Selection
 Record
+Color
 EOF
 ) in
 "Screen")
@@ -53,5 +54,8 @@ EOF
 	;;
 "Record")
 	screenrecord.sh toggle
+	;;
+"Color")
+	colorpicker
 	;;
 esac
