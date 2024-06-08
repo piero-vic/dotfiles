@@ -91,11 +91,13 @@ return {
         gopls = {},
         lua_ls = {},
         marksman = {},
+        prismals = {},
         tailwindcss = {
           tailwindCSS = {
             emmetCompletions = true,
           },
         },
+        terraformls = {},
         tsserver = {},
         typst_lsp = {},
       }
