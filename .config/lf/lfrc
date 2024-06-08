@@ -1,0 +1,43 @@
+# Settings
+set shell zsh
+set shellopts '-eu'
+set hidden true
+set ignorecase true
+
+# Functions
+cmd open &{{
+	case $(file --mime-type -Lb $f) in
+		text/*) lf -remote "send $id \$nvim \$fx";;
+		*) xdg-open "$f"
+	esac
+}}
+
+cmd on-select &{{
+    lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\""
+}}
+
+cmd trash %trash-put $fx
+
+cmd unarchive ${{
+  case "$f" in
+    *.zip) unzip "$f" ;;
+    *.rar) unrar x "$f" ;;
+    *.tar.gz) tar -xzvf "$f" ;;
+    *.tar.bz2) tar -xjvf "$f" ;;
+    *.tar) tar -xvf "$f" ;;
+    *.7z) 7z e "$f" ;;
+    *) echo "Unsupported format" ;;
+  esac
+}}
+
+# Mappings
+map dd trash
+map au unarchive
+
+# Movement
+map gc cd ~/code
+map gd cd ~/documents
+map gm cd ~/music
+map gp cd ~/pictures
+map gv cd ~/videos
+map gt cd ~/.local/share/Trash/files
