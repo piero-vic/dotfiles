@@ -1,0 +1,45 @@
+# docs: https://vdirsyncer.pimutils.org/en/stable/
+# vim: ft=dosini
+
+[general]
+status_path = "~/.local/share/vdirsyncer/status/"
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Calendar                                                                   ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+[pair calendars]
+a = "calendars_local"
+b = "calendars_remote"
+collections = ["from a", "from b"]
+
+[storage calendars_local]
+type = "filesystem"
+path = "~/.local/share/calendars/"
+fileext = ".ics"
+
+[storage calendars_remote]
+type = "caldav"
+url.fetch = ["command", "pass", "baikal/url"]
+username.fetch = ["command", "pass", "baikal/username"]
+password.fetch = ["command", "pass", "baikal/password"]
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Contacts                                                                   ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+[pair contacts]
+a = "contacts_local"
+b = "contacts_remote"
+collections = ["from a", "from b"]
+
+[storage contacts_local]
+type = "filesystem"
+path = "~/.local/share/contacts/"
+fileext = ".vcf"
+
+[storage contacts_remote]
+type = "carddav"
+url.fetch = ["command", "pass", "baikal/url"]
+username.fetch = ["command", "pass", "baikal/username"]
+password.fetch = ["command", "pass", "baikal/password"]
