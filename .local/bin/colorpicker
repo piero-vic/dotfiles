@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Requirements:
+# hyprpicker https://github.com/hyprwm/hyprpicker
+# imagemagick https://github.com/ImageMagick/ImageMagick
+# mako https://github.com/emersion/mako
+# wl-clipboard https://github.com/bugaevc/wl-clipboard
+
+notify_file="/tmp/colorpicker.jpg"
+
+hex=$(hyprpicker)
+
+[[ -n $hex ]] || exit 1
+
+wl-copy "$hex" &&
+	magick -size 50x50 "xc:$hex" "$notify_file" &&
+	notify-send -i "$notify_file" " $hex" "Copied to clipboard"
