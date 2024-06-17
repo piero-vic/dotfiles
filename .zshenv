@@ -27,7 +27,7 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export PATH="$PATH:$HOME/.local/bin"
 
 # Go
-export GOPATH=$HOME/go
+export GOPATH="$XDG_DATA_HOME/go"
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 
