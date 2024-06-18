@@ -5,6 +5,11 @@
 
 browser "firefox --new-tab %u &"
 
+# Miniflux
+urls-source "miniflux"
+miniflux-url "`pass miniflux/url`"
+miniflux-token "`pass miniflux/token`"
+
 # Bookmarks
 bookmark-autopilot yes
 bookmark-cmd "~/.local/bin/bookmark"
