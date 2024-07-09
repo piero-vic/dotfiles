@@ -108,7 +108,7 @@ bindsym {
   $mod+Shift+f exec 'thunar'
   $mod+Shift+n exec 'networkmanager_dmenu'
   $mod+Shift+a exec 'pavucontrol'
-  $mod+Shift+b exec 'blueberry'
+  $mod+Shift+b exec 'dmenu-bluetooth'
   $mod+Shift+p exec 'pass-menu.sh'
   $mod+Shift+s exec 'screencapture.sh'
 
