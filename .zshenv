@@ -58,3 +58,8 @@ export BEMENU_OPTS="-n -c -s -i \
   --fb #0d0c0cff --ff #c5c9c5ff \
   --tb #0d0c0cff --tf #8ba4b0ff \
   --bdr #8ba4b0ff"
+
+# dmenu-bluetooth
+# https://github.com/Layerex/dmenu-bluetooth
+export DMENU_BLUETOOTH_PROMPT="Bluetooth"
+export DMENU_BLUETOOTH_LAUNCHER="bemenu"
