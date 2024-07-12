@@ -12,6 +12,7 @@ return {
       vim.keymap.set('n', '<leader>bs', require('gitsigns').stage_buffer, { buffer = bufnr })
       vim.keymap.set('n', '<leader>br', require('gitsigns').reset_buffer, { buffer = bufnr })
       vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr })
+      vim.keymap.set('n', '<leader>gb', require('gitsigns').blame, { buffer = bufnr })
     end,
   },
 }
