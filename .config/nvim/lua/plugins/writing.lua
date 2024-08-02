@@ -95,6 +95,18 @@ return {
     },
   },
 
+  {
+    'MeanderingProgrammer/markdown.nvim',
+    main = 'render-markdown',
+    ft = 'markdown',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    opts = {
+      bullet = {
+        icons = { '•' },
+      },
+    },
+  },
+
   -- Typst
   {
     'kaarmu/typst.vim',
