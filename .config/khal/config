@@ -30,3 +30,9 @@ timeformat = %H:%M
 [default]
 default_calendar = "personal"
 highlight_event_days = True
+timedelta = 7d
+
+[view]
+blank_line_before_day = True
+dynamic_days = False
+event_view_always_visible = False
