@@ -109,18 +109,18 @@ bindsym {
   $mod+Shift+n exec 'networkmanager_dmenu'
   $mod+Shift+a exec 'pavucontrol'
   $mod+Shift+b exec 'dmenu-bluetooth'
-  $mod+Shift+p exec 'pass-menu.sh'
-  $mod+Shift+s exec 'screencapture.sh'
+  $mod+Shift+p exec 'password-menu'
+  $mod+Shift+s exec 'screencapture'
 
   $mod+Shift+q kill
   $mod+Shift+c reload
-  $mod+Shift+e exec 'power-menu.sh'
+  $mod+Shift+e exec 'power-menu'
 }
 
 bindsym --locked {
   # Brightness:
-  XF86MonBrightnessDown exec 'brightness.sh --dec'
-  XF86MonBrightnessUp exec 'brightness.sh --inc'
+  XF86MonBrightnessDown exec 'brightness --dec'
+  XF86MonBrightnessUp exec 'brightness --inc'
 
   # Player:
   XF86AudioPlay exec 'playerctl play-pause'
@@ -131,10 +131,10 @@ bindsym --locked {
   Shift+XF86AudioNext exec 'playerctl next'
 
   # Volumen:
-  XF86AudioMute exec 'volume.sh --mute'
-  XF86AudioMicMute exec 'volume.sh --mic-mute'
-  XF86AudioLowerVolume exec 'volume.sh --dec'
-  XF86AudioRaiseVolume exec 'volume.sh --inc'
+  XF86AudioMute exec 'volume --mute'
+  XF86AudioMicMute exec 'volume --mic-mute'
+  XF86AudioLowerVolume exec 'volume --dec'
+  XF86AudioRaiseVolume exec 'volume --inc'
 
   # Display
   XF86Display exec 'wdisplays'
