@@ -45,9 +45,6 @@ if type eza >/dev/null; then
 	alias lt='eza -aTI ".git|node_modules" --icons --group-directories-first'
 fi
 
-type zoxide >/dev/null &&
-	alias cd='z'
-
 ## git
 alias gs='git status'
 alias ga='git add'
@@ -93,7 +90,7 @@ export SDKMAN_DIR="$XDG_DATA_HOME/sdkman"
 type starship >/dev/null && eval "$(starship init zsh)"
 
 # zoxide
-type zoxide >/dev/null && eval "$(zoxide init zsh)"
+type zoxide >/dev/null && eval "$(zoxide init --cmd cd zsh)"
 
 # fzf
 type fzf >/dev/null && eval "$(fzf --zsh)"
