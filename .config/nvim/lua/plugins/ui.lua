@@ -53,6 +53,7 @@ return {
       options = {
         component_separators = '│',
         section_separators = '',
+        globalstatus = true,
       },
     },
   },

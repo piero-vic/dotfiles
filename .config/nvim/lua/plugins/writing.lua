@@ -71,6 +71,7 @@ return {
   -- Markdown Preview
   {
     'toppair/peek.nvim',
+    dir = '/home/piero/code/open-source/peek.nvim',
     build = 'deno task --quiet build:fast',
     opts = {
       close_on_bdelete = false,
@@ -101,8 +102,17 @@ return {
     ft = 'markdown',
     dependencies = 'nvim-treesitter/nvim-treesitter',
     opts = {
+      heading = {
+        sign = false,
+      },
+      code = {
+        sign = false,
+      },
       bullet = {
         icons = { '•' },
+      },
+      pipe_table = {
+        style = 'normal',
       },
     },
   },
@@ -111,7 +121,7 @@ return {
   {
     'kaarmu/typst.vim',
     init = function()
-      vim.g.typst_pdf_viewer = 'xreader'
+      vim.g.typst_pdf_viewer = 'zathura'
     end,
     ft = 'typst',
     keys = {
