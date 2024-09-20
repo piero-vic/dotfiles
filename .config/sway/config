@@ -31,9 +31,9 @@ set $dragonBlue2  '#8ba4b0'
 # Window decoration
 # class                 border        backgr        text          indic          child_b
 client.focused          $dragonBlue2  $dragonBlue2  $dragonBlack3 $dragonGreen2 $dragonBlue2
-client.focused_inactive $dragonBlue2  $dragonBlack4 $dragonWhite  $dragonGreen2 $dragonBlack4
-client.unfocused        $dragonBlue2  $dragonBlack4 $dragonWhite  $dragonGreen2 $dragonBlack4
-client.urgent           $dragonYellow $dragonYellow $dragonBlack3 $dragonGreen2 $dragonYellow
+client.focused_inactive $dragonBlack4 $dragonBlack4 $dragonWhite  $dragonBlack4 $dragonBlack4
+client.unfocused        $dragonBlack4 $dragonBlack4 $dragonWhite  $dragonBlack4 $dragonBlack4
+client.urgent           $dragonYellow $dragonYellow $dragonBlack3 $dragonYellow $dragonYellow
 
 font pango: JetBrainsMonoNerdFont Medium 9
 default_border pixel 2
