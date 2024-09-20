@@ -105,12 +105,10 @@ bindsym {
   $mod+i exec $browser
   $mod+d exec $menu
 
-  $mod+Shift+f exec 'thunar'
-  $mod+Shift+n exec 'networkmanager_dmenu'
-  $mod+Shift+a exec 'pavucontrol'
-  $mod+Shift+b exec 'dmenu-bluetooth'
-  $mod+Shift+p exec 'password-menu'
-  $mod+Shift+s exec 'screencapture'
+  $mod+Ctrl+n exec 'networkmanager_dmenu'
+  $mod+Ctrl+b exec 'dmenu-bluetooth'
+  $mod+Ctrl+p exec 'password-menu'
+  $mod+Ctrl+s exec 'screencapture'
 
   $mod+Shift+q kill
   $mod+Shift+c reload
