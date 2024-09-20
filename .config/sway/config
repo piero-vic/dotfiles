@@ -109,6 +109,7 @@ bindsym {
   $mod+Ctrl+b exec 'dmenu-bluetooth'
   $mod+Ctrl+p exec 'password-menu'
   $mod+Ctrl+s exec 'screencapture'
+  $mod+Ctrl+m exec 'player-menu'
 
   $mod+Shift+q kill
   $mod+Shift+c reload
