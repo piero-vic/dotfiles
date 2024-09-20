@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+# Requirements:
+# bemenu https://github.com/Cloudef/bemenu
+# playerctl https://github.com/altdesktop/playerctl
+# mako https://github.com/emersion/mako
+
+if ! playerctl status; then
+  notify-send "No players found" --urgency=low
+  exit 0
+fi
+
+player=$(playerctl -l | bemenu --prompt="Select player" --accept-single)
+
+if [[ -z $player ]]; then
+  exit 0
+fi
+
+notification_id=$(
+  notify-send \
+    --print-id \
+    --app-name player-menu \
+    --icon "$(playerctl --player="$player" metadata mpris:artUrl)" \
+    "$(playerctl --player="$player" metadata xesam:title)" \
+    "$(playerctl --player="$player" metadata xesam:artist)"
+)
+
+case $(
+  bemenu --prompt="Player" <<EOF
+|||>Play/Pause
+   Stop
+<|| Prev
+||> Next
+   Loop
+   Shuffle
+EOF
+) in
+"|||>Play/Pause")
+  playerctl --player="$player" play-pause
+  ;;
+"   Stop")
+  playerctl --player="$player" stop
+  ;;
+"<|| Prev")
+  playerctl --player="$player" previous
+  ;;
+"||> Next")
+  playerctl --player="$player" next
+  ;;
+"   Loop")
+  loop_status=$(playerctl --player="$player" loop)
+  if [[ -n $loop_status ]]; then
+    loop_status=$(printf 'none\nplaylist\ntrack' | bemenu --prompt="  Loop: $loop_status")
+    playerctl --player="$player" loop "$loop_status" && notify-send "Player loop is set to $loop_status"
+  else
+    notify-send "Player cannot handle loop" --urgency=critical
+  fi
+  ;;
+"   Shuffle")
+  case $(playerctl --player="$player" shuffle) in
+  "On")
+    playerctl --player="$player" shuffle off && notify-send "Player shuffle is off"
+    ;;
+  "Off")
+    playerctl --player="$player" shuffle on && notify-send "Player shuffle is on"
+    ;;
+  *)
+    notify-send "Player cannot handle shuffle" --urgency=critical
+    ;;
+  esac
+  ;;
+esac
+
+makoctl dismiss -n "$notification_id"

@@ -24,3 +24,6 @@ border-color=#c4746e
 
 [grouped]
 format=<b>%s</b>\n%b
+
+[app-name=player-menu]
+default-timeout=0
