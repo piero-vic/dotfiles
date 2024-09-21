@@ -32,14 +32,19 @@ return {
   -- Tabs
   {
     'akinsho/bufferline.nvim',
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      'famiu/bufdelete.nvim',
+    },
     opts = {
       options = {
+        close_command = 'Bdelete! %d',
+        right_mouse_command = 'Bdelete! %d',
         offsets = {
           { filetype = 'NvimTree', text = 'File Explorer', highlight = 'NormalDark', separator = true },
           { filetype = 'dbui', text = 'Databases', highlight = 'NormalDark', separator = true },
           { filetype = 'calendar', text = 'Calendar', highlight = 'NormalDark', separator = true },
-          { filetype = 'gitsigns.blame', text = 'Git Blame', highlight = 'NormalDark', separator = true },
+          { filetype = 'gitsigns-blame', text = 'Git Blame', highlight = 'NormalDark', separator = true },
         },
       },
     },
