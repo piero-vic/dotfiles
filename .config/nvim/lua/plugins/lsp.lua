@@ -12,7 +12,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
-      -- UI Configuation
+      -- UI Configuration
 
       local _border = 'rounded'
 
@@ -30,7 +30,7 @@ return {
         float = {
           style = 'minimal',
           border = _border,
-          source = 'always',
+          source = true,
           header = '',
           prefix = '',
         },
@@ -52,9 +52,7 @@ return {
         nmap('<leader>e', vim.diagnostic.open_float)
 
         nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-        nmap('<leader>ca', function()
-          vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
-        end, '[C]ode [A]ction')
+        nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
         nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
         nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -86,19 +84,26 @@ return {
         astro = {},
         bashls = {},
         cssls = {},
-        emmet_language_server = {},
+        emmet_language_server = {
+          filetypes = { 'templ' },
+        },
         eslint = {},
         gopls = {},
+        templ = {},
         lua_ls = {},
-        marksman = {},
+        markdown_oxide = {},
         prismals = {},
         tailwindcss = {
+          filetypes = { 'templ', 'astro', 'javascript', 'typescript', 'react' },
           tailwindCSS = {
+            includeLanguages = {
+              templ = 'html',
+            },
             emmetCompletions = true,
           },
         },
         terraformls = {},
-        tsserver = {},
+        ts_ls = {},
         typst_lsp = {},
       }
 
