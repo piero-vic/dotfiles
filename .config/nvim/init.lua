@@ -115,8 +115,57 @@ local keymap = vim.keymap.set
 keymap('n', '<leader>c', ':nohlsearch<CR>', opts)
 
 -- Navigate buffers
-keymap('n', '<TAB>', ':bnext<CR>', opts)
-keymap('n', '<S-TAB>', ':bprevious<CR>', opts)
+keymap('n', '<TAB>', function()
+  local buffers = vim.api.nvim_list_bufs()
+  local current_bufnr = vim.api.nvim_get_current_buf()
+
+  for _, bufnr in ipairs(buffers) do
+    local listed = vim.api.nvim_buf_get_option(bufnr, 'buflisted')
+    local winnr = vim.fn.bufwinnr(bufnr)
+
+    if listed and winnr == -1 and bufnr > current_bufnr then
+      vim.api.nvim_set_current_buf(bufnr)
+      return
+    end
+  end
+
+  for _, bufnr in ipairs(buffers) do
+    local listed = vim.api.nvim_buf_get_option(bufnr, 'buflisted')
+    local winnr = vim.fn.bufwinnr(bufnr)
+
+    if listed and winnr == -1 then
+      vim.api.nvim_set_current_buf(bufnr)
+      return
+    end
+  end
+end, opts)
+
+keymap('n', '<S-TAB>', function()
+  local buffers = vim.api.nvim_list_bufs()
+  local current_bufnr = vim.api.nvim_get_current_buf()
+
+  for i = #buffers, 1, -1 do
+    local bufnr = buffers[i]
+    local listed = vim.api.nvim_buf_get_option(bufnr, 'buflisted')
+    local winnr = vim.fn.bufwinnr(bufnr)
+
+    if listed and winnr == -1 and bufnr < current_bufnr then
+      vim.api.nvim_set_current_buf(bufnr)
+      return
+    end
+  end
+
+  for i = #buffers, 1, -1 do
+    local bufnr = buffers[i]
+    local listed = vim.api.nvim_buf_get_option(bufnr, 'buflisted')
+    local winnr = vim.fn.bufwinnr(bufnr)
+
+    if listed and winnr == -1 then
+      vim.api.nvim_set_current_buf(bufnr)
+      return
+    end
+  end
+end, opts)
 
 -- Move text in visual mode
 keymap('x', 'K', ":move '<-2<CR>gv-gv", opts)
