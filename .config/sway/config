@@ -250,6 +250,10 @@ exec poweralertd
 # https://github.com/piero-vic/volume-notify
 exec volume-notify
 
+# mpris-proxy: Forward media control from Bluetooth headsets to MPRIS
+# https://wiki.archlinux.org/title/MPRIS#Bluetooth
+exec mpris-proxy
+
 # brightnessctl: Program to control device brightness
 # https://github.com/Hummer12007/brightnessctl
 exec brightnessctl -q set 270
