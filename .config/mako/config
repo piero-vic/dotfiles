@@ -28,3 +28,9 @@ format=<b>%s</b>\n%b
 
 [app-name=player-menu]
 default-timeout=0
+
+[app-name=poweralertd urgency=normal]
+invisible=1
+
+[app-name=poweralertd urgency=high]
+default-timeout=0
