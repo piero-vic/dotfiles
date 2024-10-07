@@ -2,17 +2,25 @@
 
 # Requirements:
 # brightnessctl https://github.com/Hummer12007/brightnessctl
-# wob https://github.com/francma/wob
+# mako https://github.com/emersion/mako
 
-wobsock=$XDG_RUNTIME_DIR/wob.sock
 device="${2:-intel_backlight}"
 
+notify() {
+	title="Brightness"
+	if [[ $device != "intel_backlight" ]]; then
+		title="Brightness: $device"
+	fi
+
+	notify-send "$title" "󰃠  Current level: $1%" --hint "int:value:$1"
+}
+
 inc_brightness() {
-	brightnessctl -d "$device" set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' >"$wobsock"
+	notify "$(brightnessctl -d "$device" set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p')"
 }
 
 dec_brightness() {
-	brightnessctl -d "$device" set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' >"$wobsock"
+	notify "$(brightnessctl -d "$device" set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p')"
 }
 
 show_help() {
