@@ -10,12 +10,12 @@
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [user]
-	name = Piero Lescano
-	email = pierolescano@protonmail.com
-  signingkey = FF3162EB019985FE60FCA28B1F5C35FB1023F01B
+  name = Piero Lescano
+  email = me@pierolescano.com
+  signingkey = 14B0AC7B7E9A9BC70C04D97C3FB8355110BC9BB5
 
 [gpg]
   program = gpg
