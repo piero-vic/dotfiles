@@ -1,45 +1,62 @@
-set notification-error-bg       "#181616"
-set notification-error-fg       "#c4746e"
-set notification-warning-bg     "#181616"
-set notification-warning-fg     "#b6927b"
-set notification-bg             "#181616"
-set notification-fg             "#c5c9c5"
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Theme                                                                      ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
 
-set completion-bg               "#181616"
-set completion-fg               "#c5c9c5"
-set completion-group-bg         "#282727"
-set completion-group-fg         "#c5c9c5"
-set completion-highlight-bg     "#8ba4b0"
-set completion-highlight-fg     "#181616"
+set default-fg              "#c5c9c5"
+set default-bg              "#181616"
 
-set index-bg                    "#181616"
-set index-fg                    "#8ba4b0"
-set index-active-bg             "#8ba4b0"
-set index-active-fg             "#181616"
+set completion-bg           "#282727"
+set completion-fg           "#c5c9c5"
+set completion-highlight-bg	"#2d4f67"
+set completion-highlight-fg	"#c5c9c5"
+set completion-group-bg     "#282727"
+set completion-group-fg     "#8ba4b0"
 
-set inputbar-bg                 "#181616"
-set inputbar-fg                 "#c5c9c5"
+set statusbar-fg            "#c5c9c5"
+set statusbar-bg            "#282727"
 
-set statusbar-bg                "#181616"
-set statusbar-fg                "#c5c9c5"
+set notification-bg         "#282727"
+set notification-fg         "#c5c9c5"
+set notification-error-bg   "#282727"
+set notification-error-fg   "#e46876"
+set notification-warning-bg "#282727"
+set notification-warning-fg "#e6c384"
 
-set highlight-color             "#b6927b"
-set highlight-active-color      "#c4746e"
+set inputbar-fg             "#c5c9c5"
+set inputbar-bg             "#282727"
 
-set default-bg                  "#181616"
-set default-fg                  "#c5c9c5"
-set render-loading              "true"
-set render-loading-bg           "#181616"
-set render-loading-fg           "#c5c9c5"
+set recolor-lightcolor      "#181616"
+set recolor-darkcolor       "#c5c9c5"
 
-set recolor-lightcolor          "#181616"
-set recolor-darkcolor           "#c5c9c5"
-set recolor                     "true"
+set index-fg                "#c5c9c5"
+set index-bg                "#181616"
+set index-active-fg         "#c5c9c5"
+set index-active-bg         "#2d4f67"
 
-set font                        "JetBrainsMonoNerdFont 9"
-set adjust-open                 "width"
+set render-loading-bg       "#181616"
+set render-loading-fg       "#c5c9c5"
 
-set selection-clipboard clipboard
+set highlight-color         "#223249"
+set highlight-fg            "#c5c9c5"
+set highlight-active-color  "#2d4f67"
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Options                                                                    ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+set font                   "JetBrainsMonoNerdFont 9"
+set selection-notification "true"
+set selection-clipboard    "clipboard"
+set guioptions             "sv"
+set scroll-page-aware      "true" 
+set statusbar-home-tilde   "true"
+set recolor                "true"
+set render-loading         "true"
+set adjust-open            "width"
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Mappings                                                                   ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
 
 map i recolor
 map - zoom out
