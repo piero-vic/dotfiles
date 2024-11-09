@@ -69,6 +69,6 @@ startup_mode = "Windowed"
 x = 10
 y = 10
 
-[shell]
+[terminal.shell]
 args = ["new-session", "-A", "-s", "main"]
 program = "/sbin/tmux"
