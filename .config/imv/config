@@ -1,0 +1,12 @@
+# docs: https://git.sr.ht/~exec64/imv/
+# vim: ft=dosini
+
+[options]
+background = #181616
+fullscreen = false
+overlay = true
+overlay_text_color = #c5c9c5
+overlay_background_color = #282727
+overlay_background_alpha = ff
+overlay_font = JetBrainsMono Nerd Font:9
+overlay_position_bottom = true
