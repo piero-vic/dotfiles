@@ -1,22 +1,28 @@
+# docs: https://github.com/gokcehan/lf/wiki
+# https://github.com/shusheaan/gral/blob/main/lf.conf
+
 # Settings
 set shell zsh
 set shellopts '-eu'
-set hidden true
 set ignorecase true
+set cursorpreviewfmt "\033[7;90m"
+set previewer ~/.local/bin/lf-preview
 
 # Functions
 cmd open &{{
-	case $(file --mime-type -Lb $f) in
-		text/*) lf -remote "send $id \$nvim \$fx";;
-		*) xdg-open "$f"
-	esac
+  case $(file --mime-type -Lb $f) in
+    text/*) lf -remote "send $id \$nvim \$fx";;
+    *) xdg-open "$f"
+  esac
 }}
 
 cmd on-select &{{
-    lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\""
+  lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\""
 }}
 
-cmd trash %trash-put $fx
+cmd trash %{{
+  trash-put -i "$f"
+}}
 
 cmd unarchive ${{
   case "$f" in
@@ -31,12 +37,14 @@ cmd unarchive ${{
 }}
 
 # Mappings
-map dd trash
-map au unarchive
+map . set hidden!
+map D trash
+map ua unarchive
 
 # Movement
 map gc cd ~/code
 map gd cd ~/documents
+map gD cd ~/downloads
 map gm cd ~/music
 map gp cd ~/pictures
 map gv cd ~/videos

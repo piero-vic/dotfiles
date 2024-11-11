@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+case "$(file --brief --mime-type "$1")" in
+*application/json*)
+  jq --color-output . "$1"
+  ;;
+*application/pdf*)
+  pdfinfo "$1"
+  ;;
+*application/vnd.rar*)
+  unrar l "$1"
+  ;;
+*application/x-tar* | *application/x-compressed-tar* | *application/x-*-compressed-tar*)
+  tar -tvf "$1"
+  ;;
+*application/zip* | *application/epub\+zip*)
+  unzip -l "$1"
+  ;;
+*audio/* | *image/* | *video/*)
+  mediainfo "$1"
+  ;;
+*inode/symlink*)
+  lf-preview "$(readlink -f "$1")" "${@:2}"
+  ;;
+*text/*)
+  bat --color=always --paging=never --style=plain --terminal-width $(($2 - 3)) "$1"
+  ;;
+*)
+  echo "Unsupported format"
+  ;;
+esac
