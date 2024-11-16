@@ -10,6 +10,9 @@ case "$(file --brief --mime-type "$1")" in
 *application/vnd.rar*)
   unrar l "$1"
   ;;
+*application/vnd.sqlite3*)
+  sqlite3 "$1" ".schema" | bat --color=always --paging=never --style=plain --terminal-width $(($2 - 3)) --language=sql
+  ;;
 *application/x-tar* | *application/x-compressed-tar* | *application/x-*-compressed-tar*)
   tar -tvf "$1"
   ;;
