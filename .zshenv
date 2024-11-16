@@ -12,6 +12,10 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ZSH_PLUGINS="$ZDOTDIR/plugins"
 export HISTCONTROL=ignoreboth
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
+export HISTSIZE=50000
+export SAVEHIST=50000
+export HISTCONTROL=ignoreboth
+export HISTORY_IGNORE="(clear|ls|cd|pwd|exit|pass)*"
 
 # NVM & Node
 export NVM_DIR="$XDG_DATA_HOME"/nvm
@@ -19,6 +23,9 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 
 # GNU Wget
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+
+# GKT
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ PATH                                                                       ║
@@ -45,12 +52,15 @@ type nvim >/dev/null && export EDITOR=nvim
 # Setup GTK Theme
 export GTK_THEME=Arc-Dark
 
+# QT
+export QT_QPA_PLATFORMTHEME=qt6ct
+
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
 
 # bemenu
 export BEMENU_OPTS="-n -c -s -i \
-  -W 0.2 -H 26 -B 2 -l 10 \
+  -W 0.2 -H 26 -B 2 -l 15 \
   --single-instance \
   --fn 'JetBrainsMonoNerdFont 9' \
   --nb #0d0c0cff --nf #c5c9c5ff \
