@@ -1,7 +1,6 @@
 add_newline = false
-
 format = '$directory$character'
-right_format = '$git_state$git_status$git_branch$git_commit'
+right_format = '$git_state$git_status$git_branch$git_commit$docker_context'
 
 [directory]
 style = 'blue'
@@ -14,7 +13,7 @@ error_symbol = '[❯](red)'
 format = '[$branch(:$remote_branch)](purple)'
 
 [git_commit]
-format = '[$hash](green)'
+format = ' [•](bright-black) [$hash](green)'
 
 [git_state]
 format = '[$state($progress_current/$progress_total)](cyan) [•](bright-black) '
@@ -32,3 +31,6 @@ modified = '!$count '
 staged = '+$count '
 renamed = '»$count '
 deleted = '✘$count '
+
+[docker_context]
+format = ' [•](bright-black) [  $context](blue)'
