@@ -10,7 +10,13 @@ if ! playerctl status; then
   exit 0
 fi
 
-player=$(playerctl -l | rofi -sync -dmenu -i -p "Select player")
+available_players=$(playerctl -l)
+
+if [ "$(echo "$available_players" | wc -l)" -gt 1 ]; then
+  player=$(echo "$available_players" | rofi -sync -dmenu -i -p "Select player")
+else
+  player=$available_players
+fi
 
 if [[ -z $player ]]; then
   exit 0
