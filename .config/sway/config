@@ -230,6 +230,10 @@ exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # https://github.com/emersion/mako
 exec mako
 
+# kanshi: Dynamic display configuration
+# https://git.sr.ht/~emersion/kanshi
+exec kanshi
+
 # udiskie: Automounter for removable media
 # https://github.com/coldfix/udiskie
 exec udiskie --tray

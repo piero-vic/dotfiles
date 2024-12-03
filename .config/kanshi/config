@@ -1,0 +1,13 @@
+profile laptop {
+  output eDP-1 mode 1920x1080 position 0,0 enable
+}
+
+profile desktop {
+  output HDMI-A-2 mode 1920x1080 position 0,0
+  output eDP-1 disable
+}
+
+profile dual {
+  output HDMI-A-2 mode 1920x1080 position 0,0
+  output eDP-1 mode 1920x1080 position 1920,0 enable
+}
