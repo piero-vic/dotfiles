@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Requirements:
-# bemenu https://github.com/Cloudef/bemenu
+# rofi https://github.com/lbonn/rofi
 # grim https://git.sr.ht/~emersion/grim
 # jq https://github.com/jqlang/jq
 # mako https://github.com/emersion/mako
@@ -35,7 +35,7 @@ get_section() {
 }
 
 case $(
-  bemenu --no-exec --prompt="screencapture" <<EOF
+  rofi -sync -dmenu -i -p "Screencapture" <<EOF
 Screen
 Window
 Selection
