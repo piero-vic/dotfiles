@@ -58,19 +58,7 @@ export QT_QPA_PLATFORMTHEME=qt6ct
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
 
-# bemenu
-export BEMENU_OPTS="-n -c -s -i \
-  -W 0.2 -H 26 -B 2 -l 15 \
-  --single-instance \
-  --fn 'JetBrainsMonoNerdFont 9' \
-  --nb #0d0c0cff --nf #c5c9c5ff \
-  --ab #0d0c0cff --af #c5c9c5ff \
-  --hb #282727ff --hf #8ba4b0ff \
-  --fb #0d0c0cff --ff #c5c9c5ff \
-  --tb #0d0c0cff --tf #8ba4b0ff \
-  --bdr #8ba4b0ff"
-
 # dmenu-bluetooth
 # https://github.com/Layerex/dmenu-bluetooth
 export DMENU_BLUETOOTH_PROMPT="Bluetooth"
-export DMENU_BLUETOOTH_LAUNCHER="bemenu"
+export DMENU_BLUETOOTH_LAUNCHER="rofi -sync -dmenu -i"

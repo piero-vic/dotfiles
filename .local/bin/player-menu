@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Requirements:
-# bemenu https://github.com/Cloudef/bemenu
+# rofi https://github.com/lbonn/rofi
 # playerctl https://github.com/altdesktop/playerctl
 # mako https://github.com/emersion/mako
 
@@ -10,7 +10,7 @@ if ! playerctl status; then
   exit 0
 fi
 
-player=$(playerctl -l | bemenu --prompt="Select player" --accept-single)
+player=$(playerctl -l | rofi -sync -dmenu -i -p "Select player")
 
 if [[ -z $player ]]; then
   exit 0
@@ -26,7 +26,7 @@ notification_id=$(
 )
 
 case $(
-  bemenu --prompt="Player" <<EOF
+  rofi -sync -dmenu -i -p "Player" <<EOF
 |||>Play/Pause
    Stop
 <|| Prev
@@ -50,7 +50,7 @@ EOF
 "   Loop")
   loop_status=$(playerctl --player="$player" loop)
   if [[ -n $loop_status ]]; then
-    loop_status=$(printf 'none\nplaylist\ntrack' | bemenu --prompt="  Loop: $loop_status")
+    loop_status=$(printf 'none\nplaylist\ntrack' | rofi -sync -dmenu -i -p "  Loop: $loop_status")
     playerctl --player="$player" loop "$loop_status" && notify-send "Player loop is set to $loop_status"
   else
     notify-send "Player cannot handle loop" --urgency=critical

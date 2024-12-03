@@ -16,7 +16,7 @@ _Configuration files and scripts for my Arch Linux system._
 - File Managers: [Thunar](https://gitlab.xfce.org/xfce/thunar) and [lf](https://github.com/gokcehan/lf)
 - PDF/EPUB Viewers: [zathura](https://git.pwmt.org/pwmt/zathura) and [xreader](https://github.com/linuxmint/xreader)
 - Notifications: [mako](https://github.com/emersion/mako)
-- Launcher: [j4-dmenu-desktop](https://github.com/enkore/j4-dmenu-desktop) and [bemenu](https://github.com/Cloudef/bemenu)
+- Launcher: [rofi](https://github.com/lbonn/rofi)
 - Color Scheme: [Kanagawa Dragon](https://github.com/rebelot/kanagawa.nvim)
 
 ## License
