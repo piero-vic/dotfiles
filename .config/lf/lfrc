@@ -10,7 +10,7 @@ set previewer ~/.local/bin/lf-preview
 
 # Functions
 cmd open &{{
-  case $(file --mime-type -Lb $f) in
+  case $(mimetype --brief $f) in
     text/*) lf -remote "send $id \$nvim \$fx";;
     *) xdg-open "$f"
   esac

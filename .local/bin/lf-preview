@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-case "$(file --brief --mime-type "$1")" in
+case "$(mimetype --brief "$1")" in
 *application/json*)
   jq --color-output . "$1"
   ;;
