@@ -7,14 +7,6 @@
 path = "~/.local/share/calendars/personal"
 color = "dark blue"
 
-[[code]]
-path = "~/.local/share/calendars/code"
-color = "dark magenta"
-
-[[work]]
-path = "~/.local/share/calendars/work"
-color = "dark red"
-
 [[birthdays]]
 path = ~/.local/share/contacts/contacts/
 type = "birthdays"
