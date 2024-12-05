@@ -18,4 +18,14 @@ return {
 
   -- Ledger
   { 'ledger/vim-ledger', ft = 'ledger' },
+
+  -- Tailwind Sorter
+  -- NOTE: This is for sorting classes in templ files since I cannot use the prettier plugin.
+  {
+    'laytan/tailwind-sorter.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
+    build = 'cd formatter && npm ci && npm run build',
+    config = true,
+    ft = { 'templ' },
+  },
 }
