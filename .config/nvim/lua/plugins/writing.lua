@@ -1,34 +1,84 @@
 return {
   -- Zettelkasten
   {
-    'renerocksai/telekasten.nvim',
+    'nvim-telekasten/telekasten.nvim',
     opts = {
+      -- Main paths
       home = vim.fn.expand '~/documents/vault',
-      auto_set_filetype = false,
-      auto_set_syntax = false,
+      dailies = 'journal',
+      weeklies = 'journal',
+      templates = '.templates',
+      -- Note templates
+      template_new_note = '.templates/note.md',
+      template_new_daily = '.templates/daily.md',
+      template_new_weekly = '.templates/weekly.md',
+      -- Images
+      image_subdir = 'assets',
+      image_link_style = 'markdown',
+      -- Notes
+      new_note_filename = 'title',
       filename_space_subst = '-',
-      dailies = 'journal/daily',
-      template_new_daily = '.templates/daily',
+      filename_small_case = true,
+      -- UI
+      journal_auto_open = true,
       command_palette_theme = 'dropdown',
       show_tags_theme = 'dropdown',
+      -- Filetype
+      auto_set_filetype = false,
+      auto_set_syntax = false,
     },
-    init = function()
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = 'markdown',
-        callback = function()
-          vim.wo.conceallevel = 2
-        end,
-      })
-    end,
     config = function(_, opts)
       local tk = require 'telekasten'
       tk.setup(opts)
 
-      vim.keymap.set('n', '<leader>nh', function()
-        vim.cmd('e ' .. opts.home .. '/_index.md')
-      end)
-      vim.keymap.set('n', '<leader>nn', tk.new_note)
+      local function goto_home()
+        vim.cmd('e ' .. opts.home .. '/index.md')
+      end
+
+      local journal_dir = opts.home .. '/' .. opts.dailies
+
+      local function goto_tomorrow()
+        local filename = os.date('%Y-%m-%d', os.time() + 24 * 60 * 60) .. '.md'
+        vim.cmd('e ' .. journal_dir .. '/' .. filename)
+      end
+
+      local function goto_yesterday()
+        local filename = os.date('%Y-%m-%d', os.time() - 24 * 60 * 60) .. '.md'
+        vim.cmd('e ' .. journal_dir .. '/' .. filename)
+      end
+
+      local date_pattern = '(%d+)-(%d+)-(%d+).md'
+
+      local function goto_next_date()
+        local current_filename = vim.api.nvim_buf_get_name(0)
+        local year, month, day = current_filename:match(date_pattern)
+
+        local next_date = os.time { year = year, month = month, day = day } + 24 * 60 * 60
+        local date_table = os.date('*t', next_date)
+
+        tk.CalendarAction(date_table.day, date_table.month, date_table.year)
+      end
+
+      local function goto_prev_date()
+        local current_filename = vim.api.nvim_buf_get_name(0)
+        local year, month, day = current_filename:match(date_pattern)
+
+        local prev_date = os.time { year = year, month = month, day = day } - 24 * 60 * 60
+        local date_table = os.date('*t', prev_date)
+
+        tk.CalendarAction(date_table.day, date_table.month, date_table.year)
+      end
+
+      vim.keymap.set('n', '<leader>nh', goto_home)
+
       vim.keymap.set('n', '<leader>nd', tk.goto_today)
+      vim.keymap.set('n', '<leader>ndf', goto_next_date)
+      vim.keymap.set('n', '<leader>ndb', goto_prev_date)
+      vim.keymap.set('n', '<leader>ndt', goto_tomorrow)
+      vim.keymap.set('n', '<leader>ndy', goto_yesterday)
+
+      vim.keymap.set('n', '<leader>nn', tk.new_note)
+      vim.keymap.set('n', '<leader>nw', tk.goto_thisweek)
       vim.keymap.set('n', '<leader>nt', tk.show_tags)
       vim.keymap.set('n', '<leader>nf', tk.find_notes)
       vim.keymap.set('n', '<leader>tt', tk.toggle_todo)
@@ -97,22 +147,24 @@ return {
   },
 
   {
-    'MeanderingProgrammer/markdown.nvim',
-    main = 'render-markdown',
+    'MeanderingProgrammer/render-markdown.nvim',
     ft = 'markdown',
-    dependencies = 'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
     opts = {
-      heading = {
-        sign = false,
-      },
-      code = {
-        sign = false,
-      },
       bullet = {
         icons = { '•' },
       },
       pipe_table = {
         style = 'normal',
+      },
+      link = {
+        enabled = false,
+      },
+      sign = {
+        enabled = false,
       },
     },
   },
