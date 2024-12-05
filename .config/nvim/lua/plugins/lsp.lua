@@ -89,7 +89,7 @@ return {
         },
         eslint = {},
         gopls = {},
-        templ = {},
+        ltex = {},
         lua_ls = {},
         markdown_oxide = {},
         prismals = {},
@@ -102,9 +102,10 @@ return {
             emmetCompletions = true,
           },
         },
+        templ = {},
         terraformls = {},
+        tinymist = {},
         ts_ls = {},
-        typst_lsp = {},
       }
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
