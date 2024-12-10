@@ -44,6 +44,7 @@ export PATH=$PATH:$GOBIN
 
 export OS=$(uname)
 type nvim >/dev/null && export EDITOR=nvim
+export PAGER=less
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Program settings                                                           ║
