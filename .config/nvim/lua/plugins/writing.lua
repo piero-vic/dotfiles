@@ -4,7 +4,7 @@ return {
     'nvim-telekasten/telekasten.nvim',
     opts = {
       -- Main paths
-      home = vim.fn.expand '~/documents/vault',
+      home = vim.fn.expand '~/documents/notes',
       dailies = 'journal',
       weeklies = 'journal',
       templates = '.templates',
@@ -13,7 +13,7 @@ return {
       template_new_daily = '.templates/daily.md',
       template_new_weekly = '.templates/weekly.md',
       -- Images
-      image_subdir = 'assets',
+      image_subdir = 'attachments',
       image_link_style = 'markdown',
       -- Notes
       new_note_filename = 'title',
@@ -153,9 +153,27 @@ return {
       'nvim-treesitter/nvim-treesitter',
       'nvim-tree/nvim-web-devicons',
     },
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
     opts = {
+      heading = {
+        icons = { '󰎤 ', '󰎧 ', '󰎪 ', '󰎭 ', '󰎱 ', '󰎳 ' },
+      },
       bullet = {
         icons = { '•' },
+      },
+      checkbox = {
+        unchecked = {
+          icon = ' ',
+        },
+        checked = {
+          icon = ' ',
+        },
+        custom = {
+          incomplete = { raw = '[/]', rendered = ' ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
+          forwarded = { raw = '[>]', rendered = '󰒊 ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
+          scheduling = { raw = '[<]', rendered = '󰃭 ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
+        },
       },
       pipe_table = {
         style = 'normal',
