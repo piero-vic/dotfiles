@@ -118,6 +118,32 @@ return {
     },
   },
 
+  -- Orgmode
+  -- https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md
+  {
+    'nvim-orgmode/orgmode',
+    event = 'VeryLazy',
+    ft = { 'org' },
+    config = function()
+      require('orgmode').setup {
+        -- Global settings
+        org_agenda_files = '~/documents/org/**/*',
+        org_default_notes_file = '~/documents/org/inbox.org',
+        org_hide_leading_stars = true,
+        org_ellipsis = ' 󱞣',
+        org_adapt_indentation = false,
+        -- Agenda settings
+        org_deadline_warning_days = 7,
+        org_agenda_span = 'day',
+        org_capture_templates = {
+          t = { description = 'Task', template = '* TODO %?\n  %u' },
+          e = { description = 'Event', template = '* %?', target = '~/documents/org/calendar.org' },
+        },
+        org_agenda_skip_deadline_if_done = true,
+      }
+    end,
+  },
+
   -- Markdown Preview
   {
     'toppair/peek.nvim',
