@@ -20,9 +20,9 @@ fileext = ".ics"
 
 [storage calendars_remote]
 type = "caldav"
-url.fetch = ["command", "pass", "baikal/url"]
-username.fetch = ["command", "pass", "baikal/username"]
-password.fetch = ["command", "pass", "baikal/password"]
+url.fetch = ["command", "gopass", "show", "--password", "baikal/url"]
+username.fetch = ["command", "gopass", "show", "--password", "baikal/username"]
+password.fetch = ["command", "gopass", "show", "--password", "baikal/password"]
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Contacts                                                                   ║
@@ -40,6 +40,6 @@ fileext = ".vcf"
 
 [storage contacts_remote]
 type = "carddav"
-url.fetch = ["command", "pass", "baikal/url"]
-username.fetch = ["command", "pass", "baikal/username"]
-password.fetch = ["command", "pass", "baikal/password"]
+url.fetch = ["command", "gopass", "show", "--password", "baikal/url"]
+username.fetch = ["command", "gopass", "show", "--password", "baikal/username"]
+password.fetch = ["command", "gopass", "show", "--password", "baikal/password"]

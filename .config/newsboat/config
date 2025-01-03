@@ -7,8 +7,8 @@ browser "firefox --new-tab %u &"
 
 # Miniflux
 urls-source "miniflux"
-miniflux-url "`pass miniflux/url`"
-miniflux-token "`pass miniflux/token`"
+miniflux-url "`gopass show --password miniflux/url`"
+miniflux-token "`gopass show --password miniflux/token`"
 
 # Bookmarks
 bookmark-autopilot yes
