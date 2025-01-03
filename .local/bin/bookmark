@@ -21,8 +21,8 @@ read -r -d '' body <<EOM
 }
 EOM
 
-linkding_url=$(pass show linkding/url)
-linkding_token=$(pass show linkding/token)
+linkding_url=$(gopass show --password linkding/url)
+linkding_token=$(gopass show --password linkding/token)
 
 curl -s -f -X POST "$linkding_url/api/bookmarks/" \
 	-H "Content-Type: application/json" \
