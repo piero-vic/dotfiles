@@ -13,7 +13,7 @@ return {
     table.insert(vimgrep_arguments, '--hidden')
     table.insert(vimgrep_arguments, '--glob')
     table.insert(vimgrep_arguments, '!**/.git/*')
-    table.insert(vimgrep_arguments, '-L')
+    table.insert(vimgrep_arguments, '--follow')
 
     telescope.setup {
       defaults = {
@@ -22,7 +22,7 @@ return {
       },
       pickers = {
         find_files = {
-          find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*', '-L' },
+          find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*', '--follow' },
         },
       },
       extensions = {
@@ -43,12 +43,7 @@ return {
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Search Buffer' })
 
     -- Git
-    vim.keymap.set('n', '<leader>gl', function()
-      builtin.git_commits { initial_mode = 'normal' }
-    end, { desc = 'Git Log ' })
-
-    vim.keymap.set('n', '<leader>gs', function()
-      builtin.git_status { initial_mode = 'normal' }
-    end, { desc = 'Git Status' })
+    vim.keymap.set('n', '<leader>gl', builtin.git_commits, { desc = 'Git Log' })
+    vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Git Status' })
   end,
 }
