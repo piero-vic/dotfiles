@@ -76,8 +76,8 @@ if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
 	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
-# NVM
-[[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
+# fnm
+type fnm >/dev/null && eval "$(fnm env --use-on-cd --shell zsh)"
 
 # SDKMAN
 export SDKMAN_DIR="$XDG_DATA_HOME/sdkman"
