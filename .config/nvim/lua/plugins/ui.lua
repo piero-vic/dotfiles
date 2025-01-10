@@ -63,6 +63,7 @@ return {
     },
   },
 
+  -- Files
   {
     'nvim-tree/nvim-tree.lua',
     opts = {},
@@ -95,6 +96,14 @@ return {
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false },
+    config = function(_, opts)
+      local todo_comments = require 'todo-comments'
+      todo_comments.setup(opts)
+
+      -- Navigation
+      vim.keymap.set('n', ']t', todo_comments.jump_next, { desc = 'Next [T]odo Comment' })
+      vim.keymap.set('n', '[t', todo_comments.jump_prev, { desc = 'Previous [T]odo Comment' })
+    end,
   },
 
   -- Cloak
