@@ -25,8 +25,11 @@ return {
       },
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
       cmdline = {},
+      providers = {
+        dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
+      },
     },
     appearance = {
       use_nvim_cmp_as_default = true,
