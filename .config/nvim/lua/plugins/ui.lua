@@ -95,7 +95,23 @@ return {
     'folke/todo-comments.nvim',
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = { signs = false },
+    opts = {
+      signs = false,
+      search = {
+        command = 'rg',
+        args = {
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--hidden',
+          '--glob',
+          '!**/.git/*',
+          '--follow',
+        },
+      },
+    },
     config = function(_, opts)
       local todo_comments = require 'todo-comments'
       todo_comments.setup(opts)
