@@ -210,6 +210,11 @@ return {
       sign = {
         enabled = false,
       },
+      html = {
+        comment = {
+          conceal = false,
+        },
+      },
     },
   },
 
