@@ -108,70 +108,18 @@ vim.opt.writebackup = false -- Disable making a backup before overwriting a file
 -- ║ Keymaps                                                                   ║
 -- ╚═══════════════════════════════════════════════════════════════════════════╝
 
-local opts = { noremap = true, silent = true }
-local keymap = vim.keymap.set
-
 -- Clear search highlighting
-keymap('n', '<leader>c', ':nohlsearch<CR>', opts)
+vim.keymap.set('n', '<leader>c', '<cmd>nohlsearch<cr>')
 
 -- Navigate buffers
-keymap('n', '<TAB>', function()
-  local buffers = vim.api.nvim_list_bufs()
-  local current_bufnr = vim.api.nvim_get_current_buf()
-
-  for _, bufnr in ipairs(buffers) do
-    local listed = vim.api.nvim_buf_get_option(bufnr, 'buflisted')
-    local winnr = vim.fn.bufwinnr(bufnr)
-
-    if listed and winnr == -1 and bufnr > current_bufnr then
-      vim.api.nvim_set_current_buf(bufnr)
-      return
-    end
-  end
-
-  for _, bufnr in ipairs(buffers) do
-    local listed = vim.api.nvim_buf_get_option(bufnr, 'buflisted')
-    local winnr = vim.fn.bufwinnr(bufnr)
-
-    if listed and winnr == -1 then
-      vim.api.nvim_set_current_buf(bufnr)
-      return
-    end
-  end
-end, opts)
-
-keymap('n', '<S-TAB>', function()
-  local buffers = vim.api.nvim_list_bufs()
-  local current_bufnr = vim.api.nvim_get_current_buf()
-
-  for i = #buffers, 1, -1 do
-    local bufnr = buffers[i]
-    local listed = vim.api.nvim_buf_get_option(bufnr, 'buflisted')
-    local winnr = vim.fn.bufwinnr(bufnr)
-
-    if listed and winnr == -1 and bufnr < current_bufnr then
-      vim.api.nvim_set_current_buf(bufnr)
-      return
-    end
-  end
-
-  for i = #buffers, 1, -1 do
-    local bufnr = buffers[i]
-    local listed = vim.api.nvim_buf_get_option(bufnr, 'buflisted')
-    local winnr = vim.fn.bufwinnr(bufnr)
-
-    if listed and winnr == -1 then
-      vim.api.nvim_set_current_buf(bufnr)
-      return
-    end
-  end
-end, opts)
+vim.keymap.set('n', '<TAB>', '<cmd>bnext<cr>')
+vim.keymap.set('n', '<S-TAB>', '<cmd>bprevious<cr>')
 
 -- Move text in visual mode
-keymap('x', 'K', ":move '<-2<CR>gv-gv", opts)
-keymap('x', 'J', ":move '>+1<CR>gv-gv", opts)
-keymap('v', '>', '>gv', opts)
-keymap('v', '<', '<gv', opts)
+vim.keymap.set('x', 'K', ":move '<-2<cr>gv-gv", { silent = true })
+vim.keymap.set('x', 'J', ":move '>+1<cr>gv-gv", { silent = true })
+vim.keymap.set('v', '>', '>gv')
+vim.keymap.set('v', '<', '<gv')
 
 -- ╔═══════════════════════════════════════════════════════════════════════════╗
 -- ║ Autocommands                                                              ║
