@@ -1,5 +1,6 @@
 return {
   'saghen/blink.cmp',
+  event = 'InsertEnter',
   dependencies = 'rafamadriz/friendly-snippets',
   version = '*',
   ---@module 'blink.cmp'
@@ -25,10 +26,11 @@ return {
       },
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
+      default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
       cmdline = {},
       providers = {
         dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
+        lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink', score_offset = 100 },
       },
     },
     appearance = {
