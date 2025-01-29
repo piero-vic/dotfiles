@@ -122,6 +122,12 @@ return {
     end,
   },
 
+  -- Colorizer
+  {
+    'brenoprata10/nvim-highlight-colors',
+    opts = { render = 'virtual' },
+  },
+
   -- Cloak
   { 'laytan/cloak.nvim', opts = {} },
 }
