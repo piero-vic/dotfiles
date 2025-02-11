@@ -6,9 +6,11 @@
 
 set -e
 
+cwd=$(tmux display-message -p '#{pane_current_path}')
+
 if ! type lazydocker &>/dev/null; then
   tmux display-message 'ERROR: lazydocker is not installed'
   exit
 fi
 
-tmux new-window -n 'lazydocker' lazydocker
+tmux new-window -n 'lazydocker' -c "$cwd" lazydocker
