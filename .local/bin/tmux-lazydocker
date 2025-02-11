@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Requirements:
+# tmux https://github.com/tmux/tmux
+# lazydocker https://github.com/jesseduffield/lazydocker
+
+set -e
+
+if ! type lazydocker &>/dev/null; then
+  tmux display-message 'ERROR: lazydocker is not installed'
+  exit
+fi
+
+tmux new-window -n 'lazydocker' lazydocker
