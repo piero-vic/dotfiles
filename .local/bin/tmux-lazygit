@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Requirements:
+# tmux https://github.com/tmux/tmux
+# lazygit https://github.com/jesseduffield/lazygit
+
+set -e
+
+cwd=$(tmux display-message -p '#{pane_current_path}')
+
+if ! type lazygit &>/dev/null; then
+  tmux display-message 'ERROR: lazygit is not installed'
+  exit
+fi
+
+if ! git -C "$cwd" rev-parse --is-inside-work-tree &>/dev/null; then
+  tmux display-message 'ERROR: current directory is not a git repo'
+  exit
+fi
+
+tmux new-window -n 'lazygit' -c "$cwd" lazygit
