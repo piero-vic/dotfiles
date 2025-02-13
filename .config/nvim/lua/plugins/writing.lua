@@ -7,11 +7,11 @@ return {
       home = vim.fn.expand '~/documents/notes',
       dailies = 'journal',
       weeklies = 'journal',
-      templates = '.templates',
+      templates = 'templates',
       -- Note templates
-      template_new_note = '.templates/note.md',
-      template_new_daily = '.templates/daily.md',
-      template_new_weekly = '.templates/weekly.md',
+      template_new_note = 'templates/note.md',
+      template_new_daily = 'templates/daily.md',
+      template_new_weekly = 'templates/weekly.md',
       -- Images
       image_subdir = 'attachments',
       image_link_style = 'markdown',
@@ -31,57 +31,130 @@ return {
       local tk = require 'telekasten'
       tk.setup(opts)
 
-      local function goto_home()
-        vim.cmd('e ' .. opts.home .. '/index.md')
-      end
+      local journal_dir = vim.fs.joinpath(opts.home, opts.dailies)
+      local checkboxes = {
+        { char = ' ', icon = '', label = 'to-do' },
+        { char = '/', icon = '', label = 'incomplete' },
+        { char = 'x', icon = '', label = 'done' },
+        { char = '>', icon = '󰒊', label = 'forwarded' },
+        { char = '<', icon = '󰃭', label = 'scheduling' },
+        { char = 'l', icon = '', label = 'location' },
+        { char = 'b', icon = '', label = 'bookmark' },
+        { char = 'u', icon = '󰔵', label = 'up' },
+        { char = 'd', icon = '󰔳', label = 'down' },
+      }
 
-      local journal_dir = opts.home .. '/' .. opts.dailies
+      local function goto_home()
+        local filepath = vim.fs.joinpath(opts.home, 'index.md')
+        vim.cmd.edit(filepath)
+      end
 
       local function goto_tomorrow()
         local filename = os.date('%Y-%m-%d', os.time() + 24 * 60 * 60) .. '.md'
-        vim.cmd('e ' .. journal_dir .. '/' .. filename)
+        local filepath = vim.fs.joinpath(journal_dir, filename)
+        vim.cmd.edit(filepath)
       end
 
       local function goto_yesterday()
         local filename = os.date('%Y-%m-%d', os.time() - 24 * 60 * 60) .. '.md'
-        vim.cmd('e ' .. journal_dir .. '/' .. filename)
+        local filepath = vim.fs.joinpath(journal_dir, filename)
+        vim.cmd.edit(filepath)
       end
 
-      local date_pattern = '(%d+)-(%d+)-(%d+).md'
+      local pickers = require 'telescope.pickers'
+      local finders = require 'telescope.finders'
+      local conf = require 'telescope.config'
 
-      local function goto_next_date()
-        local current_filename = vim.api.nvim_buf_get_name(0)
-        local year, month, day = current_filename:match(date_pattern)
+      local function this_week()
+        local dates = {}
+        local current_day = os.date('*t').wday
 
-        local next_date = os.time { year = year, month = month, day = day } + 24 * 60 * 60
-        local date_table = os.date('*t', next_date)
+        local offset = current_day - 2
+        if offset < 0 then
+          offset = 6
+        end
+        local monday_time = os.time() - (offset * 86400)
 
-        tk.CalendarAction(date_table.day, date_table.month, date_table.year)
+        for i = 0, 6 do
+          local day_time = monday_time + (i * 86400)
+          table.insert(dates, os.date('*t', day_time))
+        end
+
+        local options = {}
+
+        pickers
+          .new(options, {
+            prompt_title = 'Week',
+            finder = finders.new_table {
+              results = dates,
+              entry_maker = function(entry)
+                local entry_time = os.time { year = entry.year, month = entry.month, day = entry.day }
+
+                local display = os.date('%a, %b %d, %Y', entry_time)
+                local filename = os.date('%Y-%m-%d', entry_time) .. '.md'
+                local filepath = vim.fs.joinpath(journal_dir, filename)
+
+                if vim.fn.filereadable(filepath) == 1 then
+                  display = '󰃭  ' .. display
+                else
+                  display = '󰃭  ' .. display
+                end
+
+                if os.date('%Y-%m-%d', entry_time) == os.date '%Y-%m-%d' then
+                  display = display .. ' (Today)'
+                end
+
+                return {
+                  value = entry,
+                  display = display,
+                  ordinal = display,
+                  path = filepath,
+                }
+              end,
+            },
+            sorter = conf.values.generic_sorter(options),
+            previewer = conf.values.grep_previewer(options),
+          })
+          :find()
       end
 
-      local function goto_prev_date()
-        local current_filename = vim.api.nvim_buf_get_name(0)
-        local year, month, day = current_filename:match(date_pattern)
+      local function select_checkbox()
+        if vim.bo.filetype ~= 'markdown' then
+          return
+        end
 
-        local prev_date = os.time { year = year, month = month, day = day } - 24 * 60 * 60
-        local date_table = os.date('*t', prev_date)
+        local pattern = '%- %[.-%] '
 
-        tk.CalendarAction(date_table.day, date_table.month, date_table.year)
+        local line = vim.api.nvim_get_current_line()
+        if not line:match(pattern) then
+          return
+        end
+
+        vim.ui.select(checkboxes, {
+          prompt = 'Checkboxes:',
+          format_item = function(item)
+            return string.format('%s %s', item.icon, item.label)
+          end,
+        }, function(choice)
+          if not choice then
+            return
+          end
+
+          local checkbox = string.format('- [%s] ', choice.char)
+          local modified_line = line:gsub(pattern, checkbox, 1)
+          vim.api.nvim_set_current_line(modified_line)
+        end)
       end
 
       vim.keymap.set('n', '<leader>nh', goto_home)
-
       vim.keymap.set('n', '<leader>nd', tk.goto_today)
-      vim.keymap.set('n', '<leader>ndf', goto_next_date)
-      vim.keymap.set('n', '<leader>ndb', goto_prev_date)
       vim.keymap.set('n', '<leader>ndt', goto_tomorrow)
       vim.keymap.set('n', '<leader>ndy', goto_yesterday)
-
+      vim.keymap.set('n', '<leader>nw', this_week)
       vim.keymap.set('n', '<leader>nn', tk.new_note)
-      vim.keymap.set('n', '<leader>nw', tk.goto_thisweek)
-      vim.keymap.set('n', '<leader>nt', tk.show_tags)
+      vim.keymap.set('n', '<leader>nt', tk.show_tags) -- TODO: Handle frontmatter tags
       vim.keymap.set('n', '<leader>nf', tk.find_notes)
-      vim.keymap.set('n', '<leader>tt', tk.toggle_todo)
+      vim.keymap.set('n', '<leader>tt', select_checkbox)
     end,
   },
 
@@ -91,7 +164,10 @@ return {
     init = function()
       vim.g.calendar_no_mappings = true
 
+      local augroup = vim.api.nvim_create_augroup('calendar', { clear = true })
+
       vim.api.nvim_create_autocmd('FileType', {
+        group = augroup,
         pattern = 'calendar',
         callback = function(args)
           vim.wo.signcolumn = 'no'
@@ -118,36 +194,10 @@ return {
     },
   },
 
-  -- Orgmode
-  -- https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md
-  {
-    'nvim-orgmode/orgmode',
-    event = 'VeryLazy',
-    ft = { 'org' },
-    config = function()
-      require('orgmode').setup {
-        -- Global settings
-        org_agenda_files = '~/documents/org/**/*',
-        org_default_notes_file = '~/documents/org/inbox.org',
-        org_hide_leading_stars = true,
-        org_ellipsis = ' 󱞣',
-        org_adapt_indentation = false,
-        -- Agenda settings
-        org_deadline_warning_days = 7,
-        org_agenda_span = 'day',
-        org_capture_templates = {
-          t = { description = 'Task', template = '* TODO %?\n  %u' },
-          e = { description = 'Event', template = '* %?', target = '~/documents/org/calendar.org' },
-        },
-        org_agenda_skip_deadline_if_done = true,
-      }
-    end,
-  },
-
   -- Markdown Preview
   {
     'toppair/peek.nvim',
-    dir = '/home/piero/code/open-source/peek.nvim',
+    dir = '/home/piero/code/peek.nvim',
     build = 'deno task --quiet build:fast',
     opts = {
       close_on_bdelete = false,
@@ -199,6 +249,10 @@ return {
           incomplete = { raw = '[/]', rendered = ' ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
           forwarded = { raw = '[>]', rendered = '󰒊 ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
           scheduling = { raw = '[<]', rendered = '󰃭 ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
+          location = { raw = '[l]', rendered = ' ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
+          bookmark = { raw = '[b]', rendered = ' ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
+          up = { raw = '[u]', rendered = '󰔵 ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
+          down = { raw = '[d]', rendered = '󰔳 ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
         },
       },
       pipe_table = {
