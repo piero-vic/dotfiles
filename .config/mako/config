@@ -1,3 +1,6 @@
+# docs: https://github.com/emersion/mako
+# vim: ft=dosini commentstring=#\ %s
+
 anchor=top-right
 layer=overlay
 font=JetBrainsMono Nerd Font 9
@@ -11,17 +14,19 @@ group-by=summary
 background-color=#0d0c0c
 text-color=#c5c9c5
 border-color=#8ba4b0
-progress-color=over #2d4f67
+progress-color=over #223249
 
 [urgency=low]
 background-color=#0d0c0c
 text-color=#c5c9c5
 border-color=#c4b28a
+progress-color=over #49443C
 
 [urgency=high]
 background-color=#0d0c0c
 text-color=#c5c9c5
 border-color=#c4746e
+progress-color=over #43242B
 
 [grouped]
 format=<b>%s</b>\n%b
