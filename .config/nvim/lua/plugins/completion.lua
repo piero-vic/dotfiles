@@ -27,7 +27,6 @@ return {
     },
     sources = {
       default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
-      cmdline = {},
       providers = {
         dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
         lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink', score_offset = 100 },
@@ -43,5 +42,7 @@ return {
       ['<S-Tab>'] = { 'snippet_backward', 'select_prev', 'fallback' },
       ['<CR>'] = { 'select_and_accept', 'fallback' },
     },
+    cmdline = { enabled = false },
+    term = { enabled = false },
   },
 }
