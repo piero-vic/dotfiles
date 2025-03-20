@@ -37,6 +37,36 @@ return {
         },
       }
 
+      local go_to_definition = function()
+        if vim.bo.filetype ~= 'go' then
+          return require('telescope.builtin').lsp_definitions()
+        end
+
+        -- Go to definition from go to templ
+        vim.lsp.buf.definition {
+          on_list = function(options)
+            if options == nil or options.items == nil or #options.items == 0 then
+              return
+            end
+
+            local targetFile = options.items[1].filename
+            local prefix = string.match(targetFile, '(.-)_templ%.go$')
+
+            if prefix then
+              local function_name = vim.fn.expand '<cword>'
+              options.items[1].filename = prefix .. '.templ'
+
+              vim.fn.setqflist({}, ' ', options)
+              vim.api.nvim_command 'cfirst'
+
+              vim.api.nvim_command('silent! /templ ' .. function_name)
+            else
+              vim.lsp.buf.definition()
+            end
+          end,
+        }
+      end
+
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
@@ -45,7 +75,7 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          map('gd', go_to_definition, '[G]oto [D]efinition')
           map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
           map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
           map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
@@ -67,9 +97,7 @@ return {
         astro = {},
         bashls = {},
         cssls = {},
-        emmet_language_server = {
-          filetypes = { 'templ' },
-        },
+        emmet_language_server = {},
         eslint = {},
         gopls = {},
         ltex = {},
