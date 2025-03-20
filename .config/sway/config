@@ -22,7 +22,7 @@ set $display eDP-1
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
 set $dragonBlack3 '#181616'
-set $dragonBlack4 '#282727'
+set $dragonBlack5 '#393836'
 set $dragonWhite  '#c5c9c5'
 set $dragonGreen2 '#8a9a7b'
 set $dragonYellow '#c4b28a'
@@ -31,14 +31,14 @@ set $dragonBlue2  '#8ba4b0'
 # Window decoration
 # class                 border        backgr        text          indic          child_b
 client.focused          $dragonBlue2  $dragonBlue2  $dragonBlack3 $dragonGreen2 $dragonBlue2
-client.focused_inactive $dragonBlack4 $dragonBlack4 $dragonWhite  $dragonBlack4 $dragonBlack4
-client.unfocused        $dragonBlack4 $dragonBlack4 $dragonWhite  $dragonBlack4 $dragonBlack4
+client.focused_inactive $dragonBlack5 $dragonBlack5 $dragonWhite  $dragonBlack5 $dragonBlack5
+client.unfocused        $dragonBlack5 $dragonBlack5 $dragonWhite  $dragonBlack5 $dragonBlack5
 client.urgent           $dragonYellow $dragonYellow $dragonBlack3 $dragonYellow $dragonYellow
 
 font pango: JetBrainsMonoNerdFont Medium 9
-default_border pixel 2
-default_floating_border pixel 2
-titlebar_border_thickness 2
+default_border pixel 1
+default_floating_border pixel 1
+titlebar_border_thickness 1
 title_align center
 hide_edge_borders smart
 focus_follows_mouse no

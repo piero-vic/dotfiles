@@ -7,7 +7,7 @@ font=JetBrainsMono Nerd Font 9
 width=280
 margin=10,10
 padding=10
-border-size=2
+border-size=1
 default-timeout=1500
 group-by=summary
 

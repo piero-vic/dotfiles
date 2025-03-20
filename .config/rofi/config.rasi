@@ -45,7 +45,7 @@ configuration {
 
 window {
     background-color: @background;
-    border:           2;
+    border:           1;
     padding:          5;
     width:            30%;
 }
@@ -80,7 +80,7 @@ textbox-prompt-colon {
 }
 
 message {
-    border:       2px 0px 0px ;
+    border:       1px 0px 0px ;
     border-color: @separatorcolor;
     padding:      1px ;
 }
@@ -90,7 +90,7 @@ textbox {
 
 listview {
     fixed-height: 0;
-    border:       2px 0px 0px ;
+    border:       1px 0px 0px ;
     border-color: @separatorcolor;
     spacing:      2px ;
     scrollbar:    true;
@@ -150,7 +150,7 @@ scrollbar {
 }
 
 mode-switcher {
-    border:       2px 0px 0px ;
+    border:       1px 0px 0px ;
     border-color: @separatorcolor;
 }
 button {
