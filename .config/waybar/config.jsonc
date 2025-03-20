@@ -39,9 +39,9 @@
   "custom/gamma": {
     "format": "{}",
     "return-type": "json",
-    "exec": "/home/piero/.local/bin/waybar-gamma",
-    "on-click": "/home/piero/.local/bin/waybar-gamma toggle",
-    "interval": 1
+    "exec": "~/.local/bin/waybar-gamma",
+    "on-click": "~/.local/bin/waybar-gamma toggle; pkill -SIGRTMIN+8 waybar",
+    "signal": 8
   },
   "idle_inhibitor": {
     "format": "{icon}",
