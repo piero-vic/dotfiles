@@ -193,6 +193,19 @@ bindsym $mod+r mode "resize"
 
 floating_modifier $mod normal
 
+# Change volume:
+mode "volume" {
+  bindsym {
+    $up     exec 'pamixer -ui 5'
+    $down   exec 'pamixer -ud 5'
+    m       exec 'pamixer --toggle-mute'
+    Shift+m exec 'pamixer --default-source --toggle-mute'
+
+    Return mode "default"
+    Escape mode "default"
+  }
+}
+bindsym $mod+v mode "volume"
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Bar                                                                        ║

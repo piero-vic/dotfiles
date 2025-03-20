@@ -1,7 +1,10 @@
 {
   "layer": "top",
   "position": "top",
-  "modules-left": ["sway/workspaces"],
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode"
+  ],
   "modules-right": [
     "custom/cloudcash",
     "tray",
@@ -16,6 +19,10 @@
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true
+  },
+  "sway/mode": {
+    "format": " {}",
+    "tooltip": false
   },
   // Cloudcash
   // https://github.com/mrusme/cloudcash
