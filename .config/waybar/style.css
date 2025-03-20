@@ -50,6 +50,14 @@ window#waybar {
   color: @black;
 }
 
+#mode {
+  background-color: @yellow;
+  color: @black;
+  padding: 4px 8px;
+  margin-bottom: 1px;
+  border-right: 1px solid @border;
+}
+
 #custom-cloudcash,
 #tray,
 #custom-gamma,
