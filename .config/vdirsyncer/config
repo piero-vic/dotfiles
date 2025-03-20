@@ -12,6 +12,7 @@ status_path = "~/.local/share/vdirsyncer/status/"
 a = "calendars_local"
 b = "calendars_remote"
 collections = ["from a", "from b"]
+conflict_resolution = ["command", "nvim", "-d"]
 
 [storage calendars_local]
 type = "filesystem"
@@ -32,6 +33,7 @@ password.fetch = ["command", "gopass", "show", "--password", "baikal/password"]
 a = "contacts_local"
 b = "contacts_remote"
 collections = ["from a", "from b"]
+conflict_resolution = ["command", "nvim", "-d"]
 
 [storage contacts_local]
 type = "filesystem"
