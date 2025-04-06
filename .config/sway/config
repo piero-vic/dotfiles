@@ -259,9 +259,9 @@ exec autotiling
 # https://github.com/mattn/tailscale-systray
 exec tailscale-systray
 
-# poweralertd: Notifications for low battery
-# https://git.sr.ht/~kennylevinsen/poweralertd
-exec poweralertd
+# battery-notify: A lightweight battery level notifier
+# https://github.com/piero-vic/battery-notify
+exec battery-notify
 
 # volume-notify: A lightweight volume notifier daemon for PulseAudio
 # https://github.com/piero-vic/volume-notify
