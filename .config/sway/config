@@ -50,9 +50,9 @@ gaps inner 5
 set $gnome_schema org.gnome.desktop.interface
 
 exec_always {
-  gsettings set $gnome_schema gtk-theme 'Arc-Dark'
-  gsettings set $gnome_schema icon-theme 'Arc'
-  gsettings set $gnome_schema font-name 'JetBrainsMonoNerdFont Medium 9'
+  gsettings set $gnome_schema gtk-theme 'adw-gtk3-dark'
+  gsettings set $gnome_schema icon-theme 'Papirus-Dark'
+  gsettings set $gnome_schema font-name 'JetBrainsMono Nerd Font Mono Medium 9'
   gsettings set $gnome_schema color-scheme 'prefer-dark'
 }
 
