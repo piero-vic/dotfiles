@@ -31,8 +31,8 @@ set $dragonBlue2  '#8ba4b0'
 # Window decoration
 # class                 border        backgr        text          indic          child_b
 client.focused          $dragonBlue2  $dragonBlue2  $dragonBlack3 $dragonGreen2 $dragonBlue2
-client.focused_inactive $dragonBlack5 $dragonBlack5 $dragonWhite  $dragonBlack5 $dragonBlack5
-client.unfocused        $dragonBlack5 $dragonBlack5 $dragonWhite  $dragonBlack5 $dragonBlack5
+client.focused_inactive $dragonBlue2  $dragonBlack3 $dragonBlue2  $dragonBlack5 $dragonBlack5
+client.unfocused        $dragonBlue2  $dragonBlack3 $dragonWhite  $dragonBlack5 $dragonBlack5
 client.urgent           $dragonYellow $dragonYellow $dragonBlack3 $dragonYellow $dragonYellow
 
 font pango: JetBrainsMonoNerdFont Medium 9
@@ -42,6 +42,9 @@ titlebar_border_thickness 1
 title_align center
 hide_edge_borders smart
 focus_follows_mouse no
+smart_gaps on
+gaps outer 0
+gaps inner 5
 
 # GTK
 set $gnome_schema org.gnome.desktop.interface
@@ -167,10 +170,15 @@ bindsym {
   $mod+Shift+5 move container to workspace number 5
 
   # Layout:
+  $mod+b splith
+  $mod+v splitv
+  $mod+s layout stacking
+  $mod+w layout tabbed
   $mod+e layout toggle split
   $mod+f fullscreen
   $mod+Shift+space floating toggle
   $mod+space focus mode_toggle
+  $mod+a focus parent
 
   # Scratchpad:
   $mod+Shift+minus move scratchpad
@@ -192,20 +200,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 floating_modifier $mod normal
-
-# Change volume:
-mode "volume" {
-  bindsym {
-    $up     exec 'pamixer -ui 5'
-    $down   exec 'pamixer -ud 5'
-    m       exec 'pamixer --toggle-mute'
-    Shift+m exec 'pamixer --default-source --toggle-mute'
-
-    Return mode "default"
-    Escape mode "default"
-  }
-}
-bindsym $mod+v mode "volume"
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Bar                                                                        ║
@@ -250,10 +244,6 @@ exec kanshi
 # udiskie: Automounter for removable media
 # https://github.com/coldfix/udiskie
 exec udiskie --tray
-
-# autotiling: Automatic layout switch
-# https://github.com/nwg-piotr/autotiling
-exec autotiling
 
 # Tailscale Systray: Linux port of tailscale system tray menu
 # https://github.com/mattn/tailscale-systray
