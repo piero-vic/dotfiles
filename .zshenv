@@ -50,9 +50,6 @@ export PAGER=less
 # ║ Program settings                                                           ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
-# Setup GTK Theme
-export GTK_THEME=Arc-Dark
-
 # QT
 export QT_QPA_PLATFORMTHEME=qt6ct
 
