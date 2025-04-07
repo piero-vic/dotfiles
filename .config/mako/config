@@ -31,7 +31,11 @@ progress-color=over #43242B
 [grouped]
 format=<b>%s</b>\n%b
 
+[app-name=volume-notify]
+history=0
+
 [app-name=player-menu]
+history=0
 default-timeout=0
 
 [app-name=battery-notify]
