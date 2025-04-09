@@ -8,16 +8,20 @@ set ignorecase true
 set cursorpreviewfmt "\033[7;90m"
 set previewer ~/.local/bin/lf-preview
 
+cmd on-init :{{
+  cmd on-cd &{{ printf '\033]0;lf - %s\007' "${PWD/#$HOME/~}" > /dev/tty }}
+  cmd on-select &{{ lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\"" }}
+
+  on-cd
+  on-select
+}}
+
 # Functions
 cmd open &{{
   case $(mimetype --brief $f) in
     text/*) lf -remote "send $id \$nvim \$fx";;
     *) xdg-open "$f"
   esac
-}}
-
-cmd on-select &{{
-  lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\""
 }}
 
 cmd trash %{{
