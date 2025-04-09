@@ -221,11 +221,6 @@ for_window [app_id="mpv"] inhibit_idle focus
 # Floating windows
 for_window [app_id="zenity"] floating enable
 
-# NOTE: This is for maintaining focus on the terminal emulator when using some
-# neovim plugins like peek.nvim and typst.nvim.
-no_focus [app_id="qutebrowser"]
-no_focus [class="Xreader"]
-
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Autostart                                                                  ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
