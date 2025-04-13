@@ -264,9 +264,5 @@ exec brightnessctl -q set 270
 # https://sr.ht/~kennylevinsen/wlsunset
 exec wlsunset -l -12 -L -77  
 
-# Gajim: A fully-featured XMPP client
-# https://gajim.org/
-exec gajim
-
 # Other configs
 include /etc/sway/config.d/*
