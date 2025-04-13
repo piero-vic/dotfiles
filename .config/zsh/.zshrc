@@ -92,9 +92,6 @@ type zoxide >/dev/null && eval "$(zoxide init --cmd cd zsh)"
 # fzf
 type fzf >/dev/null && eval "$(fzf --zsh)"
 
-# t-smart-tmux-session-manager
-export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Extras                                                                     ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
