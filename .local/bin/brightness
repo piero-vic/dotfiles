@@ -12,7 +12,7 @@ notify() {
 		title="Brightness: $device"
 	fi
 
-	notify-send "$title" "󰃠  Current level: $1%" --hint "int:value:$1"
+	notify-send "$title" "󰃠  Current level: $1%" --app-name "brightness" --hint "int:value:$1"
 }
 
 inc_brightness() {
