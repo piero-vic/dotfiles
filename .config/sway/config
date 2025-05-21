@@ -170,10 +170,6 @@ bindsym {
   $mod+Shift+5 move container to workspace number 5
 
   # Layout:
-  $mod+b splith
-  $mod+v splitv
-  $mod+s layout stacking
-  $mod+w layout tabbed
   $mod+e layout toggle split
   $mod+f fullscreen
   $mod+Shift+space floating toggle
@@ -239,6 +235,10 @@ exec kanshi
 # udiskie: Automounter for removable media
 # https://github.com/coldfix/udiskie
 exec udiskie --tray
+
+# autotiling-rs: Automatic layout switch
+# https://github.com/ammgws/autotiling-rs
+exec autotiling-rs
 
 # Tailscale Systray: Linux port of tailscale system tray menu
 # https://github.com/mattn/tailscale-systray
