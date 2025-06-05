@@ -76,7 +76,16 @@ input type:keyboard {
   repeat_delay 350
   xkb_layout us
   xkb_variant mac
+}
+
+# Laptop Keyboard
+input "1:1:AT_Translated_Set_2_keyboard" {
   xkb_options caps:ctrl_modifier,shift:both_capslock,altwin:swap_lalt_lwin
+}
+
+# Corne Keyboard
+input "18003:1:foostan_Corne" {
+  xkb_options shift:both_capslock
 }
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
