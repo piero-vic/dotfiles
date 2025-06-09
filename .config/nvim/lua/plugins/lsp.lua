@@ -15,29 +15,13 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
-      'mason-org/mason.nvim',
-      'mason-org/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      { 'mason-org/mason.nvim', opts = {} },
       -- Adds LSP completion capabilities
       'saghen/blink.cmp',
     },
-    config = function()
-      local _border = 'rounded'
-
-      vim.diagnostic.config {
-        virtual_text = false,
-        severity_sort = true,
-        float = {
-          style = 'minimal',
-          border = _border,
-          source = true,
-          header = '',
-          prefix = '',
-        },
-      }
-
+    init = function()
       local hover = function()
-        vim.lsp.buf.hover { border = _border }
+        vim.lsp.buf.hover { border = 'rounded' }
       end
 
       local go_to_definition = function()
@@ -70,6 +54,10 @@ return {
         }
       end
 
+      local show_diagnostics = function()
+        vim.diagnostic.open_float { border = 'rounded' }
+      end
+
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
@@ -80,76 +68,37 @@ return {
 
           map('K', hover, 'Hover')
           map('gd', go_to_definition, '[G]oto [D]efinition')
-          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-          map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-          map('<leader>e', vim.diagnostic.open_float, 'Show diagnostics')
-
-          vim.api.nvim_buf_create_user_command(event.buf, 'Format', function(_)
-            vim.lsp.buf.format()
-          end, { desc = 'Format current buffer with LSP' })
+          map('<leader>e', show_diagnostics, 'Show diagnostics')
+          map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          map('gO', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
+          map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')
+          map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
         end,
       })
 
-      local servers = {
-        angularls = {},
-        astro = {},
-        bashls = {},
-        cssls = {},
-        emmet_language_server = {},
-        eslint = {},
-        gopls = {},
-        ltex = {},
-        lua_ls = {},
-        markdown_oxide = {},
-        prismals = {},
-        tailwindcss = {
-          settings = {
-            tailwindCSS = {
-              includeLanguages = {
-                templ = 'html',
-              },
-              emmetCompletions = true,
-            },
-          },
-        },
-        templ = {},
-        terraformls = {},
-        tinymist = {},
-        ts_ls = {},
-      }
-
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
-
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        -- Formatters
-        'prettierd',
-        'black',
-        'gofumpt',
-        'goimports',
-        'golines',
-        'shfmt',
-        'stylua',
-        'typstfmt',
+      vim.lsp.config('*', {
+        capapilities = require('blink.cmp').get_lsp_capabilities(),
       })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-      require('mason').setup()
-      require('mason-lspconfig').setup {
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
+      vim.lsp.enable {
+        'astro',
+        'bashls',
+        'cssls',
+        'emmet_language_server',
+        'eslint',
+        'gopls',
+        'htmx',
+        'ltex',
+        'lua_ls',
+        'marksman',
+        'prismals',
+        'tailwindcss',
+        'templ',
+        'tinymist',
+        'ts_ls',
       }
     end,
   },

@@ -194,34 +194,6 @@ return {
     },
   },
 
-  -- Markdown Preview
-  {
-    'toppair/peek.nvim',
-    dir = '/home/piero/code/peek.nvim',
-    build = 'deno task --quiet build:fast',
-    opts = {
-      close_on_bdelete = false,
-      app = 'qutebrowser',
-      filetype = { 'markdown' },
-    },
-    ft = 'markdown',
-    keys = {
-      {
-        '<leader>op',
-        ft = 'markdown',
-        function()
-          local peek = require 'peek'
-          if peek.is_open() then
-            peek.close()
-          else
-            peek.open()
-          end
-        end,
-        desc = 'Markdown Preview',
-      },
-    },
-  },
-
   {
     'MeanderingProgrammer/render-markdown.nvim',
     ft = 'markdown',
@@ -234,6 +206,9 @@ return {
     opts = {
       heading = {
         icons = { '󰎤 ', '󰎧 ', '󰎪 ', '󰎭 ', '󰎱 ', '󰎳 ' },
+      },
+      code = {
+        border = 'thick',
       },
       bullet = {
         icons = { '•' },

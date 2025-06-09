@@ -109,7 +109,7 @@ vim.opt.writebackup = false -- Disable making a backup before overwriting a file
 -- ╚═══════════════════════════════════════════════════════════════════════════╝
 
 -- Clear search highlighting
-vim.keymap.set('n', '<leader>c', '<cmd>nohlsearch<cr>')
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Navigate buffers
 vim.keymap.set('n', '<TAB>', '<cmd>bnext<cr>')
