@@ -139,3 +139,10 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
     vim.opt_local.commentstring = ';%s'
   end,
 })
+
+-- Resize splits when window is resized
+vim.api.nvim_create_autocmd('VimResized', {
+  callback = function()
+    vim.cmd 'tabdo wincmd ='
+  end,
+})
