@@ -147,6 +147,10 @@ bindsym --locked {
   XF86AudioLowerVolume exec 'pamixer -ud 5'
   XF86AudioRaiseVolume exec 'pamixer -ui 5'
 
+  Shift+XF86AudioMute exec 'pamixer --default-source --toggle-mute'
+  Shift+XF86AudioLowerVolume exec 'pamixer --default-source -ud 5'
+  Shift+XF86AudioRaiseVolume exec 'pamixer --default-source -ui 5'
+
   # Display
   XF86Display exec 'wdisplays'
 }
