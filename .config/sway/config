@@ -75,7 +75,7 @@ input type:keyboard {
   repeat_rate 30
   repeat_delay 350
   xkb_layout us
-  xkb_variant mac
+  xkb_variant altgr-intl
 }
 
 # Laptop Keyboard
