@@ -26,6 +26,14 @@ window#waybar {
   border-bottom: 1px solid @border;
 }
 
+tooltip {
+  background: @black;
+  border: 1px solid @border;
+}
+tooltip label {
+  color: @foreground;
+}
+
 #workspaces {
   background-color: @background;
   margin-bottom: 1px;
