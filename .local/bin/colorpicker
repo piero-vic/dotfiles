@@ -13,5 +13,5 @@ hex=$(hyprpicker)
 [[ -n $hex ]] || exit 1
 
 wl-copy "$hex" &&
-	magick -size 50x50 "xc:$hex" "$notify_file" &&
-	notify-send -i "$notify_file" " $hex" "Copied to clipboard"
+  magick -size 50x50 "xc:$hex" "$notify_file" &&
+  notify-send -i "$notify_file" " $hex" "Copied to clipboard"

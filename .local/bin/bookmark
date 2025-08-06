@@ -2,7 +2,7 @@
 
 # Requirements:
 # linkding https://github.com/sissbruecker/linkding
-# pass https://www.passwordstore.org
+# gopass https://github.com/gopasspw/gopass
 
 url="$1"
 title="$2"
@@ -25,6 +25,6 @@ linkding_url=$(gopass show --password linkding/url)
 linkding_token=$(gopass show --password linkding/token)
 
 curl -s -f -X POST "$linkding_url/api/bookmarks/" \
-	-H "Content-Type: application/json" \
-	-H "Authorization: Token $linkding_token" \
-	-d "$body" >/dev/null || echo 'Non 200 status code'
+  -H "Content-Type: application/json" \
+  -H "Authorization: Token $linkding_token" \
+  -d "$body" >/dev/null || echo 'Non 200 status code'

@@ -7,14 +7,14 @@
 set -e
 
 khard list --fields uid,formatted_name --parsable |
-	sed 's/\t/,/g' |
-	fzf \
-		--reverse \
-		--header='Contacts' \
-		--info='inline-right' \
-		--with-nth='2' \
-		--delimiter=',' \
-		--bind='enter:become(khard show {1})' \
-		--bind='ctrl-e:become(khard edit {1})' \
-		--bind='ctrl-x:become(khard delete {1})' \
-		--preview 'khard show {1}'
+  sed 's/\t/,/g' |
+  fzf \
+    --reverse \
+    --header='Contacts' \
+    --info='inline-right' \
+    --with-nth='2' \
+    --delimiter=',' \
+    --bind='enter:become(khard show {1})' \
+    --bind='ctrl-e:become(khard edit {1})' \
+    --bind='ctrl-x:become(khard delete {1})' \
+    --preview 'khard show {1}'

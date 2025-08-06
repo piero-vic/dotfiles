@@ -7,24 +7,24 @@
 device="${2:-intel_backlight}"
 
 notify() {
-	title="Brightness"
-	if [[ $device != "intel_backlight" ]]; then
-		title="Brightness: $device"
-	fi
+  title="Brightness"
+  if [[ $device != "intel_backlight" ]]; then
+    title="Brightness: $device"
+  fi
 
-	notify-send "$title" "󰃠  Current level: $1%" --app-name "brightness" --hint "int:value:$1"
+  notify-send "$title" "󰃠  Current level: $1%" --app-name "brightness" --hint "int:value:$1"
 }
 
 inc_brightness() {
-	notify "$(brightnessctl -d "$device" set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p')"
+  notify "$(brightnessctl -d "$device" set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p')"
 }
 
 dec_brightness() {
-	notify "$(brightnessctl -d "$device" set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p')"
+  notify "$(brightnessctl -d "$device" set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p')"
 }
 
 show_help() {
-	cat <<EOF
+  cat <<EOF
 Usage: brightness.sh [options] [device]
 AVAILABLE OPTIONS:
   --inc         increase brightness by +5%
@@ -33,9 +33,9 @@ EOF
 }
 
 if [[ "$1" == "--inc" ]]; then
-	inc_brightness
+  inc_brightness
 elif [[ "$1" == "--dec" ]]; then
-	dec_brightness
+  dec_brightness
 else
-	show_help
+  show_help
 fi
