@@ -5,11 +5,6 @@
 
 browser "firefox --new-tab %u &"
 
-# Miniflux
-urls-source "miniflux"
-miniflux-url "`gopass show --password miniflux/url`"
-miniflux-token "`gopass show --password miniflux/token`"
-
 # Bookmarks
 bookmark-autopilot yes
 bookmark-cmd "~/.local/bin/bookmark"
