@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Requirements:
+# calibredb https://github.com/kovidgoyal/calibre
+# jq https://github.com/jqlang/jq
+# rofi https://github.com/lbonn/rofi
+
+set -e
+
+books=$(
+  calibredb list \
+    --fields title,formats \
+    --sort-by title \
+    --ascending \
+    --for-machine |
+    jq -r '.[] | "\(.formats[0])\t\(.title)"'
+)
+
+selected=$(echo "$books" | cut -f2 | rofi -sync -dmenu -i -p "Books")
+filename=$(echo "$books" | awk -F'\t' -v title="$selected" '$2 == title { print $1; exit }')
+
+xdg-open "$filename" >/dev/null 2>&1 &
