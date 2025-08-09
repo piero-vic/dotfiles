@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Requirements:
+# fzf https://github.com/junegunn/fzf
+# khard https://github.com/lucc/khard
+
+set -e
+
+khard list --fields uid,formatted_name --parsable |
+  fzf-tmux -p60%,60% -- \
+    --info='inline-right' \
+    --reverse \
+    --no-sort \
+    --ansi \
+    --with-nth='2' \
+    --delimiter='\t' \
+    --border-label=' Contacts ' \
+    --prompt=' ' \
+    --preview-window='right,50%,border-left' \
+    --preview 'khard show {1}' \
+    --header '^m mail ^e edit ^x delete' \
+    --bind='ctrl-m:execute(khard email {1})' \
+    --bind='ctrl-e:execute(khard edit {1})' \
+    --bind='ctrl-x:execute(khard delete {1})'
