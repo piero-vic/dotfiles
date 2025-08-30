@@ -28,6 +28,24 @@ text-color=#c5c9c5
 border-color=#c4746e
 progress-color=over #43242B
 
+[mode=light]
+background-color=#f2ecbc
+text-color=#545464
+border-color=#4d699b
+progress-color=over #b5cbd2
+
+[mode=light urgency=low]
+background-color=#f2ecbc
+text-color=#545464
+border-color=#77713f
+progress-color=over #f9d791
+
+[mode=light urgency=high]
+background-color=#f2ecbc
+text-color=#545464
+border-color=#c84053
+progress-color=over #d9a594
+
 [grouped]
 format=<b>%s</b>\n%b
 
