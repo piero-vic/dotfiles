@@ -90,7 +90,10 @@ type starship >/dev/null && eval "$(starship init zsh)"
 type zoxide >/dev/null && eval "$(zoxide init --cmd cd zsh)"
 
 # fzf
-type fzf >/dev/null && eval "$(fzf --zsh)"
+if type nvim >/dev/null; then
+  eval "$(fzf --zsh)"
+  export FZF_DEFAULT_OPTS='--color=16'
+fi
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Extras                                                                     ║
