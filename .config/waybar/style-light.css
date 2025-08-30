@@ -1,0 +1,14 @@
+@define-color background #f2ecbc;
+@define-color foreground #545464;
+@define-color border #dcd7ba;
+@define-color black #e5ddb0;
+
+@define-color red #c84053;
+@define-color orange #e98a00;
+@define-color yellow #77713f;
+@define-color green #6f894e;
+@define-color cyan #597b75;
+@define-color blue #4d699b;
+@define-color magenta #b35b79;
+
+@import "./style.css";
