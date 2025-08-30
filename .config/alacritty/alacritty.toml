@@ -1,41 +1,8 @@
 # ▄▀▄ █   ▄▀▄ ▄▀▀ █▀▄ █ ▀█▀ ▀█▀ ▀▄▀
 # █▀█ █▄▄ █▀█ ▀▄▄ █▀▄ █  █   █   █ 
 
-[[colors.indexed_colors]]
-color = "#b6927b"   # dragonOrange
-index = 16
-
-[[colors.indexed_colors]]
-color = "#b98d7b"   # dragonOrange2
-index = 17
-
-[colors.bright]
-black = '#a6a69c'   # dragonGray
-red = '#e46876'     # waveRed
-green = '#87a987'   # dragonGreen
-yellow = '#e6c384'  # carpYellow
-blue = '#7fb4ca'    # springBlue
-magenta = '#938aa9' # springViolet1
-cyan = '#7aa89f'    # waveAqua2
-white = '#c5c9c5'   # dragonWhite
-
-[colors.normal]
-black = '#0d0c0c'   # dragonBlack0
-red = '#c4746e'     # dragonRed
-green = '#8a9a7b'   # dragonGreen2
-yellow = '#c4b28a'  # dragonYellow
-blue = '#8ba4b0'    # dragonBlue2
-magenta = '#a292a3' # dragonPink
-cyan = '#8ea4a2'    # dragonAqua
-white = '#c8c093'   # oldWhite
-
-[colors.primary]
-background = '#181616'  # dragonBlack3
-foreground = '#c5c9c5'  # dragonWhite
-
-[colors.selection]
-background = '#2d4f67'  # waveBlue2
-foreground = '#c8c093'  # oldWhite
+[general]
+import = ["~/.config/alacritty/themes/kanagawa_dragon.toml"]
 
 [env]
 TERM = "xterm-256color"
