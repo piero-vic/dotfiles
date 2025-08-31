@@ -14,26 +14,26 @@ set $right l
 set $term alacritty
 set $menu rofi -show drun
 set $browser firefox
-set $wallpaper ~/.local/share/wallpapers/gregoire-jeanneau-5aN_QNPSIdA-unsplash.jpg
+set $wallpaper ~/.local/share/wallpapers/kanagawa_dragon.png
 set $display eDP-1
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Style                                                                      ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
-set $dragonBlack3 '#181616'
-set $dragonBlack5 '#393836'
-set $dragonWhite  '#c5c9c5'
-set $dragonGreen2 '#8a9a7b'
-set $dragonYellow '#c4b28a'
-set $dragonBlue2  '#8ba4b0'
+set $background '#181616'
+set $foreground  '#c5c9c5'
+set $border '#282727'
+set $green '#8a9a7b'
+set $yellow '#c4b28a'
+set $blue  '#8ba4b0'
 
 # Window decoration
-# class                 border        backgr        text          indic          child_b
-client.focused          $dragonBlue2  $dragonBlue2  $dragonBlack3 $dragonGreen2 $dragonBlue2
-client.focused_inactive $dragonBlue2  $dragonBlack3 $dragonBlue2  $dragonBlack5 $dragonBlack5
-client.unfocused        $dragonBlue2  $dragonBlack3 $dragonWhite  $dragonBlack5 $dragonBlack5
-client.urgent           $dragonYellow $dragonYellow $dragonBlack3 $dragonYellow $dragonYellow
+# class                 border  backgr      text        indic   child_b
+client.focused          $blue   $blue       $background $green  $blue
+client.focused_inactive $blue   $background $blue       $border $border
+client.unfocused        $blue   $background $foreground $border $border
+client.urgent           $yellow $yellow     $background $yellow $yellow
 
 font pango: JetBrainsMonoNerdFont Medium 9
 default_border pixel 1
@@ -50,7 +50,7 @@ gaps inner 5
 set $gnome_schema org.gnome.desktop.interface
 
 exec_always {
-  gsettings set $gnome_schema gtk-theme 'adw-gtk3-dark'
+  gsettings set $gnome_schema gtk-theme 'Adwaita-dark'
   gsettings set $gnome_schema icon-theme 'Papirus-Dark'
   gsettings set $gnome_schema font-name 'JetBrainsMono Nerd Font Mono Medium 9'
   gsettings set $gnome_schema color-scheme 'prefer-dark'
