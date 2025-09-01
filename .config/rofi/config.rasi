@@ -1,46 +1,8 @@
+@import "./themes/kanagawa_dragon.rasi"
+
 configuration {
     font:                "JetBrainsMonoNerdFont 9";
     fixed-num-lines:     false;
-}
-
-* {
-    black:   #0d0c0c;
-    red:     #c4746e;
-    green:   #8a9a7b;
-    yellow:  #c4b28a;
-    blue:    #8ba4b0;
-    magenta: #a292a3;
-    cyan:    #8ea4a2;
-    white:   #c8c093;
-
-    foreground: #c5c9c5;
-    background: #0d0c0c;
-
-    background-color: rgba ( 0, 0, 0, 0 % );
-    border-color:     @blue;
-    separatorcolor:   @blue;
-    spacing:          2;
-
-    normal-foreground:           @foreground;
-    normal-background:           @background;
-    alternate-normal-foreground: @normal-foreground;
-    alternate-normal-background: @normal-background;
-    selected-normal-foreground:  @blue;
-    selected-normal-background:  #282727;
-
-    urgent-foreground:           @red;
-    urgent-background:           @background;
-    alternate-urgent-foreground: @urgent-foreground;
-    alternate-urgent-background: @urgent-background;
-    selected-urgent-foreground:  @red;
-    selected-urgent-background:  #282727;
-
-    active-foreground:           @green;
-    active-background:           @background;
-    alternate-active-foreground: @active-foreground;
-    alternate-active-background: @active-background;
-    selected-active-foreground:  @green;
-    selected-active-background:  #282727;
 }
 
 window {
