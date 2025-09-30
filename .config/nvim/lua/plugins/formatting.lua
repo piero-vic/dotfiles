@@ -14,8 +14,8 @@ return {
       -- Lua
       lua = { 'stylua' },
       -- JavaScript
-      javascript = { 'prettierd' },
-      typescript = { 'prettierd' },
+      javascript = { 'biome', 'prettierd', stop_after_first = true },
+      typescript = { 'biome', 'prettierd', stop_after_first = true },
       -- Go
       go = { 'gofumpt', 'goimports', 'golines' },
       -- Shell
