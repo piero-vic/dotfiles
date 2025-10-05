@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Newsboat
+GenericName=RSS Reader
+Exec=alacritty --class=Newsboat --title=Newsboat -e newsboat
+Terminal=false
+Type=Application
+Icon=utilities-terminal

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=cmus
+GenericName=Music Player
+Exec=cmus
+Terminal=true
+Type=Application
+Icon=utilities-terminal
