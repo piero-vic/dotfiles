@@ -1,12 +1,12 @@
 * {
-    black:   #e5ddb0;
-    red: #c84053;
-    green: #6f894e;
-    yellow: #77713f;
-    blue: #4d699b;
+    black:   #e7dba0;
+    red:     #c84053;
+    green:   #6f894e;
+    yellow:  #77713f;
+    blue:    #4d699b;
     magenta: #b35b79;
-    cyan: #597b75;
-    white: #545464;
+    cyan:    #597b75;
+    white:   #545464;
 
     foreground: #545464;
     background: #f2ecbc;

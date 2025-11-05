@@ -31,8 +31,8 @@ set $blue  '#8ba4b0'
 # Window decoration
 # class                 border  backgr      text        indic   child_b
 client.focused          $blue   $blue       $background $green  $blue
-client.focused_inactive $blue   $background $blue       $border $border
-client.unfocused        $blue   $background $foreground $border $border
+client.focused_inactive $border $border     $foreground $border $border
+client.unfocused        $border $background $foreground $border $border
 client.urgent           $yellow $yellow     $background $yellow $yellow
 
 font pango: JetBrainsMonoNerdFont Medium 9

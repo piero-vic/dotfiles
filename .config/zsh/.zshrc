@@ -92,7 +92,7 @@ type zoxide >/dev/null && eval "$(zoxide init --cmd cd zsh)"
 # fzf
 if type nvim >/dev/null; then
   eval "$(fzf --zsh)"
-  export FZF_DEFAULT_OPTS='--color=16'
+  export FZF_DEFAULT_OPTS='--color=bw'
 fi
 
 # ╔════════════════════════════════════════════════════════════════════════════╗

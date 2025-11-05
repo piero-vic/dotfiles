@@ -5,7 +5,7 @@ background = '#f2ecbc'
 foreground = '#545464'
 
 [colors.normal]
-black = "#e5ddb0"
+black = "#e7dba0"
 red = "#c84053"
 green = "#6f894e"
 yellow = "#77713f"
