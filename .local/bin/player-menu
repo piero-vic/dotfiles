@@ -5,7 +5,7 @@
 # playerctl https://github.com/altdesktop/playerctl
 # mako https://github.com/emersion/mako
 
-if ! playerctl status; then
+if ! playerctl status >/dev/null 2>&1; then
   notify-send "No players found" --urgency=low
   exit 0
 fi
@@ -22,14 +22,16 @@ if [[ -z $player ]]; then
   exit 0
 fi
 
-notification_id=$(
-  notify-send \
-    --print-id \
-    --app-name player-menu \
-    --icon "$(playerctl --player="$player" metadata mpris:artUrl)" \
-    "$(playerctl --player="$player" metadata xesam:title)" \
-    "$(playerctl --player="$player" metadata xesam:artist)"
-)
+if playerctl --player="$player" metadata >/dev/null 2>&1; then
+  notification_id=$(
+    notify-send \
+      --print-id \
+      --app-name player-menu \
+      --icon "$(playerctl --player="$player" metadata mpris:artUrl)" \
+      "$(playerctl --player="$player" metadata xesam:title)" \
+      "$(playerctl --player="$player" metadata xesam:artist)"
+  )
+fi
 
 case $(
   rofi -sync -dmenu -i -p "Player" <<EOF
@@ -77,4 +79,4 @@ EOF
   ;;
 esac
 
-makoctl dismiss -n "$notification_id"
+makoctl dismiss -n "$notification_id" 2>/dev/null
