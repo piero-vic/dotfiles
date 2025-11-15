@@ -131,15 +131,6 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   command = 'set filetype=markdown',
 })
 
--- Ledger files
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  pattern = '*.ledger',
-  callback = function()
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.commentstring = ';%s'
-  end,
-})
-
 -- Resize splits when window is resized
 vim.api.nvim_create_autocmd('VimResized', {
   callback = function()
