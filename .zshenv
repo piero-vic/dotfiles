@@ -10,12 +10,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # Zsh
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ZSH_PLUGINS="$ZDOTDIR/plugins"
-export HISTCONTROL=ignoreboth
-export HISTFILE="$XDG_STATE_HOME/zsh/history"
-export HISTSIZE=50000
-export SAVEHIST=50000
-export HISTCONTROL=ignoreboth
-export HISTORY_IGNORE="(clear|ls|cd|pwd|exit|pass)*"
 
 # NVM & Node
 export NVM_DIR="$XDG_DATA_HOME"/nvm

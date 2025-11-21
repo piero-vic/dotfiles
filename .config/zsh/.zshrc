@@ -19,6 +19,46 @@ setopt noclobber
 setopt emacs
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ History                                                                    ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
+export SAVEHIST=9000
+export HISTSIZE=9999
+
+# https://zsh.sourceforge.io/Doc/Release/Options.html#History
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_NO_STORE
+setopt HIST_REDUCE_BLANKS
+
+# Curate your shell history
+# https://esham.io/2025/05/shell-history
+function smite() {
+	setopt LOCAL_OPTIONS ERR_RETURN PIPE_FAIL
+
+	local opts=(-I)
+	if [[ $1 == '-a' ]]; then
+		opts=()
+	elif [[ -n $1 ]]; then
+		print >&2 'usage: smite [-a]'
+		return 1
+	fi
+
+	fc -l -n $opts 1 |
+		fzf --no-sort --multi |
+		while IFS='' read -r command_to_delete; do
+			printf 'Removing history entry "%s"\n' $command_to_delete
+			local HISTORY_IGNORE="${(b)command_to_delete}"
+			fc -W
+			fc -p $HISTFILE $HISTSIZE $SAVEHIST
+		done
+}
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Aliases and Functions                                                      ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
