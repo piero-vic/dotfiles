@@ -11,7 +11,8 @@
     "idle_inhibitor",
     "bluetooth",
     "network",
-    "pulseaudio",
+    "wireplumber#sink",
+    "wireplumber#source",
     "battery",
     "clock"
   ],
@@ -61,21 +62,23 @@
       "wifi": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
     }
   },
-  "pulseaudio": {
-    "format": "{icon} {volume}% {format_source}",
-    "format-muted": "<span color=\"#c4746e\">{icon} {volume}%</span> {format_source}",
-    "format-source": "󰍬 {volume}%",
-    "format-source-muted": "<span color=\"#c4746e\">󰍭 {volume}%</span>",
-    "format-icons": {
-      "headphone": "󰋋",
-      "headphone-muted": "󰟎",
-      "bluetooth": "",
-      "bluetooth-muted": "󰂲",
-      "default": ["󰕿", "󰖀", "󰕾"],
-      "default-muted": "󰝟"
-    },
-    "tooltip-format": "{desc}, {volume}%",
-    "on-click": "pavucontrol"
+  "wireplumber#sink": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 {volume}%",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "on-click": "alacritty --class=wiremix --title=wiremix -e wiremix --tab output",
+    "on-click-right": "pamixer --toggle-mute",
+    "scroll-step": 0,
+    "tooltip-format": "{node_name}, {volume}%"
+  },
+  "wireplumber#source": {
+    "format": "󰍬 {volume}%",
+    "format-muted": "󰍭 {volume}%",
+    "node-type": "Audio/Source",
+    "on-click": "alacritty --class=wiremix --title=wiremix -e wiremix --tab input",
+    "on-click-right": "pamixer --default-source --toggle-mute",
+    "scroll-step": 0,
+    "tooltip-format": "{source_desc}, {source_volume}%"
   },
   "battery": {
     "interval": 5,

@@ -58,7 +58,7 @@ tooltip label {
 #idle_inhibitor,
 #bluetooth,
 #network,
-#pulseaudio,
+#wireplumber,
 #battery,
 #clock {
   background-color: @background;
@@ -101,8 +101,20 @@ tooltip label {
   color: @magenta;
 }
 
-#pulseaudio {
+#wireplumber {
   color: @yellow;
+}
+
+#wireplumber.muted {
+  color: @red;
+}
+
+#wireplumber.sink {
+  padding-right: 4px;
+}
+
+#wireplumber.source {
+  padding-left: 4px;
 }
 
 #battery {
