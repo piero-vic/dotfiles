@@ -7,16 +7,32 @@
 
 set -e
 
+LIBRARY_NAME="books"
+CALIBRE_ENDPOINT="http://localhost:8090"
+
+library="$HOME/$LIBRARY_NAME"
+if pgrep -f "/usr/bin/calibre" >/dev/null; then
+  library="$CALIBRE_ENDPOINT"
+fi
+
 books=$(
   calibredb list \
     --fields title,formats \
     --sort-by title \
     --ascending \
+    --with-library="$library" \
     --for-machine |
-    jq -r '.[] | "\(.formats[0])\t\(.title)"'
+    jq -r '.[] | "\(.id)\t\(.formats[0])\t\(.title)"'
 )
 
-selected=$(echo "$books" | cut -f2 | rofi -sync -dmenu -i -p "Books")
-filename=$(echo "$books" | awk -F'\t' -v title="$selected" '$2 == title { print $1; exit }')
+selected=$(echo "$books" | cut -f3 | rofi -sync -dmenu -i -p "Books")
 
-xdg-open "$filename" >/dev/null 2>&1 &
+id=$(echo "$books" | awk -F'\t' -v title="$selected" '$3 == title { print $1; exit }')
+format=$(echo "$books" | awk -F'\t' -v title="$selected" '$3 == title { print $2; exit }')
+
+if [ "$library" == $CALIBRE_ENDPOINT ]; then
+  # TODO: Find a way to open directly in zathura
+  xdg-open "calibre://view-book/$LIBRARY_NAME/$id/$format" >/dev/null 2>&1 &
+else
+  xdg-open "$format" >/dev/null 2>&1 &
+fi
