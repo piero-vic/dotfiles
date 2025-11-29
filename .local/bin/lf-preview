@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
-case "$(mimetype --brief "$1")" in
+filepath="${1}"
+width="${2}"
+mimetype="$(file --dereference --brief --mime-type -- "${filepath}")"
+
+case "$mimetype" in
 *application/json*)
-  jq --color-output . "$1"
+  jq --color-output . "$filepath"
   ;;
 *application/pdf*)
   pdfinfo "$1"
@@ -11,7 +15,7 @@ case "$(mimetype --brief "$1")" in
   unrar l "$1"
   ;;
 *application/vnd.sqlite3*)
-  sqlite3 "$1" ".schema" | bat --color=always --paging=never --style=plain --terminal-width $(($2 - 3)) --language=sql
+  sqlite3 "$1" ".schema" | bat --color=always --paging=never --style=plain --terminal-width $(($width - 3)) --language=sql
   ;;
 *application/x-tar* | *application/x-compressed-tar* | *application/x-*-compressed-tar*)
   tar -tvf "$1"
@@ -23,12 +27,12 @@ case "$(mimetype --brief "$1")" in
   mediainfo "$1"
   ;;
 *inode/symlink*)
-  lf-preview "$(readlink -f "$1")" "${@:2}"
+  lf-preview "$(readlink -f "$filepath")" "${@:width}"
   ;;
 *text/*)
-  bat --color=always --paging=never --style=plain --terminal-width $(($2 - 3)) "$1"
+  bat --color=always --paging=never --style=plain --terminal-width $(($width - 3)) "$filepath"
   ;;
 *)
-  echo "Unsupported format"
+  echo '----- File Type Classification -----' && file --dereference --brief -- "${filepath}"
   ;;
 esac
