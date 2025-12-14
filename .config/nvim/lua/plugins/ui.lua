@@ -77,7 +77,11 @@ return {
   -- Files
   {
     'nvim-tree/nvim-tree.lua',
-    opts = {},
+    opts = {
+      view = {
+        width = {},
+      },
+    },
     keys = {
       {
         '<leader>ft',
