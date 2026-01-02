@@ -81,6 +81,13 @@ return {
       view = {
         width = {},
       },
+      actions = {
+        file_popup = {
+          open_win_config = {
+            border = 'rounded',
+          },
+        },
+      },
     },
     keys = {
       {
