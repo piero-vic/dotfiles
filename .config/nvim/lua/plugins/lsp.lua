@@ -14,8 +14,6 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      { 'mason-org/mason.nvim', opts = {} },
       -- Adds LSP completion capabilities
       'saghen/blink.cmp',
     },
@@ -61,18 +59,29 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
-          local map = function(keys, func, desc, mode)
-            mode = mode or 'n'
-            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+          local map = function(mode, rhs, lhs)
+            vim.keymap.set(mode, rhs, lhs, { buffer = event.buf })
           end
 
-          map('K', hover, 'Hover')
-          map('gd', go_to_definition, '[G]oto [D]efinition')
-          map('<C-w>d', show_diagnostics, 'Show diagnostics')
-          map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-          map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-          map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
-          map('gO', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
+          -- Extended defaults
+          map('n', 'K', hover)
+          map('n', 'grr', require('telescope.builtin').lsp_references)
+          map('n', 'gri', require('telescope.builtin').lsp_implementations)
+          map('n', 'grt', require('telescope.builtin').lsp_type_definitions)
+          map('n', 'gO', require('telescope.builtin').lsp_document_symbols)
+          map({ 'i', 's' }, '<C-s>', function()
+            vim.lsp.buf.signature_help { border = 'rounded' }
+          end)
+
+          -- Extras
+          map('n', 'gd', go_to_definition)
+          map('n', 'grd', vim.lsp.buf.declaration)
+          map({ 'n', 'x' }, 'gq', function()
+            vim.lsp.buf.format { async = true }
+          end)
+
+          -- Diagnostics
+          map('n', '<C-w>d', show_diagnostics)
         end,
       })
 
@@ -89,7 +98,6 @@ return {
         'ltex',
         'lua_ls',
         'marksman',
-        'prismals',
         'tailwindcss',
         'templ',
         'tinymist',
