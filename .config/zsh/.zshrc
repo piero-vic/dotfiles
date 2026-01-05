@@ -116,21 +116,21 @@ if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
 	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
-# fnm
+# https://github.com/Schniz/fnm
 type fnm >/dev/null && eval "$(fnm env --use-on-cd --shell zsh)"
 
-# SDKMAN
+# https://sdkman.io/
 export SDKMAN_DIR="$XDG_DATA_HOME/sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
-# Starship
+# https://github.com/starship/starship
 type starship >/dev/null && eval "$(starship init zsh)"
 
-# zoxide
+# https://github.com/ajeetdsouza/zoxide
 type zoxide >/dev/null && eval "$(zoxide init --cmd cd zsh)"
 
-# fzf
-if type nvim >/dev/null; then
+# https://github.com/junegunn/fzf
+if type fzf >/dev/null; then
   eval "$(fzf --zsh)"
   export FZF_DEFAULT_OPTS='--color=bw'
 fi
