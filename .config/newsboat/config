@@ -3,7 +3,7 @@
 # ║ https://newsboat.org/                                                      ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
-browser "firefox --new-tab %u &"
+browser "~/.local/bin/newsboat-browser %u"
 
 # Bookmarks
 bookmark-autopilot yes
@@ -23,8 +23,6 @@ bind-key H prev-feed
 bind-key L next-feed
 bind-key G end
 bind-key g home
-
-macro v set browser "setsid -f mpv --really-quiet --no-terminal" ; open-in-browser ; set browser "firefox %u"
 
 # Colors
 color background default default

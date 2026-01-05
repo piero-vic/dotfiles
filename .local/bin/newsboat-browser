@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+url="$1"
+if [ -z "$url" ]; then
+  echo >&2 'usage: newsboat-browser [url]'
+  exit 1
+fi
+
+case "$url" in
+*youtube.com/watch* | *youtube.com/playlist* | *youtube.com/shorts* | *youtu.be*)
+  setsid -f mpv -quiet "$url" >/dev/null 2>&1
+  ;;
+*)
+  setsid -f firefox "$1" >/dev/null 2>&1
+  ;;
+esac
