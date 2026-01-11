@@ -7,7 +7,7 @@ gui:
       - green
       - bold
     inactiveBorderColor:
-      - white
+      - default
     selectedLineBgColor:
       - black
     optionsTextColor:
