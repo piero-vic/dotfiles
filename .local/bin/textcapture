@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Requirements:
+# grim https://gitlab.freedesktop.org/emersion/grim
+# mako https://github.com/emersion/mako
+# slurp https://github.com/emersion/slurp
+# tesseract https://github.com/tesseract-ocr/tesseract
+# wl-clipboard https://github.com/bugaevc/wl-clipboard
+
+region="$(slurp 2>&1)"
+if [[ "$region" == "selection cancelled" ]]; then
+  notify-send "󰄀 Tesseract" "Selection cancelled"
+  exit 0
+fi
+
+grim -g "$region" - |
+  tesseract stdin stdout |
+  wl-copy && notify-send "󰄀 Tesseract" "Text copied to clipboard"
