@@ -49,8 +49,3 @@ export QT_QPA_PLATFORMTHEME=qt6ct
 
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
-
-# dmenu-bluetooth
-# https://github.com/Layerex/dmenu-bluetooth
-export DMENU_BLUETOOTH_PROMPT="Bluetooth"
-export DMENU_BLUETOOTH_LAUNCHER="rofi -sync -dmenu -i"
