@@ -45,12 +45,24 @@ return {
     'akinsho/bufferline.nvim',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
-      'famiu/bufdelete.nvim',
+      {
+        'nvim-mini/mini.bufremove',
+        config = function()
+          vim.api.nvim_create_user_command('Bdelete', function(opts)
+            require('mini.bufremove').delete(0, opts.bang)
+          end, { bang = true })
+
+          vim.api.nvim_create_user_command('Bwipeout', function(opts)
+            require('mini.bufremove').wipeout(0, opts.bang)
+          end, { bang = true })
+        end,
+      },
     },
     opts = {
       options = {
-        close_command = 'Bdelete! %d',
-        right_mouse_command = 'Bdelete! %d',
+        close_command = function(bufnr)
+          require('mini.bufremove').delete(bufnr)
+        end,
         offsets = {
           { filetype = 'NvimTree', text = 'File Explorer', highlight = 'NormalDark', separator = true },
           { filetype = 'dbui', text = 'Databases', highlight = 'NormalDark', separator = true },
