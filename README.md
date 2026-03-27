@@ -9,7 +9,7 @@ _Configuration files and scripts for my Arch Linux system._
 - Operating System: [Arch Linux](https://archlinux.org/)
 - Window Manager: [sway](https://github.com/swaywm/sway)
 - Status Bar: [Waybar](https://github.com/Alexays/Waybar)
-- Terminal: [Alacritty](https://github.com/alacritty/alacritty)
+- Terminal: [Ghostty](https://github.com/ghostty-org/ghostty)
 - Browser: Firefox
 - Shell: [zsh](https://www.zsh.org/)
 - Editor: [neovim](https://github.com/neovim/neovim)

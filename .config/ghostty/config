@@ -1,0 +1,53 @@
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ ┏━╸╻ ╻┏━┓┏━┓╺┳╸╺┳╸╻ ╻                                                      ║
+# ║ ┃╺┓┣━┫┃ ┃┗━┓ ┃  ┃ ┗┳┛                                                      ║
+# ║ ┗━┛╹ ╹┗━┛┗━┛ ╹  ╹  ╹                                                       ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+# docs: https://ghostty.org/docs/config
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Appearance                                                                 ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+# Colors
+theme = dark:kanagawa_dragon,light:kanagawa_lotus
+palette-generate = true
+palette-harmonious = true
+
+# Font
+font-size = 9
+
+font-family = "JetBrainsMono Nerd Font"
+font-style = "Medium"
+
+font-family-bold = "JetBrainsMono Nerd Font"
+font-style-bold = "Bold"
+
+font-family-italic = "JetBrainsMono Nerd Font"
+font-style-italic = "Italic"
+
+font-family-bold-italic = "JetBrainsMono Nerd Font"
+font-style-bold-italic = "Bold Italic"
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# Mouse
+mouse-hide-while-typing = true
+
+# Window
+window-padding-x = 10
+window-padding-y = 10
+
+# Overlays and Modals
+resize-overlay = never
+confirm-close-surface = false
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Tmux Integration                                                           ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+command = tmux new-session -A -s main

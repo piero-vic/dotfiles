@@ -3,6 +3,7 @@
 configuration {
     font:                "JetBrainsMonoNerdFont 9";
     fixed-num-lines:     false;
+    terminal:            "ghostty";
 }
 
 window {

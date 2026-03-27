@@ -11,7 +11,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term alacritty
+set $term ghostty
 set $menu rofi -show drun
 set $browser firefox
 set $wallpaper ~/.local/share/wallpapers/kanagawa_dragon.png

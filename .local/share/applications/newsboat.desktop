@@ -1,7 +1,10 @@
 [Desktop Entry]
 Name=Newsboat
 GenericName=RSS Reader
-Exec=alacritty --class=Newsboat --title=Newsboat -e newsboat
-Terminal=false
+Comment=RSS/Atom feed reader for the terminal
+Terminal=true
+TryExec=newsboat
+Exec=newsboat
 Type=Application
-Icon=utilities-terminal
+Categories=Utility;News;ConsoleOnly
+Keywords=rss;atom;feed;reader;news;terminal;
