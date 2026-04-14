@@ -117,8 +117,8 @@ bindsym {
   $mod+i exec $browser
   $mod+d exec $menu
 
-  $mod+ctrl+n exec 'iwmenu -l custom --launcher-command="rofi -sync -dmenu -p Networks"'
-  $mod+ctrl+b exec 'bzmenu -l custom --launcher-command="rofi -sync -dmenu -p Bluetooth"'
+  $mod+ctrl+n exec 'iwmenu -l custom --launcher-command="rofi -sync -dmenu -i -p Networks"'
+  $mod+ctrl+b exec 'bzmenu -l custom --launcher-command="rofi -sync -dmenu -i -p Bluetooth"'
   $mod+Ctrl+p exec 'password-menu'
   $mod+Ctrl+s exec 'screencapture'
   $mod+Ctrl+m exec 'player-menu'
