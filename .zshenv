@@ -21,6 +21,9 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 # GKT
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 
+# pi
+export PI_CODING_AGENT_DIR="$XDG_CONFIG_HOME/pi/agent"
+
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ PATH                                                                       ║
 # ╚════════════════════════════════════════════════════════════════════════════╝
