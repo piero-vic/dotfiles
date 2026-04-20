@@ -34,8 +34,15 @@ async function writeConfig(configFile: string, config: Config): Promise<void> {
   await writeFile(configFile, JSON.stringify(config, null, 2), "utf8");
 }
 
-function sendNotification(title: string, body: string): void {
-  execFile("notify-send", ["-a", "Pi", title, body], (error) => {
+function sendNotification(
+  title: string,
+  body: string,
+  urgency?: "low" | "normal" | "critical",
+): void {
+  const args = ["-a", "Pi"];
+  if (urgency) args.push("-u", urgency);
+  args.push(title, body);
+  execFile("notify-send", args, (error) => {
     if (error) {
       console.error(
         `[desktop-notify] Failed to send notification: ${error.message}`,
@@ -65,18 +72,42 @@ export default function desktopNotify(pi: ExtensionAPI) {
   });
 
   // Send notification when agent finishes
-  pi.on("agent_end", async (_event, ctx) => {
+  pi.on("agent_end", async (event, ctx) => {
     if (!enabled || !notifySendAvailable) return;
+
+    const lastAssistant = event.messages
+      .toReversed()
+      .find((m) => m.role === "assistant");
+    if (!lastAssistant) return;
 
     const sessionName = ctx.sessionManager.getSessionName();
     const model = ctx.model;
 
     const title = sessionName ? `Pi — ${sessionName}` : "Pi";
-    const body = model
-      ? `Done (${model.provider}/${model.id}) — ready for input ✓`
-      : "Agent finished — ready for input ✓";
+    const label = model ? `${model.provider}/${model.id}` : "agent";
 
-    sendNotification(title, body);
+    switch (lastAssistant.stopReason) {
+      case "stop":
+        sendNotification(title, `Done (${label}) — ready for input`);
+        break;
+      case "length":
+        sendNotification(
+          title,
+          `Hit token limit (${label}) — response may be incomplete`,
+          "low",
+        );
+        break;
+      case "error":
+        sendNotification(
+          title,
+          `Error (${label}) — needs attention`,
+          "critical",
+        );
+        break;
+      default:
+        // Omit "aborted" and "toolUse"
+        break;
+    }
   });
 
   // /notify command — toggle notifications
