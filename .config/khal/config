@@ -4,8 +4,12 @@
 [calendars]
 
 [[personal]]
-path = "~/.local/share/calendars/personal"
+path = ~/.local/share/calendars/personal
 color = "dark blue"
+
+[[holidays]]
+path = ~/.local/share/calendars/holidays
+color = "dark magenta"
 
 [[birthdays]]
 path = ~/.local/share/contacts/contacts/
