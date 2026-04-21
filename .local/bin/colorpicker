@@ -6,12 +6,15 @@
 # mako https://github.com/emersion/mako
 # wl-clipboard https://github.com/bugaevc/wl-clipboard
 
-notify_file="/tmp/colorpicker.jpg"
+app_name="colorpicker"
+notify_icon="/tmp/colorpicker.jpg"
 
 hex=$(hyprpicker)
-
-[[ -n $hex ]] || exit 1
+if [[ -z $hex ]]; then
+  notify-send -a "$app_name" " Color Picker" "Selection cancelled"
+  exit 0
+fi
 
 wl-copy "$hex" &&
-  magick -size 50x50 "xc:$hex" "$notify_file" &&
-  notify-send -i "$notify_file" " $hex" "Copied to clipboard"
+  magick -size 50x50 "xc:$hex" "$notify_icon" &&
+  notify-send -i "$notify_icon" -a "$app_name" " $hex" "Copied to clipboard"
