@@ -21,17 +21,26 @@ get_screen() {
 }
 
 get_window() {
-  grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" "$filename" &&
-    send_notification
+  region="$(
+    swaymsg -t get_tree |
+      jq -r '.. | select(.focused?) | select(.type == "con") | .rect | "\(.x),\(.y) \(.width)x\(.height)"'
+  )"
+  if [[ -z "$region" ]]; then
+    notify-send "󰄀 Grim" "No window in workspace"
+    exit 0
+  fi
+
+  grim -g "$region" "$filename" && send_notification
 }
 
 get_section() {
-  slurp_output="$(slurp 2>&1)"
-  if [[ "$slurp_output" == "selection cancelled" ]]; then
+  region="$(slurp 2>&1)"
+  if [[ "$region" == "selection cancelled" ]]; then
     notify-send "󰄀 Grim" "Selection cancelled"
-  else
-    grim -g "$slurp_output" "$filename" && send_notification
+    exit 0
   fi
+
+  grim -g "$region" "$filename" && send_notification
 }
 
 case $(
