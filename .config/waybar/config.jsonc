@@ -29,10 +29,15 @@
     "spacing": 10
   },
   "custom/gamma": {
-    "format": "{}",
     "return-type": "json",
     "exec": "~/.local/bin/waybar-gamma",
-    "on-click": "~/.local/bin/waybar-gamma toggle; pkill -SIGRTMIN+8 waybar",
+    "format": "{icon}",
+    "tooltip-format": "{text}",
+    "format-icons": {
+      "activated": "󱩌",
+      "deactivated": "󰹏"
+    },
+    "on-click": "~/.local/bin/waybar-gamma toggle",
     "signal": 8
   },
   "idle_inhibitor": {

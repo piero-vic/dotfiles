@@ -4,29 +4,23 @@
 # mako https://github.com/emersion/mako
 # wlsunset https://sr.ht/~kennylevinsen/wlsunset/
 
-output_off='{ "text": "󰹏", "tooltip": "Day/Night Gamma: Off", "alt": "", "class": "deactivated" }'
-output_on='{ "text": "󱩌", "tooltip": "Day/Night Gamma: On", "alt": "", "class": "activated" }'
+app_name="waybar-gamma"
+
+if [[ "$1" == "toggle" ]]; then
+  if pidof wlsunset >/dev/null 2>&1; then
+    kill -9 "$(pidof wlsunset)"
+    notify-send -a "$app_name" -t 1000 'Day/Night Gamma' "󰹏 Turning Off"
+  else
+    wlsunset -l -12 -L -77 >/dev/null 2>&1 &
+    notify-send -a "$app_name" -t 1000 'Day/Night Gamma' "󱩌 Turning On"
+  fi
+
+  pkill -SIGRTMIN+8 waybar
+  exit 0
+fi
 
 if pidof wlsunset >/dev/null 2>&1; then
-  if [[ "$1" == "toggle" ]]; then
-    kill -9 "$(pidof wlsunset)"
-    notify-send -t 1000 'Day/Night Gamma' "󰹏 Turning Off"
-
-    echo -n "$output_off"
-    exit 0
-  fi
-
-  echo -n "$output_on"
-  exit 0
+  echo -n '{ "text": "activated", "tooltip": "activated", "alt": "activated", "class": "activated" }'
 else
-  if [[ "$1" == "toggle" ]]; then
-    wlsunset -l -12 -L -77 >/dev/null 2>&1 &
-    notify-send -t 1000 'Day/Night Gamma' "󱩌 Turning On"
-
-    echo -n "$output_on"
-    exit 0
-  fi
-
-  echo -n "$output_off"
-  exit 0
+  echo -n '{ "text": "deactivated", "tooltip": "deactivated", "alt": "deactivated", "class": "deactivated" }'
 fi
