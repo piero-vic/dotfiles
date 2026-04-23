@@ -95,6 +95,7 @@ return {
         'biome',
         'cssls',
         'gopls',
+        'jsonls',
         'ltex',
         'lua_ls',
         'marksman',
@@ -102,6 +103,7 @@ return {
         'templ',
         'tinymist',
         'ts_ls',
+        'yamlls',
       }
     end,
   },
