@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Vi Mongo
+GenericName=MongoDB TUI Manager
+Comment=MongoDB TUI manager designed to simplify data visualization and quick manipulation.
+Terminal=true
+TryExec=vi-mongo
+Exec=vi-mongo
+Type=Application
+Categories=Development;Database;
+Keywords=mongodb;database;tui;terminal;manager;
