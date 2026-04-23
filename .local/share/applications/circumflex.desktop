@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Circumflex
+GenericName=Hacker News Client
+Comment=Hacker News in your terminal
+Terminal=true
+TryExec=clx
+Exec=clx
+Type=Application
+Categories=Utility;News;
+Keywords=hacker news;hn;terminal;news;
