@@ -16,6 +16,11 @@ import { getAgentDir } from "@mariozechner/pi-coding-agent";
 import { execFile } from "node:child_process";
 import { join } from "node:path";
 import { readFile, writeFile } from "node:fs/promises";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __filename = fileURLToPath(import.meta.url);
+const iconPath = join(dirname(__filename), "pi-logo.svg");
 
 interface Config {
   enabled: boolean;
@@ -39,7 +44,7 @@ function sendNotification(
   body: string,
   urgency?: "low" | "normal" | "critical",
 ): void {
-  const args = ["-a", "Pi"];
+  const args = ["-a", "Pi", "-i", iconPath];
   if (urgency) args.push("-u", urgency);
   args.push(title, body);
   execFile("notify-send", args, (error) => {
