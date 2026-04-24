@@ -5,8 +5,10 @@
 # playerctl https://github.com/altdesktop/playerctl
 # mako https://github.com/emersion/mako
 
+app_name="player-menu"
+
 if ! playerctl status >/dev/null 2>&1; then
-  notify-send "No players found" --urgency=low
+  notify-send -a "$app_name" "No players found" --urgency=low
   exit 0
 fi
 
@@ -22,15 +24,16 @@ if [[ -z $player ]]; then
   exit 0
 fi
 
-if playerctl --player="$player" metadata >/dev/null 2>&1; then
-  notification_id=$(
-    notify-send \
-      --print-id \
-      --app-name player-menu \
-      --icon "$(playerctl --player="$player" metadata mpris:artUrl)" \
-      "$(playerctl --player="$player" metadata xesam:title)" \
-      "$(playerctl --player="$player" metadata xesam:artist)"
-  )
+if metadata=$(playerctl --player="$player" metadata 2>&1); then
+  title=$(echo "$metadata" | grep -oP 'xesam:title\s+\K.+')
+  artist=$(echo "$metadata" | grep -oP 'xesam:artist\s+\K.+')
+  artUrl=$(echo "$metadata" | grep -oP 'mpris:artUrl\s+\K.+')
+
+  if [[ -n $title ]]; then
+    notification_id=$(
+      notify-send -p -t 0 -a "$app_name" ${artUrl:+-i "$artUrl"} "$title" "$artist"
+    )
+  fi
 fi
 
 case $(
@@ -59,24 +62,29 @@ EOF
   loop_status=$(playerctl --player="$player" loop)
   if [[ -n $loop_status ]]; then
     loop_status=$(printf 'none\nplaylist\ntrack' | rofi -sync -dmenu -i -p "  Loop: $loop_status")
-    playerctl --player="$player" loop "$loop_status" && notify-send "Player loop is set to $loop_status"
+    playerctl --player="$player" loop "$loop_status" &&
+      notify-send -a "$app_name" "Player loop is set to $loop_status"
   else
-    notify-send "Player cannot handle loop" --urgency=critical
+    notify-send -a "$app_name" "Player cannot handle loop" --urgency=critical
   fi
   ;;
 "   Shuffle")
   case $(playerctl --player="$player" shuffle) in
   "On")
-    playerctl --player="$player" shuffle off && notify-send "Player shuffle is off"
+    playerctl --player="$player" shuffle off &&
+      notify-send -a "$app_name" "Player shuffle is off"
     ;;
   "Off")
-    playerctl --player="$player" shuffle on && notify-send "Player shuffle is on"
+    playerctl --player="$player" shuffle on &&
+      notify-send -a "$app_name" "Player shuffle is on"
     ;;
   *)
-    notify-send "Player cannot handle shuffle" --urgency=critical
+    notify-send -a "$app_name" "Player cannot handle shuffle" --urgency=critical
     ;;
   esac
   ;;
 esac
 
-makoctl dismiss -n "$notification_id" 2>/dev/null
+if [[ -n $notification_id ]]; then
+  makoctl dismiss -n "$notification_id" 2>/dev/null
+fi

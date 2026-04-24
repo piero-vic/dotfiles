@@ -54,7 +54,6 @@ history=0
 
 [app-name=player-menu]
 history=0
-default-timeout=0
 
 [app-name=battery-notify]
 history=0
