@@ -18,10 +18,6 @@ return {
       'saghen/blink.cmp',
     },
     init = function()
-      local hover = function()
-        vim.lsp.buf.hover { border = 'rounded' }
-      end
-
       local go_to_definition = function()
         if vim.bo.filetype ~= 'go' then
           return require('telescope.builtin').lsp_definitions()
@@ -34,26 +30,20 @@ return {
               return
             end
 
-            local targetFile = options.items[1].filename
-            local prefix = string.match(targetFile, '(.-)_templ%.go$')
-
-            if prefix then
-              local function_name = vim.fn.expand '<cword>'
-              options.items[1].filename = prefix .. '.templ'
-
-              vim.fn.setqflist({}, ' ', options)
-              vim.api.nvim_command 'cfirst'
-
-              vim.api.nvim_command('silent! /templ ' .. function_name)
-            else
-              vim.lsp.buf.definition()
+            local prefix = options.items[1].filename:match '(.-)_templ%.go$'
+            if prefix == nil then
+              return vim.lsp.buf.definition()
             end
+
+            local function_name = vim.fn.expand '<cword>'
+            options.items[1].filename = prefix .. '.templ'
+
+            vim.fn.setqflist({}, ' ', options)
+            vim.api.nvim_command 'cfirst'
+
+            vim.api.nvim_command('silent! /templ ' .. function_name)
           end,
         }
-      end
-
-      local show_diagnostics = function()
-        vim.diagnostic.open_float { border = 'rounded' }
       end
 
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -64,7 +54,9 @@ return {
           end
 
           -- Extended defaults
-          map('n', 'K', hover)
+          map('n', 'K', function()
+            vim.lsp.buf.hover { border = 'rounded', max_width = 120 }
+          end)
           map('n', 'grr', require('telescope.builtin').lsp_references)
           map('n', 'gri', require('telescope.builtin').lsp_implementations)
           map('n', 'grt', require('telescope.builtin').lsp_type_definitions)
@@ -81,12 +73,14 @@ return {
           end)
 
           -- Diagnostics
-          map('n', '<C-w>d', show_diagnostics)
+          map('n', '<C-w>d', function()
+            vim.diagnostic.open_float { border = 'rounded', source = true }
+          end)
         end,
       })
 
       vim.lsp.config('*', {
-        capapilities = require('blink.cmp').get_lsp_capabilities(),
+        capabilities = require('blink.cmp').get_lsp_capabilities(),
       })
 
       vim.lsp.enable {
