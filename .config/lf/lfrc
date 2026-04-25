@@ -11,7 +11,7 @@ set ifs "\n"
 set cursorpreviewfmt "\033[7;90m"
 set icons
 set dircounts
-set previewer ~/.local/bin/lf-preview
+set previewer pistol
 
 cmd on-init :{{
   cmd on-cd &{{ printf '\033]0;lf - %s\007' "${PWD/#$HOME/~}" > /dev/tty }}
