@@ -38,24 +38,24 @@ setopt HIST_REDUCE_BLANKS
 # Curate your shell history
 # https://esham.io/2025/05/shell-history
 function smite() {
-	setopt LOCAL_OPTIONS ERR_RETURN PIPE_FAIL
+  setopt LOCAL_OPTIONS ERR_RETURN PIPE_FAIL
 
-	local opts=(-I)
-	if [[ $1 == '-a' ]]; then
-		opts=()
-	elif [[ -n $1 ]]; then
-		print >&2 'usage: smite [-a]'
-		return 1
-	fi
+  local opts=(-I)
+  if [[ $1 == '-a' ]]; then
+    opts=()
+  elif [[ -n $1 ]]; then
+    print >&2 'usage: smite [-a]'
+    return 1
+  fi
 
-	fc -l -n $opts 1 |
-		fzf --no-sort --multi |
-		while IFS='' read -r command_to_delete; do
-			printf 'Removing history entry "%s"\n' $command_to_delete
-			local HISTORY_IGNORE="${(b)command_to_delete}"
-			fc -W
-			fc -p $HISTFILE $HISTSIZE $SAVEHIST
-		done
+  fc -l -n $opts 1 |
+    fzf --no-sort --multi |
+    while IFS='' read -r command_to_delete; do
+      printf 'Removing history entry "%s"\n' $command_to_delete
+      local HISTORY_IGNORE="${(b)command_to_delete}"
+      fc -W
+      fc -p $HISTFILE $HISTSIZE $SAVEHIST
+    done
 }
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
@@ -71,18 +71,18 @@ alias mkdir="mkdir -p"
 alias reload="source ~/.config/zsh/.zshrc"
 
 type bat >/dev/null &&
-	alias cat="bat"
+  alias cat="bat"
 
 if type nvim >/dev/null; then
-	alias vi="nvim"
-	alias vim="nvim"
-	alias v="nvim"
+  alias vi="nvim"
+  alias vim="nvim"
+  alias v="nvim"
 fi
 
 if type eza >/dev/null; then
-	alias ls='eza -a1 --icons --group-directories-first'
-	alias la='eza -al --git --icons --group-directories-first'
-	alias lt='eza -aTI ".git|node_modules" --icons --group-directories-first'
+  alias ls='eza -a1 --icons --group-directories-first'
+  alias la='eza -al --git --icons --group-directories-first'
+  alias lt='eza -aTI ".git|node_modules" --icons --group-directories-first'
 fi
 
 ## git
@@ -113,7 +113,7 @@ alias gstp='git stash pop'
 
 # SSH
 if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
-	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+  export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
 # https://github.com/Schniz/fnm
