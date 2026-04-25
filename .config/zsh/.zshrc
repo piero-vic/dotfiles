@@ -123,6 +123,14 @@ type fnm >/dev/null && eval "$(fnm env --use-on-cd --shell zsh)"
 export SDKMAN_DIR="$XDG_DATA_HOME/sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
+# https://developer.android.com/studio
+export ANDROID_HOME=$HOME/Android/Sdk
+if [[ -d $ANDROID_HOME ]]; then
+  export PATH=$PATH:$ANDROID_HOME/emulator
+  export PATH=$PATH:$ANDROID_HOME/platform-tools
+  export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+fi
+
 # https://github.com/starship/starship
 type starship >/dev/null && eval "$(starship init zsh)"
 

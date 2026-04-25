@@ -14,6 +14,7 @@ return {
         'go',
         'html',
         'javascript',
+        'kotlin',
         'ledger',
         'lua',
         'markdown',

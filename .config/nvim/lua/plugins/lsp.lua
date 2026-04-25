@@ -96,6 +96,7 @@ return {
         'cssls',
         'gopls',
         'jsonls',
+        'kotlin_lsp',
         'ltex',
         'lua_ls',
         'marksman',
