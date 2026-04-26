@@ -10,6 +10,13 @@ return {
   ---@module "conform"
   ---@type conform.setupOpts
   opts = {
+    formatters = {
+      --  https://github.com/iiAtlas/hledger-formatter
+      ['hledger-formatter'] = {
+        command = 'hledger-fmt',
+        args = { 'format', '--alignment', 'fixedColumn' },
+      },
+    },
     formatters_by_ft = {
       -- Lua
       lua = { 'stylua' },
@@ -28,6 +35,8 @@ return {
       sql = { 'pg_format' },
       -- Python
       python = { 'black' },
+      -- Ledger
+      ledger = { 'hledger-formatter' },
     },
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable
