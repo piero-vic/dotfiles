@@ -11,8 +11,8 @@
  * Notifications are disabled by default. Use /notify to toggle.
  */
 
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
-import { getAgentDir } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import { getAgentDir } from "@earendil-works/pi-coding-agent";
 import { execFile } from "node:child_process";
 import { join } from "node:path";
 import { readFile, writeFile } from "node:fs/promises";
