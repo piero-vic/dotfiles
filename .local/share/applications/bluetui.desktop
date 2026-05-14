@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Bluetui
+GenericName=Bluetooth Manager
+Comment=TUI for managing bluetooth on Linux
+Terminal=true
+TryExec=bluetui
+Exec=bluetui
+Type=Application
+Categories=Settings;Network;System;
+Keywords=bluetooth;bluetui;terminal;tui;

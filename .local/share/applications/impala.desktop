@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Impala
+GenericName=WiFi Manager
+Comment=TUI for managing wifi on Linux
+Terminal=true
+TryExec=impala
+Exec=impala
+Type=Application
+Categories=Settings;Network;System;
+Keywords=wifi;wireless;impala;terminal;tui;iwd;
