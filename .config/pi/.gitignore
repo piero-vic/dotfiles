@@ -1,0 +1,6 @@
+node_modules
+agent/*
+!agent/extensions/
+!agent/prompts/
+!agent/skills/
+!agent/themes/
