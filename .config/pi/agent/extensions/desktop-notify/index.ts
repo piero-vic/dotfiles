@@ -11,13 +11,12 @@
  * Notifications are disabled by default. Use /notify to toggle.
  */
 
+import { execFile } from "node:child_process";
+import { readFile, writeFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { getAgentDir } from "@earendil-works/pi-coding-agent";
-import { execFile } from "node:child_process";
-import { join } from "node:path";
-import { readFile, writeFile } from "node:fs/promises";
-import { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const iconPath = join(dirname(__filename), "pi-logo.svg");
