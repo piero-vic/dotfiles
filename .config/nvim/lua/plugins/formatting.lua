@@ -21,8 +21,10 @@ return {
       -- Lua
       lua = { 'stylua' },
       -- JavaScript
-      javascript = { 'biome', 'prettierd', stop_after_first = true },
-      typescript = { 'biome', 'prettierd', stop_after_first = true },
+      javascript = { 'biome-check', 'prettier', stop_after_first = true },
+      typescript = { 'biome-check', 'prettier', stop_after_first = true },
+      javascriptreact = { 'biome-check', 'prettier', stop_after_first = true },
+      typescriptreact = { 'biome-check', 'prettier', stop_after_first = true },
       -- Go
       go = { 'gofumpt', 'goimports', 'golines' },
       -- Shell
@@ -30,7 +32,7 @@ return {
       zsh = { 'shfmt' },
       -- Markup
       typst = { 'typstyle' },
-      markdown = { 'prettierd' },
+      markdown = { 'prettier' },
       -- SQL
       sql = { 'pg_format' },
       -- Python
