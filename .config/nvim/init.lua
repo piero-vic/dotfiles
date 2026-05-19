@@ -121,6 +121,10 @@ vim.keymap.set('x', 'J', ":move '>+1<cr>gv-gv", { silent = true })
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')
 
+-- Move up and down with cursor centered
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
 -- ╔═══════════════════════════════════════════════════════════════════════════╗
 -- ║ Autocommands                                                              ║
 -- ╚═══════════════════════════════════════════════════════════════════════════╝
