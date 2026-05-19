@@ -1,20 +1,24 @@
 ---
 description: Commit staged files using conventional commits
+argument-hint: '[type] [scope]'
 ---
 
-Commit only the currently staged files. If nothing is staged, ask the user what to stage first — do not stage or commit
-on your own.
+Commit only currently staged files. If nothing is staged, tell the user and do nothing else — never stage or commit on
+your own.
 
-Inspect the staged changes with `git diff --cached`. Check `git log --oneline -5` for existing commit style.
+Inspect staged changes with `git diff --cached`. Check recent style with `git log --oneline -5`.
 
-Write a conventional commit message in lowercase, imperative mood, no trailing period.
+Arguments: $@
 
-- **Type:** Use `$1` if provided, otherwise infer the appropriate type (`feat`, `fix`, `docs`, `style`, `refactor`,
-  `perf`, `test`, `build`, `ci`, `chore`, `revert`).
-- **Scope:** Include scope `$2` if provided. If not provided, omit scope entirely — do not infer one.
-- **Format:** `<type>(<scope>): <description>` or `<type>: <description>` (no scope).
+Write a conventional commit message: lowercase, imperative mood, no trailing period. Match the style of recent commits
+(e.g. casing, detail level, body usage) while keeping the conventional format.
 
-Add a body if context is needed. Mark breaking changes with `!` after the type/scope and include a `BREAKING CHANGE:`
+- **Type:** Use the first argument if provided, otherwise infer from the changes (`feat`, `fix`, `docs`, `style`,
+  `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`).
+- **Scope:** Use the second argument if provided. Otherwise, omit — never infer.
+- **Format:** `<type>(<scope>): <description>` or `<type>: <description>`.
+
+Add a body only if context is needed. Mark breaking changes with `!` after type/scope and include a `BREAKING CHANGE:`
 footer.
 
-Run `git commit -m "<message>"`. Do not use `--all`.
+Run `git commit -m "<message>"`. Never use `--all`.
