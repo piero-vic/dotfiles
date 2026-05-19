@@ -125,6 +125,10 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
+-- Move between search results with cursor centered
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')
+
 -- ╔═══════════════════════════════════════════════════════════════════════════╗
 -- ║ Autocommands                                                              ║
 -- ╚═══════════════════════════════════════════════════════════════════════════╝
