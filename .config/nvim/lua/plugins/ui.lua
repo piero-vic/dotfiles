@@ -47,6 +47,7 @@ return {
           { filetype = 'dbui', text = 'Databases', highlight = 'NormalDark', separator = true },
           { filetype = 'calendar', text = 'Calendar', highlight = 'NormalDark', separator = true },
           { filetype = 'gitsigns-blame', text = 'Git Blame', highlight = 'NormalDark', separator = true },
+          { filetype = 'nvim-undotree', text = 'Undotree', highlight = 'NormalDark', separator = true },
         },
       },
     },

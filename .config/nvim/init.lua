@@ -129,6 +129,14 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
+-- Undotree
+vim.keymap.set('n', '<leader>u', function()
+  vim.cmd.packadd 'nvim.undotree'
+  require('undotree').open {
+    command = 'leftabove 50vnew',
+  }
+end)
+
 -- ╔═══════════════════════════════════════════════════════════════════════════╗
 -- ║ Autocommands                                                              ║
 -- ╚═══════════════════════════════════════════════════════════════════════════╝
