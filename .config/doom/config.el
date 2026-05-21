@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'kanagawa-dragon)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -74,3 +74,18 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(use-package! auto-dark
+  :defer t
+  :init
+  (setq! auto-dark-themes '((kanagawa-dragon) (kanagawa-lotus)))
+  (setq! doom-theme nil)
+  (setq! custom-safe-themes t)
+  (defun my-auto-dark-init-h ()
+    (auto-dark-mode)
+    (remove-hook 'server-after-make-frame-hook #'my-auto-dark-init-h)
+    (remove-hook 'after-init-hook #'my-auto-dark-init-h))
+  (let ((hook (if (daemonp)
+                  'server-after-make-frame-hook
+                  'after-init-hook)))
+    (add-hook hook #'my-auto-dark-init-h -95)))
