@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Requirements:
+# mpv https://github.com/mpv-player/mpv
+
+mpv --vf=hflip --no-resume-playback --no-cache --untimed --demuxer-thread=no av://v4l2:/dev/video0
