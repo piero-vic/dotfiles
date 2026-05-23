@@ -5,6 +5,7 @@
 # grim https://git.sr.ht/~emersion/grim
 # jq https://github.com/jqlang/jq
 # mako https://github.com/emersion/mako
+# satty https://github.com/Satty-org/Satty
 # slurp https://github.com/emersion/slurp
 
 screenshots_directory=~/pictures/screenshots
@@ -12,12 +13,8 @@ filename="$screenshots_directory/$(date '+%Y%m%d_%Hh%Mm%Ss')_grim.png"
 
 [[ -d $screenshots_directory ]] || mkdir -p $screenshots_directory
 
-send_notification() {
-  notify-send -i "$filename" "󰄀 Grim" "Screenshot saved"
-}
-
 get_screen() {
-  grim "$filename" && send_notification
+  grim - | satty --filename - --output-filename "$filename"
 }
 
 get_window() {
@@ -30,7 +27,7 @@ get_window() {
     exit 0
   fi
 
-  grim -g "$region" "$filename" && send_notification
+  grim -g "$region" - | satty --filename - --output-filename "$filename"
 }
 
 get_section() {
@@ -40,7 +37,7 @@ get_section() {
     exit 0
   fi
 
-  grim -g "$region" "$filename" && send_notification
+  grim -g "$region" - | satty --filename - --output-filename "$filename"
 }
 
 case $(
