@@ -48,7 +48,7 @@ export PAGER=less
 # ╚════════════════════════════════════════════════════════════════════════════╝
 
 # QT
-export QT_QPA_PLATFORMTHEME=qt6ct
+export QT_QPA_PLATFORMTHEME=gtk3
 
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
