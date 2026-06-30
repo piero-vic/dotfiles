@@ -123,6 +123,11 @@ type fnm >/dev/null && eval "$(fnm env --use-on-cd --shell zsh)"
 export SDKMAN_DIR="$XDG_DATA_HOME/sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
+# https://pnpm.io/
+if [[ -d $XDG_DATA_HOME/pnpm/bin ]]; then
+  export PATH=$PATH:$XDG_DATA_HOME/pnpm/bin
+fi
+
 # https://developer.android.com/studio
 export ANDROID_HOME=$HOME/Android/Sdk
 if [[ -d $ANDROID_HOME ]]; then
