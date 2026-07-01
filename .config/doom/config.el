@@ -40,7 +40,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/documents/orgfiles/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -89,3 +89,26 @@
                   'server-after-make-frame-hook
                   'after-init-hook)))
     (add-hook hook #'my-auto-dark-init-h -95)))
+
+(use-package! denote
+  :ensure t
+  :hook (dired-mode . denote-dired-mode)
+  :bind (("C-c n n" . denote)
+         ("C-c n l" . denote-link)
+         ("C-c n b" . denote-backlinks)
+         ("C-c n f" . denote-open-or-create))
+  :custom
+  (denote-directory (expand-file-name "~/documents/orgfiles/notes"))
+  :config
+  (denote-rename-buffer-mode 1))
+
+(use-package! org-roam
+  :ensure t
+  :custom
+  (org-roam-directory (file-truename "~/documents/orgfiles"))
+  :config
+  ;; If you're using a vertical completion framework, you might want a more informative completion interface
+  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (org-roam-db-autosync-mode)
+  ;; If using org-roam-protocol
+  (require 'org-roam-protocol))

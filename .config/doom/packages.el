@@ -50,3 +50,4 @@
 
 (package! kanagawa-themes)
 (package! auto-dark)
+(package! denote)
