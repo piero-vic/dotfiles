@@ -43,11 +43,12 @@ return {
           require('mini.bufremove').delete(bufnr)
         end,
         offsets = {
-          { filetype = 'NvimTree', text = 'File Explorer', highlight = 'NormalDark', separator = true },
-          { filetype = 'dbui', text = 'Databases', highlight = 'NormalDark', separator = true },
-          { filetype = 'calendar', text = 'Calendar', highlight = 'NormalDark', separator = true },
-          { filetype = 'gitsigns-blame', text = 'Git Blame', highlight = 'NormalDark', separator = true },
-          { filetype = 'nvim-undotree', text = 'Undotree', highlight = 'NormalDark', separator = true },
+          { filetype = 'NvimTree', text = 'File Explorer', highlight = 'StatusLine', separator = true },
+          { filetype = 'dbui', text = 'Databases', highlight = 'StatusLine', separator = true },
+          { filetype = 'calendar', text = 'Calendar', highlight = 'StatusLine', separator = true },
+          { filetype = 'gitsigns-blame', text = 'Git Blame', highlight = 'StatusLine', separator = true },
+          { filetype = 'nvim-undotree', text = 'Undotree', highlight = 'StatusLine', separator = true },
+          { filetype = 'leetcode.nvim', text = 'LeetCode Problem', highlight = 'StatusLine', separator = true },
         },
       },
     },
