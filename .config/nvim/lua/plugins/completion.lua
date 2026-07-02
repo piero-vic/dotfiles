@@ -7,7 +7,7 @@ return {
     'kristijanhusak/vim-dadbod-completion',
     { 'piero-vic/blink-cmp-ledger', dir = '~/code/blink-cmp-ledger' },
   },
-  version = '*',
+  version = '1.*',
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
