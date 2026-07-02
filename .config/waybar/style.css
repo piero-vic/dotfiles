@@ -53,6 +53,7 @@ tooltip label {
   border-right: 1px solid @border;
 }
 
+#custom-cloudcash,
 #tray,
 #custom-gamma,
 #idle_inhibitor,
@@ -65,6 +66,11 @@ tooltip label {
   padding: 4px 8px;
   margin-bottom: 1px;
   color: @foreground;
+}
+
+#custom-cloudcash {
+  border-left: 1px solid @border;
+  color: @blue;
 }
 
 #tray {

@@ -6,6 +6,7 @@
     "sway/mode"
   ],
   "modules-right": [
+    "custom/cloudcash",
     "tray",
     "custom/gamma",
     "idle_inhibitor",
@@ -23,6 +24,14 @@
   "sway/mode": {
     "format": " {}",
     "tooltip": false
+  },
+  // Cloudcash
+  // https://github.com/mrusme/cloudcash
+  "custom/cloudcash": {
+    "format": " {} ",
+    "return-type": "json",
+    "exec": "cloudcash -waybar-pango",
+    "interval": 3600
   },
   "tray": {
     "icon-size": 12,
