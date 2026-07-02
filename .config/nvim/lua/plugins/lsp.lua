@@ -91,7 +91,7 @@ return {
         'gopls',
         'jsonls',
         'kotlin_lsp',
-        'ltex',
+        'ltex_plus',
         'lua_ls',
         'marksman',
         'tailwindcss',
