@@ -99,7 +99,7 @@ return {
       indent = { char = '│' },
       scope = { enabled = false },
       exclude = {
-        filetypes = { 'markdown' },
+        filetypes = { 'markdown', 'org' },
       },
     },
   },
