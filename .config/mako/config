@@ -60,3 +60,6 @@ history=0
 
 [app-name=brightness]
 history=0
+
+[app-name=pi]
+on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga

@@ -43,7 +43,7 @@ function sendNotification(
   body: string,
   urgency?: "low" | "normal" | "critical",
 ): void {
-  const args = ["-a", "Pi", "-i", iconPath];
+  const args = ["-a", "pi", "-i", iconPath];
   if (urgency) args.push("-u", urgency);
   args.push(title, body);
   execFile("notify-send", args, (error) => {
