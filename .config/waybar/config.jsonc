@@ -8,6 +8,7 @@
   "modules-right": [
     "custom/cloudcash",
     "tray",
+    "custom/voxtype",
     "custom/gamma",
     "idle_inhibitor",
     "bluetooth",
@@ -36,6 +37,11 @@
   "tray": {
     "icon-size": 12,
     "spacing": 10
+  },
+  "custom/voxtype": {
+    "exec": "voxtype status --follow --icon-theme=nerd-font --format json",
+    "return-type": "json",
+    "tooltip": true
   },
   "custom/gamma": {
     "return-type": "json",

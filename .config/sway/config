@@ -128,6 +128,10 @@ bindsym {
   $mod+Shift+e exec 'power-menu'
 }
 
+# Voxtype:
+bindsym --no-repeat $mod+Ctrl+v exec 'voxtype record start'
+bindsym --release $mod+Ctrl+v exec 'voxtype record stop'
+
 bindsym --locked {
   # Brightness:
   XF86MonBrightnessDown exec 'brightness --dec'
@@ -281,6 +285,10 @@ exec wlsunset -l -12 -L -77
 # darkman: Control dark-mode and light-mode transitions
 # https://gitlab.com/WhyNotHugo/darkman/
 exec darkman run
+
+# Voxtype: Voice-to-text for Linux
+# https://github.com/peteonrails/voxtype
+exec voxtype
 
 # Other configs
 include /etc/sway/config.d/*

@@ -55,6 +55,7 @@ tooltip label {
 
 #custom-cloudcash,
 #tray,
+#custom-voxtype,
 #custom-gamma,
 #idle_inhibitor,
 #bluetooth,
@@ -78,9 +79,13 @@ tooltip label {
   border-left: 1px solid @border;
 }
 
-#custom-gamma {
+#custom-voxtype {
   padding-left: 16px;
   border-left: 1px solid @border;
+}
+
+#custom-voxtype.recording {
+  color: @red;
 }
 
 #idle_inhibitor {
@@ -88,11 +93,13 @@ tooltip label {
   border-right: 1px solid @border;
 }
 
+#custom-voxtype.transcribing,
 #custom-gamma.activated,
 #idle_inhibitor.activated {
   color: @yellow;
 }
 
+#custom-voxtype.idle,
 #custom-gamma.deactivated,
 #idle_inhibitor.deactivated {
   color: @foreground;
