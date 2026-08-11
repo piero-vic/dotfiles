@@ -1,3 +1,5 @@
+vim.opt_local.buflisted = false
+
 vim.keymap.set('n', 'dd', function()
   local qf_list = vim.fn.getqflist()
   local current_line = vim.fn.line '.'
