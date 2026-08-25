@@ -12,10 +12,11 @@ set cursorpreviewfmt "\033[7;90m"
 set icons
 set dircounts
 set previewer pistol
+set rulerfile ~/.config/lf/ruler
 
 cmd on-init :{{
   cmd on-cd &{{ printf '\033]0;lf - %s\007' "${PWD/#$HOME/~}" > /dev/tty }}
-  cmd on-select &{{ lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\"" }}
+  cmd on-select &{{ lf -remote "send $id set user_statfmt \"$(eza -ld --color=always "$f")\"" }}
 
   on-cd
   on-select
@@ -82,10 +83,6 @@ cmd z %{{
 cmd zi ${{
   result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
   lf -remote "send $id cd \"$result\""
-}}
-
-cmd on-cd &{{
-  zoxide add "$PWD"
 }}
 
 # Follow symbolic links
