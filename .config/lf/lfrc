@@ -37,7 +37,7 @@ cmd open &{{
 }}
 
 cmd trash %{{
-  trash-put -i "$f"
+  trash-put -i $fx
 }}
 
 map D trash
