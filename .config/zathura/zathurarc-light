@@ -1,0 +1,39 @@
+# Kanagawa Lotus (light) theme for zathura
+
+set default-fg              "#545464"
+set default-bg              "#f2ecbc"
+
+set completion-bg           "#e7dba0"
+set completion-fg           "#545464"
+set completion-highlight-bg	"#4d699b"
+set completion-highlight-fg	"#f2ecbc"
+set completion-group-bg     "#e7dba0"
+set completion-group-fg     "#43436c"
+
+set statusbar-fg            "#545464"
+set statusbar-bg            "#e7dba0"
+
+set notification-bg         "#e7dba0"
+set notification-fg         "#545464"
+set notification-error-bg   "#e7dba0"
+set notification-error-fg   "#c84053"
+set notification-warning-bg "#e7dba0"
+set notification-warning-fg "#77713f"
+
+set inputbar-fg             "#545464"
+set inputbar-bg             "#e7dba0"
+
+set recolor-lightcolor      "#f2ecbc"
+set recolor-darkcolor       "#545464"
+
+set index-fg                "#545464"
+set index-bg                "#f2ecbc"
+set index-active-fg         "#f2ecbc"
+set index-active-bg         "#4d699b"
+
+set render-loading-bg       "#f2ecbc"
+set render-loading-fg       "#545464"
+
+set highlight-color         "rgba(77, 105, 155, 0.45)"
+set highlight-fg            "#545464"
+set highlight-active-color  "rgba(77, 105, 155, 0.65)"

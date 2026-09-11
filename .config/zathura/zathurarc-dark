@@ -1,0 +1,39 @@
+# Kanagawa Dragon (dark) theme for zathura
+
+set default-fg              "#c5c9c5"
+set default-bg              "#181616"
+
+set completion-bg           "#282727"
+set completion-fg           "#c5c9c5"
+set completion-highlight-bg	"#2d4f67"
+set completion-highlight-fg	"#c5c9c5"
+set completion-group-bg     "#282727"
+set completion-group-fg     "#8ba4b0"
+
+set statusbar-fg            "#c5c9c5"
+set statusbar-bg            "#282727"
+
+set notification-bg         "#282727"
+set notification-fg         "#c5c9c5"
+set notification-error-bg   "#282727"
+set notification-error-fg   "#e46876"
+set notification-warning-bg "#282727"
+set notification-warning-fg "#e6c384"
+
+set inputbar-fg             "#c5c9c5"
+set inputbar-bg             "#282727"
+
+set recolor-lightcolor      "#181616"
+set recolor-darkcolor       "#c5c9c5"
+
+set index-fg                "#c5c9c5"
+set index-bg                "#181616"
+set index-active-fg         "#c5c9c5"
+set index-active-bg         "#2d4f67"
+
+set render-loading-bg       "#181616"
+set render-loading-fg       "#c5c9c5"
+
+set highlight-color         "rgba(34, 50, 73, 0.75)"
+set highlight-fg            "#c5c9c5"
+set highlight-active-color  "rgba(45, 79, 103, 0.75)"
