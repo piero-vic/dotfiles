@@ -126,7 +126,8 @@ if type fzf >/dev/null; then
 fi
 
 # https://github.com/atuinsh/atuin
-type atuin >/dev/null && eval "$(atuin init zsh)"
+type atuin >/dev/null &&
+  eval "$(atuin init --disable-up-arrow --disable-ai zsh)"
 
 # ╔════════════════════════════════════════════════════════════════════════════╗
 # ║ Extras                                                                     ║
